@@ -1,223 +1,122 @@
-"use client";
+import Link from 'next/link';
 
-import { useState } from 'react';
+const sections = [
+  {
+    href: '/civil',
+    title: 'Aspect civil',
+    subtitle: 'Organisation, transmission et protection',
+    accent: 'from-violet-500 to-fuchsia-600',
+    icon: (
+      <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        />
+      </svg>
+    ),
+  },
+  {
+    href: '/fiscal',
+    title: 'Aspect fiscal',
+    subtitle: 'Optimisation légale et impacts sur vos impôts',
+    accent: 'from-blue-500 to-cyan-500',
+    icon: (
+      <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+        />
+      </svg>
+    ),
+  },
+  {
+    href: '/financier',
+    title: 'Aspect financier',
+    subtitle: 'Allocation, rendement et horizon de placement',
+    accent: 'from-emerald-500 to-teal-600',
+    icon: (
+      <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+        />
+      </svg>
+    ),
+  },
+] as const;
 
-type TaxBracket = {
-  lower: number;
-  upper: number;
-  rate: number;
-  label: string;
-};
-
-const TAX_BRACKETS_2024_2025: TaxBracket[] = [
-  { lower: 0, upper: 11294, rate: 0, label: '0%' },
-  { lower: 11294, upper: 28797, rate: 0.11, label: '11%' },
-  { lower: 28797, upper: 82341, rate: 0.3, label: '30%' },
-  { lower: 82341, upper: 177106, rate: 0.41, label: '41%' },
-  { lower: 177106, upper: Number.POSITIVE_INFINITY, rate: 0.45, label: '45%' },
-];
-
-function getMarginalRate(incomePerPart: number): number {
-  const bracket =
-    [...TAX_BRACKETS_2024_2025]
-      .reverse()
-      .find((item) => incomePerPart > item.lower) ?? TAX_BRACKETS_2024_2025[0];
-  return bracket.rate;
-}
-
-function getRateLabel(rate: number): string {
-  return `${Math.round(rate * 100)}%`;
-}
-
-function formatEuro(value: number): string {
-  return `${value.toLocaleString('fr-FR', { maximumFractionDigits: 2 })} €`;
-}
-
-export default function SimulateurPER() {
-  const [revenuNetGlobal, setRevenuNetGlobal] = useState<number>(60000);
-  const [partsFiscales, setPartsFiscales] = useState<number>(1);
-  const [versement, setVersement] = useState<number>(1000);
-  const revenuSecurise = Math.max(0, revenuNetGlobal);
-  const partsSecurisees = Math.max(1, partsFiscales);
-  const revenuParPartAvantPER = revenuSecurise / partsSecurisees;
-  const tmiAvant = getMarginalRate(revenuParPartAvantPER);
-
-  const deductionTotale = Math.min(versement, revenuSecurise);
-  const deductionParPart = deductionTotale / partsSecurisees;
-  let deductionRestanteParPart = deductionParPart;
-  const repartitionParTranche = [...TAX_BRACKETS_2024_2025]
-    .reverse()
-    .map((bracket) => {
-      const montantDansLaTrancheParPart = Math.max(
-        0,
-        Math.min(revenuParPartAvantPER, bracket.upper) - bracket.lower
-      );
-      const deductionParPartDansTranche = Math.min(deductionRestanteParPart, montantDansLaTrancheParPart);
-      deductionRestanteParPart -= deductionParPartDansTranche;
-
-      const eurosVersesDansTranche = deductionParPartDansTranche * partsSecurisees;
-      return {
-        rate: bracket.rate,
-        label: bracket.label,
-        eurosVerses: eurosVersesDansTranche,
-        economie: eurosVersesDansTranche * bracket.rate,
-      };
-    })
-    .filter((item) => item.eurosVerses > 0);
-
-  const economieImpots = repartitionParTranche.reduce((sum, item) => sum + item.economie, 0);
-  const coutReel = versement - economieImpots;
-  const revenuParPartApresPER = Math.max(0, (revenuSecurise - deductionTotale) / partsSecurisees);
-  const tmiApres = getMarginalRate(revenuParPartApresPER);
-  const baisseDeTranche = tmiApres < tmiAvant;
-
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Simulateur PER 🚀
-        </h1>
-
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Revenu Net Global (€)
-              </label>
-              <input
-                type="number"
-                min={0}
-                step={100}
-                value={revenuNetGlobal}
-                onChange={(e) => setRevenuNetGlobal(Number(e.target.value))}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Nombre de parts fiscales
-              </label>
-              <input
-                type="number"
-                min={1}
-                step={0.5}
-                value={partsFiscales}
-                onChange={(e) => setPartsFiscales(Number(e.target.value))}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
-              />
-            </div>
-          </div>
-
-          {/* Curseur Versement */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Montant du versement (€)
-            </label>
-            <input
-              type="range"
-              min={0}
-              max={20000}
-              step={100}
-              value={versement}
-              onChange={(e) => setVersement(Number(e.target.value))}
-              className="w-full accent-blue-600"
-            />
-            <div className="mt-2 flex justify-between text-xs text-gray-500">
-              <span>0 €</span>
-              <span>20 000 €</span>
-            </div>
-            <p className="mt-2 text-center text-sm font-semibold text-gray-800">
-              Versement sélectionné : {versement.toLocaleString('fr-FR')} €
-            </p>
-          </div>
-
-          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
-              <span className="text-slate-700">
-                TMI estimée (barème 2024/2025)
-              </span>
-              <span className="font-bold text-slate-900">{getRateLabel(tmiAvant)}</span>
-            </div>
-            <div className="mt-2 text-xs text-slate-600">
-              Revenu par part avant PER : {formatEuro(revenuParPartAvantPER)}
-            </div>
-          </div>
-
-          {/* Résultats */}
-          <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-            <div className="flex justify-between mb-2">
-              <span className="text-blue-700">Économie d'impôt :</span>
-              <span className="font-bold text-blue-900">{formatEuro(economieImpots)}</span>
-            </div>
-            <div className="flex justify-between border-t border-blue-200 pt-2 mt-2">
-              <span className="text-gray-700 font-semibold">Coût réel de l'effort :</span>
-              <span className="font-bold text-green-600">{formatEuro(coutReel)}</span>
-            </div>
-          </div>
-
-          <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
-            <h2 className="text-sm font-bold text-indigo-900 mb-2">
-              Dans quelle tranche se situe chaque euro versé ?
-            </h2>
-            <div className="space-y-2">
-              {repartitionParTranche.map((item) => (
-                <div
-                  key={`${item.label}-${item.eurosVerses}`}
-                  className="flex flex-wrap items-center justify-between gap-2 text-sm"
-                >
-                  <span className="text-indigo-800">
-                    {formatEuro(item.eurosVerses)} déduits à {item.label}
-                  </span>
-                  <span className="font-semibold text-indigo-900">
-                    Gain: {formatEuro(item.economie)}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            className={`p-4 rounded-xl border ${
-              baisseDeTranche
-                ? 'bg-emerald-50 border-emerald-200'
-                : 'bg-gray-50 border-gray-200'
-            }`}
-          >
-            <h2
-              className={`text-sm font-bold mb-1 ${
-                baisseDeTranche ? 'text-emerald-900' : 'text-gray-800'
-              }`}
-            >
-              Effet de seuil
-            </h2>
-            <p className={`text-sm ${baisseDeTranche ? 'text-emerald-800' : 'text-gray-700'}`}>
-              {baisseDeTranche
-                ? `Le versement PER vous fait passer d'une TMI de ${getRateLabel(tmiAvant)} à ${getRateLabel(tmiApres)}.`
-                : `Votre TMI reste à ${getRateLabel(tmiAvant)} après ce versement.`}
-            </p>
-            <p className="text-xs text-gray-600 mt-2">
-              Revenu par part après PER : {formatEuro(revenuParPartApresPER)}
-            </p>
-          </div>
-
-          <div className="bg-amber-50 p-4 rounded-xl border border-amber-200">
-            <h2 className="text-sm font-bold text-amber-900 mb-1">
-              Pourquoi le PER est plus avantageux avec une TMI élevée ?
-            </h2>
-            <p className="text-sm text-amber-800">
-              Le versement PER est déductible du revenu imposable : plus votre TMI est haute
-              (30%, 41%, 45%), plus chaque euro versé réduit votre impôt. Avec une TMI à
-              {` ${getRateLabel(tmiAvant)}`}, vous récupérez environ {formatEuro(economieImpots)}
-              pour {versement.toLocaleString('fr-FR')} € versés.
-            </p>
-          </div>
-
-          <p className="text-xs text-gray-400 text-center italic">
-            * Estimation pédagogique avec barème progressif 2024/2025 (quotient familial).
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <div className="relative overflow-hidden bg-slate-900">
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 20% 20%, rgba(59,130,246,0.35), transparent 45%), radial-gradient(circle at 80% 0%, rgba(168,85,247,0.3), transparent 40%)',
+          }}
+        />
+        <header className="relative mx-auto max-w-6xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24">
+          <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">
+            Conseil patrimonial
           </p>
-        </div>
+          <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Une approche structurée de votre patrimoine
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-slate-300">
+            Civil, fiscal et financier : trois axes pour clarifier vos enjeux et préparer vos décisions
+            avec votre conseiller.
+          </p>
+        </header>
       </div>
-    </main>
+
+      <main className="relative mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="-mt-16 grid gap-6 md:grid-cols-3 lg:-mt-24">
+          {sections.map((section) => (
+            <Link
+              key={section.href}
+              href={section.href}
+              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-lg shadow-slate-200/60 transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div
+                className={`flex h-24 items-center justify-center bg-gradient-to-br ${section.accent}`}
+              >
+                <div className="rounded-xl bg-white/15 p-3 ring-1 ring-white/30 backdrop-blur-sm">
+                  {section.icon}
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-700">
+                  {section.title}
+                </h2>
+                <p className="mt-2 flex-1 text-sm text-slate-600">{section.subtitle}</p>
+                <span className="mt-6 inline-flex items-center text-sm font-semibold text-blue-600">
+                  Accéder
+                  <span className="ml-1 transition group-hover:translate-x-0.5">→</span>
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <section className="mt-16 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
+          <h2 className="text-lg font-bold text-slate-900">Accès sécurisé par espace</h2>
+          <p className="mt-2 max-w-2xl text-sm text-slate-600">
+            Chaque section thématique est protégée par un code d&apos;accès commun (démonstration).
+            Vous serez invité à le saisir avant d&apos;afficher le contenu.
+          </p>
+        </section>
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
+        Informations à caractère général — ne constituent pas un conseil personnalisé.
+      </footer>
+    </div>
   );
 }
