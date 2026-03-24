@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { SectionAccessProvider } from '@/components/section-access-context';
 import {
   SECTION_ACCESS_CODE,
   type SectionKey,
+  sectionPasswordStorageKey,
   sectionStorageKey,
 } from '@/lib/access';
 
@@ -24,13 +26,21 @@ export function SectionAuthGate({
   const [phase, setPhase] = useState<'check' | 'locked' | 'unlocked'>('check');
   const [code, setCode] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [accessPassword, setAccessPassword] = useState('');
 
   useEffect(() => {
     try {
       const ok =
         typeof window !== 'undefined' &&
         sessionStorage.getItem(sectionStorageKey(sectionKey)) === '1';
-      setPhase(ok ? 'unlocked' : 'locked');
+      if (ok) {
+        setAccessPassword(
+          sessionStorage.getItem(sectionPasswordStorageKey(sectionKey)) ?? ''
+        );
+        setPhase('unlocked');
+      } else {
+        setPhase('locked');
+      }
     } catch {
       setPhase('locked');
     }
@@ -43,9 +53,11 @@ export function SectionAuthGate({
     if (trimmed === SECTION_ACCESS_CODE) {
       try {
         sessionStorage.setItem(sectionStorageKey(sectionKey), '1');
+        sessionStorage.setItem(sectionPasswordStorageKey(sectionKey), trimmed);
       } catch {
         // sessionStorage indisponible (navigation privée stricte, etc.)
       }
+      setAccessPassword(trimmed);
       setPhase('unlocked');
       return;
     }
@@ -111,5 +123,7 @@ export function SectionAuthGate({
     );
   }
 
-  return <>{children}</>;
+  return (
+    <SectionAccessProvider password={accessPassword}>{children}</SectionAccessProvider>
+  );
 }

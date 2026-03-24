@@ -1,7 +1,12 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useSectionAccessPassword } from '@/components/section-access-context';
+import {
+  formatDateHeureFr,
+  postPerRowToSheetbest,
+} from '@/lib/sheetbest-per';
 import { logSimulationComplete } from '@/lib/simulation-tracking';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type TaxBracket = {
   lower: number;
@@ -35,10 +40,16 @@ function formatEuro(value: number): string {
 }
 
 export function SimulateurPer() {
+  const accessPassword = useSectionAccessPassword();
   const [revenuNetGlobal, setRevenuNetGlobal] = useState<number>(60000);
   const [partsFiscales, setPartsFiscales] = useState<number>(1);
+  const [age, setAge] = useState<number>(35);
   const [versement, setVersement] = useState<number>(1000);
-  const [trackMessage, setTrackMessage] = useState<string | null>(null);
+  const [archiveMessage, setArchiveMessage] = useState<{
+    tone: 'success' | 'error';
+    text: string;
+  } | null>(null);
+  const skipFirstAutoArchive = useRef(true);
 
   const {
     revenuSecurise,
@@ -105,9 +116,46 @@ export function SimulateurPer() {
     };
   }, [revenuNetGlobal, partsFiscales, versement]);
 
+  const submitArchive = useCallback(async () => {
+    try {
+      await postPerRowToSheetbest({
+        Date_Heure: formatDateHeureFr(),
+        password: accessPassword,
+        age: Math.max(0, Math.floor(age)),
+        Revenu_Annuel: revenuSecurise,
+        Versement_PER: versement,
+        Economie_Impot: Number(economieImpots.toFixed(2)),
+      });
+      setArchiveMessage({ tone: 'success', text: 'Données archivées' });
+    } catch {
+      setArchiveMessage({
+        tone: 'error',
+        text: "Échec de l'archivage. Réessayez.",
+      });
+    }
+  }, [accessPassword, age, revenuSecurise, versement, economieImpots]);
+
+  useEffect(() => {
+    if (skipFirstAutoArchive.current) {
+      skipFirstAutoArchive.current = false;
+      return;
+    }
+    const id = window.setTimeout(() => {
+      void submitArchive();
+    }, 1200);
+    return () => window.clearTimeout(id);
+  }, [submitArchive]);
+
+  useEffect(() => {
+    if (!archiveMessage) return;
+    const id = window.setTimeout(() => setArchiveMessage(null), 4000);
+    return () => window.clearTimeout(id);
+  }, [archiveMessage]);
+
   function handleTerminerSimulation() {
     logSimulationComplete({
       simulatorId: 'per',
+      age: Math.max(0, Math.floor(age)),
       revenuNetGlobal: revenuSecurise,
       partsFiscales: partsSecurisees,
       versement,
@@ -123,8 +171,7 @@ export function SimulateurPer() {
         economie: Number(r.economie.toFixed(2)),
       })),
     });
-    setTrackMessage('Simulation enregistrée (voir la console développeur).');
-    setTimeout(() => setTrackMessage(null), 4000);
+    void submitArchive();
   }
 
   return (
@@ -161,6 +208,21 @@ export function SimulateurPer() {
                 value={partsFiscales}
                 onChange={(e) => setPartsFiscales(Number(e.target.value))}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
+              />
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Âge
+              </label>
+              <input
+                type="number"
+                min={0}
+                max={120}
+                step={1}
+                value={age}
+                onChange={(e) => setAge(Number(e.target.value))}
+                className="w-full max-w-xs p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
               />
             </div>
           </div>
@@ -273,9 +335,16 @@ export function SimulateurPer() {
             >
               Terminer la simulation
             </button>
-            {trackMessage ? (
-              <p className="text-center text-sm text-green-700" role="status">
-                {trackMessage}
+            {archiveMessage ? (
+              <p
+                className={`text-center text-sm ${
+                  archiveMessage.tone === 'success'
+                    ? 'text-green-700'
+                    : 'text-red-600'
+                }`}
+                role="status"
+              >
+                {archiveMessage.text}
               </p>
             ) : null}
           </div>
