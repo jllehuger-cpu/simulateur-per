@@ -26,13 +26,6 @@ const TAX_BRACKETS_2026: TaxBracket[] = [
   { lower: 181917, upper: Number.POSITIVE_INFINITY, rate: 0.45, label: '45%' },
 ];
 
-function getMarginalRate(incomePerPart: number): number {
-  const income = Math.max(0, incomePerPart);
-  // On cherche la première tranche dont `upper` contient la valeur
-  const bracket = TAX_BRACKETS_2026.find((b) => income <= b.upper) ?? TAX_BRACKETS_2026[TAX_BRACKETS_2026.length - 1];
-  return bracket.rate;
-}
-
 function getRateLabel(rate: number): string {
   return `${Math.round(rate * 100)}%`;
 }
@@ -71,6 +64,7 @@ function computeIncomeTaxWithQFPlafonnement(params: {
   impotsAvecPlafonnement: number;
   advantageBrut: number;
   advantageCap: number;
+  plafonnementActif: boolean;
 } {
   const income = Math.max(0, params.incomeGlobal);
   const partsSecurisees = Math.max(1, params.parts);
@@ -90,12 +84,11 @@ function computeIncomeTaxWithQFPlafonnement(params: {
     partsSecurisees > baseParts ? (partsSecurisees - baseParts) / 0.5 : 0;
   const advantageCap = Math.max(0, demiPartsSup * params.capPerDemiPart);
 
-  const advantagePlafonnee = Math.min(advantageBrut, advantageCap);
-
-  const impotsAvecPlafonnement = Math.max(0, impotsBaseParts - advantagePlafonnee);
+  const impotsAvecPlafonnement = Math.max(0, impotsBaseParts - advantageCap);
 
   // Règle demandée : retenir le montant le plus élevé des deux
   const impotsFinal = Math.max(impotsQFNonPlafonne, impotsAvecPlafonnement);
+  const plafonnementActif = impotsAvecPlafonnement > impotsQFNonPlafonne + 0.01;
 
   return {
     impotsFinal,
@@ -104,68 +97,148 @@ function computeIncomeTaxWithQFPlafonnement(params: {
     impotsAvecPlafonnement,
     advantageBrut,
     advantageCap,
+    plafonnementActif,
   };
 }
 
-function computeDeductionRepartitionByBracket(params: {
-  deductionParPart: number;
-  incomeParPartAvantPer: number;
-  parts: number;
-}): Array<{
-  rate: number;
-  label: string;
-  eurosVerses: number;
-  economie: number;
-}> {
-  const deductionParPart = Math.max(0, params.deductionParPart);
-  const incomeParPartAvantPer = Math.max(0, params.incomeParPartAvantPer);
-  const ps = Math.max(1, params.parts);
+/** Taux marginaux du barème IR (€ d'impôt / € de revenu) pour le rattachement différentiel. */
+const BAREME_MARGINAL_SNAP = [0, 0.11, 0.3, 0.41, 0.45] as const;
 
-  let remaining = deductionParPart;
-  const repart: Array<{ rate: number; label: string; eurosVerses: number; economie: number }> = [];
-
-  // Allocation du haut vers le bas (effet "on déduit d'abord la tranche la plus élevée")
-  const descending = [...TAX_BRACKETS_2026].slice().reverse();
-  for (const bracket of descending) {
-    if (remaining <= 0) break;
-
-    const incomeSlicePerPart = Math.max(
-      0,
-      Math.min(incomeParPartAvantPer, bracket.upper) - bracket.lower
-    );
-    if (incomeSlicePerPart <= 0) continue;
-
-    const deductionSliceParPart = Math.min(remaining, incomeSlicePerPart);
-    if (deductionSliceParPart <= 0) continue;
-
-    remaining -= deductionSliceParPart;
-    const eurosVerses = deductionSliceParPart * ps;
-    repart.push({
-      rate: bracket.rate,
-      label: bracket.label,
-      eurosVerses,
-      economie: eurosVerses * bracket.rate,
-    });
+function snapToBaremeMarginal(raw: number): number {
+  let best: number = BAREME_MARGINAL_SNAP[0];
+  let bestD = Math.abs(raw - best);
+  for (let i = 1; i < BAREME_MARGINAL_SNAP.length; i++) {
+    const r = BAREME_MARGINAL_SNAP[i];
+    const d = Math.abs(raw - r);
+    if (d < bestD) {
+      best = r;
+      bestD = d;
+    }
   }
-
-  return repart;
+  return best;
 }
 
-function computeIncomeInBrackets(incomeParPart: number, parts: number): Array<{
-  rate: number;
-  label: string;
-  euros: number;
-}> {
-  const income = Math.max(0, incomeParPart);
-  const ps = Math.max(1, parts);
-  return TAX_BRACKETS_2026.map((bracket) => {
-    const slicePerPart = Math.max(0, Math.min(income, bracket.upper) - bracket.lower);
-    return {
-      rate: bracket.rate,
-      label: bracket.label,
-      euros: slicePerPart * ps,
-    };
-  });
+function labelForBaremeRate(rate: number): string {
+  const bracket = TAX_BRACKETS_2026.find((b) => b.rate === rate);
+  return bracket?.label ?? `${Math.round(rate * 100)}%`;
+}
+
+/** IR différentiel : taux marginal sur la dernière € de revenu imposable (QF plafonné inclus). */
+function computeMarginalIRDecimal(params: {
+  incomeGlobal: number;
+  parts: number;
+  baseParts: number;
+  capPerDemiPart: number;
+}): number {
+  const g = Math.max(0, Math.floor(params.incomeGlobal));
+  if (g < 1) return 0;
+  const taxAt = (x: number) =>
+    computeIncomeTaxWithQFPlafonnement({
+      incomeGlobal: Math.max(0, x),
+      parts: params.parts,
+      baseParts: params.baseParts,
+      capPerDemiPart: params.capPerDemiPart,
+    }).impotsFinal;
+  return Math.max(0, taxAt(g) - taxAt(g - 1));
+}
+
+/**
+ * Chaque euro du versement déduit est retiré du sommet de l'assiette : économie d'IR = T(n) − T(n−1).
+ * Les euros sont regroupés par taux du barème le plus proche (affichage), avec une économie cumulée exacte (somme des deltas).
+ */
+function computeDeductionRepartitionIRDifferentiel(params: {
+  incomeGlobal: number;
+  deductionTotale: number;
+  parts: number;
+  baseParts: number;
+  capPerDemiPart: number;
+}): Array<{ rate: number; label: string; eurosVerses: number; economie: number }> {
+  const rb = Math.floor(Math.max(0, params.incomeGlobal));
+  const dedTot = Math.min(Math.max(0, Math.floor(params.deductionTotale)), rb);
+
+  const taxAt = (g: number) =>
+    computeIncomeTaxWithQFPlafonnement({
+      incomeGlobal: Math.max(0, g),
+      parts: params.parts,
+      baseParts: params.baseParts,
+      capPerDemiPart: params.capPerDemiPart,
+    }).impotsFinal;
+
+  const bySnap = new Map<number, { eurosVerses: number; economie: number }>();
+  for (let k = 1; k <= dedTot; k++) {
+    const gHigh = rb - k + 1;
+    const gLow = rb - k;
+    const delta = taxAt(gHigh) - taxAt(gLow);
+    const snapR = snapToBaremeMarginal(delta);
+    const cur = bySnap.get(snapR) ?? { eurosVerses: 0, economie: 0 };
+    cur.eurosVerses += 1;
+    cur.economie += delta;
+    bySnap.set(snapR, cur);
+  }
+
+  return Array.from(bySnap.entries())
+    .sort((a, b) => b[0] - a[0])
+    .map(([rate, v]) => ({
+      rate,
+      label: labelForBaremeRate(rate),
+      eurosVerses: v.eurosVerses,
+      economie: v.economie,
+    }));
+}
+
+/**
+ * Masse de revenus par tranche via IR différentiel (T(n) − T(n−1)), même moteur que le QF plafonné.
+ * Chaque euro k est classé selon l’économie d’impôt marginale induite par ce barème.
+ * Les `dedTot` derniers euros (sommet de l’assiette) servent aussi à estimer la déduction PER en 30 %+.
+ */
+function computeRevenusParTrancheIRDifferentiel(params: {
+  incomeGlobal: number;
+  deductionTotale: number;
+  parts: number;
+  baseParts: number;
+  capPerDemiPart: number;
+}): {
+  parTranche: Array<{ rate: number; label: string; euros: number }>;
+  deductionAuDessusDe30: number;
+} {
+  const rbInt = Math.floor(Math.max(0, params.incomeGlobal));
+  const dedTot = Math.min(
+    Math.max(0, params.deductionTotale),
+    rbInt
+  );
+
+  const taxAt = (g: number) =>
+    computeIncomeTaxWithQFPlafonnement({
+      incomeGlobal: g,
+      parts: params.parts,
+      baseParts: params.baseParts,
+      capPerDemiPart: params.capPerDemiPart,
+    }).impotsFinal;
+
+  const countByRate = new Map<number, number>();
+  let deductionAuDessusDe30 = 0;
+
+  let tPrev = taxAt(0);
+  for (let k = 1; k <= rbInt; k++) {
+    const tCurr = taxAt(k);
+    const rawMarginal = tCurr - tPrev;
+    const m = snapToBaremeMarginal(rawMarginal);
+    countByRate.set(m, (countByRate.get(m) ?? 0) + 1);
+    if (k > rbInt - dedTot && m >= 0.3) {
+      deductionAuDessusDe30 += 1;
+    }
+    tPrev = tCurr;
+  }
+
+  const parTranche = [0.45, 0.41, 0.3]
+    .map((rate) => ({
+      rate,
+      label: labelForBaremeRate(rate),
+      euros: countByRate.get(rate) ?? 0,
+    }))
+    .filter((row) => row.euros > 0);
+
+  return { parTranche, deductionAuDessusDe30 };
 }
 
 function computeCehr(revenuFiscalDeReference: number, statut: MaritalStatus): number {
@@ -206,10 +279,10 @@ export function SimulateurPer() {
     revenuBrutGlobalSecurise,
     partsSecurisees,
     plafondDeductibiliteSecurise,
-    revenuParPartAvantPER,
-    revenuParPartApresPER,
     tmiAvant,
     tmiApres,
+    tmiMarginaleReelleApresPct,
+    revenuBrutGlobalApresDeduction,
     deductionTotale,
     repartitionParTranche,
     impotsIRAvant,
@@ -219,6 +292,7 @@ export function SimulateurPer() {
     qfCapApres,
     qfPlafonnementActifAvant,
     qfPlafonnementActifApres,
+    tmiMarginaleReelle,
     cehrAvant,
     cehrApres,
     economieCEHR,
@@ -235,23 +309,7 @@ export function SimulateurPer() {
     const ps = Math.max(1, partsFiscales);
     const plafond = Math.max(0, plafondSecurise);
 
-    const rppAvant = rb / ps;
-    const tAvant = getMarginalRate(rppAvant);
-
     const dedTot = Math.min(versement, rb, plafond);
-    const dedParPart = dedTot / ps;
-
-    const repart = computeDeductionRepartitionByBracket({
-      deductionParPart: dedParPart,
-      incomeParPartAvantPer: rppAvant,
-      parts: ps,
-    });
-
-    // Estimation "marginale" : la répartition par tranche est basée sur le taux marginal.
-
-    const rppApres = Math.max(0, (rb - dedTot) / ps);
-    const tApres = getMarginalRate(rppApres);
-    const baisse = tApres < tAvant;
 
     const baseParts = getBasePartsForStatus(statut);
     const capPerDemiPart = 1750;
@@ -273,12 +331,38 @@ export function SimulateurPer() {
     const impotIRApres = taxApres.impotsFinal;
     const economieIRReelle = impotIRAvant - impotIRApres;
 
+    const tmiMargDecimalAvant = computeMarginalIRDecimal({
+      incomeGlobal: rb,
+      parts: ps,
+      baseParts,
+      capPerDemiPart,
+    });
+    const rbApres = Math.max(0, rb - dedTot);
+    const tmiMargDecimalApres = computeMarginalIRDecimal({
+      incomeGlobal: rbApres,
+      parts: ps,
+      baseParts,
+      capPerDemiPart,
+    });
+    const tmiReelle = tmiMargDecimalAvant * 100;
+    const tmiReelleApresPct = tmiMargDecimalApres * 100;
+
+    const tAvant = snapToBaremeMarginal(tmiMargDecimalAvant);
+    const tApres = snapToBaremeMarginal(tmiMargDecimalApres);
+    const baisse = tApres < tAvant;
+
+    const repart = computeDeductionRepartitionIRDifferentiel({
+      incomeGlobal: rb,
+      deductionTotale: dedTot,
+      parts: ps,
+      baseParts,
+      capPerDemiPart,
+    });
+
     const qfCapAvant = taxAvant.advantageCap;
     const qfCapApres = taxApres.advantageCap;
-    const qfPlafonnementActifAvant =
-      taxAvant.impotsAvecPlafonnement > taxAvant.impotsQFNonPlafonne + 0.01;
-    const qfPlafonnementActifApres =
-      taxApres.impotsAvecPlafonnement > taxApres.impotsQFNonPlafonne + 0.01;
+    const qfPlafonnementActifAvant = taxAvant.plafonnementActif;
+    const qfPlafonnementActifApres = taxApres.plafonnementActif;
 
     const cehrAv = computeCehr(rfr, statut);
     const rfrApres = Math.max(0, rfr - dedTot);
@@ -288,21 +372,24 @@ export function SimulateurPer() {
     const ecoTotale = economieIRReelle + ecoCEHR;
     const cr = versement - ecoTotale;
 
-    const revenusBrackets = computeIncomeInBrackets(rppAvant, ps);
-    const revenusAu30Plus = revenusBrackets.filter((b) => b.rate >= 0.30 && b.euros > 0);
-    const deductionAu30Plus = repart
-      .filter((r) => r.rate >= 0.30)
-      .reduce((sum, r) => sum + r.eurosVerses, 0);
+    const { parTranche: revenusAu30Plus, deductionAuDessusDe30: deductionAu30Plus } =
+      computeRevenusParTrancheIRDifferentiel({
+        incomeGlobal: rb,
+        deductionTotale: dedTot,
+        parts: ps,
+        baseParts,
+        capPerDemiPart,
+      });
 
     return {
       revenuFiscalReferenceSecurise: rfr,
       revenuBrutGlobalSecurise: rb,
       partsSecurisees: ps,
       plafondDeductibiliteSecurise: plafond,
-      revenuParPartAvantPER: rppAvant,
-      revenuParPartApresPER: rppApres,
       tmiAvant: tAvant,
       tmiApres: tApres,
+      tmiMarginaleReelleApresPct: tmiReelleApresPct,
+      revenuBrutGlobalApresDeduction: rbApres,
       deductionTotale: dedTot,
       repartitionParTranche: repart,
       impotsIRAvant: impotIRAvant,
@@ -312,6 +399,7 @@ export function SimulateurPer() {
       qfCapApres,
       qfPlafonnementActifAvant,
       qfPlafonnementActifApres,
+      tmiMarginaleReelle: tmiReelle,
       cehrAvant: cehrAv,
       cehrApres: cehrAp,
       economieCEHR: ecoCEHR,
@@ -567,19 +655,39 @@ export function SimulateurPer() {
 
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
-              <span className="text-slate-700">TMI marginale (barème 2026)</span>
-              <span className="font-bold text-slate-900">{getRateLabel(tmiAvant)}</span>
+              <span className="text-slate-700">TMI marginale réelle (IR, barème 2026)</span>
+              <span className="font-bold text-slate-900">{tmiMarginaleReelle.toFixed(2)}%</span>
             </div>
-            <div className="mt-2 text-xs text-slate-600">
-              Revenu par part : {formatEuro(revenuParPartAvantPER)} → {formatEuro(revenuParPartApresPER)}.
-              TMI après PER : <span className="font-semibold">{getRateLabel(tmiApres)}</span>.
+            <div className="mt-2 text-xs text-slate-600 space-y-1">
+              <p>
+                IR différentiel (QF plafonné inclus) : sur la dernière euro de revenu imposable, l&apos;impôt baisse de{' '}
+                <span className="font-semibold">{tmiMarginaleReelle.toFixed(2)} %</span> pour 100 € de revenu en moins ;
+                après déduction PER, la marge sur le dernier euro restant est de{' '}
+                <span className="font-semibold">{tmiMarginaleReelleApresPct.toFixed(2)} %</span>.
+              </p>
+              <p>
+                Tranche du barème la plus proche de cette marge :{' '}
+                <span className="font-semibold">{getRateLabel(tmiAvant)}</span> avant versement,{' '}
+                <span className="font-semibold">{getRateLabel(tmiApres)}</span> après versement (même logique que les blocs
+                ci-dessous).
+              </p>
             </div>
+            {qfPlafonnementActifAvant ? (
+              <p className="mt-2 text-xs font-semibold text-amber-700">
+                Plafonnement du quotient familial appliqué.
+              </p>
+            ) : null}
           </div>
 
           <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
             <h2 className="text-sm font-bold text-emerald-900 mb-2">
               Revenus imposés à 30% et plus (donc PER plus efficace)
             </h2>
+            <p className="text-xs text-emerald-800/90 mb-2">
+              Masse euro par euro : pour chaque euro de revenu, on regarde l’économie d’IR si le revenu baisse de 1 €
+              (IR différentiel, plafonnement du QF inclus) — même logique que la TMI marginale réelle ci-dessus. Les euros
+              sont rattachés au taux du barème le plus proche (0 %, 11 %, 30 %, 41 %, 45 %).
+            </p>
             {revenusAuDessusDe30.length > 0 ? (
               <div className="space-y-2">
                 {revenusAuDessusDe30.map((b) => (
@@ -666,22 +774,29 @@ export function SimulateurPer() {
 
           <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
             <h2 className="text-sm font-bold text-indigo-900 mb-2">
-              Dans quelle tranche se situe chaque euro versé ? (barème 2026)
+              Dans quelle tranche se situe chaque euro versé ? (IR différentiel, barème 2026)
             </h2>
+            <p className="text-xs text-indigo-800/90 mb-2">
+              Chaque euro déduit est retiré du sommet de l&apos;assiette : gain IR = impôt(R) − impôt(R − 1 €), puis regroupement
+              par taux du barème le plus proche. Le gain affiché est la somme exacte des économies euro par euro (équivalent à
+              euros × marge réelle lorsque la marge est constante sur le versement).
+            </p>
             <div className="space-y-2">
-              {repartitionParTranche.map((item) => (
-                <div
-                  key={`${item.label}-${item.eurosVerses}`}
-                  className="flex flex-wrap items-center justify-between gap-2 text-sm"
-                >
-                  <span className="text-indigo-800">
-                    {formatEuro(item.eurosVerses)} déduits au taux {item.label}
-                  </span>
-                  <span className="font-semibold text-indigo-900">
-                    Gain: {formatEuro(item.economie)}
-                  </span>
-                </div>
-              ))}
+              {deductionTotale <= 0 ? (
+                <p className="text-sm text-indigo-800">Aucun versement : pas de déduction à répartir.</p>
+              ) : (
+                repartitionParTranche.map((item) => (
+                  <div
+                    key={`${item.label}-${item.eurosVerses}`}
+                    className="flex flex-wrap items-center justify-between gap-2 text-sm"
+                  >
+                    <span className="text-indigo-800">
+                      {formatEuro(item.eurosVerses)} déduits (marge la plus proche {item.label})
+                    </span>
+                    <span className="font-semibold text-indigo-900">Gain IR : {formatEuro(item.economie)}</span>
+                  </div>
+                ))
+              )}
             </div>
           </div>
 
@@ -701,11 +816,12 @@ export function SimulateurPer() {
             </h2>
             <p className={`text-sm ${baisseDeTranche ? 'text-emerald-800' : 'text-gray-700'}`}>
               {baisseDeTranche
-                ? `Le versement PER vous fait passer d'une TMI de ${getRateLabel(tmiAvant)} à ${getRateLabel(tmiApres)}.`
-                : `Votre TMI reste à ${getRateLabel(tmiAvant)} après ce versement.`}
+                ? `Le versement fait passer la marge d'imposition effective (IR différentiel) du barème ${getRateLabel(tmiAvant)} au barème ${getRateLabel(tmiApres)}.`
+                : `La marge d'imposition effective reste rattachée au barème ${getRateLabel(tmiApres)} après ce versement.`}
             </p>
             <p className="text-xs text-gray-600 mt-2">
-              Revenu par part après PER : {formatEuro(revenuParPartApresPER)}
+              Revenu brut global après déduction PER : {formatEuro(revenuBrutGlobalApresDeduction)} (hors interprétation
+              revenu / parts).
             </p>
             {baisseDeTranche ? (
               <p className="text-xs text-gray-600 mt-1">
@@ -724,10 +840,10 @@ export function SimulateurPer() {
               Pourquoi le PER est plus avantageux avec une TMI élevée ?
             </h2>
             <p className="text-sm text-amber-800">
-              Le versement PER est déductible du revenu imposable : plus votre TMI est haute
-              (30%, 41%, 45%), plus chaque euro versé réduit votre impôt. Avec une TMI à
-              {` ${getRateLabel(tmiAvant)}`}, vous récupérez environ {formatEuro(economieIR)}
-              pour {versement.toLocaleString('fr-FR')} € versés.
+              Le versement PER est déductible du revenu imposable : plus la marge d&apos;imposition effective est élevée
+              (souvent 30 %, 41 %, 45 %), plus chaque euro versé réduit l&apos;IR. Ici, la marge sur la dernière euro avant
+              versement est d&apos;environ {tmiMarginaleReelle.toFixed(2)} % (tranche la plus proche : {getRateLabel(tmiAvant)}
+              ), ce qui correspond à une économie d&apos;IR de {formatEuro(economieIR)} sur ce versement (hors CEHR).
             </p>
           </div>
 
