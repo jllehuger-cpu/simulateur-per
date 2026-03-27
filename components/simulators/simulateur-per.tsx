@@ -255,11 +255,11 @@ function computeCehr(revenuFiscalDeReference: number, statut: MaritalStatus): nu
 export function SimulateurPer() {
   const accessPassword = useSectionAccessPassword();
   const [statut, setStatut] = useState<MaritalStatus>('celibataire');
-  const [revenuFiscalReference, setRevenuFiscalReference] = useState<number>(60000);
-  const [partsFiscales, setPartsFiscales] = useState<number>(1);
-  const [revenuBrutGlobal, setRevenuBrutGlobal] = useState<number>(60000);
-  const [plafondDeductibilitePer2026, setPlafondDeductibilitePer2026] = useState<number>(20000);
-  const [age, setAge] = useState<number>(35);
+  const [revenuFiscalReference, setRevenuFiscalReference] = useState<number | ''>(60000);
+  const [partsFiscales, setPartsFiscales] = useState<number | ''>(1);
+  const [revenuBrutGlobal, setRevenuBrutGlobal] = useState<number | ''>(60000);
+  const [plafondDeductibilitePer2026, setPlafondDeductibilitePer2026] = useState<number | ''>(20000);
+  const [age, setAge] = useState<number | ''>(35);
   const [versement, setVersement] = useState<number>(1000);
   const [archiveMessage, setArchiveMessage] = useState<{
     tone: 'success' | 'error';
@@ -267,7 +267,24 @@ export function SimulateurPer() {
   } | null>(null);
   const [isSending, setIsSending] = useState<boolean>(false);
 
-  const plafondSecurise = Math.max(0, plafondDeductibilitePer2026);
+  const minPartsFiscales = statut === 'marie_pacse' ? 2 : 1;
+
+  // Pour les écrans mobiles, le navigateur peut zoomer si la police < 16px.
+  // Ici on force >= 16px côté Tailwind via `text-base`.
+  const plafondSecurise = Math.max(
+    0,
+    typeof plafondDeductibilitePer2026 === 'number' ? plafondDeductibilitePer2026 : 0
+  );
+
+  // Contraintes sur `partsFiscales` selon le statut.
+  // - En "Marié - Pacsé": pas en dessous de 2.
+  // - Au changement de "Célibataire" -> "Marié": si la valeur était 1, on passe à 2.
+  useEffect(() => {
+    if (typeof partsFiscales !== 'number') return;
+    const clamped = Math.max(minPartsFiscales, partsFiscales);
+    if (clamped !== partsFiscales) setPartsFiscales(clamped);
+  }, [minPartsFiscales, partsFiscales]);
+
   const versementStep = plafondSecurise <= 5000 ? 50 : 100;
 
   useEffect(() => {
@@ -304,9 +321,15 @@ export function SimulateurPer() {
     impotsIRTotalAvant,
     impotsIRTotalApres,
   } = useMemo(() => {
-    const rfr = Math.max(0, revenuFiscalReference);
-    const rb = Math.max(0, revenuBrutGlobal);
-    const ps = Math.max(1, partsFiscales);
+    const rfr = Math.max(
+      0,
+      typeof revenuFiscalReference === 'number' ? revenuFiscalReference : 0
+    );
+    const rb = Math.max(0, typeof revenuBrutGlobal === 'number' ? revenuBrutGlobal : 0);
+    const ps = Math.max(
+      minPartsFiscales,
+      typeof partsFiscales === 'number' ? partsFiscales : 0
+    );
     const plafond = Math.max(0, plafondSecurise);
 
     const dedTot = Math.min(versement, rb, plafond);
@@ -425,10 +448,11 @@ export function SimulateurPer() {
     try {
       setIsSending(true);
       setArchiveMessage(null);
+      const ageNum = typeof age === 'number' ? age : 0;
       await postPerRowToSheetbest({
         Date_Heure: formatDateHeureFr(),
         password: accessPassword,
-        age: Math.max(0, Math.floor(age)),
+        age: Math.max(0, Math.floor(ageNum)),
         Statut_Fiscal: statut === 'celibataire' ? 'Célibataire' : 'Marié-Pacsé',
         Revenu_Annuel: revenuBrutGlobalSecurise,
         Revenu_Fiscal_de_Reference: revenuFiscalReferenceSecurise,
@@ -500,7 +524,7 @@ export function SimulateurPer() {
   async function handleEnregistrerMesResultats() {
     logSimulationComplete({
       simulatorId: 'per',
-      age: Math.max(0, Math.floor(age)),
+      age: Math.max(0, Math.floor(typeof age === 'number' ? age : 0)),
       statut,
       revenuFiscalDeReference: revenuFiscalReferenceSecurise,
       partsFiscales: partsSecurisees,
@@ -545,9 +569,12 @@ export function SimulateurPer() {
                   type="number"
                   min={0}
                   step={100}
-                  value={revenuFiscalReference}
-                  onChange={(e) => setRevenuFiscalReference(Number(e.target.value))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
+                  value={revenuFiscalReference === '' ? '' : revenuFiscalReference}
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    setRevenuFiscalReference(raw === '' ? '' : Number(raw));
+                  }}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black text-base"
                 />
               </div>
 
@@ -558,7 +585,7 @@ export function SimulateurPer() {
                 <select
                   value={statut}
                   onChange={(e) => setStatut(e.target.value as MaritalStatus)}
-                  className="w-full p-3 border border-gray-300 rounded-lg bg-white text-black"
+                  className="w-full p-3 border border-gray-300 rounded-lg bg-white text-black text-base"
                 >
                   <option value="celibataire">Célibataire</option>
                   <option value="marie_pacse">Marié - Pacsé</option>
@@ -571,11 +598,19 @@ export function SimulateurPer() {
                 </label>
                 <input
                   type="number"
-                  min={1}
+                  min={minPartsFiscales}
                   step={0.5}
-                  value={partsFiscales}
-                  onChange={(e) => setPartsFiscales(Number(e.target.value))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
+                  value={partsFiscales === '' ? '' : partsFiscales}
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    if (raw === '') {
+                      setPartsFiscales('');
+                      return;
+                    }
+                    const next = Number(raw);
+                    setPartsFiscales(Math.max(minPartsFiscales, next));
+                  }}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black text-base"
                 />
               </div>
 
@@ -587,9 +622,12 @@ export function SimulateurPer() {
                   type="number"
                   min={0}
                   step={100}
-                  value={revenuBrutGlobal}
-                  onChange={(e) => setRevenuBrutGlobal(Number(e.target.value))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
+                  value={revenuBrutGlobal === '' ? '' : revenuBrutGlobal}
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    setRevenuBrutGlobal(raw === '' ? '' : Number(raw));
+                  }}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black text-base"
                 />
               </div>
 
@@ -601,9 +639,12 @@ export function SimulateurPer() {
                   type="number"
                   min={0}
                   step={100}
-                  value={plafondDeductibilitePer2026}
-                  onChange={(e) => setPlafondDeductibilitePer2026(Number(e.target.value))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
+                  value={plafondDeductibilitePer2026 === '' ? '' : plafondDeductibilitePer2026}
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    setPlafondDeductibilitePer2026(raw === '' ? '' : Number(raw));
+                  }}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black text-base"
                 />
               </div>
             </div>
@@ -646,9 +687,12 @@ export function SimulateurPer() {
                 min={0}
                 max={120}
                 step={1}
-                value={age}
-                onChange={(e) => setAge(Number(e.target.value))}
-                className="w-full max-w-xs p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black"
+                value={age === '' ? '' : age}
+                onChange={(e) => {
+                  const raw = e.target.value;
+                  setAge(raw === '' ? '' : Number(raw));
+                }}
+                className="w-full max-w-xs p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-black text-base"
               />
             </div>
           </div>
