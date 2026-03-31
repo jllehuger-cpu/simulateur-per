@@ -95,7 +95,7 @@ export default function DemembrementPage() {
     <main className="min-h-screen bg-slate-50 p-4 md:p-8 text-slate-900">
       <div className="max-w-6xl mx-auto">
         
-        {/* BARRE DE NAVIGATION ET TOGGLES PRINCIPAUX */}
+        {/* BARRE DE NAVIGATION ET TOGGLES */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
           <Link href="/civil" className="text-blue-600 font-medium">← Accueil</Link>
           <div className="flex gap-4">
@@ -118,7 +118,7 @@ export default function DemembrementPage() {
             
             <div>
               <label className="block text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-tighter">Valeur Pleine Propriété (€)</label>
-              <input type="number" value={prixPP} onChange={e => setPrixPP(Number(e.target.value))} className="w-full p-3 bg-slate-50 border rounded-xl font-bold text-xl outline-none" />
+              <input type="number" value={prixPP} onChange={e => setPrixPP(Number(e.target.value))} className="w-full p-3 bg-slate-50 border rounded-xl font-bold text-xl outline-none focus:border-blue-500" />
             </div>
 
             <div>
@@ -146,15 +146,21 @@ export default function DemembrementPage() {
               </div>
             )}
 
-            <h2 className="text-lg font-bold border-b pb-2 pt-2 text-slate-700 uppercase text-xs tracking-widest">Âges des Usufruitiers</h2>
+            <h2 className="text-lg font-bold border-b pb-2 pt-2 text-slate-700 uppercase text-xs tracking-widest">Âges & Espérance de vie</h2>
             {typeDossier === 'couple' ? (
               <div className="space-y-4">
                 <div className="p-4 bg-blue-50/50 rounded-xl border border-blue-100">
-                  <label className="block text-[10px] font-bold text-blue-600 mb-2 uppercase">Monsieur : {ageH} ans</label>
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="block text-[10px] font-bold text-blue-600 uppercase tracking-tighter">Monsieur : {ageH} ans</label>
+                    <span className="text-[10px] font-bold text-blue-400 italic">Exp. : {getEsperance(ageH, 'H')} ans</span>
+                  </div>
                   <input type="range" min="0" max="100" value={ageH} onChange={e => setAgeH(Number(e.target.value))} className="w-full accent-blue-600" />
                 </div>
                 <div className="p-4 bg-pink-50/50 rounded-xl border border-pink-100">
-                  <label className="block text-[10px] font-bold text-pink-600 mb-2 uppercase">Madame : {ageF} ans</label>
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="block text-[10px] font-bold text-pink-600 uppercase tracking-tighter">Madame : {ageF} ans</label>
+                    <span className="text-[10px] font-bold text-pink-400 italic">Exp. : {getEsperance(ageF, 'F')} ans</span>
+                  </div>
                   <input type="range" min="0" max="100" value={ageF} onChange={e => setAgeF(Number(e.target.value))} className="w-full accent-pink-600" />
                 </div>
               </div>
@@ -165,12 +171,15 @@ export default function DemembrementPage() {
                   <button onClick={() => setSexeSolo('F')} className={`flex-1 p-2 rounded border text-xs font-bold ${sexeSolo === 'F' ? 'bg-slate-800 text-white' : 'bg-white text-slate-400'}`}>FEMME</button>
                 </div>
                 <input type="range" min="0" max="100" value={ageSolo} onChange={e => setAgeSolo(Number(e.target.value))} className="w-full accent-slate-800" />
-                <p className="text-center font-bold text-slate-800">{ageSolo} ans</p>
+                <div className="flex justify-between px-2">
+                  <p className="font-bold text-slate-800">{ageSolo} ans</p>
+                  <p className="text-[10px] text-slate-400 italic">Espérance : {getEsperance(ageSolo, sexeSolo)} ans</p>
+                </div>
               </div>
             )}
           </div>
 
-          {/* COLONNE DROITE : RÉSULTATS DÉTAILLÉS */}
+          {/* COLONNE DROITE : RÉSULTATS */}
           <div className="lg:col-span-2 space-y-6">
             
             {/* TABLEAU RÉCAPITULATIF */}
@@ -179,8 +188,8 @@ export default function DemembrementPage() {
                 <thead className="bg-slate-50 border-b border-slate-200 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
                   <tr>
                     <th className="p-4">Origine</th>
-                    <th className="p-4 text-center">Nue-Propriété (NP)</th>
-                    <th className="p-4 text-center">Usufruit (U)</th>
+                    <th className="p-4 text-center">Nue-Propriété (Transmis)</th>
+                    <th className="p-4 text-center">Usufruit (Retenu)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -205,7 +214,7 @@ export default function DemembrementPage() {
                     </tr>
                   )}
                 </tbody>
-                <tfoot className={`font-bold text-white ${methode === 'fiscal' ? 'bg-slate-900' : 'bg-blue-900'} shadow-lg`}>
+                <tfoot className={`font-bold text-white ${methode === 'fiscal' ? 'bg-slate-900 shadow-xl' : 'bg-blue-900 shadow-xl'}`}>
                   <tr>
                     <td className="p-4 uppercase tracking-tighter">Total à transmettre (NP)</td>
                     <td className="p-4 text-center text-2xl font-black text-emerald-400">{Math.round(calculs.total.np).toLocaleString()} €</td>
@@ -215,7 +224,7 @@ export default function DemembrementPage() {
               </table>
             </div>
 
-            {/* SYNTHÈSE FISCALE ET DROITS DE DONATION */}
+            {/* SYNTHÈSE FISCALE */}
             <div className={`p-6 rounded-2xl border-2 transition-all ${resteTaxableTotal === 0 ? 'bg-emerald-50 border-emerald-200' : 'bg-orange-50 border-orange-200'}`}>
               <div className="flex justify-between items-center mb-6">
                 <h3 className="font-bold text-slate-800 text-lg">Simulation des Droits de Mutation</h3>
@@ -228,16 +237,18 @@ export default function DemembrementPage() {
                     <span className="text-slate-500 italic">Abattement (100k€ x {typeDossier === 'couple' ? '2 parents' : '1 parent'} x {nbEnfants} {nbEnfants > 1 ? 'enfants' : 'enfant'})</span>
                     <span className="font-bold text-slate-900">-{abattementTotal.toLocaleString()} €</span>
                   </div>
+                  
                   <div className="flex justify-between text-xs border-t pt-2">
                     <span className="text-slate-500 font-medium">Assiette taxable totale</span>
-                    <span className="font-bold text-slate-900">{Math.round(resteTaxableTotal).toLocaleString()} €</span>
+                    <span className="font-bold text-slate-900 underline">{Math.round(resteTaxableTotal).toLocaleString()} €</span>
                   </div>
+
                   <div className="p-3 bg-white/60 rounded-lg border border-white/80">
                     <div className="flex justify-between items-center">
                       <span className="text-[10px] text-slate-400 uppercase font-bold">Part taxable par enfant :</span>
                       <span className="font-bold text-slate-800">{Math.round(partTaxableParEnfant).toLocaleString()} €</span>
                     </div>
-                    <p className="text-[9px] text-slate-400 mt-1 italic">Calculée après déduction de l'abattement sur la part brute de chaque enfant.</p>
+                    <p className="text-[9px] text-slate-400 mt-1 italic tracking-tight">Abattement de {(abattementTotal/nbEnfants).toLocaleString()}€ déjà déduit par enfant.</p>
                   </div>
                 </div>
 
@@ -249,7 +260,7 @@ export default function DemembrementPage() {
                   {droitsParEnfant > 0 ? (
                     <div className="mt-2 text-center">
                       <p className="text-[10px] text-slate-500 font-medium uppercase tracking-tighter">Barème progressif appliqué</p>
-                      <p className="text-[10px] text-slate-400 italic">Soit {Math.round(droitsParEnfant * nbEnfants).toLocaleString()} € au total pour la fratrie.</p>
+                      <p className="text-[10px] text-slate-400 italic">Soit {Math.round(droitsParEnfant * nbEnfants).toLocaleString()} € au total pour la famille.</p>
                     </div>
                   ) : (
                     <p className="text-[10px] text-emerald-600 mt-2 font-bold uppercase tracking-widest italic">Transmission en franchise de droits</p>
@@ -261,8 +272,8 @@ export default function DemembrementPage() {
             {/* NOTE MÉTHODOLOGIQUE */}
             <div className="p-4 bg-white rounded-xl border border-dashed border-slate-300 text-[11px] text-slate-500 leading-relaxed italic">
               {methode === 'fiscal' 
-                ? "L'évaluation fiscale (Art. 669 CGI) est utilisée pour le calcul officiel des droits de mutation. Elle suit un barème fixe par tranches d'âge de 10 ans." 
-                : "L'évaluation économique (actuarielle) utilise l'espérance de vie réelle (INSEE 2019) et les flux financiers futurs pour estimer la valeur de marché du bien démembré."
+                ? "L'évaluation fiscale (Art. 669 CGI) est obligatoire pour le calcul des droits. Elle suit un barème fixe par tranches d'âge de 10 ans." 
+                : "L'évaluation économique utilise l'espérance de vie réelle (INSEE 2019) pour estimer la valeur de marché réelle du patrimoine démembré."
               }
             </div>
           </div>
