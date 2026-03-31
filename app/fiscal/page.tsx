@@ -17,11 +17,11 @@ export default function FiscalPage() {
           Outils et ressources pour visualiser l&apos;impact fiscal de vos choix (PER, défiscalisation,
           etc.).
         </p>
-        <ul className="mt-8 space-y-4">
+        <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           <li>
             <Link
               href="/fiscal/per"
-              className="group block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md"
+              className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md"
             >
               <h2 className="text-lg font-semibold text-slate-900 group-hover:text-blue-700">
                 Simulateur PER
@@ -31,6 +31,22 @@ export default function FiscalPage() {
               </p>
               <span className="mt-3 inline-block text-sm font-medium text-blue-600">
                 Ouvrir le simulateur →
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/fiscal/declaration-revenus"
+              className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md"
+            >
+              <h2 className="text-lg font-semibold text-slate-900 group-hover:text-blue-700">
+                Aide à la Déclaration
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Optimisez vos frais réels et vérifiez vos réductions d&apos;impôts.
+              </p>
+              <span className="mt-3 inline-block text-sm font-medium text-blue-600">
+                Accéder à l&apos;assistant →
               </span>
             </Link>
           </li>

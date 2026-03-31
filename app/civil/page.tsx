@@ -17,9 +17,26 @@ export default function CivilPage() {
           Cet espace regroupera vos contenus sur la structuration patrimoniale, la protection de vos
           proches et la préparation de la transmission. Ajoutez vos guides, FAQ ou rendez-vous ici.
         </p>
-        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm text-slate-500">Contenu à venir.</p>
-        </div>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+  {/* CARTE DEMEMBREMENT */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 transition-colors">
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Démembrement de propriété</h3>
+              <p className="text-slate-600 mb-4 text-sm leading-relaxed">
+                Évaluez la répartition entre Usufruit et Nue-Propriété selon le barème fiscal (Art. 669 CGI).
+              </p>
+              <Link 
+                href="/civil/demembrement" 
+                className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center"
+              >
+                Lancer le simulateur →
+              </Link>
+            </div>
+
+            {/* CARTE FUTURE (Succession/Donation par ex) */}
+            <div className="bg-slate-50 p-6 rounded-2xl border border-dashed border-slate-300 flex items-center justify-center text-slate-400 italic text-sm">
+              Autres simulateurs civils à venir...
+            </div>
+          </div>
       </main>
     </div>
   );
