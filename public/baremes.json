@@ -1,0 +1,35 @@
+{
+    "last_update": "2026-04-08",
+    "comment": "Données fiscales complètes pour simulations civiles",
+    "abattements": {
+      "sarkozy": 31865,
+      "enfant": 100000,
+      "petit_enfant": 31865,
+      "conjoint": 80724,
+      "conjoint_pacs": 80724
+    },
+    "regles": {
+      "delai_rappel_fiscal": 15
+    },
+    "baremes": {
+      "ligne_directe": [
+        { "limite": 8072, "taux": 0.05 },
+        { "limite": 12109, "taux": 0.10 },
+        { "limite": 15932, "taux": 0.15 },
+        { "limite": 552324, "taux": 0.20 },
+        { "limite": 902838, "taux": 0.30 },
+        { "limite": 1805677, "taux": 0.40 },
+        { "limite": null, "taux": 0.45 }
+      ],
+      "frere_soeur": [
+        { "limite": 24430, "taux": 0.35 },
+        { "limite": null, "taux": 0.45 }
+      ],
+      "neveu_niece": [
+        { "limite": null, "taux": 0.55 }
+      ],
+      "tiers": [
+        { "limite": null, "taux": 0.60 }
+      ]
+    }
+  }

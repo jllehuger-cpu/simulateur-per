@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 
 // Table d'espérance de vie INSEE 2019
@@ -16,27 +16,30 @@ const getEsperance = (age: number, sexe: 'H' | 'F') => {
 };
 
 // Application du barème progressif des droits de donation
-const calculerDroitsLigneDirecte = (baseTaxable: number) => {
-  if (baseTaxable <= 0) return 0;
+const calculerDroitsLigneDirecte = (baseTaxable: number, tranchesFiscales: any[]) => {
+  // Si le JSON n'est pas encore chargé, on renvoie 0 pour éviter le crash
+  if (!tranchesFiscales || tranchesFiscales.length === 0) return 0;
+  
   let droits = 0;
   let reste = baseTaxable;
+  let tranchePrecedente = 0;
 
-  const tranches = [
-    { limite: 1805677, taux: 0.45 },
-    { limite: 902838, taux: 0.40 },
-    { limite: 552324, taux: 0.30 },
-    { limite: 15932, taux: 0.20 },
-    { limite: 12109, taux: 0.15 },
-    { limite: 8072, taux: 0.10 },
-    { limite: 0, taux: 0.05 },
-  ];
-
-  for (const t of tranches) {
-    if (reste > t.limite) {
-      droits += (reste - t.limite) * t.taux;
-      reste = t.limite;
-    }
+  for (const t of tranchesFiscales) {
+      // Déterminer la limite de la tranche (gérer le "null" de la fin)
+      const limiteActuelle = t.limite === null ? Infinity : t.limite;
+      
+      // Calculer l'assiette dans cette tranche
+      const assietteDansTranche = Math.min(Math.max(0, reste), limiteActuelle - tranchePrecedente);
+      
+      if (assietteDansTranche > 0) {
+          droits += assietteDansTranche * t.taux;
+          reste -= assietteDansTranche;
+      }
+      
+      tranchePrecedente = limiteActuelle;
+      if (reste <= 0) break; // On a fini de taxer
   }
+  
   return droits;
 };
 
@@ -55,6 +58,14 @@ export default function DemembrementPage() {
   const [rendement, setRendement] = useState<number>(4);
   const [tauxActualisation, setTauxActualisation] = useState<number>(3);
 
+  // Bloc de récupération des données fiscales
+  const [baremes, setBaremes] = useState<any>(null);
+
+  useEffect(() => {
+    fetch('/baremes.json')
+      .then(res => res.json())
+      .then(data => setBaremes(data));
+  }, []);
   const calculs = useMemo(() => {
     const i = tauxActualisation / 100;
     const getFiscalPctU = (a: number) => {
@@ -84,13 +95,22 @@ export default function DemembrementPage() {
       const resF = processPerson(ppF, ageF, 'F');
       return { h: resH, f: resF, total: { u: resH.u + resF.u, np: resH.np + resF.np, pp: prixPP } };
     }
-  }, [methode, typeDossier, prixPP, repartitionH, ageH, ageF, ageSolo, sexeSolo, rendement, tauxActualisation]);
+  }, [methode, typeDossier, prixPP, repartitionH, ageH, ageF, ageSolo, sexeSolo, rendement, tauxActualisation, baremes]);
 
-  const abattementTotal = (typeDossier === 'couple' ? 200000 : 100000) * nbEnfants;
+  // 1. On récupère l'abattement enfant depuis le JSON
+  const montantAbattement = baremes?.abattements?.enfant || 100000;
+  
+  // 2. On calcule l'abattement total (2 par enfant si couple, 1 si solo)
+  const multiplicateurAbattement = typeDossier === 'couple' ? 2 : 1;
+  const abattementTotal = montantAbattement * multiplicateurAbattement * nbEnfants;
+
   const resteTaxableTotal = Math.max(0, calculs.total.np - abattementTotal);
   const partTaxableParEnfant = resteTaxableTotal / nbEnfants;
-  const droitsParEnfant = calculerDroitsLigneDirecte(partTaxableParEnfant);
 
+  // 3. On appelle la fonction avec les DEUX arguments : la part et les tranches
+  const droitsParEnfant = baremes 
+    ? calculerDroitsLigneDirecte(partTaxableParEnfant, baremes.baremes.ligne_directe) 
+    : 0;
   return (
     <main className="min-h-screen bg-slate-50 p-4 md:p-8 text-slate-900">
       <div className="max-w-6xl mx-auto">
