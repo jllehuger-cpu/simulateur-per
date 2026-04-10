@@ -5,12 +5,13 @@ import { usePathname } from 'next/navigation';
 
 export default function CivilLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isActive = (path: string) => pathname.includes(path);
+  const isActive = (path: string) => pathname === path;
 
   const navLinks = [
     { name: 'Démembrement', href: '/civil/demembrement' },
     { name: 'Donation', href: '/civil/donation' },
     { name: 'Succession', href: '/civil/succession' },
+    { name: 'Audit Expert', href: '/civil/donation/audit' },
   ];
 
   return (
