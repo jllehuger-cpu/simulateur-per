@@ -1,6 +1,53 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+
+// ─── Données marché ───────────────────────────────────────────────────────────
+
+interface IndexEntry {
+  key: string;
+  categorie: string;
+  nom: string;
+  ticker: string;
+  devise: string;
+  historique: Record<string, number>;
+  premier: string;
+  dernier: string;
+}
+
+const CAT_LABELS: Record<string, string> = {
+  actions: 'Actions',
+  obligations: 'Obligations',
+  matieres_premieres: 'Matières premières',
+  monetaire: 'Monétaire',
+  immobilier: 'Immobilier',
+};
+
+const CAT_ORDER = ['actions', 'obligations', 'matieres_premieres', 'monetaire', 'immobilier'];
+
+function computeCAGR(historique: Record<string, number>, years: number | null): number | null {
+  const dates = Object.keys(historique).sort();
+  if (dates.length < 12) return null;
+  const lastDate = dates[dates.length - 1];
+  const lastVal = historique[lastDate];
+  let startDate: string;
+  if (years === null) {
+    startDate = dates[0];
+  } else {
+    const cutoff = new Date(lastDate);
+    cutoff.setFullYear(cutoff.getFullYear() - years);
+    const cutoffStr = cutoff.toISOString().slice(0, 10);
+    const eligibles = dates.filter(d => d <= cutoffStr);
+    if (eligibles.length === 0) return null;
+    startDate = eligibles[eligibles.length - 1];
+  }
+  const startVal = historique[startDate];
+  if (!startVal) return null;
+  const actualYears = (new Date(lastDate).getTime() - new Date(startDate).getTime()) / (365.25 * 24 * 3600 * 1000);
+  if (years !== null && actualYears < years * 0.75) return null;
+  if (actualYears < 1) return null;
+  return (Math.pow(lastVal / startVal, 1 / actualYears) - 1) * 100;
+}
 
 // ─── Moteur de calcul ─────────────────────────────────────────────────────────
 
@@ -158,6 +205,25 @@ export default function CapitalisationPage() {
   const [tauxRealiste, setTauxRealiste] = useState(5);
   const [inflation, setInflation] = useState(0);
   const [showReel, setShowReel] = useState(false);
+  const [indices, setIndices] = useState<IndexEntry[]>([]);
+  const [selectedKey, setSelectedKey] = useState<string>('');
+
+  useEffect(() => {
+    fetch('/market_data.json')
+      .then(r => r.json())
+      .then((json: { indices: Record<string, Record<string, Omit<IndexEntry, 'key' | 'categorie'> & { erreur?: string }>> }) => {
+        const flat: IndexEntry[] = [];
+        for (const [cat, entries] of Object.entries(json.indices)) {
+          for (const [key, info] of Object.entries(entries)) {
+            if (info.historique) {
+              flat.push({ key: `${cat}__${key}`, categorie: cat, nom: info.nom, ticker: info.ticker, devise: info.devise, historique: info.historique, premier: info.premier, dernier: info.dernier });
+            }
+          }
+        }
+        setIndices(flat);
+      })
+      .catch(() => {});
+  }, []);
 
   const scenarios = useMemo(() => [
     { label: 'Pessimiste', taux: Math.max(0.5, tauxRealiste - 2), couleur: '#94A3B8' },
@@ -170,6 +236,7 @@ export default function CapitalisationPage() {
 
   const realiste = scenarios[1];
   const last = realiste.data[realiste.data.length - 1];
+  const selectedIndex = indices.find(i => i.key === selectedKey) ?? null;
 
   const etapes = realiste.data.filter(d => d.annee % 5 === 0 || d.annee === 1 || d.annee === dureeAns);
 
@@ -264,6 +331,67 @@ export default function CapitalisationPage() {
                 ))}
               </div>
             </div>
+
+            {/* Référence historique */}
+            {indices.length > 0 && (
+              <div>
+                <label className="field-label">Référence historique (optionnel)</label>
+                <select
+                  className="glass-select"
+                  value={selectedKey}
+                  onChange={e => setSelectedKey(e.target.value)}
+                >
+                  <option value="">— Aucun indice —</option>
+                  {CAT_ORDER.map(cat => (
+                    <optgroup key={cat} label={CAT_LABELS[cat]}>
+                      {indices.filter(i => i.categorie === cat).map(i => (
+                        <option key={i.key} value={i.key}>{i.nom}</option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+                {selectedIndex && (() => {
+                  const periods: { label: string; years: number | null }[] = [
+                    { label: '5 ans', years: 5 },
+                    { label: '10 ans', years: 10 },
+                    { label: '20 ans', years: 20 },
+                    { label: 'Historique', years: null },
+                  ];
+                  return (
+                    <div style={{ marginTop: 10 }}>
+                      <div style={{ fontSize: 10, color: 'var(--text-muted)', marginBottom: 6 }}>
+                        CAGR annualisé — cliquer pour appliquer comme taux central
+                      </div>
+                      <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
+                        {periods.map(({ label, years }) => {
+                          const cagr = computeCAGR(selectedIndex.historique, years);
+                          if (cagr === null) return null;
+                          const pos = cagr >= 0;
+                          return (
+                            <button
+                              key={label}
+                              onClick={() => setTauxRealiste(Math.round(Math.max(0.5, Math.abs(cagr)) * 10) / 10)}
+                              style={{
+                                padding: '4px 9px', borderRadius: 7, fontSize: 11, fontWeight: 600,
+                                cursor: 'pointer', transition: 'all 0.15s',
+                                border: `1px solid ${pos ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.4)'}`,
+                                background: pos ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
+                                color: pos ? 'var(--accent-emerald)' : '#F87171',
+                              }}
+                            >
+                              {label} : {cagr >= 0 ? '+' : ''}{cagr.toFixed(1)}%
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <div style={{ marginTop: 6, fontSize: 10, color: 'var(--text-muted)' }}>
+                        {selectedIndex.nom} · {selectedIndex.devise} · depuis {selectedIndex.premier?.slice(0, 7)}
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
 
             {/* Inflation */}
             <div>
