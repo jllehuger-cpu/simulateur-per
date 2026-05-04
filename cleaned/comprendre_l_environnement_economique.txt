@@ -1,0 +1,1110 @@
+).
+
+                     CONSEILLER LE CLIENT DANS LA GESTION DE SON PATRIMOINE PRIVE - 2025
+
+                             Véronique RICHES-FLORES, économiste indépendante
+
+                             Mathieu PLANE, économiste à l’OFCE – SciencesPo
+
+                             Pierre SABATIER, économiste et Président de PrimeView
+
+              Comprendre l’environnement
+                    économique
+
+                             Véronique RICHES-FLORES
+                                   Économiste indépendante
+
+                                        Mathieu PLANE
+                                       Économiste à l’OFCE
+                                           SciencesPo
+
+                                       Pierre SABATIER
+                          Économiste et Président de PrimeView
+
+                                                   2025
+
+                                                    TABLE DES MATIERES
+    Introduction Générale - De l’intérêt de comprendre l’environnement économique pour
+
+       B - Le reste du monde émergent n’a pas encore trouvé la voie d’un développement
+       C - Les limites environnementales et climatiques imposent de repenser le modèle de
+
+       Introduction Générale - De l’intérêt de comprendre
+       l’environnement économique pour bien gérer un patrimoine
+Si l’ingénierie juridique et fiscale est indispensable pour un Conseiller en Gestion de
+Patrimoine, il est clair que ce n’est pas elle qui crée la valeur des actifs détenus : aucun
+prodige juridique, aucun allègement fiscal providentiel ne le rendra rentable si le choix en
+matière d’actifs est inadapté aux objectifs du client et à l’environnement économique.
+
+Or la valeur des actifs susceptible d’être sélectionnés par le CGP est variable dans le temps
+et dépend intimement de l’environnement de marchés, lui-même fonction de
+l’environnement économique.
+
+Dans ces conditions, toute personne appelée à fournir du conseil en gestion de patrimoine
+doit maîtriser un certain nombre de données concernant l'environnement économique et
+financier du moment et ses perspectives d'évolution à court terme - indépendamment
+des compétences plus ou moins spécialisées qui sont requises dans les domaines juridique
+et fiscal, et de la nécessaire connaissance des produits financiers. En sachant identifier et
+comprendre les variables économiques et monétaires les plus influentes sur l’évolution des
+actifs, le CGP sera en mesure de construire un portefeuille dont la rentabilité sera optimale.
+
+Ce cours est destiné à apporter les connaissances de base nécessaires en la matière. Il
+comprendra 3 parties :
+
+Introduction générale – De l’intérêt de comprendre l’environnement économique pour
+bien gérer un patrimoine.
+      PARTIE I - Croissance – définition et mesure,
+      PARTIE II - Le cycle économique,
+      PARTIE III - Dérèglements cycliques, nouveaux paradigmes et état des lieux.
+
+               PARTIE I – CROISSANCE – DÉFINITION ET MESURE
+
+La variable la plus communément utilisée pour évaluer la vigueur économique d’une zone est
+sans conteste la croissance. En effet, celle-ci donne une idée aux observateurs de la capacité
+des acteurs à créer de la valeur, et donc des revenus aux différents acteurs (salaires qui
+seront épargnés ou eux-mêmes consommés, dividendes, rentrée fiscale, etc.). Comprendre
+ce que sous-tend le concept de croissance parait donc indispensable pour qu’un CGP soit
+capable d’évaluer correctement l’environnement économique et donc de marchés.
+
+   Chapitre I - La croissance économique, mesure de la création de
+                                valeur
+Section 1 - La création de valeur ou « valeur ajoutée »
+
+La croissance économique mesure l’évolution de la création de valeur d’un espace
+économique délimité (pays, région) au cours d’une période donnée (mois, trimestre,
+année).
+
+La comptabilité économique d’un pays (comptabilité nationale) estime cette création de
+valeur à partir du Produit Intérieur Brut (PIB), dont la définition première est la somme des
+valeurs ajoutées générées par le processus productif de biens et services.
+
+       Production versus valeur ajoutée
+       La production correspond à la valeur finale d’un bien ou d’un service, laquelle se
+       mesure par son prix de vente du producteur. Il existe une différence fondamentale
+       entre la production et la valeur ajoutée liée au fait que la production d’un bien
+       nécessite le plus souvent un certain nombre d’intrants (biens et services) déjà
+       produits par ailleurs.
+
+             VALEUR AJOUTEE = PRODUCTION – CONSOMMATIONS INTERMEDIAIRES
+
+Le contenu en consommations intermédiaires diffère significativement d’un secteur à l’autre
+de la vie économique.
+L’extraction minière, ne nécessite pas spécialement de consommation intermédiaire mais
+des machines (investissements). Dans ce cas, la valeur ajoutée est équivalente à celle de la
+production
+La chose est différente pour la métallurgie, laquelle transforme un minerai (CI) en plaques ou
+tubes de métal utiles à la fabrication d’autres biens.
+Le secteur automobile compte parmi les plus gros consommateurs de consommations
+intermédiaires de biens et services (métaux et plastiques pour la carrosserie et les différents
+éléments constituants, pneumatiques, pièces de moteur, textiles pour les sièges, design…).
+La part plus ou moins importante des consommations intermédiaires dans la production joue
+un rôle majeur dans l’exposition et la sensibilité d’un secteur aux chocs extérieurs. A l’inverse,
+leur influence sur l’activité économique est forte (effet des diffusion). Les voitures sont
+produites avec beaucoup d’entrants, elles sont ensuite stockées, transportées, vendues… ce
+qui génère de nombreuses activités en amont et en aval du processus productif, d’où la forte
+sensibilité de l’activité à ce secteur dans la plupart des économies.
+
+Exemple :
+
+La production d’une table à partir d’une planche de bois et de pieds en métal, pour laquelle
+il a été fait appel à un designer, vendue 100 euros.
+Si la valeur de la production est effectivement de 100 euros, la création de valeur par son
+fabricant est en revanche bien inférieure, dès lors que :
+     - La planche de bois a été produite par un autre fabricant ou découpée à partir d’une
+        planche achetée à un autre producteur, donc déjà comptabilisée comme une
+        production antérieure.
+     - Idem pour les pieds en métal et pour le service externe du designer.
+Dans cet exemple, la valeur ajoutée par le producteur de la table s’entend principalement
+comme le fait d’avoir su trouver les bonnes pièces et le bon designer et d’avoir fait
+l’assemblage.
+La planche de bois, les pieds et les design sont des consommations intermédiaires
+achetées par le fabricant qui y ajoute sa propre valeur pour produire. On comprend dès lors
+que la valeur ajoutée est la différence entre la production et les consommations
+intermédiaires qu’elle a nécessitées.
+
+Section 2 - Les différentes estimations du Produit Intérieur Brut
+
+Les circuits liés à la création de valeur permettent d’appréhender la croissance du PIB à partir
+de trois approches :
+   - La production, correspondant à la somme des valeurs ajoutées des différentes
+       branches économiques. Plus facile à estimer à partir des informations économiques
+       elle est souvent disponible plus rapidement que les autres. Certains pays (Royaume-
+       Uni) publient une première estimation de leur PIB sur ces bases tous les mois.
+   - Les revenus, le processus de création de valeur s’accompagne d’une distribution de
+       revenus (salaires, EBE, taxes, intérêts, +/- ajustements) dont la somme équivaut à la
+       valeur ajoutée produite. On parle ainsi de partage de la valeur ajoutée (salaires ou
+       profits/PIB) pour appréhender comment se fait cette répartition ou comment elle
+       évolue dans le temps.
+   - Le compte ressources-emplois qui reconstitue la valeur ajoutée à partir de son
+       utilisation finale : consommation, investissement, stockage + flux nets avec le reste du
+       monde (importations et exportations de biens et services). Il s’agit de la définition la
+       plus courante du PIB, à partir de laquelle est estimée la croissance économique.
+
+       Valeur ajoutée par                        Dépenses par                           Revenus des
+            secteur                                catégorie                              facteurs
+
+    Biens (de consommation,
+    d’investissements, biens                     Consommation                              Salaires
+         intermédiaires)
+
+     Services (services aux                     Investissements
+   entreprises, aux ménages,                  (Formation Brute de                           Loyers
+   financiers, publics, privés)                   Capital Fixe)
+
+   Agriculture (produits bruts
+                                                                                           Intérêts
+        non transformés)
+
+                                                                                            Profits
+
+Section 3 - Les mesures de la croissance
+
+Le PIB est exprimé en monnaie nationale, à prix courants ou prix constants : c’est-à-dire aux
+prix d’une année de référence qui peut être l’année précédente ou autre année de base qui
+servira à définir les structures -poids- des différents agrégats déflatés des évolutions
+respectives de leurs prix depuis cette période de référence.
+
+La croissance s’exprime généralement « en volume ». Cela nécessite de calculer des comptes
+nationaux « en volume ».
+Les statistiques détaillées sont de 3 types :
+    a) Les statistiques exprimées en quantités (ex : nombre de tonnes d’acier produit).
+    b) Les statistiques exprimées à prix courant, c’est-à-dire en « en valeur » (ex : compte
+       des sociétés).
+    c) Les indices de prix pour une multitude de produits (1 600 familles de produits et
+       30 000 points de vente enquêtés chaque mois et des relevés issus d’internet pour
+       les achats en ligne) formant l’indice des prix à la consommation qui sert à mesurer
+       l’inflation.
+Si les statistiques « en volume » ne sont pas directement disponibles, les comptables
+nationaux combinent les statistiques b) et c) pour obtenir un indicateur de volume. Ainsi, 85
+% de la valeur ajoutée « en volume » est calculée de cette manière.
+
+Le PIB par tête d’un pays donne une indication du revenu national par habitant, il est souvent
+utilisé pour comparer le niveau de vie relatif entre différents pays. Ces comparaisons
+nécessitent toutefois des unités de compte comparables, un taux de change commun (le $,
+par exemple). Comme le taux de change varie et peut influencer le résultat, on lui préfère un
+taux de change de conversion à des prix internationaux, communément appelé taux de
+change de parité de pouvoir d’achat, fonction des écarts de prix observés entre le pays de
+la monnaie de référence (le plus souvent les États-Unis) et le reste du monde.
+
+Compréhension de cette approche, le McDo index.
+Le prix d’un hamburger de Mc Donald n’a pas de raison d’être très différent d’un pays à l’autre,
+compte-tenu du caractère uniformisé de son mode de production (équipement, quantité de
+travail et matières premières). Si, converti en $, il apparaît plus cher dans un pays par rapport
+à ce qu’il est en moyenne aux États-Unis, on considère que cet écart témoigne d’une
+surévaluation de la devise du pays en question proportionnelle à l’écart de prix constaté.
+(voir pour plus d’illustrations https://fr.wikipedia.org/wiki/Indice_Big_Mac).
+Les économistes appliquent le même type de comparatifs sur une gamme élargie de
+produits et de services pour déduire un taux de change dit « de parité de pouvoir d’achat »,
+lequel permet d’établir des comparaisons plus fidèles à la réalité des contextes économiques
+respectifs.
+
+La croissance s’exprime comme la variation du PIB au cours d’une période donnée
+(généralement un trimestre ou une année), le plus souvent en pourcentage, à prix constants.
+Tous les pays n’ont pas la même façon de présenter ces résultats.
+
+Rappel de quelques définitions sur les usages
+  • La variation trimestrielle : ((T/T-1)-1)*100.
+  • La variation trimestrielle annualisée :
+    ((T/T-1)^4)-1)*100, format
+    généralement
+    utilisé par les Américains qui
+    renseigne sur ce que donnerait
+    sur une année la croissance
+    observée entre deux trimestres.
+    Cela donne souvent l’impression
+    erronée que la croissance
+    américaine est beaucoup plus
+    forte que l’européenne.
+
+   • Le glissement annuel : ((T/T-4)-1)*10 0, on compare dans ce cas le niveau du PIB d’un
+     trimestre donné à son niveau du
+     même trimestre de l’année
+     passée.
+   Cette méthode offre trois
+     avantages :
+   - Elle corrige d’éventuels biais
+     saisonniers, puisque les mêmes
+     saisons sont comparées (ex :
+     T3/T3).
+   - Elle renseigne sur la
+     performance annuelle d’une
+     économie, ce qui est plus directement comparable à un certain nombre d’autres
+     critères exprimés sur une base annuelle (taux d’intérêt, inflation, résultats des
+     entreprises).
+   - Elle est moins instable et lisse les évolutions ce qui permet de mieux mettre en
+     évidence les tendances et leurs ruptures éventuelles.
+   -
+
+    Attention, néanmoins, par définition, le
+    glissement annuel ne rend pas compte
+    de ce qui se passe entre les deux
+    périodes considérées, ce qui
+    représente un risque de mauvaise
+    interprétation. De même, il arrive que
+    le résultat soit plus influencé par des
+    effets dits de base relatifs au passé de
+    la série que par son évolution récente.
+
+Section 4 - Les limites de la mesure du PIB
+
+Si le PIB est l’indicateur central des comptes nationaux, il n’en ressort pas moins qu’il y a
+plusieurs limites à la mesure du PIB (Rapport de la Commission Stiglitz-Sen-Fitoussi sur la
+mesure des performances économiques et du progrès social https://www.vie-
+publique.fr/sites/default/files/rapport/pdf/094000427.pdf) :
+
+La première pose la question de comment mesurer correctement les prix pour avoir une
+bonne mesure du « volume » et donc de la croissance.
+
+      - Pour les prix des biens, se pose la difficulté pour intégrer précisément le progrès
+technologique dans les évolutions des prix des biens (ex : ordinateurs, automobiles…). Des
+indices de prix hédonique existent (c’est-à-dire qui intègre l’évolution de la qualité et le
+progrès technique des biens) mais la méthodologie peut différer d’un pays à l’autre et elle
+est parfois contestée.
+      - Pour le prix des services, il y a la difficulté à intégrer précisément la qualité du service
+dans les évolutions des prix des services (ex : service après-vente).
+      - Pour le secteur non marchand qui représente près d’un quart du PIB en France
+(éducation, santé, police, justice, armée…) et qui n’a pas de prix marchand se pose la question
+de sa valeur ajoutée. Elle est donc comptabilisée à son coût de production (ex : valeur ajoutée
+de l’éducation nationale proche de la masse salariale des professeurs).
+      - Le PIB ne comptabilise pas les activités domestiques (autoproduction…). Certaines
+études l’estiment jusqu’à 35 % du PIB pour la France.
+      - Le PIB est une mesure brute qui ne tient pas compte de la dépréciation du capital (ex
+: séismes, guerres…).
+      - Pour avoir une mesure complète du Produit Intérieur Net (PIN), il faudrait intégrer
+toutes les formes de dépréciation du capital (incluant l’environnement et les ressources
+naturelles).
+      - Le PIB est une mesure partielle du bien-être : il ne tient pas compte de la distribution
+des richesses, des aspects environnementaux, de l’accès au soin, à l’éducation, l’emploi et sa
+qualité, des risques de pauvreté, d’insécurité…
+
+           Chapitre II - Le PIB selon l’équilibre ressources-emplois
+
+L’approche associée à l’équilibre ressources-emplois traduit certainement le mieux le fait
+que la richesse créée dans une zone repose sur le comportement de consommation et
+d’investissements des trois acteurs qui composent nos sociétés : les ménages, les
+entreprises et l’État (au sens large du terme).
+
+       PIB = consommation privée + consommation publique + Investissement (des
+       entreprises, des ménages et des administrations) + exportations – Importations +/- les
+       variations de stocks.
+
+Les importations ne sont pas produites localement, c’est la raison pour laquelle elles sont
+retranchées du PIB. Les exportations ne sont pas consommées localement mais sont bien
+produites localement, il faut donc les ajouter aux emplois pour retrouver l’équilibre.
+Les stocks existants correspondent aux écarts cumulés entre la production passée et son
+utilisation passée, ils ont donc déjà été comptabilisés. Seules les variations de stocks au
+cours de la période sous revue nécessitent d’être pris en compte.
+
+Extrait du site de l’INSEE, septembre 2019.
+
+   -    Les données sont exprimées à prix fixes (dits en volumes) afin d’appréhender la
+        création de richesse réelle, en dehors des interférences de prix.
+   -    Elles sont corrigées des variations saisonnières (CVS) de manière à ne pas être
+        biaisées par des phénomènes récurrents d’instabilité temporelle (effets des vacances
+        sur l’activité productrice, les transports ou activités touristiques, effets des variations
+        de températures sur l’activité de la construction, la production et la consommation
+        d’énergie au fil d’une année…).
+   -    Elles sont le plus souvent corrigées des jours ouvrables (CJO) le nombre de jours
+        d’une période à l’autre pouvant varier en fonction des jours fériés et des années
+        bissextiles.
+
+Les contributions des différents agrégats de la croissance du PIB au cours d’une période
+permettent d’affiner l’analyse des origines de la croissance. Ces contributions sont calculées
+à partir de la variation de l’agrégat, pondérée par son poids dans le PIB. La croissance du PIB
+peut être décomposée en la somme des contributions de ses différentes composantes. La
+contribution d’une composante du PIB à la croissance se mesure de la façon suivante :
+Exemple de la Consommation (en points de % du PIB) : ((Ct – Ct-1) / PIBt-1) *100.
+
+          Chapitre III - Principaux déterminants conjoncturels des
+                        composantes de la croissance
+Section 1 - La consommation
+
+Les dépenses de consommation des ménages représentent entre 50 % et 70 % du produit
+intérieur brut des pays développés, soit une proportion largement dominante qui fait de la
+consommation un déterminant essentiel de la croissance économique.
+Cette part varie selon les pays en fonction de facteurs structurels ou comportementaux
+(démographie, épargne, endettement, part du secteur public, en particulier).
+
+La consommation privée (par opposition aux dépenses publiques) correspond à l’achat de
+biens et services destinés à la satisfaction immédiate des besoins des ménages.
+
+Les déterminants conjoncturels de la consommation privés sont essentiellement liés à
+l’évolution des revenus des particuliers, de l’emploi, de l’environnement de prix et de la
+confiance.
+
+LES REVENUS
+      Revenus d’activité : salaires (emploi x salaire)
+      + Revenus du patrimoine et de la propriété (intérêts, dividendes, loyers)
+      + Transferts reçus (prestations sociales)
+      - Prélèvements (taxes)
+      = Revenu disponible brut (RDB) = Épargne + consommation
+
+LE POUVOIR D’ACHAT
+Croissance du revenu corrigée de l’inflation reste la variable la plus influente sur la
+consommation.
+
+L’EPARGNE
+Correspond à la part du revenu non consommée =
+Épargne non-financière : investissement immobilier (en comptabilité nationale, l’achat
+immobilier n’est pas une consommation)
++ Épargne financière : liquidités et placements
+Part du revenu consacrée à la consommation différée.
+
+LE TAUX D’EPARGNE
+Correspond à la part du revenu épargnée en pourcentage de ce même revenu (le revenu
+disponible).
+
+LE PARTAGE EPARGNE-CONSOMMATION
+
+L’arbitrage entre consommation et épargne est variable dans le temps et l’espace,
+dépendant tout à la fois de variables structurelles (âge, sécurité, protection sociale, objectif
+patrimonial, rendement de l’épargne, anticipations de revenus futurs…) et conjoncturelles
+(contexte économique immédiat, contexte budgétaire et fiscal, évolution et anticipations
+des prix).
+
+Franco Modigliani, économiste, a mis en évidence les comportements différenciés d’épargne
+en fonction de l’âge, des besoins et des revenus des individus au début des années soixante.
+Cette théorie du cycle de vie est particulièrement importante pour comprendre les
+évolutions de l’épargne, des choix de placements des particuliers et leurs changements au
+regard des critères démographiques des pays (sujet d’actualité !!).
+
+Les « effets richesse ». L’évolution du contexte financier et de la valorisation du patrimoine a
+une influence importante sur le comportement d’épargne des ménages qui varie néanmoins
+selon l’âge.
+
+        Les populations plus jeunes recherchent traditionnellement du rendement, leur
+          comportement d’épargne est généralement positivement corrélé au rendement
+          (taux d’intérêt, rendement des actions).
+        Les populations plus âgées sont plus soucieuses de leur objectif et de la valeur de
+          leur patrimoine qu’elles vont chercher à constituer et à préserver. Leur
+          comportement d’épargne est plus facilement inversement proportionnel au
+          rendement.
+Ex. le sentiment d’enrichissement des propriétaires immobiliers en période de forte hausse
+des prix des biens incite à réduire l’effort d’épargne. Ce comportement dégage des revenus
+supplémentaires pour la consommation, donc l’activité (schéma rencontré dans de
+nombreux pays dans les années 2000).
+A l’inverse, le bas niveau des taux d’intérêt, voire des taux d’intérêt négatifs, érode le
+patrimoine ce qui peut inciter des populations plus soucieuses de leur objectif patrimonial à
+accroitre leur effort d’épargne.
+        La relation épargne – rendement n’est pas stable et évolue avec
+         l’âge.
+
+Section 2 - L’investissement, ou Formation brute de capital fixe
+
+L’investissement (FBCF) correspond à l’acquisition de biens durables par une entreprise pour
+lui permettre de produire. Son accumulation, nette de l’usure, obsolescence, correspond au
+stock capital disponible dans une économie.
+L’investissement constitue une part plus réduite que la consommation dans le PIB,
+généralement comprise entre 20% et 25% dans les pays développés (matures) dont le stock
+de capital existant est déjà constitué. L’effort d’investissement se mesure par :
+    - le taux d’investissement (investissement/valeur ajoutée).
+    - l’investissement/tête (population active ou population totale).
+Les périodes de forte croissance de la demande, les changements de typologie de cette
+dernière, le développement ou l’accès à de nouveaux marchés, les progrès et innovations
+technologiques accroissent les besoins en investissement. Ils ne sont pas nécessairement
+suffisants pour stimuler ce dernier. La décision d’investir est le résultat d’un arbitrage entre
+le rendement attendu d’un investissement, son coût et son risque. L’une des principales
+caractéristiques de la croissance de ces dernières années est précisément le manque
+d’appétit de entreprises pour l’investissement.
+
+Les déterminants de l’investissement sont nombreux, principalement liés à :
+       LA DEMANDE Courante et anticipée.
+       LE DEGRE D’UTILISATION DES CAPACITES DÉJÀ EXISTANTES Courant et anticipé.
+       LE COÛT DES FACTEURS DE PRODUCTION
+       - Coût du capital physique (machines, outils, équipement informatique…),
+       - Taux d’intérêt/ taux d’intérêt réel.
+       LA PROFITABILITE
+       - Retour sur investissement : excédent brut d’exploitation/stock de capital.
+
+       LES CONDITIONS DE FINANCEMENT
+       - Offre de crédit bancaire,
+       - Marché du crédit,
+       - Endettement.
+       LE RISQUE Économique, technologique, fiscal.
+
+Section 3 - Le commerce extérieur
+
+Le commerce extérieur a pris une place prépondérante dans la dynamique économique
+mondiale depuis le milieu des années 90, avec la libéralisation des échanges promue par
+l’Organisation Mondiale du Commerce (OMC) et les politiques d’ouverture des frontières qui
+s’en sont suivies mondialement.
+Délocalisations et segmentation des chaînes de production vers les pays à moindre coûts et
+régionalisation/zones de libre-échanges (Europe, Asie, Amérique) ont conduit à une
+multiplication des échanges dont la croissance a été beaucoup plus rapide que celle de la
+production.
+
+Les économies quelles qu’elles soient ont vu leur dépendance au commerce extérieur croitre
+considérablement au cours de cette période de sorte que l’influence des échanges sur
+l’activité industrielle et économique est devenue primordiale.
+
+Certains secteurs sont beaucoup plus influents que d’autres dans la dynamique des
+échanges mondiaux.
+Les échanges de matières premières (MP industrielles, énergétiques, agricoles) représentent
+une part très importante des flux commerciaux entre les pays et des liens d’inter-
+dépendance qui en résultent.
+Dans le commerce des biens, les équipements industriels sont largement dominants ainsi
+que le secteur automobile, beaucoup plus importants que les biens de consommation
+courante.
+Les échanges de services se sont beaucoup accrus ces dernières années, facilités
+notamment par les nouvelles technologies digitales de communication.
+
+                            biens d'équipement et automobiles dans le total des
+                                         exportations, en % (2017)
+                                                                                        Biens d'éqmt
+                          Monde
+                                                                                        Auto
+
+             Asie émergente
+
+                             USA
+
+                            Chine
+
+                    Allemagne
+
+                          Japon
+
+                                    0%                20%                      40%                     60%
+          Sources : RichesFlores Research, OMC
+
+Les critères de performance extérieure sont nombreux et fluctuants, principalement
+déterminés :
+à l’exportation par :
+    - La richesse en matières premières,
+    - La spécialisation de la sphère productive et son adaptation à la demande
+       internationale,
+    - L’exposition à des produits plus ou moins exposés à la concurrence (intensité
+       technologique, niches protectrices) et la capacité d’adaptation,
+    - Le taux d’ouverture, le positionnement à l’exportation (exposition des débouchés à
+       plus ou moins forte croissance), l’imbrication régionale, les parts de marché,
+    - La compétitivité prix et qualité,
+    - Le contexte de taux de change,
+    - Le degré d’intégration régional.
+
+à l’importation :
+     - Le taux de pénétration (indicateur de dépendance extérieure),
+
+   -   L’équilibre consommation-investissement,
+   -   Les différentiels de prix,
+   -   Les écarts de croissance avec le reste du monde,
+   -   Le taux de change,
+   -   Les pratiques commerciales, politiques d’ouverture, tarifs douaniers.
+   -
+
+La multiplication des échanges internationaux a largement accru le niveau
+d’interdépendance économique entre les différents pays, tant au niveau régional que
+mondial.
+Les zones de libre-échanges ont à ce titre rendu largement contribué à accroitre
+l’agglomération conjoncturelle. Il est intéressant à ce titre de noter l’extrême dépendance de
+la croissance des exportations allemandes à l’évolution de ses débouchés les plus proches.
+
+                                       PARTIE II – LE CYCLE
+
+                        Chapitre I - Le potentiel de croissance
+
+Le potentiel de croissance diffère de la croissance réelle, en ce sens qu’il correspond
+essentiellement à une évaluation théorique de ce qu’un territoire et une population peuvent
+espérer atteindre comme niveau de richesse créée au regard des caractéristiques
+fondamentales et structurelles de son économie.
+
+                                       POTENTIEL DE CROISSANCE
+       La croissance est la résultante des ressources disponibles et de leur utilisation, la
+       productivité. Ces deux critères autorisent une certaine capacité de production, le
+       potentiel de croissance.
+Potentiel de croissance = quantité de ressources X productivité
+
+Le PIB potentiel correspond au niveau du PIB d’une utilisation soutenable des facteurs de
+production, c’est à dire sans tensions inflationnistes dans l’économie.
+   - Le PIB potentiel correspond à la capacité d’offre d’une économie,
+   - Croissance potentielle = Taux de croissance du PIB potentiel.
+
+Le PIB potentiel peut-être comparé, par analogie, à une course d’endurance :
+   - La vitesse potentielle n’est pas la vitesse de sprint,
+   - En conditions réelles, des évènements interfèrent (pluie, vent…) qui font s’écarter du
+       potentiel.
+
+La notion de PIB potentiel est rendue difficile par l’incertitude qui entoure son estimation:
+   - C’est une variable inobservable et les méthodes sont différentes pour l’estimer. D’un
+      côté, il y a les méthodes structurelles qui ont un cadre théorique sous-jacent dans une
+      approche par l’offre (fonction de production) et de l’autre les méthodes statistiques
+      qui sont sans cadre théorique basées sur une approche par la demande,
+   - La croissance potentielle peut-être révisée au cours du temps, en prévision mais sur
+      le passé également, au gré des chocs économiques,
+   - Bien que le PIB potentiel soit fondamental pour l’analyse économique, Il n’y a pas de
+      consensus chez les économistes sur sa valeur précise.
+
+Les ressources économiques sont essentiellement au nombre de trois :
+   1- La terre,
+   2- Le stock de capital,
+   3- La main d’œuvre.
+
+L’influence de l’homme sur celles-ci est relativement contrainte.
+      - L’espace planétaire est limité, les terres ne sont pas extensibles et les espaces
+         réservés à la production tendent à se réduire au fur et à mesure du développement
+         urbain et de la pollution des terres arables, à l’exception de la fonte du permafrost
+         qui a permis d’étendre les surfaces arables du nord de l’Europe centrale.
+      -
+
+      -
+
+      - Le stock de capital n’évolue pas rapidement. Il est une résultante de
+        l’investissement et de son renouvellement dans le temps et l’espace. Son évolution
+        n’est pas prédéterminée, l’investissement étant surtout la résultante de l’arbitrage
+        entre le coût de mobilisation d’un capital financier à des fins productives et de sa
+        rentabilité escomptée, fonction principalement de l’épargne disponible, du coût du
+        capital et du risque.
+      - Les ressources en main d’œuvre sont d’abord la résultante de conditions
+        démographiques (population, âge, migration) de conditions de vie (santé, espérance
+        de vie) de l’environnement culturel et éducatif : niveau de formation, taux d’activité,
+        taux d’emploi, couverture sociale, système de retraites etc… Le ralentissement des
+        perspectives de croissance démographique pour les prochaines décennies posent
+        directement la question de la capacité de la productivité à compenser ce manque à
+        gagner pour satisfaire les besoins des populations à venir.
+
+L’influence de l’homme sur les ressources disponibles étant relativement limitée, la
+croissance économique de long terme est très dépendante de la capacité à en retirer le
+maximum de création de valeur. C’est cette aptitude que désigne le terme de productivité,
+soit le rapport des quantités produites par unité de ressource. On parle de rendement
+agricole, de productivité du capital (production par unité de capital mobilisé) et/ou de
+productivité du travail, c’est-à-dire du rapport de la production à la quantité de facteur de
+production utilisée.
+
+       A QUANTITE DE FACTEUR DE PRODUCTION IDENTIQUE, LES GAINS DE PRODUCTIVITE PERMETTENT
+       D’ACCROITRE LE RENDEMENT, AUTREMENT DIT LA CREATION DE VALEUR A L’ORIGINE DE LA
+       DISTRIBUTION DE REVENUS ET, DONC, DE LA CROISSANCE.
+
+Partant du principe qu’il y a toujours une intervention humaine (travail) dans l’acte de
+produire, la notion de productivité du travail se substitue le plus souvent à celle de la
+productivité du capital lorsque l’on se réfère au potentiel de croissance économique.
+
+La productivité est variable de sorte qu’une même quantité de ressources ne donne pas
+forcément le même potentiel de production dans le temps et l’espace, en fonction :
+   - De l’éducation, de la formation de la main d’œuvre,
+   - De l’organisation du travail,
+   - De la santé,
+   - De l’intensité en capital et de la qualité de celui-ci,
+   - Du progrès technique,
+   - Des infrastructures,
+   - Du climat,
+   - Du contexte fiscal et de la gouvernance,
+   - Des économies d’échelle…
+      … autrement dit, de tout ce qui améliore la capacité à produire dans la durée sans
+      nuire au renouvellement des ressources (naturelles ou travail).
+
+La croissance de la productivité n’est pas linéaire. Elle se caractérise par des cycles de long
+terme qui trouvent principalement leurs origines dans l’évolution du contexte
+
+démographique, dans celui de l’innovation et de l’organisation du travail. Autour de ces cycles
+longs s’enroulent des cycles de plus courte durée qui jouent un rôle majeur dans les
+articulations conjoncturelles, la vigueur de la croissance, la rentabilité économique et
+l’inflation.
+Les périodes de faible productivité sont propices aux crises économiques et à une plus
+grande difficulté à assurer un équilibre vertueux de la distribution des revenus.
+
+Dans l’ensemble des grands pays d’Europe et aux Etats-Unis, nous observons un
+ralentissement de la croissance potentielle depuis les années 1990. Cela est dû à la fois à un
+affaissement des gains de productivité depuis les années 2000 et un ralentissement de la
+main d’œuvre disponible (population active) avec le vieillissement de la population dans ces
+pays.
+
+Taux de croissance du PIB potentiel depuis les années 1990 (en %)
+
+                                                 Source : OFCE
+
+Bien que le PIB potentiel soit fondamental pour l’analyse économique, il y a beaucoup
+d’incertitudes qui entourent son estimation et il peut être fortement révisé au gré des chocs
+économiques exogènes et des retournements de cycles brutaux.
+
+                                    Sources : OCDE, calculs auteurs
+
+         Chapitre II - L’écart au potentiel - le cycle de conjoncture
+Section 1 - Définition et concept
+
+       La notion de cycle économique désigne la succession de phases d’expansion
+       économique puis de dépression/récession.
+
+              Les cycles économiques sont de plusieurs natures. Les facteurs fondamentaux,
+       essentiellement démographiques, façonnent les cycles de long terme de durée de 5 à
+       6 décennies (Kondratieff). Schumpeter voit dans les cycles des effets d’une innovation
+       radicale dont la diffusion à tous les pans de l’économie entraîne un cercle vertueux
+       d’investissements de plusieurs décennies.
+              Les cycles de conjoncture, bien que très fortement influencés par ces
+       tendances longues autour desquelles ils s’enroulent, ont leur logique propre. La
+       littérature économique classique a souvent expliqué l’existence des cycles par ceux
+       de l’investissement (Juglar) ou par celui des stocks (Kitchin). Nous verrons qu’au-delà
+       de ces explications, se trouve surtout celui de la productivité.
+              Les cycles de conjoncture se mesurent par l’écart de la production (PIB) à
+       son potentiel ; on parle de l’« output gap » ou d’écart de production (moins
+
+       commun). Ils se décomposent en plusieurs phases distinctes selon que la croissance
+       est à peu près égale au potentiel, supérieure (économie en surrégime) ou inférieure
+       (économie en sous-régime) aux caractéristiques économiques très distinctes (un peu
+       comme un sportif qui peut tirer exagérément ou, au contraire, sous-utiliser son
+       potentiel avec des manifestations physiques caractéristiques de ces deux états
+       respectifs).
+
+       En résumé, l’écart de de production ou « output gap » (OG) (qui est l’ecart entre PIB
+       effectif et PIB potentiel) :
+            - Reflète la composante cyclique de l’économie,
+            - Mesure le déficit ou l’excès de demande agrégée (si OG < 0 alors Demande <
+                Offre; si OG > 0 alors Demande > Offre).
+
+       L’écart de de production (ou « output gap ») a pour objectif de rendre compte de la
+       position de l’économie dans le cycle :
+           - C’est determinant dans le pilotage budgétaire et dans la mesure du partage
+               du solde public structurel / conjoncturel,
+           - C’est déterminant dans le pilotage de la politique monétaire et dans la
+               mesure de la règle de Taylor utilisée pour déterminer les taux d’intérêts
+               d’équilibre.
+
+       Évolution de l’écart de production dans les grands pays européens et aux Etats-
+       Unis.
+       Perspectives économiques de l’OCDE de novembre 2019 – situation « pré- Covid »
+       pour la prévision 2020.
+
+   Section 2 - De l’importance de la productivité dans le cycle
+
+   Le cycle de conjoncture est principalement le résultat du décalage temporel entre la
+   croissance de l’emploi et celle de la production et des effets de ce décalage sur la
+   croissance de la productivité.
+
+   L’emploi est une fonction retardée de la production : une entreprise va le plus souvent
+   s’assurer de la solidité de ses commandes et de ses perspectives de croissance avant de
+   prendre la décision d’augmenter ses effectifs (de même que ses capacités de
+   production) et vice versa en période de retournement à la baisse de son activité.
+   On observe très distinctement ces écarts entre la croissance de la production et celle
+   des emplois aux fil des différents cycles américains ainsi que leur résultante, la croissance
+   des gains de productivité. À noter cependant la spécificité de la dernière période,
+   marquée par une très faible amplitude des gains de productivité, sujet au cœur des
+   problématiques de ces dernières années (voir infra).
+
+   Ces écarts d’ajustement de l’emploi à la production se traduisent par d’importantes
+   variations des gains de productivité dont l’influence est cruciale sur la vie
+   économique :
+           - L’amélioration des gains de productivité en début de cycle se traduit par
+             une hausse de la profitabilité qui donne une impulsion à la reprise. Sa baisse
+             en haut de cycle ponctionne les profits et accélère l’arrivée à terme du
+             cycle.
+           - Les gains de productivité sont indispensables à une distribution de
+             revenus (emplois et salaires) nécessaire à la croissance de la demande.
+           - L’importance des gains de productivité détermine la capacité des
+             entreprises à absorber des hausses de leurs coûts (salaires, hausse des
+             prix des MP, tarifs douaniers…).
+
+   PRODUCTIVITE : QUANTITE PRODUITE PAR UNITE DE FACTEUR (CAPITAL-TRAVAIL)
+    Une augmentation de la quantité produite par tête permet d’accroître le rendement
+      d’une entreprise, de faire face à des augmentations de salaires et d’assurer une
+                                      hausse des profits.
+
+      Une réduction des gains de productivité réduit le rendement d’une entreprise,
+   augmente ses coûts salariaux unitaires, réduit sa marge bénéficiaire et/ou la conduit à
+                                augmenter ses prix (inflation).
+    COUT SALARIAL UNITAIRE : MASSE SALARIALE/PRODUCTION OU CROISSANCE DES SALAIRES / GAINS
+                                               DE PRODUCTIVITE
+                              SOIT MS/P = (EMPLOI X SALAIRE)/PRODUCTION
+
+   Exemple :
+   Une entreprise dont les gains de productivité sont en moyenne de 2% par an a la
+   capacité d’augmenter ses salaires de 2% sans modifier ses prix de vente ni avoir à
+   exerce de pression sur ses marges.
+   Si, pour des raisons cycliques (baisse de la demande, moindre croissance de la
+   production), ses gains de productivité baissent à 1%, il lui faudra pour conserver une
+   hausse des salaires de 2%, soit :
+           - Accroitre ses prix de vente à concurrence de la hausse de ses coûts
+             salariaux unitaires : 2% (salaires)-1% (productivité)= 1%.
+           - Réduire ses marges pour éviter d’augmenter ses prix face à la concurrence.
+   Dans le premier cas, le repli des gains de productivité signifie plus d’inflation, dans le
+   second il signifie compression des marges dont l’effet sera dépressif sur l’activité
+   future (emploi ou/et salaires) en fonction des rigidités en place.
+   Ces mécanismes s’amplifient généralement en période de haut de cycle lorsque
+   simultanément la croissance des salaires accélère et que les gains de productivité se
+   réduisent et sont souvent des accélérateurs de fin de cycle (voir infra).
+
+La cyclicité de la productivité devient dès lors une variable-clé des caractéristiques du cycle
+de conjoncture, de la profitabilité, de l’emploi et de l’investissement et du risque d’inflation
+cyclique.
+                          PRINCIPAUX ENCHAINEMENTS AU COURS DU CYCLE
+                                    1- le chômage et les salaires
+
+      Lorsqu’une économie est en surrégime, l’utilisation des ressources productives
+      (facteurs de production) est plus intensive :
+      - L’emploi augmente rapidement, le taux de chômage (réserve de main d’œuvre
+      disponible sur le marché du travail) diminue.
+      - L’utilisation de ses installations productives est plus élevée ; le taux d’utilisation de
+      ses capacités augmente.
+      Cette sollicitation de ses ressources renchérit les coûts de production :
+      accélération des salaires et hausse des coûts liés à la surutilisation de ses capacités
+      (heures supplémentaires, sous-traitance, délais de livraison, notamment). Lorsque les
+      gains de productivité s’érodent, voire à se transforment en pertes - c’est
+      généralement le cas en haut de cycle-, la capacité des entreprises à absorber ces
+      surcoûts est réduite. Il en résulte un risque accru d’inflation et de pressions sur les
+      marges.
+
+L’objectif de la politique économique est de réduire ces écarts au potentiel dans le but
+de prévenir les excès et chocs qui en découlent. Dans l’histoire économique de ces
+dernières décennies, cette responsabilité a surtout incombé aux politiques monétaires via
+leur action sur le niveau des taux d’intérêt directeurs et la maîtrise des anticipations
+d’inflation des marchés.
+Par ses interventions la politique économique cherche à avoir une influence contra cyclique,
+c’est-à-dire :
+            - à freiner les excès d’activité lorsque l’économie évolue en surrégime,
+            - à l’inverse, à la stimuler quand la croissance est en sous-régime.
+Les principales caractéristiques de ces deux régimes sont résumées dans le tableau ci-
+dessous.
+
+                      Chapitre III - Cycle et politique monétaire
+   Section 1 - Banques centrales et taux d’intérêt
+
+   La responsabilité des banques centrales est d’accompagner le cycle afin d’en limiter ses
+   excès à la hausse comme à la baisse (politique contracyclique).
+   Par leur action sur le niveau des taux directeurs et l’effet en chaîne sur les anticipations
+   et les taux d’intérêt à terme, les banques centrales ont une influence directe sur le coût
+   de financement de agents (ménages, entreprises, État), sur les conditions de prêts des
+   banques commerciales, l’offre et la demande de crédit, quand bien même d’une efficacité
+   réduite depuis la crise de 2008.
+
+                             LE TAUX D’INTÉRÊT = COÛT DU CRÉDIT
+   Pour l'emprunteur (débiteur) le taux d’intérêt est le coût annuel de l’avance de revenu
+   que représente l’emprunt, en pourcentage du montant emprunté.
+   Pour le prêteur (créancier) le taux d’intérêt correspond à la rémunération qu’il exige pour
+   se priver de liquidités, le service qu'il rend à l'emprunteur et pour le risque qu'il encourt
+   en cas de défaut de l’emprunteur ou de perte de valeur de la monnaie durant la durée
+   du prêt (inflation).
+   Ce taux varie en fonction :
+   - de l’équilibre entre la capacité et les besoins de financement (les changements
+   structurels de comportement d’épargne - cf Modigliani- sont donc susceptibles
+   d’influencer ce taux.
+   - les besoins des différents agents : États, Entreprises, particuliers, le type d’opérations
+   de financement (investissement, trésorerie, consommation ou logement).
+
+   - la durée du crédit (court, moyen ou long terme).
+   - la qualité de « signature » de l’emprunteur.
+
+   Les banques centrales n’ont pas vocation à intervenir sur tous ces marchés ni à financer
+   les agents. Leur rôle se cantonne (normalement) à assurer les avances nécessaires au
+   système bancaire pour la bonne marche du financement d’une économie. Ces avances
+   sont le plus souvent à très court terme, au jour le jour, contre des collatéraux du système
+   bancaire (bons du Trésor aux États-Unis, créances du système bancaire etc…).
+   Le taux de ces avances interfère néanmoins directement sur le coût de financement des
+   banques et autres entreprises habilitées, qui les répercuteront sur les conditions de
+   financement appliquées à leurs clients avec une marge, plus ou moins importante.
+           - Une hausse des taux d’intérêt renchérit le cout du crédit et rend son accès
+               moins attractif ; emprunter devient plus coûteux ce qui a pour effet de réduire
+               la demande de crédit=> La capacité des agents à satisfaire leur besoin s’en
+               trouve réduite ; l’évolution du niveau des taux d’intérêt influe donc sur la
+               demande des agents (consommation et investissement) et donc sur la
+               croissance économique.
+           - A l’inverse, en abaissant le niveau de son taux directeur, une banque centrale
+               rend le crédit moins cher, donc plus accessible ce qui a une influence positive
+               sur la demande de crédit et donc sur la croissance économique.
+
+Section 2 - Taux d’intérêt et formation des anticipations
+
+       A - Taux directeurs et courbe des taux
+
+L’action des banques centrales a des conséquences variables sur les anticipations des
+agents et donc sur les marchés financiers, en premier lieu les marchés obligataires (sur
+lesquels se négocient les titres de la dette des États -marché souverain- et des entreprises
+-marché du crédit ‘corporate’.
+           - Ces anticipations influent sur le loyer de l’argent à terme (librement fixé sur
+               chacun de ces marchés – sauf politique non-conventionnelle, c’est-à-dire
+               intervention directe des banques centrales sur certains pans de ces marchés).
+               Les différentes échéances de taux d’intérêt en sont impactées. On fait
+               référence ici à la notion de courbe de taux d’intérêt, c’est-à-dire aux niveaux
+               des taux d’intérêt à différentes échéances du JJ à 10, 30, 50 ans.
+On désigne « pente de la courbe des taux d’intérêt » l’écart entre le niveau des taux à terme
+et le niveau des taux courts. Par ses effets plus ou moins incitatifs sur la transformation
+bancaire (action de prêter à long terme et de se refinancer à CT), la pentification de la courbe
+des taux d’intérêt influence la rentabilité des banques et, par voie de conséquence, leur offre
+de crédit à l’économie.
+
+       B - Le contrôle de l’inflation
+
+La perception du cycle économique, du risque inflationniste qui lui est associé et la crédibilité
+de l’action d’une banque centrale contre ce dernier conditionnent dans une très large mesure
+la formation des anticipations de marché.
+L’inflation est une hausse continue du niveau général des prix des biens et services : une
+accélération de l’inflation signifie donc que la quantité de monnaie par rapport à celle des
+biens augmente, elle exprime une dépréciation du pouvoir d’achat de la monnaie (baisse de
+sa valeur).
+Pour le prêteur, l’inflation est synonyme de voir la valeur de la monnaie avancée perdre de sa
+valeur lorsqu’il récupèrera son capital.
+Le taux d’intérêt permet de se couvrir contre ce risque. L’absence de confiance dans la
+capacité de la politique monétaire de préserver a valeur de la monnaie (lutte contre
+l’inflation) augmente la volatilité des taux d’intérêt et nuit au bon fonctionnement de
+l’économie. En contrôlant l’inflation, une banque centrale permet de contenir ce risque.
+Les banques centrales ont pour la plupart adopté un objectif d’inflation, aux environs de
+2%.
+
+La communication des banques centrales sur leur perception du cycle, de la croissance et
+de l’inflation et de l’action la plus appropriée pour satisfaire leur objectif sont à ce titre
+particulièrement importants. Les interférences entre le pouvoir politique et celui des
+banques centrales dès lors qu’elles nuisent à la crédibilité de l’action des banques centrales
+réduisent la confiance des agents et interfèrent sur a formation des anticipations.
+Exemple : Une baisse des taux directeurs en phase ascendante du cycle alors que l’inflation
+se tend, que le taux de chômage est très faible et que les perspectives d’activité ne sont pas
+préoccupantes pourrait faire craindre une accélération de l’inflation à terme et avoir pour
+conséquence d’élever la prime de risque exigée par le prêteur pour se couvrir contre la
+perspective d’inflation. Les taux d’intérêt futurs ont de forte chance dans ce cas d’évoluer en
+direction opposée à celle recherchée par la banque centrale et à annihiler l’effet de la baisse
+des taux d’intérêt recherché par la banque centrale.
+
+A l’inverse une banque centrale qui tarderait à abaisser le niveau de ses taux directeurs alors
+que les perspectives se dégrade et que l’inflation est basse risque de provoquer une baisse
+des taux à terme et, par là-même un aplatissement de la courbe des taux susceptible de
+durcir les conditions de crédit et d’augmenter plus encore le risque de récession.
+
+       C - La gestion monétaire au fil du cycle
+L’analyse cyclique a pris est une très grande importance dans la gestion monétaire depuis le
+milieu des années 90. L’approche, formulée par J.B Taylor en 1993 consiste à déterminer le
+niveau des taux d’intérêt directeur approprié en fonction de l’écart de la croissance à son
+potentiel et de l’écart d’inflation à l’objectif de 2 %. Cette méthode de gestion s’est très
+largement diffusée et imprègne toujours l’action des banques centrales.
+
+                                   Formulation de la règle de Taylor
+
+À l’origine pensée pour l’économie américaine, cette règle avait pour variables principales :
+     Un taux réel d’équilibre de 2 %.
+     Un objectif d’inflation à 2 %.
+     Des coefficients égaux de 0,5 chacun.
+Dans le cas d’un taux de croissance potentielle de 2%, d’une inflation constatée de 3 % et
+d’une croissance économique de 3,5 %, le taux d’intérêt approprié selon la règle de Taylor
+correspondrait à :
+
+                          2 + 3 + 0,5 (3-2)+ 0,5 (3,5-2) = 2+3+0,5+0,75 = 6,25
+
+La pratique a plutôt bien fonctionné… jusqu’à la crise de 2008 quand bien même la banque
+  centrale n’a pas toujours scrupuleusement suivi les enseignements de la règle de Taylor,
+ notamment durant la période 2002 à 2007 où le niveau des taux des FED Funds est resté
+                 très inférieur aux préconisations suggérées par cette règle.
+
+Nombreux ont considéré que ce non-respect de la règle de Taylor a contribué à encourager
+une montée de taux d’endettement à l’origine de la bulle immobilière de 2002 à 2004 et de
+la crise financière qui s’en est suivie (crise des subprimes notamment).
+
+       Fin 2008, dans un contexte de récession sans précédent depuis la seconde guerre
+       mondiale, la règle de Taylor suggérait qu’il faille abaisser les taux directeurs dans la
+       région de -4% pour faire face aux effets de la crise sur l’activité. Jamais pratiqués et
+       considérés comme impossibles, la FED a dû trouver d’autres moyens pour assouplir
+       les conditions de crédit : de là sont nés les pratiques d’assouplissement quantitatif
+       (quantitative easing) consistant à intervenir sur les marchés du crédit par l’achat de
+       dettes pour directement influencer le niveau des taux d’intérêt à terme.
+
+  PARTIE III – DÉRÈGLEMENTS CYCLIQUES, NOUVEAUX PARADIGMES
+                        ET ÉTAT DES LIEUX
+
+         Chapitre I - Les limites de l’action des banques centrales
+Section 1 - Constat
+
+Face à l’impossibilité d’ajuster le niveau de leurs taux d’intérêt aux impératifs de la situation
+post-crise de 2008, les banques centrales ont été conduites à adopter de nouveaux outils :
+           - Approvisionnement du marché en liquidités pour faire face à la pénurie
+              immédiatement consécutive à la crise.
+           - Achats de titres de la dette hypothécaire par la banque centrale américaine
+              pour assainir le bilan des banques.
+           - Achats de titres de la dette publique pour réduire les pressions sur les taux
+              d’endettement et les politiques publiques par la FED, la BCE (à partir de 2015)
+              et la Banque du Japon.
+           - Achats d’obligations d’entreprises par la BCE.
+           - Achats d’ETF par la BoJ.
+
+       Ces opérations avaient pour double objectif de contenir les risques financiers et
+       d’injecter des liquidités dans le système bancaire, lesquelles étaient supposées
+       soutenir le crédit et, par voie de conséquence, la croissance.
+       La contrepartie a été un gonflement inédit du bilan des banques centrales (avec à leur
+       actif des stocks de titres) et des injections de liquidités tout aussi inédites dans
+       l’économie.
+
+Contrairement à ce que suggère l’approche monétariste, ces injections de liquidités n’ont
+pas créé d’inflation du prix des biens mais une inflation essentiellement concentrée sur les
+prix des actifs : obligations, actions, immobilier.
+L’inflation n’a jamais véritablement retrouvé ses tendances passées et les risques de
+déflation ont été récurrents, avec pour résultat d’entretenir des niveaux de taux d’intérêt très
+
+en-deçà de leurs moyennes historiques et de pousser les banques centrales à prolonger
+leurs actions quantitatives.
+
+Section 2 - Éléments d’explication
+
+La relation entre la création monétaire et l’inflation s’est considérablement distendue depuis
+le début des années quatre-vingt-dix. Plusieurs explications peuvent être avancées pour
+expliquer ce constat.
+
+       A - Surendettement
+
+L’endettement n’est pas extensible à l’infini.
+Offre et demande de crédit sont simultanément sensibles à l’environnement économique et
+au niveau d’endettement des agents => Plus le taux d’endettement est élevé plus la
+sensibilité de la croissance du crédit au niveau des taux d’intérêt se réduit :
+            - Détérioration de la solvabilité des agents (risque accru pour le créancier).
+            - Moindre appétit pour l’endettement.
+        L’efficacité marginale de la baisse des taux d’intérêt se réduit ce implique des taux
+           plus bas pour le même effet que par le passé.
+
+       B - Baisse de la croissance potentielle
+
+La hausse des taux d’endettement du secteur privé a largement entretenu la croissance du
+monde développé depuis le début des années 90 aux États-Unis puis dans l’ensemble du
+monde développé au cours des années 2000. La Chine a suivi depuis 2010 et connait un
+taux d’endettement record aujourd’hui.
+
+L’endettement est une avance, un complément de revenu comparable à une ressources de
+croissance immédiate, qui a donc un rôle stimulant sur l’activité. Sa disparition confisque
+cette ressource de croissance. Le repli des taux d’endettement a amputé la croissance du
+monde développé depuis la crise de 2008. La Chine pourrait être dans cette configuration
+aujourd’hui. Tout dépend en effet de sa capacité à générer une croissance future de ses
+revenus nominaux pour absorber son surendettement récent (lesquels sont nécessaires
+pour absorber la dette passée).
+
+Les pertes de croissance potentielle se traduisent par une moindre croissance de l’emploi,
+notamment les moins qualifiés (services), un phénomène aggravé par la digitalisation ces
+dernières années (pertes d’emplois dans le commerce, notamment, traditionnellement grand
+gisement d’emplois peu qualifiés).
+
+       C - Compétition internationale/réduction de l’inflation
+
+La compétition internationale et la mobilité des capitaux ont simultanément contribué à
+accroitre la compétition et à faire baisser l’inflation. Dans le même temps, l’ouverture des
+marchés de capitaux a incité les entreprises à renforcer leur rentabilité. L’ensemble a exercé
+des pressions à la baisse des salaires à l’origine d’un repli structurel de la croissance de la
+demande.
+La distribution des revenus est déformée. La sensibilité des salaires à la baisse du taux de
+chômage a disparu et avec elle l’inflation cyclique.
+
+       D - Financiarisation économique
+
+Le degré de financiarisation de l’économie mondiale s’est considérablement accru depuis le
+début des années 90, un effet surtout attribuable à l’accumulation d’épargne inhérente au
+caractéristiques démographiques (cycle de vie).
+
+Voir à ce sujet : « Le vieillissement démographique, une garantie de taux bas ou de QE à
+l’infini ? »
+
+Cette financiarisation a des conséquences en chaîne très importantes sur les rouages
+économiques, les cycles et les politiques monétaires :
+       la sensibilité de la conjoncture au contexte de marché s’en trouve accrue et, par là
+         même, la dépendance des banques centrales à ces derniers.
+       l’influence des politiques monétaires devient mécaniquement plus forte sur les
+         marchés financiers que sur l’économie réelle.
+
+Un partage de la valeur ajoutée historiquement favorable aux plus riches.
+
+La courbe de l’éléphant de B. Milanovic (économiste en chef de la Banque mondiale de 1993
+à 2001) :
+
+     La grande originalité de ce travail est d’avoir mesuré l’évolution du revenu de tous les
+habitants de la planète et de les avoir comparés. Ce travail se résume en un graphique
+devenu célèbre : « la courbe de l’éléphant ». En abscisse, la distribution des habitants de la
+
+planète en fonction de leurs revenus et en ordonnée, la progression des revenus moyens par
+tête hors inflation entre 1980 et 2016 des différents fractiles des revenus mondiaux. Le
+graphique montre l’émergence d’une classe moyenne dans les pays émergents en forte
+croissance comme la Chine, l’Indonésie, le Vietnam ou l’Inde (le dos de l’éléphant), la
+stagnation des classes moyennes et populaires des anciens pays riches (États-Unis, Europe)
+et l’explosion d’une classe de très hauts revenus dans ces mêmes pays riches. Par ailleurs,
+pour la première fois depuis la révolution industrielle, constate l’économiste, les inégalités
+mondiales ne sont plus marquées par une hausse des inégalités entre pays. Pourtant celle à
+l’intérieur des pays ont tendance à s’accentuer.
+
+     La part de revenu détenue par les 10 % les plus aisés est différente selon les zones du
+monde. C’est en Europe qu’elle est la plus faible du monde (la France étant par ailleurs l’un
+des moins inégalités d’Europe…donc du monde) et au Moyen-Orient, en Inde, au Brésil et en
+Afrique sub-saharienne qu’elle est la plus élevée.
+     A l’exception des zones / pays qui étaient déjà très inégalitaires, toutes les zones du
+monde ont connu un fort accroissement de la part des revenus détenus par les 10 % les plus
+aisés. C’est en Europe que cette augmentation a été la plus limitée.
+
+       E - Vieillissement, inégalités et conflits intergénérationnels
+
+Les pertes de potentiel de croissance et la financiarisation simultanée a considérablement
+accru les inégalités, dont la forme prend surtout celle de conflits intergénérationnels liés aux
+cycles d’accumulation des différents groupes d’âge.
+
+       F - Surendettement des États- restriction budgétaire
+
+Moindre croissance et crise économique ont considérablement creusé la dette des États
+depuis la crise de 2008. La situation aurait dans bien des cas conduit à la faillite des États
+sans les achats massifs de titres souverains (obligations) par les banques centrales (QE).
+
+Les contraintes budgétaires ont exercé des pressions sur les politiques publiques qui ont
+pesé sur l’activité économique et ont, simultanément, accru le sentiment d’insécurité
+économique et ont nui à la croissance de l’investissement (capital).
+
+Les politiques restrictives ont accru le degré de sous-utilisation des ressources et accentué
+les effets récessifs et déflationnistes que tentaient de contenir les politiques monétaires très
+accommodantes.
+
+Schéma des enchainements post-crise financière de 2008.
+
+           Chapitre II - Raréfaction des ressources de croissance
+Section 1 - La démographie
+
+Les développements économiques du demi-siècle écoulé ont été très favorablement
+soutenus par un contexte démographique très porteur, source de croissance inédite des
+ressources en travail puis en capital.
+
+Le contexte démographique devient moins porteur : l’âge médian augmente rapidement
+avec l’arrivé des baby-boomers à l’âge post actif et la structure des populations est moins
+favorable à la croissance.
+        La ressource de travail croit moins vite,
+        Le contexte devient moins favorable à l’investissement,
+        L’accroissement des personnes d’âge post-actif fragilise les systèmes de retraites,
+           réduit les ressources des États et accroit les besoins de dépenses (santé)
+        Moindre croissance de la demande de biens,
+        Croissance plus concentrée dans les services,
+        Le vieillissement remet en cause le modèle d’ouverture des frontières.
+
+L’innovation et la robotisation apportent certaines réponses à la problématique de
+vieillissement (remplacement de l’homme par la machine, productivité) mais ne peut avancer
+significativement sans redéfinition du système de redistribution des revenus : par quoi
+remplacer la disparition des revenus du travail ?
+
+Section 2 - Le développement du monde émergent trouve ses limites
+
+La croissance du monde émergent a surtout résulté de l’impulsion chinoise et à son ouverture
+au commerce mondial après son adhésion à l’OMC.
+Les besoins de l’économie chinoise ont constitué une courroie de transmission de sa
+croissance dont ont très largement profité les pays de la planète entre 2005 et 2012.
+
+       A - La raréfaction des échanges mondiaux remet en question ce modèle
+
+Les effets de la crise et du vieillissement démographique sur la demande internationale
+remettent en cause ce modèle de développement et les bénéfices.
+
+       B - Le reste du monde émergent n’a pas encore trouvé la voie d’un développement
+       harmonieux et soutenable
+
+Voir à ce sujet « La chine à l’heure du nationalisme ».
+
+       C - Les limites environnementales et climatiques imposent de repenser le modèle de
+       croissance
+
+Ordres de grandeur de l’évolution des besoins planétaires à horizon 2030.
+
+                            Parc
+                         automobile       2030      = production de             =
+                          mondial                      véhicules           production
+                            2010                           X3             des intrants
+                                                    correspondant           (métaux
+                                          2M         à une hausse            divers,
+                             1M
+                                                        annuelle          textiles…) X
+                                                      moyenne de                3
+                                         2030             5,5%
+                      Consommatio
+                      n énergétique
+                        mondiale                    La consommation d’énergie
+                                                     /tête des pays émergents,
+                                                       1/5ème de celle des pays
+                         2010             2M
+                                        25 Tep         développés aujourd’hui
+                                                    serait multipliée par 3, voire
+                         12 Tep
+                                                        4 dans scénario haut
+                                                    (convergence vers la Corée)
+
+                                                        Les changements de mode de consommation
+                         2010             X          alimentaire qui accompagnent l’élévation du niveau
+                                        2,5/3          de vie favorisent la consommation de protéines
+                                                       d’origine animale…qui elle-même ont besoin de
+                                                                grandes quantités de céréales

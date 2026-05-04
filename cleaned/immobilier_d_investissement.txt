@@ -1,0 +1,1474 @@
+
+
+
+    Partie I - L’IMMOBILIER COMME CLASSE D’ACTIFS : MARCHÉS ET
+                             VALORISATION
+
+                       Chapitre I - Définitions et fondamentaux
+
+Étymologiquement, l’immobilier (im-mobilis en latin) renvoie à ce qui ne peut pas être
+déplacé : un terrain (« le foncier ») ou un bâtiment (« le bâti »). L’immobilier comprend
+également les objets inamovibles attachés au bâti (chauffage central, etc.). D’autres objets
+inclus dans le bâti sont considérés, en droit, comme « meubles », c’est-à-dire pouvant être
+déplacés, tels qu’un véhicule ou un animal.
+
+Les biens immobiliers sont traditionnellement loués dans le cadre d’un bail, qui est un contrat
+par lequel le bailleur s’engage à procurer au preneur la jouissance du bien immobilier, en
+échange d’un loyer. Dans un bail, les principales clauses portent sur le montant du loyer, son
+indexation, la durée du bail, et les différentes garanties afférentes.
+
+En droit romain, le droit de propriété sur un bien immobilier peut être décomposé entre :
+   - L’usage du bien (usus)
+   - Le droit de recevoir le loyer de ce bien (fructus)
+   - Le droit de céder ou aliéner le bien (abusus).
+
+La décomposition de ces droits permet des structurations financières complexes entre les
+différentes personnes qui détiennent ces droits, dont la plus courante est le démembrement
+de propriété entre un usufruitier (qui détient l’usus et le fructus sans l’abusus) et un nu-
+propriétaire (qui détient l’abusus seul). Ainsi, chacun de ces droits est potentiellement un
+produit financier, avec sa valorisation propre, qui correspond généralement à une clef de
+répartition de la valeur de pleine propriété.
+
+L’immobilier en tant qu’actif se distingue sur plusieurs points :
+
+   -   Il n’est pas fongible. Cela signifie que chaque objet immobilier a ses qualités propres
+       et ne peut être additionné à d’autres comme un lingot d’or qui vaut un autre lingot d’or,
+       par exemple. Chaque objet immobilier comporte des qualités uniques (localisation,
+       bâti, obsolescence des équipements, situation locative) qui concourent à sa
+       valorisation. De ce fait, non seulement les marchés sont locaux, mais en toute rigueur,
+       chaque objet immobilier a son propre marché.
+
+   -   Il ne se « consomme » que sur le très long terme.
+           o On estime généralement que la durée d’amortissement d’un immeuble (le
+               temps au bout duquel il vaut zéro, s’il n’y a aucun travail effectué sur lui) est de
+               l’ordre de 25 ans.
+           o La durée des baux commerciaux, c’est-à-dire le temps pendant lequel le
+               bailleur s’engage à mettre à disposition le bien et le preneur à lui verser un loyer,
+
+             est généralement de 6 ou 9 ans, et peut aller jusqu’à 20-25 ans dans d’autres
+             pays européens.
+           o La structure de frais et d’imposition de l’immobilier comprend un coût d’entrée,
+             souvent qualifié de « frais de notaire » mais essentiellement composé de taxes,
+             qui induisent une période de latence avant que l’investissement ne devienne
+             rentable.
+           o La durée matérielle nécessaire pour acheter ou vendre un actif immobilier est
+             de plusieurs mois et s’inscrit dans une séquence « marque d’intérêt » -
+             « promesse de vente » - « acte d’acquisition » au cours de laquelle sont menées
+             de diligences techniques, fiscales et notariales et au cours de laquelle le
+             financement, souvent bancaire, est réuni.
+
+   -   L’immobilier est à la fois
+           o Un produit qui s’échange en fonction de l’offre et de la demande pour la
+             propriété de biens immobiliers
+           o Un service qui correspond à l’usage du bien, lequel peut être mis en location
+           o Un actif qu’on peut immobiliser, et qui constitue à ce titre un droit sur les gains
+             qu’il peut générer.
+
+Les acteurs du marché
+
+Le schéma ci-après donne une idée de la structure du marché immobilier en termes
+d’acteurs. Il est important de noter que l’univers d’investissement des investisseurs
+institutionnels ne représente qu’une partie du parc. Il est également important de noter que
+la France est le pays en Europe qui dispose des voies d’accès les plus variées au marché
+immobilier : un secteur institutionnel côté et non côté, et un secteur « grand public » côté et
+non côté. En revanche la France ne dispose pas de fonds de pension.
+
+Source : HCSF, à partir de I. Nappi-Choulet, L’immobilier d’entreprise, analyse économique
+des marchés, Economica, 2013
+
+En termes de typologie on peut distinguer 2 types d’immobilier d’investissement répondant
+à des logiques différentes : immobilier d’entreprise, et immobilier résidentiel.
+
+L’immobilier d’entreprise, parfois nommé immobilier « professionnel », est destiné à des
+locataires personnes morales. Le cadre de la relation est typiquement un bail commercial.
+Les 2 principales typologies, en termes de volumes d’investissement, sont le bureau et les
+murs de commerce.
+
+                          Chapitre II - L’immobilier de bureaux
+
+Le bureau (aussi appelé « tertiaire » parce qu’il est destiné aux actifs du secteur tertiaire,
+c’est-à-dire le secteur des services) est, de loin, le segment le plus profond et le plus
+liquide de l’immobilier d’investissement. En France, le volume d’investissement historique
+s’élève à environ 15 milliards € par an sur l’Ile-de-France en moyenne sur la période 2004-
+2021. Sur la période 2014-2021, ce chiffre est monté à 21 milliards €, du fait d’une conjoncture
+favorable à l’investissement immobilier.
+
+On considère généralement que le rendement de l’immobilier de bureaux est lié aux cycles
+économiques, et que sa performance est corrélée à la croissance économique. Le rationnel
+de cette hypothèse est que l’économie crée des emplois de bureaux, qui viennent à leur
+tour alimenter la demande placée de m² de bureaux et pousser le loyer à la hausse.
+
+Dans les faits, on peut raffiner l’analyse en liant le marché locatif du bureau :
+
+   -   à la capacité de l’économie à créer des nouveaux emplois privés marchands tertiaires
+       (ceux qui consomment de l’immobilier de bureau)
+
+   -   à l’évolution des stratégies immobilières des grandes entreprises et des
+       administrations : regroupement des équipes au sein de campus en périphérie, ou
+       découplage des fonctions middle et back en périphérie et des fonctions de front office
+       au centre-ville, ou demande d’immeubles intelligents aptes à s’adapter à une
+       consommation fractionnée (Flex office, etc.)
+
+Concernant les prix du bureau, la dynamique est liée, mais différente. Les investisseurs
+institutionnels, qui représentent l’essentiel de l’investissement en bureau, valorisent leur
+
+acquisition en fonction d’un taux de capitalisation du loyer. Ce taux dépend lui-même d’une
+prime de risque appliquée par rapport au taux dit « sans risque » (par convention : taux des
+emprunts d’État à 10 ans), lequel varie selon les politiques des Banques Centrales en termes
+de taux directeurs. Il y a donc un aléa macroéconomique sur la valorisation des bureaux,
+qui est largement indépendant du marché du bureau proprement dit. Nous examinerons
+les modalités de valorisation dans la suite du cours.
+
+                       Chapitre III - L’immobilier de commerce
+
+On distingue traditionnellement 3 formats différents d’immobilier de commerce :
+
+   -   Murs de magasins : il s’agit de boutiques de petit format, souvent localisés dans les
+       artères les plus commerçantes (« emplacements numéro 1 ») des agglomérations
+
+   -   Retail parks : il s’agit de parcs commerciaux de périphérie, qui accueillent des locaux
+       dans un espace ouvert, généralement localisé près des nœuds de circulation. Ces
+       produits sont souvent adossés à un hypermarché ou « locomotive » alimentaire.
+
+   -   Galeries commerciales ou centres commerciaux. Ces produits sont également des
+       parcs commerciaux, mais fermés et généralement localisés à l’intérieur d’une ville.
+
+Dans la pratique ces catégories évoluent fortement et de nouveaux formats font leur
+apparition, tels que le drive.
+
+Le volume d’investissement en immobilier de commerce représente annuellement entre 3 et
+5 milliards €. Il s’est réduit ces dernières années, du fait d’une désaffection des investisseurs
+privés et institutionnels pour l’immobilier de commerce, dont les modèles économiques sont
+remis en cause par l’évolution des habitudes de consommation. Cependant, des acteurs
+spécialisés et sophistiqués sont apparus afin de profiter des points d’entrée attractifs.
+
+La valorisation des murs de commerce est plus complexe que celle des bureaux, du fait :
+
+    -   De la diversité des formats et de l’incertitude quant à leur résilience dans les années à
+        venir
+
+    -   De la dépendance par rapport à la situation du commerçant. Il est impératif de
+        comprendre le modèle économique du commerçant occupant, et notamment l’effort
+        que représente pour lui le loyer, par rapport à son chiffre d’affaires et son taux de
+        marge. C’est la notion de taux d’effort. Le degré de captivité d’un commerçant (la
+        dépendance de son fonds de commerce vis-à-vis de son emplacement) doit
+        également être analysé de façon fine.
+
+                            Chapitre IV - L’immobilier résidentiel
+
+Éléments de contexte : un marché déserté par les institutionnels, jusqu’à une date
+récente
+
+L’immobilier résidentiel est un compartiment spécifique de l’immobilier d’investissement. Les
+volumes d’investissement institutionnel en immobilier résidentiel sont parmi les plus réduits
+par classe d’actifs, en France – de l’ordre de 1 à 4 milliards € par rapport à 25-30 milliards €
+par an pour l’immobilier d’investissement au global sur la période 2010-2021.
+
+Cette relative absence des institutionnels français sur le segment du logement est la
+conséquence d’une politique immobilière développée depuis les années 2000, visant à
+renforcer l’accès à la propriété des biens résidentiels par les investisseurs particuliers. Aussi,
+la part du logement dans les portefeuilles des institutionnels 1 s’est effondrée depuis les
+années 90. Cette politique est atypique en zone euro. Elle s’appuie en partie sur les
+dispositifs fiscaux (Méhaignerie, Robien, Scellier, Pinel…) et sont généralement centrées sur le
+neuf.
+
+1 Il s’agit principalement des compagnies d’assurance, des mutuelles, des caisses de retraite ou encore des fonds.
+
+Par rapport aux autres typologies immobilières, l’immobilier résidentiel se caractérise par :
+
+   -   Son investissement massif par des particuliers dans un but de propriété (valeur
+       d’utilité) et de préparation à la retraite
+   -   Une réglementation/imposition beaucoup plus lourde que pour les autres classes
+       d’actifs
+
+La formation des prix en immobilier résidentiel est spécifique. La demande est conditionnée
+par les comportements des ménages. Les comportements des ménages pour leur
+acquisition de logements dépendent de nombreux facteurs :
+
+   •   Financiers : taux d’emprunt, solvabilité, incitation fiscale
+   •   Géographiques : attractivité du territoire,
+   •   Psychologiques et socioculturels : arbitrage entre acheter ou louer, décohabitation,
+       volonté de transmettre, pessimisme pour le futur…
+
+L’offre de logements est quant à elle fortement déterminée par
+
+   •   l’équilibre financier des promoteurs
+   •   la propension des autorités politiques à autoriser la construction de logements, et les
+       réglementations correspondantes (ZAN, etc.)
+
+En France, l’offre est particulièrement contrainte sur ces deux points :
+
+   -   Les coûts de construction en France, pour le logement neuf, se situent 17% au-dessus
+       de la moyenne européenne, du fait, notamment, de coûts de main d’œuvre plus élevés.
+
+   -   Le maire est l’autorité compétente pour délivrer des permis de construire (sauf pour
+       certains projets d’intérêt national où le préfet intervient). Or, pour les communes, la
+
+       délivrance de ces permis de construire induit des coûts (crèches, stades,
+       équipements divers) importants, sans oublier le risque politique.
+
+La loi ELAN (Évolution du logement, de l’aménagement et du numérique), votée par le
+Parlement en octobre 2018, a vocation à pallier ces déséquilibres, notamment en luttant
+contre les recours abusifs et en facilitant la cession de foncier public.
+
+La dynamique des prix en France depuis la fin des années 1990
+
+A l’instar d’autres capitales européennes, depuis la fin des années 1990 (soit après une crise
+immobilière qui s’est traduite par une chute des prix de l’ordre de 40% en moyenne
+nationale), les prix du logement sont orientés fortement à la hausse. En 20 ans, l’augmentation
+est de l’ordre de 150% en moyenne nationale.
+
+Cette dynamique de prix a été momentanément interrompue lors de la crise financière de
+2008 (chute des prix de l’ordre de 9% au niveau national sur 1 an). Cette baisse a été suivie
+d’un rebond des pris entre 2009 et 2011, alors que d’aucuns prédisaient « l’éclatement de la
+bulle immobilière » à la faveur du contrecoup de la crise financière. Cet épisode laisse
+apparaître une véritable force de rappel en faveur de la hausse des prix du logement en
+France.
+
+Dans les dernières années (2014-2022), de nouvelles tendances se sont mises en place avec
+la montée en puissance de certaines localisations à forte qualité de vie (statons balnéaires,
+
+certaines villes comme Nantes, Bordeaux, etc.), et un plafonnement de la hausse des prix à
+Paris intra muros.
+
+Source : FNAIM
+
+Il y a consensus sur le rôle de la baisse des taux d’emprunt et sur celui de la rareté foncière
+dans cette hausse des prix, mais le poids de ces facteurs ne fait pas consensus :
+
+   -   Certains analystes pointent le rôle prépondérant de l’environnement de taux bas dans
+       la croissance des prix, et mettent ainsi en exergue la vulnérabilité du marché face à
+       une hausse des taux qui désolvabiliserait d’un coup des acheteurs déjà mis à rude
+       épreuve par le niveau des prix.
+
+   -   D’autres analystes pointent le rôle prépondérant de la rareté de l’offre de logement
+       dans les métropoles, qui crée une « tension foncière » dans ces territoires, alors même
+       que des facteurs socio-démographiques (augmentation de la population, migrations
+       interrégionales, décohabitations, concentrations des ressources dans les centres-
+       villes) alimentent la demande.
+
+Or, cette analyse est déterminante en termes de politiques publiques. Dans le premier cas,
+la puissance publique est tentée de contraindre les investisseurs afin d’éviter la formation
+d’une bulle sur les valeurs d’actifs, résultat d’une politique de création monétaire expansive ;
+dans le second cas, la puissance publique est conduite à encourager la construction neuve,
+y compris au moyen de dispositifs fiscaux, et lever les contraintes sur l’attribution du foncier,
+afin de résorber le déséquilibre entre offre et demande.
+
+L’amorce d’un retour des investisseurs institutionnels
+
+Depuis les années 2015-2016 s’amorce un retour des investisseurs vers la classe d’actifs
+résidentielle, hors de tout avantage fiscal. Les raisons sont identifiées :
+
+   -    Une hiérarchie des taux de rendement qui rapproche le résidentiel de l’immobilier
+        de bureaux. Avec un rendement locatif de l’ordre de 2,5% (une fois déduits les coûts
+        de gestion, particulièrement élevés, de l’actif logement), le différentiel d’avec la
+        rentabilité du bureau prime (3%) s’est considérablement amoindri.
+
+   -    La prise de conscience du potentiel de plus-value de l’immobilier résidentiel. En
+        effet, un consensus s’est formé sur le marché pour identifier deux forces des rappel
+        structurelles de la valeur des biens résidentiels. Ces forces sont indépendantes de la
+        situation de taux bas, évidemment très favorables à l’investissement immobilier en
+        général :
+
+           o Une situation de rareté de l’offre, généralisée à l’échelle des grandes villes de
+             la zone euro mais particulièrement aigüe en France. Durant les années 2000, un
+             fossé s’est creusé entre une offre contrainte (notamment pour des raisons
+             réglementaires et politiques et une demande stable, portée par la démographie
+             et l’évolution des structures familiales (décohabitation plus fréquente, qui
+             augmente le nombre des ménages en diminuant leur taille).
+
+       Évolution de l’offre (production) et la demande (nb. de ménages) en zone euro
+
+                                   Source : Primonial REIM Recherche & Stratégie
+
+           o Une accélération de la métropolisation. On définit la métropolisation comme
+             une concentration des actifs (services publics, hubs de transport, entreprises
+             du secteur tertiaire, offre culturelle, offre scolaire, offre immobilière, etc.) sur un
+             territoire en extension. Les migrations inter-régionales ont connu en France une
+             accélération ces dernières années avec une croissance de la population
+             d’agglomérations telles que Bordeaux ou Nantes issue de l’arrivée de franciliens
+             au pouvoir d’achat plus élevé. Il en a résulté une augmentation des valeurs
+             métriques. Ce mouvement devrait se poursuivre au fur et à mesure des
+             livraisons d’infrastructures de transport (LGV notamment).
+
+ Chapitre V - La valorisation de l’immobilier : l’approche par la prime
+                               de risque
+
+Les actifs immobiliers sont évalués par des experts indépendants. L’expert immobilier a pour
+mission d’évaluer un bien (ou d’en actualiser la valeur), de délivrer un « avis de valeur » ou
+encore de contrôler la cohérence d’une expertise tierce. Les valeurs produites servent de
+base aux transactions effectives sur le marché. De fait, compte tenu de la non-fongibilité des
+biens (i.e. des caractéristiques particulières à chaque objet) il ne peut y avoir de marché
+immobilier pur et parfait au sens où il existe pour de biens ou des actifs traditionnels.
+
+Les différents concepts de « valeur » sont les suivants :
+
+- La valeur vénale ou market value, qui se définit par la somme d’argent estimée contre
+laquelle des biens et droits immobiliers seraient échangés à la date de l’évaluation ente un
+acquéreur et un vendeur, tous deux consentants, dans une transaction équilibrée, après une
+commercialisation adéquate, en toute connaissance et sans pression.
+
+- La valeur locative de marché (VLM) ou market rent qui est la contrepartie financière de
+l’usage d’un bien immobilier qui pourrait être raisonnablement loué dans le cadre d’un
+contrat de bail. Elle se calcule généralement en fonction des éléments de comparaison
+obtenus lors de l’analyse de marché.
+
+Il est d’usage d’accorder à des locataires certains avantages ponctuels ou répétitifs (mise à
+neuf des locaux lors de son entrée en location, franchises de loyer etc.). On distingue alors le
+
+loyer facial (affiché dans le bail) et le loyer économique (loyer facial défalqué de ces
+avantages).
+
+Classiquement, la valorisation des biens, selon les experts, combine 3 méthodes : méthode
+par comparaison, méthode par capitalisation des revenus et méthode DCF.
+
+La méthode par comparaison ou encore par analogie, nécessite une analyse de marché
+particulièrement fine. Il s’agit de trouver des transactions comparables, qui ont été
+effectivement réalisées et qui représentent ainsi, dans une certaine mesure, une valeur de
+marché. Cette approche suppose un marché suffisamment actif pour produire un grand
+nombre de comparables.
+
+La méthode par capitalisation du revenu, consiste à partir du revenu annuel (constaté ou
+estimé) auquel on applique un taux de capitalisation :
+
+Le revenu à prendre en compte pour l’application de ce taux de capitalisation est le suivant
+:
+    - En résidentiel : loyer brut ou du loyer net hors taxes et hors charges locatives
+    - En immobilier d’entreprise : prise en compte du loyer net, HT et hors charges locatives.
+       Pour définir le loyer net on déduira les charges réputées non récupérables, les
+       différents avantages consentis aux locataires.
+Il est à noter que le taux de capitalisation prend en compte l’incidence des frais/droits
+d’enregistrement. Nous verrons plus loin comment se détermine le taux de capitalisation.
+
+La méthode par actualisation des flux futurs (méthode DCF) consiste à projeter
+l’ensemble des flux sur une période (par exemple 10 ans) en tenant compte de différentes
+hypothèses : indexations, avantages consentis, hausses de loyer projetées, durée des
+relocations, vides structurels…. et valeur de revente potentielle à l’issue de la période.
+L’ensemble de ces flux futurs est alors ramené en valeur actuelle au moyen d’un taux
+d’actualisation.
+
+Comment déterminer le taux de capitalisation d’un bien ? l’approche par la prime de
+risque
+
+Afin de déterminer le taux de capitalisation qu’il faut appliquer à un bien, l’approche
+couramment admise est celle par la prime de risque. Le rationnel de cette méthode consiste
+à considérer que le bon prix de l’immobilier est celui qui rémunère l’ensemble des risques
+pris par l’investisseur. La prime de risque correspond alors à la différence entre le rendement
+qui rémunère ces risques (<- rendement demandé par l’investisseur), et le « taux sans
+risque ».
+
+Lorsque le rendement demandé est inférieur au rendement constaté sur le marché, cela
+signifie que le marché sur-rémunère le risque immobilier, qu’il peut donc y avoir un afflux de
+capitaux qui à son tour fera monter les prix immobiliers pour tendre au rendement demandé.
+
+Lorsque le rendement demandé par l’investisseur est supérieur au rendement constaté sur
+le marché, cela signifie que le risque immobilier est insuffisamment rémunéré. Par
+conséquent les prix de l’immobilier tendent à diminuer jusqu’à ce que le rendement soit
+attractif du point de vue des investisseurs.
+
+La méthode usuelle en finance, qui consiste à baser la prime de risque des actifs en fonction
+de la volatilité historique, est difficilement applicable, du fait de la rareté et de la non-
+comparabilité des transactions entre elles.
+
+Dès lors, la détermination de la prime de risque fait l’objet d’une abondante littérature
+universitaire1. Il s’agit fondamentalement de modéliser une rémunération des risques
+intrinsèques de l’immobilier. Pour cela, les modèles développés par les investisseurs isolent
+les risques intrinsèques de l’immobilier : obsolescence, illiquidité, risque locatif… puis
+déterminent la rémunération qu’un investisseur serait en droit d’attendre pour couvrir ce
+risque. Généralement, ce dernier calcul s’appuie sur des données historiques : capacité à
+absorber une baisse de 25% du niveau des prix (on considèrera alors que la prime d’illiquidité
+est égale au rendement constaté sur le marché, multiplié par 0,25), volatilité historique sur
+10 ans, etc. Il s’agit de conventions et non pas d’un calcul prédictif.
+
+Ce rendement attendu par les investisseurs est ensuite comparé à la performance que
+délivre effectivement le marché immobilier, en veillant à traiter l’effet des coûts de gestion
+(charges locatives) et l’inflation future.
+
+1 Voir G. BARON, 2005, Bulle du logement ? L’analyse par la prime de risque immobilière,
+Revue Réflexions immobilières ou encore EDHEC Risk & Asset Management Centre, 2007,
+L’investissement et la gestion du risque en Europe.
+
+La valeur d’un bien est alors son revenu locatif annuel divisé par son taux de
+capitalisation. Plus le taux de capitalisation augmente (du fait d’une hausse du taux sans
+risque, ou du fait d’une hausse de la prime de risque) plus la valeur, toute chose par
+ailleurs, se déprécie, et inversement. Lorsque le loyer augmente (par exemple sous l’effet
+de l’indexation), à taux de capitalisation égale, la valeur de l’actif s’apprécie.
+
+    A retenir : sur le marché immobilier, la pratique des investisseurs institutionnels – qui
+     concourent à former le prix – va se rapprocher d’une méthode obligataire : la
+     performance est la rémunération d’un risque.
+
+    Certains investisseurs privés voire institutionnels, ont développé une approche de
+     type « performance absolue » consistant à investir uniquement sur les marchés trop
+     petits (non institutionnels), de façon à éviter cette formation du prix. Cette gestion
+     est fondamentalement opportuniste et micro-locale et comporte des risques
+     spécifiques.
+
+    Le consensus dans la profession est qu’une prime de risque « naturelle » pour le bureau
+     prime s’élève à 200-250 points de base. C’est la mesure du risque idiosyncratique de
+     l’immobilier, avec une prime de liquidité et de volatilité minimales. Plus l’on considère
+     des actifs faiblement liquides ou fortement volatils (entrepôts, hôtels, santé, data
+     centers…), plus la prime de risque exigée par l’investisseur sera forte. Pour un entrepôt
+     logistique de « classe A » par exemple, une prime de risque de l’ordre de 400 à 500
+     points de base par rapport à l’OAT à 10 ans est le standard historique.
+
+Exemple d’analyse par la prime de risque appliquée à des marchés locaux. Le graphe
+suivant montre les primes de risques historiques, sur la période 2009-2018, des principaux
+marchés de bureaux franciliens.
+
+Dans ce cas d’espèce, on peut en tirer une première analyse suivante : la prime de risque de
+Paris QCA aujourd’hui est supérieure à son minima historique. Les bureaux situés à Paris QCA
+ne sont donc ps survalorisés, un potentiel de hausse existe. Inversement, la prime de risque
+des bureaux situés dans le Croissant Ouest (Issy-les-Moulineaux, Boulogne, etc) approche
+de son « plus bas » historique. Le potentiel de compression des taux (i.e. d’augmentation des
+valeurs est donc peut-être limités.
+
+Ces analyses s’entendent « toutes choses égales par ailleurs », et sous réserve d’analyses
+complémentaires. En effet, on pourrait arguer, par exemple, qu’Issy-les-Moulineaux a connu
+une transformation qualitative de son parc immobilier au cours de la décennie 2009-2018,
+qui justifie pleinement la compression de sa prime de risque. On pourrait aussi bien arguer
+que les valeurs métriques de Paris QCA (pour le bureau comme pour le résidentiel),
+aujourd’hui proches de 20 000 €/m², atteignent un seuil psychologique qui peut décourager
+les investisseurs.
+
+     Chapitre VI - Les styles d’investissement : core / core + / value
+                          added / opportuniste
+
+On distingue traditionnellement pour l’immobilier trois styles d’investissement, c’est-à-dire
+des profils de performance. La définition stricte de ces profils de performance fait l’objet de
+débats au sein de la communauté immobilière et notamment de l’INREV1.
+
+Le style core se définit par un investissement dans un bien mature en vue d’en capter le
+revenu locatif. Un actif est mature en ce sens qu’il est situé dans un marché locatif profond
+et qu’il ne recèle pas de dysfonctionnement qui pourrait nécessiter des travaux importants.
+
+1 European Association for Investors in Non-Listed Real Estate Vehicles
+
+La performance est « naturelle » (due au loyer) et ne dépend pas d’un pari sur la revalorisation
+du marché, ni sur un usage excessif de l’endettement. Le style core + renvoie à la même
+stratégie mais appliquée à des actifs moins matures.
+
+Le style value add se définit par un investissement dans un bien dans le but de le
+repositionner par une gestion active. L’objectif pore sur le taux de sortie (la revalorisation du
+bien), par exemple par des travaux qui permettent d’augmenter les standards du bien et le
+loyer correspondant, qui à son tour agit sur le taux de capitalisation. Dans ce type de stratégie
+la performance peut être renforcée par un endettement modéré de l’ordre de 40%.
+
+Le style opportuniste se définit par un investissement dans des actifs non matures mais qui
+présentent une opportunité, et qui relèvent d’une restructuration lourde, avec un
+endettement important. Certaines opérations de marchands de biens répondent à cette
+définition.
+
+Dans une période de taux en baisse, une stratégie core/core+ est pertinente car le risque
+de perte en capital est faible. L’effet de hausse des valeurs par la baisse des taux compense
+largement l’effet normal d’obsolescence, à conditions locatives égales.
+
+Dans une période de taux stables ou en hausse, les styles d’investissement doivent être
+diversifiés, afin de limiter le risque de perte en capital à la cession. La valeur doit être créée
+par une action d’asset management, ou encore par un pari sur le développement d’un secteur
+(géographique/immobilier) :
+          • Risque locatif : achat d’actifs sous-loués en fin de bail, déplafonnement
+          • Risque de travaux et de marché : « buy it, fix it, sell it »
+          • Risque territorial : stratégie ABBA (emplacement A d’un secteur B ou
+              emplacement B d’un secteur A)…
+
+
+
+
+          Chapitre VII – Défiscalisation et effet de levier du crédit
+
+L’immobilier est à la fois une classe d’actifs extrêmement imposée et une classe d’actifs
+dont la fiscalité contient des dispositions fiscales exceptionnellement favorables :
+déductibilité des intérêts d’emprunt, nue-propriété, déficit foncier... Et ce, en dehors de
+tout dispositif fiscal ponctuel.
+
+L’une des stratégies courantes associées à l’immobilier est la défiscalisation via l’effet de
+levier du crédit. Ici, la stratégie repose d’abord sur la recherche d’un crédit bancaire. Ce
+crédit sollicité par l'investisseur est utilisé, non pour compenser un manque de fonds
+propres, mais
+
+   -   comme un facteur de rentabilité de l'opération de placement.
+   -   pour créer un effet de dimension, i.e. élargir l’assiette de sa rentabilité
+   -   pour défiscaliser tout ou partie des revenus fonciers.
+
+Le paradoxe est ici que l’investisseur va dépenser plus pour payer moins d’impôt. Ce faisant,
+par sa dépense, il renonce à un revenu (le revenu net après impôt) qu’il pourrait capitaliser.
+Il faut donc opérer des simulations pour évaluer les tenants et aboutissants de cette
+opération et notamment comment elle se compare au placement du revenu net après
+impôt.
+
+Principe général : déductibilité des intérêts d’emprunt de l’assiette du revenu
+imposable. Les intérêts des emprunts contractés pour acquérir un actif immobilier sont
+déductibles des revenus de même catégorie (Article 31-I du CGI : « Les charges de la
+propriété déductibles pour la détermination du revenu net comprennent : 1°) d) les intérêts
+de dettes contractées pour la conservation, l'acquisition, la construction, la réparation ou
+l'amélioration des propriétés ».).
+
+Dans cette perspective, il suffit d'emprunter à une banque un capital tel que les annuités,
+composées des seuls intérêts 1, soient égales aux revenus fonciers dont on dispose, le
+revenu imposable sera nul, et donc l'impôt sera également nul.
+
+On peut comparer 2 stratégies :
+
+     -    1/ placement du revenu net d’impôt
+     -    2/ défiscalisation des revenus fonciers
+
+NB : il s’agit ici de stratégies-type pour éclairer la logique de la décision, en aucun cas d’une
+recommandation.
+
+Stratégie 1 : capitalisation des revenus fonciers
+
+Nous partons dans une situation où l’investisseur perçoit 12 000 € / an de revenus fonciers
+annuels.
+
+Le principe de cette stratégie est de payer l’impôt (qu’on va estimer par convention à sa
+tranche d’IR, toutes choses égales par ailleurs), puis de verser le revenu net d’impôt dans un
+contrat de capitalisation.
+
+Par hypothèse, le rendement du contrat de capitalisation sera de 4,5% annuels, sur une
+durée de 10 ans.
+
+              Investisseurs                               Revenu annuel                          Valeur capitalisée
+              classés selon                                 disponible                          au terme des 10 ans
+         leur taux d’imposition                            après impôts                                (K1)
+
+                 A 30 %                                       8 400 €                                 103 220 €
+
+                 B    40 %                                    7 200 €                                  88 480 €
+
+                 C    50 %                                    6 000 €                                  73 730 €
+
+Stratégie 2 : défiscalisation intégrale des revenus fonciers
+
+Nous partons toujours dans une situation où l’investisseur perçoit 12 000 € / an de revenus
+fonciers annuels. Cette fois, il emprunte pour investir dans un immobilier de rapport. Les
+intérêts de son emprunt in fine sont tels que intérêts d’emprunt = revenus fonciers.
+ Le prêt remboursable en totalité au terme de l'opération (emprunt in fine) est plus adapté que le prêt classique amortissable par annuités
+constantes, puisque dans ce cas les intérêts déductibles sont inférieurs aux revenus à défiscaliser et décroissants sur toute la période. La
+défiscalisation est alors partiellement réalisée.
+
+Par hypothèse : le taux d’intérêt de l’emprunt est de 5% sur 10 ans, soit un emprunt de
+240K€euros pour compenser un revenu foncier de 12K€ (240*5% = 12). Le rendement du
+nouvel investissement locatif est de 4% net de charges. Mes revenus sont donc 12K€+
+(240*4%) et je paie l’IR sur mes revenus locatifs.. En outre, mes revenus locatifs après impôt
+sont capitalisés aux mêmes conditions que dans la stratégie 1, soit 4,50%.
+
+            Investisseurs                         Revenu annuel                    Valeur capitalisée
+            classés selon                           disponible                    au terme des 10 ans
+       leur taux d’imposition                      après impôts                          (K2)
+
+               A 30 %                                 6 720 €                           82 580 €
+
+              B    40 %                               5 760 €                           70 780 €
+
+              C    50 %                               4 800 €                           58 980 €
+
+Dans le cas de la stratégie de défiscalisation intégrale, outre la valeur capitalisée de ses
+revenus (K2) , l’investisseur dispose au bout des 10 ans d’un bien immobilier d’une valeur de
+pleine propriété PP10 mais il devra rembourser l’emprunt d’un montant X. La valeur de PP10
+sera égale à la valeur d’achat en année 0 (PP0) augmentée d’une éventuelle plus-value PV.
+Pour rappel, X = PP0 (on a emprunté exactement le montant pour acheter le bien).
+
+Le résultat financier de la stratégie de défiscalisation est ainsi
+
+(PP10 + K2) – X
+Soit : PP0+PV+K2-PP0
+Soit PV+K2
+
+Il en résulte que la stratégie de défiscalisation intégrale est plus rentable que la stratégie de
+capitalisation intégrale si et seulement si PV + K2 > K1, ou encore PV>K1-K2.
+
+Par ailleurs, le taux d’imposition est également déterminant :
+
+                      Valeur capitalisée       Valeur capitalisée                          Taux
+                                                                        Plus value
+Investisseurs           des revenus               des revenus           minimale
+                                                                                         minimal de
+classés selon                                   fonciers induits                        revalorisation
+                     fonciers préalables                                  pour
+  leur taux                                                                              annuelle
+                                                                       équivalence
+d’imposition                                        K2                   K1 – K2       nécessaire
+                             K1
+
+ A 30%                    103 220 €                 82 580 €           20 640 €           0,83 %
+
+ B 40%                     88 480 €                 70 780 €           17 700 €           0,71 %
+
+ C 50%                     73 730 €                 58 980 €           14 750 €           0,60 %
+
+Plus on est lourdement fiscalisé, moins la revalorisation du bien nécessaire à la rentabilité
+de l’opération est élevée.
+
+En outre, Le taux de revalorisation nécessaire est indépendant du niveau de revenu foncier
+initial (12 000 € ici).
+
+Conclusions :
+
+    -   Ce qui détermine la rentabilité de la stratégie 2 ou de la stratégie 1 c’est donc la
+        plus-value immobilière (incertaine).
+
+    -   Le choix entre les 2 stratégies n’est pas seulement calculatoire. Il s’agit
+        également d’un pari, car la plus-value immobilière est par nature plus incertaine
+        que le taux d’un contrat de capitalisation.
+
+Partie II - L’IMMOBILIER COLLECTIF : VÉHICULES, FONCTIONNEMENT
+                          ET DISTRIBUTION
+
+       Chapitre I - La place de l’immobilier collectif dans l’épargne
+
+Le périmètre de l’immobilier collectif peut être circonscrit comme suit.
+
+   -   Les SCPI, au 31 décembre 2023, représentent une capitalisation de 90 milliards €.
+
+   -   Les OPCI destinés au Grand Public, au 31 décembre 2023, représentent un actif net de
+       15 milliards €.
+
+   -   Les SCI en unités de compte, au 31 décembre 2023, représentent un actif net de 24
+       milliards €.
+
+Soit, en additionnant les actifs de ces 3 catégories, une taille de 130 milliards € pour
+l’immobilier collectif destiné aux particuliers en France.
+
+                                Répartition épargne des ménages
+                                    Source BDF, ASPIM 2020
+                                            32%; Epargne financière
+                                                                                      18%; OPCI
+
+                                                                                                      16%; SCI
+
+                                                        Autre
+
+                                                                        66%; SCPI
+
+    67%; Immobilier
+       physique
+                      Immobilier physique      Epargne financière     SCPI    OPCI      SCI
+
+En termes de nombre d’investisseurs particuliers, le nombre est impossible à déterminer
+précisément. L’ASPIM avance le chiffre de 1 million de porteurs de parts, mais ce chiffre
+compte plusieurs fois les associés qui détiennent des parts de plusieurs fonds. En comptant
+
+les épargnants qui détiennent des SCPI via leurs contrats d’assurance vie, il est probable que
+ce chiffre soit très supérieur.
+
+Ces chiffres peuvent être rapportés au patrimoine net des ménages qui s’établit d’après
+l’INSEE à 14 760 milliards d’euros 1. L’immobilier collectif investi directement par des
+particuliers représente donc 0,9% du patrimoine des ménages.
+
+Rappelons brièvement, avant de les développer, les différents types de fonds immobiliers
+non cotés accessibles aux particuliers.
+
+Les SCPI (Sociétés Civiles de Placement Immobilier) existent depuis 1971. Elles sont donc
+le plus ancien placement immobilier collectif accessible aux particuliers. Les SCPI sont
+allouées à 100% en immobilier non coté et restituent ainsi la performance la plus proche de
+ce que l’on peut attendre d’un achat immobilier en direct.
+
+Les OPCI (Organismes de Placement Collectif Immobilier) « Grand Public » existent
+depuis 2008, avec un essor pris en termes de capitalisation, depuis 2015. Ils s’inscrivent dans
+le cadre général des OPCVM, mais avec une prépondérance immobilière (60% de l’actif). Le
+reste de l’actif doit être alloué en actifs financiers de toute nature (actions, obligations…), ce
+qui confère à l’OPCI un caractère hybride.
+
+Les SC immobilières sont un segment plus confidentiel de l’immobilier collectif. En effet, ils
+sont parfois utilisés comme sous-jacent d’unités de compte distribuées en contrat
+d’assurance vie. Il s’agit généralement de SCI (Société Civile Immobilière), qui se distinguent
+d’une SCI habituelle par le fait qu’elle a une politique d’investissement, et qu’elle est donc, de
+facto, un véhicule d’investissement. L’avantage de cette formule est qu’elle allie la souplesse
+de la SCI à la possibilité d’une allocation 100% immobilière.
+
+                                       Chapitre II - Les SCPI
+Section 1 - Fonctionnement
+
+Une SCPI se présente comme une Société Civile Immobilière faisant appel public à l’épargne.
+La loi de 1971 instituant la SCPI prenait acte de véhicules qui existaient précédemment (la
+SCI), mais dont l’objet a été étendu : l’exemple le plus connu est celui de la Civile Foncière.
+
+1 INSEE, Banque de France, fin 2020
+
+L’origine de la SCPI est significative, car elle explique que juridiquement la SCPI soit
+assimilable à une copropriété des associés.
+
+Il en découle le principe de transparence fiscale. Les impôts (sur le revenu foncier ou la plus-
+value) sont prélevés auprès des associés, sur la base des revenus perçus par la SCPI – et non
+sur la base des revenus distribués aux associés, comme pour la plupart des véhicules
+financiers. La SCPI ne paie pas d’Impôt sur les Sociétés.
+
+De ce fait, il peut exister une distorsion entre le revenu perçu par la SCPI et imposé entre les
+mains de l’associé, et le revenu effectivement versé aux associés. Le solde est typiquement
+affecté au « report à nouveau », équivalent d’une réserve qui permet, le cas échéant, de
+soutenir momentanément la distribution en cas de défaut locatif. Cette distorsion entre
+revenu imposé et revenu perçu est une puissante incitation à distribuer la plus grande part
+du revenu locatif.
+
+Le principe de fonctionnement de la SCPI est simple : des capitaux sont collectés –
+généralement par des réseaux de distribution – auprès de personnes physiques et morales
+qui, en souscrivant, deviennent des associés de la SCPI. L’argent collecté est utilisé par la
+Société de Gestion pour :
+   - Rémunérer les réseaux de distribution
+   - Rémunérer la gestion
+   - Acquérir des biens immobiliers.
+
+Ces biens sont gérés par la société de gestion pour le compte de la SCPI. Les principaux
+actes de gestion sont la recherche de locataires quand il n’y a pas de locataires en place, la
+négociation des baux, le pilotage d’éventuels travaux (dont certains sont facturables au
+locataire et d’autres non refacturables), et la cession d’actifs.
+
+Les biens génèrent un revenu locatif trimestriel. Il a vocation à être distribué aux associés ou
+à alimenter le report à nouveau. Lorsque la SCPI cède des actifs, et qu’une plus-value est
+réalisée à cette occasion, le produit de cession peut, de la même façon, être distribué aux
+associés.
+
+L’objet social des SCPI est l’acquisition et la gestion d’un patrimoine immobilier destiné
+à la location. Elles ont pour obligation de détenir au moins 5 ans chaque actif, modulo une
+faculté de pouvoir arbitrer 2% de son patrimoine, en valeur, chaque année.
+
+Section 2 - Valorisation
+
+L’analyse des SCPI requiert de comprendre les différentes valeurs à l’actif et au passif du
+fonds.
+
+A l’actif :
+
+    -   La valeur vénale est la valeur d’expertise du patrimoine immobilier. Additionnée à la
+        valeur nette des autres actifs (placements de trésorerie) elle donne la valeur de
+        réalisation, qui est la valeur actualisée que l’on percevrait en cédant au prix du marché
+        la totalité du portefeuille. La valeur de réalisation est similaire à la notion d’actif net
+        réévalué ou de valeur liquidative.
+
+    -   Si l’on ajoute à la valeur de réalisation l’intégralité des coûts d’acquisition (commission
+        de souscription et frais d’acquisition des actifs immobiliers) on obtient la valeur de
+        reconstitution, qui représente la valeur qu’il faudrait débourser pour reconstituer
+        l’intégralité de la SCPI dans les conditions présentes.
+
+La valeur de reconstitution est un point de repère essentiel car le prix de souscription de la
+part de SCPI est fixé de façon discrétionnaire par la société de gestion dans une
+fourchette autour de +/-10% autour de la valeur de reconstitution. Par conséquent, la
+possibilité/probabilité d’une augmentation du prix de la part, décidée par la société de
+gestion, est d’autant plus forte que la valeur de réalisation sera au-dessus du prix de
+souscription, c’est-à-dire que la SCPI sera « décotée ». Inversement si la valeur de
+reconstitution est largement inférieure au prix de souscription : non seulement la probabilité
+d’une augmentation du prix de souscription est faible, mais il faut évaluer le risque qu’une
+« mauvaise nouvelle » au niveau des prochaines expertises immobilières force la société de
+gestion à baisser le prix de souscription afin de le ramener dans la contrainte réglementaire.
+
+Au passif, on distingue :
+
+   -   Le prix de souscription, qui est le prix effectivement acquitté (tous frais compris)
+       pour acquérir une part de SCPI.
+   -   La valeur de retrait, qui est le prix de souscriptions défalqué de la commission de
+       souscription.
+
+Section 3 - Structure de frais et formation du rendement
+
+Le marché, suivant la recommandation de l’ASPIM, parle de Taux de Distribution. Il s’agit de la
+même notion que celle de rendement, à savoir le revenu distribué rapporté au prix de part
+tous frais compris. Le schéma ci-dessous montre la formation du rendement d’une SCPI.
+
+La commission de souscription est incluse dans le prix de souscription dont elle représente
+généralement entre 8 et 12%. Elle rémunère les réseaux de distribution, ainsi que le frais de
+recherche et d’investissement (i.e. les due diligences réalisées pour l’acquisition de nouveaux
+actifs). Contrairement à la plupart des produits financiers, les SCPI ne rémunèrent pas leur
+distribution par un pourcentage annuel de l’encours, mais la rémunèrent « upfront », c’est-à-
+dire au moment de l’acquisition des parts.
+
+La SCPI se retrouve donc avec, à investir, le montant du prix de souscription défalqué de la
+commission de souscription. Ici :
+
+   -   Soit elle dispose instantanément d’un actif à acquérir. Elle l’acquiert alors en
+       contrepartie d’un loyer sur lequel la société de gestion prélève sa commission de
+       gestion (typiquement de l’ordre de 10% des loyers). Le rendement de l’opération est
+       alors égal au loyer net de commission de gestion, rapporté au prix de souscription tous
+       frais compris. Dans l’exemple du schéma, pour délivrer un rendement de 4,86% il faut
+       acquérir instantanément un actif à un rendement à l’acquisition de 6%.
+
+   -   Soit la SCPI ne dispose pas d’un actif à investir immédiatement. Dans la pratique, c’est
+       le cas général. C’est pourquoi existe le délai de jouissance, qui est le délai pendant
+       lequel la société de gestion peut raisonnablement exécuter une transaction, soit de
+       l’ordre de 4 mois. Pendant ce délai, ls parts nouvellement créées n’ont pas à être
+       rémunérées par une distribution. La quasi-totalité des SCPI comprennent ce délai de
+       jouissance. Sans lui, les nouveaux porteurs de parts seraient rémunérés par les loyers
+       issus du stock, au détriment des anciens porteurs de parts.
+
+La formation du rendement dépend également de l’effet de levier financier (endettement)
+utilisé par la SCPI. La SCPI peut contracter un emprunt qui aura pour effet d’augmenter la
+valeur à investir, et donc l’assiette des revenus locatifs, en contrepartie du remboursement
+de la dette et du principal. Dans un environnement où le rendement immobilier est largement
+supérieur au coût de la dette, cette stratégie est fortement positive en termes de
+performance. Sa contrepartie est le risque de crédit. Il est à noter que contrairement aux
+associés d’une SCI dont la responsabilité vis-à-vis des dettes contractées par la SCI est
+illimitée, celle des associés de SCPI est limitée à deux fois leur montant investi.
+
+Des modèles émergents de structure de frais
+
+La réglementation MIFID 2 met la pression sur les niveaux de frais des solutions
+d’investissements en appelant à davantage de transparence. Ce contexte est favorable à
+l’apparition de solutions plus fongibles dans les contrats d’assurance vie avec des modèles
+de frais comparables aux OPCVM, cf. l’apparition de SCPI et de SCI sans commission de
+souscription avec des modèles de rétrocessions sur encours. Ce modèle permet aux CGP de
+s’inscrire dans une relation gagnant-gagnant avec la Société de Gestion et le client : la SGP
+est payée pour investir et non pour lever des capitaux, le CGP est rémunéré pour
+accompagner le client et le client paye ses frais sur la durée.
+
+                   Exemple de modèle avec structure de frais de type OPCVM
+
+                                      Prix de souscription            100,00 €
+
+                                  Commission de souscription             -   €
+
+                                 Commission d'investissement            3,85 €
+
+                                        Valeur investie                96,15 €
+
+                                             Loyer                      5,77 €
+
+                                    Commission de gestion               0,87 €
+
+                                       Distribution cible               4,90 €
+
+                       La rémunération de la distribution se fait sur encours.
+
+Section 4 - Analyser et choisir une SCPI : sources et grille d’analyse
+
+Pour s’informer sur les SCPI, on peut consulter le site généraliste www.pierrepapier.fr ou
+encore les sites www.primaliance.com et www.meilleurescpi.com , en gardant à l’esprit que
+ces deux derniers sites sont gérés par des conseillers en gestion de patrimoine
+commissionnés sur la vente de SCPI. Ils référencent cependant la quasi-totalité des SCPI du
+marché.
+
+En outre, sauf demande spécifique d’investir sur le marché secondaire des parts, il faut
+restreindre l’analyse aux SCPI qui sont effectivement commercialisées, donc soit des
+SCPI à capital variable, soit des SCPI à capital fixe en cours d’augmentation de capital.
+
+Le meilleur document de référence est le dernier rapport annuel de la SCPI. Il contient
+généralement des éléments d’historique, faute de quoi il faut se procurer les précédents
+rapports annuels.
+
+Il faut enfin garder à l’esprit qu’une SCPI est typiquement un produit plus performant lors
+de ses premières années qu’en vitesse de croisière. En effet, en début de vie d’une SCPI le
+gérant fera typiquement des choix de gestion qui maximiseront le rendement (garant de la
+future collecte, donc de l’assiette future des frais de gestion du fonds), et ces choix seront
+facilités par le montant de collecte généralement plus faible, qui permet de mettre plus
+facilement des acquisitions en rapport.
+
+La grille d’analyse que nous proposons reprend un ordre de priorité qui nous parait convenir
+à l’investisseur « patrimonial » avisé :
+     - Premier filtre : la liquidité/la diversification du risque
+     - Deuxième filtre : les facteurs récurrents de performance
+     - Troisième filtre : les facteurs de valorisation à terme.
+
+Les critères pertinents selon cette grille sont les suivants.
+
+RISQUE                                                                          Indicateur                                            Question posée
+                                                                                                               La Société de Gestion a-t-elle les moyens financiers de sa
+                                                                                                               gestion, dans un environnement de plus en plus
+Taille de la société de gestion                    > 500 M€ sous gestion
+                                                                                                               réglementé? A-t-elle un accès de qualité au marché
+                                                                                                               immobilier ?
+                                                                                                               La SCPI est-elle assez grande pour permettre une
+Capitalisation de la SCPI                          > 500 M€ (et nombre d'associés supérieur à 2000)
+                                                                                                               diversification du risque de liquidité?
+
+Nombre de lignes en portefeuille                   > 50 actifs sous gestion                                    Le risque est-il concentré sur quelques actifs/localisations?
+Diversification par locataires                     > 100 locataires                                            Le risque est-il concentré sur quelques locataires?
+                                                                                                               Y a-t-il suffisamment de new cash pour gérer de façon
+Volume récurrent de collecte nette                 > 10% de la capitalisation                                  active le portefeuillle et maintenir la société de gestion
+                                                                                                               dans une situation de responsabilité face à l'invstisseur?
+FACTEURS RÉCURRENTS DE PERFORMANCE
+                                                                                                               Le gérant arrive-t-il à créer une surperformance par rapport
+Niveau de TDVM                                     > moyenne du marché, compte tenu des sous-jacents
+                                                                                                               à la moyenne des SCPI comparables?
+                                                                                                               Le gérant parvient-il à maintenir le rendement locatif ou
+                                                   variation du coupon distribué (hors distribution de plus-
+Stabilité du revenu dans le temps                                                                              subit-il des acquisitions dilutuves / des évènements locatifs
+                                                   value)
+                                                                                                               défavorables?
+
+                                                                                                               Le gérant parvient-il à attirer des locataires? A signaler que
+Niveau du taux d'occupation financier              TOF > 90% dans le temps                                     cet indicateur ne dit rien du niveau de loyer qui est consenti
+                                                                                                               aux preneurs. C'est donc un indicateur à relativiser.
+
+                                                                                                               Indicateur à mettre dans le contexte de l'environnement de
+Taux d'endettement                                 LTV < 40% et > 20%                                          taux. Un LTV à taux fixes, ou variable capé, est positif en
+                                                                                                               termes de rentabilité dans certaines limites de risque.
+                                                                                                               La localisation des actifs leur permet-elle d'être attractifs
+Qualité de localisation                            % d'actifs à Paris et en région parisienne
+                                                                                                               pour de nouveaux locataires?
+FACTEURS DE VALORISATION À TERME
+                                                   90% VR < PS < 110 % VR
+Décote ou Surcote Prix de souscription/Valeur de                                                               Quelle est la probabilité d'une hausse future de la valeur de
+                                                   Si PS > VR la SCPI est surcotée
+reconstitution                                                                                                 part?
+                                                   SI PS < VR la SCPI est décotée
+                                                                                                               La localisation des actifs leur permet-elle d'être attractifs
+Qualité de localisation                            % d'actifs à Paris et en région parisienne
+                                                                                                               pour de nouveaux investiseurs ?
+                                                                                                               Les typologies d'actifs détenus sont-elles susceptibles de
+Typologie immobilière                              % bureaux, % résidentiel…                                   connaître une hausse de leurs valeurs métriques dans les
+                                                                                                               années à venir?
+
+                          Chapitre III - Les OPCI Grand Public
+
+Section 1 - Structure juridique, valorisation, structure de frais, liquidité,
+modes de détention
+
+Les OPCI – Organismes de Placement Collectif Immobilier – ont été institués par la
+réglementation en 2007. Ils répondaient à la volonté des gérants de SCPI de disposer d’un
+véhicule plus adapté à l’assurance-vie, plus discrétionnaire dans sa gestion, et peu limité
+dans ses possibilités de création de valeur. En 2008, les premiers OPCI à destination des
+particuliers, dits OPCI Grand public1, sont lancés.
+
+Les règles de fonctionnement imposées par le régulateur pour l’OPCI Grand Public se veulent
+plus « prudentes » dans un souci de protection de l’épargne publique avec notamment un
+quota d’exposition en immobilier limité à 60% de l’actif, un niveau d’endettement limité,
+inférieur ou égal à 40 % des actifs immobiliers et une poche de liquidité. Ces ratios
+correspondent à la volonté de ne pas induire en erreur l’épargnant qui aurait pu penser que
+les OPCI, parce qu’ils ont la forme OPC, auraient la même liquidité que des OPCVM. Dès lors,
+le régulateur a souhaité que les OPCI disposent d’une forte liquidité « intrinsèque », c’est-à-
+dire d’une poche d’actifs financiers suffisante pour répondre à des rachats significatifs.
+
+Les OPCI ont pour objet principal l’investissement dans des immeubles destinés à la location
+ou qu’ils font construire exclusivement en vue de leur location, qu’ils détiennent directement
+ou indirectement, y compris en l’état futur d’achèvement, toutes opérations nécessaires à
+leur usage ou à leur revente, la réalisation de travaux de toutes natures dans ces immeubles,
+notamment les opérations afférentes à leur construction, leur rénovation et leur réhabilitation
+en vue de leur location et accessoirement la gestion d’instruments financiers et de dépôts.
+
+Leur vocation est principalement immobilière, dans une perspective de détention et de
+gestion locative à long terme (buy and hold) puisque les opérations de marchand de biens
+et de construction-vente leur sont formellement interdites.
+
+1 Il existe également des OPCI Professionnels destinés à des investisseurs institutionnels
+ou « qualifiés » mentionnés à l’article L. 533-16 du Code monétaire et financier. Nous ne les traitons
+pas ici.
+
+Un OPCI peut revêtir les deux formes juridiques suivantes :
+   - Fonds de Placement Immobilier ou FPI, à savoir copropriété sans personnalité morale
+   - Société à Prépondérance Immobilière à Capital Variable ou SPPICAV, constituée sous
+     forme de société anonyme ou de société par actions simplifiée à capital variable. C’est
+     de très loin la forme la plus courante sur le marché.
+
+Le régime fiscal applicable à l’OPCI sera différent en fonction de la forme juridique qui sera
+adoptée, pour le FPI il s’agira de l’application du régime des revenus fonciers et pour les
+SPPICAV de celui des revenus de capitaux mobiliers.
+
+Les actifs éligibles à la détention par un OPCI sont énumérés à l’article L. 214-36 du Code
+monétaire et financier. On distingue :
+
+   -   Les actifs « immobiliers » :
+          o immeubles construits ou acquis en vue de leur location et droits réels et droit
+             au crédit-bail détenus directement par l’OPCI ;
+          o meubles meublants, biens d’équipement ou biens meubles affectes à ces
+             immeubles et nécessaires au fonctionnement, à l’usage ou à l’exploitation de
+             ces derniers par un tiers ;
+          o participations dans des sociétés immobilières non cotées (SCI, SCPI, sociétés
+             équivalentes de droit étranger…) ;
+          o Participations dans des sociétés immobilières cotées ;
+          o participations dans des OPCI ou organismes équivalents de droit étranger.
+
+   -   Les actifs financiers :
+          o titres financiers admis sur un marché règlementé français ou sur un marché
+             règlementé de l’Union européenne ou un marché reconnu ;
+          o instruments financiers à terme ;
+          o parts ou actions d’OPCVM et de fonds a vocation générale autorises à la
+             commercialisation en France.
+
+   -   Les liquidités et avances en compte courant.
+
+Les OPCI sont autorisés à s’endetter, à hauteur maximale de 40 % de la valeur des actifs
+immobiliers, pour financer les acquisitions immobilières ou pour faire face à des demandes
+de rachat de parts. L’OPCI peut conclure des emprunts d’espèces à hauteur de 10 % de la
+valeur des autres actifs.
+
+Une valeur liquidative d’OPCI est déterminée par un valorisateur indépendant généralement
+tous les 15 jours et constitue la base des souscriptions et des rachats. Le rachat de parts ou
+d’actions d’OPCI peut éventuellement être bloqué par la société de gestion dans des cas
+exceptionnels (demande de rachat d’un porteur de parts détenant plus de 20% de l’OPCI par
+exemple).
+
+L’actif net est égal à la valeur de marché des actifs immobiliers augmentée de la valeur des
+autres actifs diminuée du montant des dettes.
+
+La performance de l’OPCI est constituée par la croissance de la valeur liquidative sur une
+période donnée, ainsi que la distribution de revenus locatifs effectuée par l’OPCI. Les
+OPCI sont soumis à une obligation de distribution de 85% des revenus locatifs perçus et de
+50% des plus-values de cession immobilières. Ce coupon est distribué (généralement à une
+fréquence semestrielle) lorsque l’OPCI est détenu en compte-titres. Il est capitalisé (i.e. il est
+utilisé pour acheter d’autres parts d’OPCI, ce qui permet de capitaliser la performance)
+lorsque l’OPCI est détenu en unité de compte.
+
+En conséquence, contrairement aux SCPI, la performance des OPCI est un total return. La
+valeur liquidative varie en fonction des expertises (généralement trimestrielles) et le revenu
+locatif vient s’agréger à cette performance.
+
+Section 2 - Analyser et choisir un OPCI Grand Public : sources et grille
+d’analyse
+
+Pour s’informer sur les OPCI Grand Public, il est préférable de consulter la liste des OPCI
+Grand Public, par exemple sur le site www.pierrepapier.fr, puis d’analyser les documents de
+reporting spécifique à chaque véhicule.
+
+Il est à noter que la plupart des OPCI Grand Public comprennent des catégories de parts
+différentes en fonction :
+
+        -    Du canal de distribution : parts « assurance vie » ou parts « compte-titres »
+        -    De la clientèle dédiée : parts Institutionnelle (souvent à frais réduits, en contrepartie
+             d’un montant de souscription minimal ou d’une liquidité réduite) ou part Retail.
+        -    Des modalités de restitution de la performance : parts distributives ou parts de
+             capitalisation.
+
+Le sous-jacent est cependant toujours le même et la performance doit donc être analysée
+indépendamment de ces facteurs si l’on veut comparer les OPCI entre eux.
+
+La grille d’analyse que nous proposons reprend un ordre de priorité qui nous parait convenir
+à l’investisseur « patrimonial » avisé :
+     - Premier filtre : la liquidité/la diversification du risque
+     - Deuxième filtre : les facteurs récurrents de performance et de valorisation à terme.
+
+En effet, l’OPCI Grand Public délivre une performance globale (total return), dès lors les effets
+revenu et capital s’additionnent.
+
+RISQUE                                                                    Indicateur                                               Question posée
+                                                  % foncières cotées ou "autres actions" dans l'allocation
+Part d'actions dans l'allocation cible                                                                       Quelle est la volatilité potentielle du fonds?
+                                                  cible
+Dette                                             LTV du fonds en % des actifs immobiliers                   Quel est le risque de crédit pris par le fonds?
+                                                                                                             Quel est le risque de liquidité du fonds en cas de choc sur
+Liquidité                                         % de cash dans l'allocation cible (> 5%)
+                                                                                                             les marchés actions et immobiliers?
+
+Nombre de lignes en portefeuille immobilier       > 50 actifs sous gestion                                   Le risque est-il concentré sur quelques actifs/localisations?
+FACTEURS RÉCURRENTS DE PERFORMANCE ET DE VALORISATION À TERME
+                                                                                                             Les frais d'acquisition sont-ils payés par les nouveaux
+Dilution par les frais d'acquisition              Niveau de la commission acquise au fonds (> 3,5%)
+                                                                                                             entrants ou dégadent-ils la VL?
+                                                                                                             La localisation des actifs leur permet-elle d'être attractifs
+Qualité de localisation de la poche immobilière   % d'actifs à Paris et en région parisienne
+                                                                                                             pour de nouveaux locataires/investisseurs?
+                                                                                                             Les typologies d'actifs détenus sont-elles susceptibles de
+Typologie immobilière                             % bureaux, % résidentiel…                                  connaître une hausse de leurs valeurs métriques dans les
+                                                                                                             années à venir?
+                                                                                                             Quelle est la capacité du gérant à délivrer une performance
+Performance passée                                Total return (niveau et évolution) sur 3 ans               supérieure au benchmark, compte tenu de l'allocation cible
+                                                                                                             et du risque cible?
+
+    Chapitre IV - Les FIA par objet en assurance vie : fonctionnement
+
+L’assurance vie est le placement financier le plus utilisé par les Français. Rappelons que les
+contrats d’assurance vie, accessibles aux personnes physiques, comprend une partie
+garantie en euros, c’est-à-dire pour laquelle une promesse est faite à l’assuré qu’il retrouvera,
+s’il liquide son contrat, au moins son montant d’origine. Il s’agit du « fond euros ». In fine, c’est
+la compagnie d’assurance qui garantit la liquidité et le capital. D’où les nombreuses
+contraintes prudentielles qui pèsent sur l’actif général de la compagnie d’assurance. Celui-ci
+est généralement composé essentiellement d’obligations souveraines dont le seul risque,
+marginal est le risque de défaut de l’État émetteur.
+
+Le contrat d’assurance vie se compose d’une seconde partie qui n’est pas garantie en capital,
+bien que sa liquidité soit garantie dans un délai de 2 mois maximum. Il s’agit
+d’investissements en unités de compte, c’est-à-dire dans des fonds qui peuvent eux-
+mêmes être investis en actions, obligations, immobilier, etc. Par définition ils comportent un
+
+risque plus élevé (impliquant un risque de perte en capital) et une espérance de gain plus
+élevée.
+
+En outre, l’économie des compagnies d’assurance est influencée par les obligations
+réglementaires européennes Solvabilité 2, qui demandent aux assureurs, en prévision d’une
+crise, d’immobiliser des fonds propres en compensation du risque de perte de chaque classe
+d’actifs. Par exemple, pour une détention d’immobilier de 100 (sans dette), une compagnie
+d’assurance doit, pour obéir à ces réglementations, immobiliser 25.
+
+Les SCPI et les OPCI Grand Public sont couramment référencées en tant qu’unités de compte
+au sein de la plupart des contrats d’assurance vie des assureurs. Il existe également des
+véhicules plus atypiques qui sont des « FIA par objet », c’est-à-dire des sociétés
+(généralement des SCI, Sociétés Civiles Immobilières), qui ont une politique d’investissement
+et à ce titre jouent « par objet » le rôle d’un fonds, quand bien même il n’est pas agréé par
+l’AMF.
+
+L’avantage de ces SCI, qui est aussi un risque, est qu’aucun ratio de dispersion ne s’applique
+a priori à elles. Une SCI peut, par exemple, détenir 95% d’immobilier direct et 5% de cash,
+ce qui n’est pas le cas d’un OPCI Grand Public. En outre les structures de frais de ces
+véhicules sont plus adaptées que celles des SCPI à la distribution en assurance vie, avec des
+frais plus faibles à l’entrée et plus importants annuellement. En effet, l’attente de liquidité des
+clients de l’assurance est peu compatible avec une commission de souscription de l’ordre
+de 10%. Enfin, ces véhicules délivrent également une performance capitalisée via l’évolution
+d’une valeur liquidative incluant des revenus réinvestis. Leur performance correspond donc
+à la fois aux loyers reçus, mais également aux plus-values latentes des actifs de la SCI.
+
+On doit distinguer deux types de FIA pour objet en assurance vie :
+
+   -   Les véhicules dédiés à une compagnie d’assurance (Exemple : Cardimmo, AFER
+       Immo). Il s’agit généralement de SCI qui sont gérées en propre par l’assureur, qui ouvre
+       périodiquement aux clients de sa compagnie la possibilité de s’exposer à ses
+       investissements.
+
+   -   Les véhicules en architecture ouverte (Exemples : Primonial Capimmo, Multimmo),
+       c’est-à-dire distribués par plusieurs compagnies d’assurances. Les parts de la SCI
+       sont acquises par l’assureur, qui les distribue par la suite sous forme d’unité de
+       compte.
+
+                           Partie III - CRISES ET PERSPECTIVES
+
+                        Chapitre I - 2020-2021 : le choc Covid
+
+La crise sanitaire 2020-2021 est atypique, quant à ses effets sur les marchés immobiliers, à
+plusieurs égards :
+
+1/ les différents formats immobiliers ont vécu des mesures restrictives très différentes.
+Les commerces essentiels (alimentaires de proximité notamment) ont vu un bond de leur
+chiffre d’affaires tandis que les commerces dits « non-essentiels » ont été fermés. Les
+indépendants ont plus souffert des restrictions sanitaires, ainsi que les activités ayant peu
+de trésorerie et les formats immobiliers qui impliquent un brassage social : galeries
+commerciales fermées, centres commerciaux. Les hôtels ont payé un lourd tribut. En
+revanche, l’immobilier résidentiel a été peu affecté : les valeurs du marché de l’ancien, au
+niveau national, ont progressé de 4% en 2020. Les politiques de soutien (chômage partiel)
+ont permis de maintenir les salaires et par voie de conséquence le paiement des loyers par
+les ménages. Enfin, les grandes entreprises locataires de bureaux ont démontré le sérieux de
+leurs plans de continuité d’activité avec un basculement massif en télétravail.
+
+2/ L’environnement de taux réels négatifs, profitable à l’immobilier, a été pérennisé. C’est
+pourquoi les valeurs d’expertise n’ont pas connu en 2020-2021 la même chute généralisée
+qu’en 2009. Elles ont connu des variations en fonction des formats immobiliers.
+
+3/ La crise sanitaire induit une transformation du maché des bureaux via le télétravail
+
+Avant la pandémie, la tendance était en Europe à une démocratisation lente du télétravail à
+travers l’augmentation de la proportion de télétravailleurs occasionnels, passée de 5,8% en
+moyenne en 2008 à 9,7% en 2019. Les pays les plus enclins au télétravail sont les pays qui
+comptent une proportion de cadres élevée, tels les pays du Nord de l’Europe : Pays-Bas,
+Danemark, etc. Durant le 1er confinement cette proportion a été multipliée par 3 à 5, pour
+atteindre environ 40% en France, Italie 30% en Espagne1.
+
+1 Eurostat, 2020, How usual is it to work from home ?
+
+Il est à remarquer que cette proportion est proche du maximum de ce qu’elle pourrait être
+techniquement : on estime à 37% la part des emplois qui seraient « télétravaillables » en
+permanence1. Cette proportion est beaucoup plus forte, bien entendu, dans certains
+secteurs tels que les activités financières ou encore les activités liées à l’informatique, la
+communication ou le conseil. Ces secteurs sont fortement représentés parmi les grands
+utilisateurs des marchés locatifs. Le potentiel du télétravail est donc effectivement
+important.
+
+Le choix du télétravail ne s’impose pas comme une évidence, ni pour les entreprises, ni pour
+les salariés. Le gain le plus évident pour les entreprises qui passeraient en télétravail total ou
+partiel est une économie de loyer. En France par exemple, le poids du loyer pour les
+entreprises est de l’ordre de 8 à 9% de la valeur ajoutée et tend à augmenter (il était sous la
+barre des 7% avant 2008)2. Le risque le plus évident est celui d’une perte de productivité des
+salariés, du fait d’une déconnexion avec la marque employeur : moindre sentiment
+d’appartenance, moindre circulation d’information, dégradation du management, etc. Le
+piège, pour les entreprises, est évident : baisser les dépenses à court terme au prix d’une
+érosion de la productivité à long terme3. Plusieurs exemples l’ont montré (Yahoo, IBM, etc.),
+qui concernaient pourtant des entreprises technologiques.
+
+                            Avantages potentiels                               Inconvénients potentiels
+
+                                                                 - Dépenses informatiques
+           - Economie de loyers et de frais généraux
+                                                                  - Dédommagement des coûts à la charge du salarié
+           - Baisse du turnover et attraction des jeunes talents
+Employeurs                                                       (forfait internet, bureautique…)
+           - Suppression des coûts d'adaptation au volume de la
+                                                                  - Risque sur la confidentialité des données
+           main d'œuvre
+                                                                  - Perte de productivité / de contrôle
+
+            - Economie de temps et de coûts de transport        - Difficultés à déconnecter
+Salariés     - Flexibilité / autonomie                           - Sentiment d'isolement
+             - Moins de stress                                   - Perte d'information
+
+Les sondages les plus récents confirment que les entreprises et les salariés sont
+parfaitement conscients de ce piège. En fin d’année 2020, à une question sur l’évolution du
+télétravail post-crise, un panel de salariés et de dirigeants répondait « 3 jours par semaine
+ou plus » à 61% « tant que le risque sanitaire existe ». Post-crise cette proportion tombait à …
+2%. Et c’est la réponse « au moins 2 jours par semaine » qui ralliait 49% des suffrages. Ces
+réponses montrent bien que le « tout-télétravail » est vécu comme un pis-aller provisoire en
+temps de crise sanitaire, mais que le véritable désir des acteurs se porte sur un modèle
+hybride.
+
+1 European DataLab, d’après Dingel et Neiman (2020)
+2Antoine Bergeaud, Simon Ray, septembre-octobre 2020, Macroéconomie du télétravail, in Bulletin de la
+Banque de France
+3 Voir Battiston, Blanes, Vidal et Kirchmaier (2017), “Is Distance Dead? Face-to-Face
+Communication and Productivity in Teams.” CEPR Discussion Paper No. 11924.
+
+A cette difficile équation s’ajoute une inconnue majeure, implicite dans le sondage cité
+précédemment : quelles normes de distanciation physique perdureront après la pandémie ?
+La menace sanitaire deviendra-t-elle endémique, nous obligeant à une réorganisation de nos
+habitudes sociales et donc immobilières ? Si c’est le cas, on peut parfaitement envisager que
+la crise sanitaire débouche sur une demande de… plus de mètres carrés de bureaux ! C’est
+une hypothèse dont il est impossible, aujourd’hui, de mesurer la probabilité.
+
+        Chapitre II - 2022-2023 : face à l’inflation, le retournement
+
+L’invasion russe en Ukraine (24 février 2022) a eu pour conséquence de modifier
+l’environnement financier dans lequel évolue le marché immobilier.
+
+A la fin de l’année 2021 l’inflation était avant tout la résultante des goulots d’étranglement
+post-Covid : tous les grands pays réouvraient en même temps leurs économies, créant une
+tension sur les chaînes d’approvisionnement. Par nature, cette inflation était transitoire et ne
+nécessitait pas de resserrement drastique de la politique monétaire de la BCE.
+
+Depuis l’invasion de l’Ukraine par la Russie le 24 février 2022, l’inflation a changé de nature.
+C’est la composante énergétique et alimentaire de l’inflation qui a d’abord explosé. Le conflit
+a congestionné l’agriculture ukrainienne et le jeu des sanctions et des contre-sanctions a
+perturbé les livraisons. Une partie de l’inflation revêt alors un caractère structurel. Si elle
+atteint un pic proche de 10% en novembre 2022, sa décrue est ralentie par des effets de
+deuxième tour (boucle prix-salaires) et l’anticipation de coûts structurels (normes ESG,
+substitution du GNL américain au gaz russe).
+
+Source : BCE, EuroStat
+
+Face à cette situation, la BCE a augmenté ses taux directeurs à partir de mi-2022 de façon
+drastique : +450 points de base entre juin 2022 et septembre 2023. Le discours officiel de
+la BCE laisse entende que de nouvelles hausses sont possibles, jusqu’à ce que l’objectif d’une
+inflation à 2% soit atteint. Dans le même temps le taux sans risque (OAT à 10 ans dans le cas
+français est passé de 0,3% en janvier 2022 à 2% en juin 2022, puis à 3,5% en septembre 2023.
+L’augmentation de ce taux emmène avec elle les taux de capitalisation de référence des
+marchés immobiliers, débouchant ainsi sur une dépréciation mécanique des actifs.
+
+Si l’indexation des loyers permet d’amortir ce choc sur les valeurs, elle ne permet pas pour
+autant de le compenser. Les baux commerciaux contiennent traditionnellement des clauses
+d’indexation des loyers à certains indices, dont la corrélation à l’inflation est toujours forte.
+Les loyers de bureau sont généralement indexés à l’ILAT, les loyers des commerces à l’ILC, et
+les loyers résidentiels à l’IRL.
+
+En vertu de l’équation vue précédemment loyer/(taux de capitalisation) = valeur , on voit
+qu’une hausse sensible du taux de capitalisation (par l’effet de la hausse du taux sans risque,
+et non d’un accroissement du risque immobilier) déprécie fortement les valeurs, même en
+tenant compte d’une indexation des loyers de 5% (ce qui a correspondu à la moyenne 2022,
+hors commerces et résidentiels dont l’indexation a été limitée à 3,5% par décret).
+
+Les répercussions « en ordre dispersé » de l’environnement de taux sur les marchés
+immobiliers
+
+Entre 2022 et 2023 le changement d’environnement de taux s’est répercuté sur les différents
+marchés immobiliers, de façon progressive et inégale selon les classes d’actifs.
+
+Ainsi l’année 2022 a vu les classes d’actifs « bureau » et logistique » se corriger le plus
+sévèrement et le plus tôt, alors que les classes d'actifs qui avaient déjà été dévaluées par la
+crise pandémique (commerce, hôtels) ont résisté. De même, l’immobilier de santé n’a pas vu
+ses valeurs affectées en 2022.
+
+En 2023, au moment de la rédaction de ce cours les chiffres équivalents ne sont pas connus,
+mais nous savons que 2023 a vu la baisse des valeurs se généraliser à l’ensemble des classes
+d’actifs, à mesure que le caractère durable de la situation de taux directeurs élevés se
+confirmait.
+
+Sur le marché du bureau, compte tenu du faible nombre de comparables (les refinancements
+et autre « cas extrêmes » ne sont pas pris en compte comme références de transactions par
+
+les experts immobiliers) et de l’attentisme des acteurs, les rendements ont augmenté moins
+vte que les taux directeurs. Aussi, la prime de risques offerte par le bureau n’est pas suffisante
+pour attirer des capitaux et ainsi relancer le marché de l’investissement. Pour 2024, le marché
+est donc dans l’attente a) d’une dépréciation plus forte des actifs de bureau ou b) d’une
+baisse des taux directeurs.
+
+Rendements bureaux en Ile-de-France (source : BNP Paribas Real Estate Research)
+
+ Bureaux Ile-de-France     fin 2018     fin 2019     fin 2020      fin 2021     fin 2022   30/09/2023
+Paris QCA                   3,00%        2,80%        2,70%         2,70%        3,00%       4,00%
+Paris hors QCA              3,25%        3,10%        2,90%         2,80%        3,20%       4,50%
+La Défense                  4,00%        4,00%        4,00%         3,95%        4,10%       5,50%
+Croissant Ouest             3,25%        3,25%        3,20%         3,20%        3,50%       4,75%
+1ère couronne               3,80%        3,80%        3,60%         3,60%        4,00%       5,50%
+2ème couronne               5,20%        4,85%        4,85%         4,85%        5,75%       6,75%
+
+OAT 10 ans                 fin 2018     fin 2019     fin 2020      fin 2021     fin 2022   30/09/2023
+                                0,69%        0,09%       -0,33%     0,10%        3,02%       3,47%
+
+Les répercussions au niveau des fonds : le poids de l’assurance-vie
+
+Au niveau des fonds immobiliers non cotés, la retranscription des valeurs d’expertise n’est
+pas automatique. Pour les SCPI, le prix de souscription peut se situer dans une fourchette de
++/-10% de la valeur de reconstitution. Pour les SCI et les OPCI, l’Actif Net Réévalué doit
+retranscrire ls dernières valeurs d’expertise, mais le rythme des expertises est maîtrisé par le
+gérant.
+
+En juin 2023, l’Autorité des Marchés Financiers a demandé aux sociétés de gestion de SCPI
+de réaliser une expertise de leur patrimoine et d’en retranscrire l’effet sur les prix de
+souscription. Cette expertise, réalisée au moment où la dynamique était clairement à la
+hausse des taux directeurs (+25 pb en juillet et +25 pb en septembre) a contraint plusieurs
+gérants à acter une dépréciation des valeurs de part, à un niveau qui devait également
+permettre d’absorber l’effet des expertises du 30/09 et du 31/12 de l’année 2023. D’où des
+baisses « à deux chiffres » inédites depuis les années 90 sur le marché des SCPI.
+
+S’est ajouté à cet effet valorisation un effet liquidité, lié au rôle de l’assurance-vie dans la
+distribution des plus larges SCPI. D’une part, la facilité d’arbitrage inhérente à l’assurance vie
+a permis un mouvement de retraits ; d’autre part, l’obligation des assureurs de garantir la
+liquidité de toute unité de compte (article art. L132-21 du Code des Assurances) les a
+naturellement poussés à militer en faveur des baisses de prix de part, afin d’assurer la
+liquidité sur un montant moindre. D’où le fait que le premier train de baisses de prix de part
+(été-automne 2023) a concerné les SCPI dans lesquelles le poids des assureurs était le plus
+fort.
+
+L’impact sur les SCI, non régulées par l’AMF et distribuées quasi exclusivement en assurance-
+vie, a été plus disparate dans la mesure où les tailles et les sous-jacents des principales SCI
+du marché sont très divers. Cependant la logique assurantielle décrite précédemment a
+également joué, et particulièrement pour la plus importante SCI du marché (Primonial
+Capimmo) dont le poids est décisif pour de nombreux assureurs.
+
+Les défis du secteur
+
+Pour les gérants de fonds immobiliers, les défis majeurs semblent être les suivants à moyen
+terme :
+
+   -   Gérer la sortie des taux négatifs. L’immobilier, pour être attractif, doit proposer une
+       prime substantielle (évaluée généralement à 150-200 points de base) par rapport aux
+       obligations d’Etat. C’est également cette prime qui permettrait de revenir à un secteur
+       « à effet de levier positive », c’est-à-dire dont le revenu excède la charge de l’intérêt,
+       attirant ainsi le financement. La recomposition de cette prime de risque, fin 2023,
+       apparait lointaine. Trois options se présentent alors :
+
+           o Une réduction durable des volumes d’investissement et de collecte, le
+             temps que les valeurs s’ajustent progressivement et/ou que les taux directeurs
+             baissent fortement. Dans cette hypothèse les sociétés de gestion se
+             consacrent à la gestion de leur portefeuille (d’actifs et de clients) à la manière
+             d’une foncière. Le secteur se déconnecte de l’assurance-vie.
+
+           o Un ajustement rapide et drastique des valeurs jusqu’à ce que la prime de
+             risque se recompose. Dans cette hypothèse, les porteurs de parts voient la
+             valeur de leur patrimoine diminuer (mais pas celle de leurs revenus). C’est un
+             scénario proche de celui des années 90. Il peut profiter aux nouveaux entrants,
+             qui pourraient alors emmagasiner des performances futures… à condition de
+             pouvoir mobiliser l’épargne dans un contexte de crise.
+
+           o Un recentrage du secteur sur des actifs plus « alternatifs » à haut
+             rendement. Dans cette hypothèse, l’ajustement des valeurs reste lent, mais
+             l’offre des gérants se modifie afin de capter une clientèle moins patrimoniale.
+
+   -   Repenser le rôle de l’immobilier dans une allocation. L’environnement des dix
+       dernières années s’est caractérisé par une baisse continue des taux, qui créait ainsi
+       mécaniquement de la valeur, à la fois par l’effet de levier du crédit et par l’appréciation
+       des prix. Ce monde est révolu. Les placements obligataires, hors-jeu pendant 10 ans,
+       redeviennent un concurrent de taille pour l’immobilier. On doit donc s’attendre à ce
+       que les gérants immobiliers amplifient le mouvement qui a débuté il y a 3 ans : le
+       développement des classes d’actifs « alternatives » telles que la logistique, la santé, et
+       le résidentiel, qui constituent aujourd’hui plus de la moitié des investissements
+       immobiliers en Europe. Dans un monde où les taux ne sont pas amenés à baisser en
+       continu, c’est la croissance du revenu locatif qui devient la source principale de
+
+       performance. Il est à noter que les classes d’actifs alternatives requièrent des
+       compétences plus spécialisées et plus rares, ainsi qu’une taille critique pour peser
+       face aux opérateurs.
+
+   -   Absorber la décote environnementale. La mise « hors marché » des logements
+       qualifiés de « passoires thermiques » n’est qu’un avant-goût de la montée en
+       puissance des standards environnementaux. Elle est préparée par la mise en place des
+       labels ISR et des réglementations européennes (SFDR, taxonomie) et se traduira à plus
+       ou moins brève échéance par des évolutions dans la valorisation des immeubles. Or,
+       la mise en place des outils et des process nécessaires à un pilotage de la dimension
+       ESG est une démarche qui prend des années. Les sociétés de gestion qui sont prêtes
+       à cette évolution seront avantagées par rapport à celles qui les adopteront en
+       catastrophe.
+
+                 Chapitre III - Focus : ESG immobilier et Label ISR
+
+En juillet 2020 est paru le premier référentiel du Label ISR immobilier. Il s’agit d’une
+déclinaison aux fonds immobilier du Label ISR qui existait depuis plusieurs années et qui
+s’appliquait aux OPCVM.
+
+Le Label ISR immobilier est attribué à un fonds (et non à une société de geston, ni à un actif)
+pour une diurée de 3 ans par un certificateur agréé (Deloitte, AFNOR, Ernst & Young….). Au
+terme du cycle de 3 ans, le certificateur vérifie si les engagements ont bien été tenus, et
+prolonge le Label pour une durée de 3 ans supplémentaires. Si un fonds perd son Label ISR, il
+ne peut pas recandidater avant 6 mois.
+
+Le Label ISR est utilisé comme critère obligatoire de référencement d’un fonds par la plupart
+des grandes plates-formes de distribution et des investisseurs institutionnels. La vocation
+initiale du Label ISR est avant tout de supprimer le risque de « greenwashing », c’est-à-dire
+de se prévaloir d’un impact environnemental ou social sans se donner les moyens de réaliser
+cette action (voire en ayant un impact négatif).
+
+Les label ISR français repose sur 6 piliers :
+
+   -   1/ un fonds labelisé doit se fixer des objectifs en matière de critères environnementaux,
+       sociaux et de gouvernance.
+
+   -   2/ un fonds labelisé doit avoir mis en place un outil de notation extra-financière de
+       ses actifs. Il doit pouvoir établir que tel actif est performant sur le plan ESG. Le Score
+       ESG d’un actif doit être calculé en respectant, dans la construction de la vote, les
+       pondérations suivantes :
+
+           o Critères environnementaux : entre 30% et 60% de la note
+           o Critères sociaux : entre 20% et 50% de la note
+
+           o Critères de gouvernance : entre 20% et 30% de la notation.
+
+   -   3/ un fonds labelisé doit prendre en compte les critères ESG dans la construction et
+       la vie du portefeuille, c’est-à-dire à l’acquisition et à la gestion des immeubles. Cela
+       implique donc de mettre en place les procédures qui inscrivent la prise en compte
+       des critères ESG dans notre quotidien de gérant.
+
+   -   4/ un fonds labelisé doit déployer une politique d’engagement avec les parties
+       prenantes de notre activité. Une politique d’engagement consiste à associer les
+       acteurs avec lesquels nous travaillons aux objectifs ESG du fonds. La partie prenante
+       la plus directe, ce sont bien entendu les locataires. C’est d’eux que dépend une partie
+       de la réussite, en matière de consommation d’énergie notamment.
+
+   -   5/ un fonds labélisé doit être transparent sur sa stratégie, ses objectifs et ses
+       méthodes en matière d’ESG, notamment vis-à-vis de ses investisseurs. Il communique
+       aussi le dispositif de contrôle interne qui est mis en œuvre sous l’égide de la
+       conformité.
+
+   -   6/ Un fonds labellisé ISR doit être transparent sur ses résultats. Le suivi des réussites
+       et des échecs en matières d’ESG doit être publié dans un reporting a minima annuel,
+       et public.
+
+Les thèmes E (Environnement), S (Social) et G (Gouvernance) en immobilier
+
+Le gestionnaire d’actifs en immobilier gère à la fois le fonds, mais surtout le patrimoine du
+fonds (i.e. les bâtiments). Il dispose donc d’un levier d’action important pour agir sur le
+patrimoine immobilier et son exploitation, et pour influencer les pratiques des parties
+prenantes clés de l’immeuble (locataires, gestionnaires, prestataires de travaux, etc.). Le label
+
+ISR met l’accent sur le processus de gestion en phase de détention et sur l’engagement des
+parties clés des immeubles en portefeuille.
+
+Le secteur du bâtiment représente, au niveau mondial, environ 40% des consommations
+d’énergie et 36% des émissions de gaz à effet de serre, si l’on inclut à la fois la construction
+et l’exploitation des immeubles. Avec les secteurs du transport, de l’agriculture et de
+l‘industrie, le bâtiment est, pour un pays comme la France, le secteur d’activité le plus
+producteur de gaz à effet de serre. Compte tenu du faible taux de renouvellement des actifs
+immobiliers, l’enjeu prioritaire pour le secteur, en vue de l’atteinte des objectifs climatiques
+et écologiques à moyen/long terme, se situe donc au niveau de l’amélioration du parc existant.
+
+Le label ISR n’est donc pas uniquement accessible aux fonds investissant dans les bâtiments
+les plus récents et les plus performants. Il n’est pas une garantie de qualité environnementale
+des biens le constituant, mais une garantie de process d’amélioration pour la pertie la plus
+émissive du patrimoine.
+
+        Pour aller plus loin - sélection de sources d’information en
+                                   immobilier
+
+Sites internet qualitatifs sur l’immobilier
+
+Institut de l’Epargne Immobilière et Foncière – www.ieif.fr
+CGPI / sites d’information sur les SCPI : www.meilleurescpi.com ; www.primaliance.com
+Quantalys – www.quantalys.com
+WebImm (statistiques immobilières trimestrielles) : www.webimm.com
+PierrePapier - https://www.pierrepapier.fr/
+Center for Real Estate Management (Université Paris-Dauphine) :
+https://drm.dauphine.fr/fr/center-for/center-for-real-estate-management.html
+Economie Immobilière - https://www.economieimmobiliere.com/
+Ministère du Logement : https://www.statistiques.developpement-durable.gouv.fr/logement
+CBRE : https://www.cbre.fr/fr-fr/etudes
+Crédit Foncier Immobilier - https://creditfoncierimmobilier.fr/marche-immobilier/
+Jones LangLaSalle - https://www.jll.fr/fr/etudes-recherche#Investor
+Knight Frank - https://www.knightfrank.fr/research/recherche.aspx
+BNP Real Estate Research - https://www.realestate.bnpparibas.fr/bnppre/fr/bnp-paribas-
+real-estate-france-cfo4_8512.html
+https://www.sprweb.com//
+https://www.msci.com/research/real-estate
+https://realestech.eu/
+
+Sites sur l’ISR
+https://o-immobilierdurable.fr/
+https://www.construction21.org/france/
+
+Fils Twitter
+@curiosity_keys
+@ireadexperience
+@HubSmartCity
+@RICSnews
+@radioimmo
+@richard_malle
+@UrbanLandInst

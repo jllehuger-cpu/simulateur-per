@@ -1,0 +1,2238 @@
+
+                                                         TABLE DES MATIERES
+
+      Introduction
+
+La gestion de patrimoine a pris son essor en apportant les solutions appropriées aux objectifs des
+clients. Parmi les objectifs récurrents figure tout naturellement la transmission du patrimoine ou, plus
+exactement, la transmission organisée du patrimoine.
+
+Les outils juridiques ne manquent pas – régime matrimonial, dispositions à titre gratuit entre vifs et à
+cause de mort, assurance vie, etc. –, encore faut-il les utiliser à propos… et savoir les combiner, afin de
+ne pas défaire par maladresse un ouvrage patiemment tissé.
+
+Pour en venir plus directement au sujet du présent cours, à savoir les donations et donations partages,
+il va sans dire que sa pertinence reste liée à un corpus juridique qu’il convient de maîtriser. Il est en
+effet souhaitable d’utiliser des outils en les connaissant (effets, risques, etc.).
+
+L’objectif premier de ce cours est donc d’aider chacun à percevoir ses limites, tout en les repoussant,
+cela va de soi. Les apprentis sorciers n’ont que rarement fait la fortune de leurs clients. Il vaut toujours
+mieux passer du temps à bâtir une solution pertinente et sûre que se lancer sans filet et devoir ensuite
+rattraper les erreurs commises, si tant est que cela reste possible.
+
+Dans un même ordre d’idée, nous verrons que la démarche à laquelle invite le cours s’inscrit dans le
+cadre d’une collaboration en bonne intelligence avec un professionnel qu’on ne peut contourner sans
+risque dans le domaine qui nous intéresse : le notaire. A la lumière de nos travaux, vous pourrez mieux
+juger des difficultés de son art.
+
+Pour la bonne compréhension des diverses notions explicitées infra, nous aurons l’occasion d’effectuer
+quelques incursions hors de notre domaine réservé. Par souci de concision, elles se limiteront à
+l’essentiel ; les disciplines enseignées par ailleurs complèteront donc utilement les connaissances à
+acquérir ici.
+
+Outre le contexte juridique, notre étude visera également à explorer un contexte économique qu’il
+serait malvenu de méconnaître.
+
+En conséquence, le présent cours, s’il est ambitieux, n’a pas vocation à être un cours de droit, au sens
+strict du terme. Il n’aspire pas à l’exhaustivité mais reprend les éléments juridiques essentiels à une
+bonne pratique des donations et des donations partages.
+
+Seront donc tour à tour abordés, dans la présente étude, les principes des donations (partie I) et les
+différents types de donations (partie II).
+
+      PARTIE 1 : LES PRINCIPES DES DONATIONS
+
+      Chapitre 1 : Définition des donations : le fond et la forme
+            Section 1 : Définition
+« La libéralité est l'acte par lequel une personne dispose à titre gratuit de tout ou partie de ses biens
+ou de ses droits au profit d'une autre personne » (C. civ., art. 893, al. 1er).
+
+Cette définition, introduite par la loi du 23 juin 2006 réformant les successions et libéralités, trace les
+contours de notre domaine d’investigation. La libéralité peut être faite par donation entre vifs ou par
+testament. Nous nous attacherons ici à la première de ces possibilités.
+
+« La donation entre vifs est un acte par lequel le donateur se dépouille actuellement et irrévocablement
+de la chose donnée, en faveur du donataire qui l'accepte » (C. civ., art. 894).
+
+Les donations sont ainsi définies par trois critères essentiels :
+-     l’intention de gratifier (ou animus donandi),
+-     l’appauvrissement du donateur et l’enrichissement corrélatif du donataire,
+-     ainsi que le dessaisissement irrévocable du donateur.
+
+La volonté de donner est un élément nécessaire à caractériser la donation. L’intention libérale qui
+préside à l’opération écarte les autres qualifications que pourrait revêtir l’acte. En effet, en l’absence
+d’animus donandi, la remise de fonds pourrait notamment s’analyser comme un prêt. L’intention
+libérale doit être cause de l’appauvrissement de l’un – le donateur – et l’enrichissement corrélatif de
+l’autre – le donataire.
+
+                                             Remarque pratique
+
+L’incontournable intention libérale !
+
+La Cour de cassation vient de rendre une rafale d’arrêts dont le point commun est de renvoyer
+systématiquement à l’intention libérale (Cass. 1e civ., 18 janv. 2012, n° 09-72.542, 10-25.685, 10-27.325
+et 11-12.863), tranchant ainsi nettement avec ses positions antérieures (rapport quasiment
+automatique en cas d’hébergement gratuit prolongé par exemple ; cf. infra).
+
+S’agissant de qualifier différents avantages indirects – et de déterminer en conséquence la prise en
+compte qui doit en être faite –, la Cour rejette les pourvois lorsque les juges du fonds ont bien mis la
+preuve de l’intention libérale à la charge de ceux qui invoquent la donation, et casse les arrêts dans le
+cas contraire.
+
+Retour aux fondamentaux ? Il nous semble que c’est le cas, en effet, ce d’autant que la Cour de
+cassation semble ferme sur sa nouvelle ligne (en ce sens, par exemple, Cass. 1e civ., 25 sept. 2013, n° 12-
+24.779 ou Cass. 1e civ., 13 nov. 2014, n° 13-20.442).
+
+Par ailleurs, une attention toute particulière doit être apportée au dessaisissement irrévocable du
+donateur. S’il paraît en somme fort logique, il ne doit pas être perdu de vue lorsque la transmission du
+patrimoine devient un alibi à la réalisation d’économies fiscales.
+
+L’adage « donner et retenir ne vaut » ne doit jamais cesser d’éclairer le chemin du praticien avisé, sous
+peine de graves désillusions (vis-à-vis de l’administration fiscale notamment, laquelle recourt d’ailleurs
+parfois, en la matière, à la procédure d’abus de droit).
+
+Ceci n’empêche en revanche aucunement le recours à des réserves, charges et conditions,
+que nous étudierons et qui permettront, en toute sécurité juridique, de « tempérer » ce
+principe fondamental sans jamais le renier (n’en déplaise alors à l’administration fiscale…).
+
+L’adage doit également appeler l’attention du donateur sur les lourdes conséquences de l’acte
+de donation, lequel revêt un caractère irrévocable que nous préciserons infra.
+
+            Section 2 : Conditions de validité
+
+                  I - Condition de forme : principe et exceptions
+
+                         A - Nécessité d’un acte notarié
+Il existe tout d’abord une condition de forme importante, à défaut d’être incontournable : « Tous actes
+portant donation entre vifs seront passés devant notaires, dans la forme ordinaire des contrats » (C.
+civ., art. 931).
+
+L’acte de donation doit donc revêtir la forme solennelle, sous peine de nullité. Tel est le formalisme
+dérogatoire au droit commun souhaité par le législateur afin d’inscrire dans un cadre protecteur le
+principe exceptionnel d’irrévocabilité des donations.
+
+« La donation entre vifs n’engagera le donateur, et ne produira aucun effet, que du jour qu’elle aura été
+acceptée en termes exprès » (C. civ., art. 932, al. 1er).
+
+Pour que la donation soit parfaite, il est donc nécessaire que le donataire accepte la libéralité qu’entend
+lui consentir le donateur. L'acceptation pourra être faite par un acte postérieur, du vivant du donateur.
+Elle devra revêtir la même forme, savoir un acte authentique dont il restera minute.
+
+On notera que l’engagement de signer un acte de donation est, comme la libéralité elle-même, soumis
+à la forme authentique (Cass. 1e civ., 17 oct. 2018, n° 17-22.021 & 17-26.573).
+
+                                                  EXERCICE N°1
+
+René A. vient de décéder. Il laisse pour héritiers des neveux et nièces.
+L’un d’entre eux, Christophe, explique que son oncle lui avait donné un appartement sis à Nice. Il produit
+une lettre manuscrite de son oncle à l’appui de ses propos.
+Question :
+Christophe est-il propriétaire de cet appartement ?
+
+Réponse :
+
+                         B - Absence de formalisme : le don manuel
+Il existe cependant un certain nombre d’exceptions au formalisme qui gouverne les donations, au
+premier rang desquelles figure le don manuel, dont la licéité est admise par la jurisprudence comme
+par la doctrine.
+
+Cette exception a priori étonnante résulte d’une lecture littérale de l’article 931 du Code civil : la forme
+notariée est nécessaire seulement s’il y a un acte. En l’absence d’acte, l’obligation disparaît – même si
+d’aucuns estiment de ce fait que le don manuel doit être lui-même regardé comme un acte.
+
+Un don manuel suppose, pour être réalisé, une tradition réelle réalisant la dépossession définitive et
+irrévocable du donateur. Les biens qui peuvent faire l’objet d’une transmission de la main à la main –
+avec, au moins historiquement, une remise matérielle de la chose – peuvent donc échapper au
+formalisme de rigueur. Les meubles corporels dont le transfert n’est pas soumis à publicité peuvent
+ainsi être transmis sous forme de don manuel.
+S’adaptant aux transformations de la société, la jurisprudence a admis que la tradition peut être
+effectuée par jeu d’écritures. Le don manuel peut désormais être réalisé au moyen d’une remise de
+chèque (provisionné s’entend ; en ce sens, Cass. 1e civ., 20 nov. 1985, n° 83-14.005) ou d’un virement
+de compte à compte, tant pour des actions (Cass. 1e civ., 27 oct. 1993, n° 91-13.946) que pour du
+numéraire (Cass. 1e civ., 12 juil. 1966).
+
+On notera qu’il n’y a pas de dépossession irrévocable dès lors qu’un dépôt ou un virement est effectué
+sur un compte bancaire sur lequel le « donateur » dispose d'une procuration (CA Aix-en-Provence, 31
+mars 2005). En effet, la preuve de l’intention libérale, liée à l’irréversibilité du transfert de fonds, n’est
+pas établie ici, le « donateur » pouvant reprendre d’une main ce qu’il donne de l’autre. Les sommes
+perçues au moyen d’une procuration sur un compte bancaire fait de celui qui les a prises un
+« détenteur précaire, ne pouvant se prévaloir des règles de la possession », et donc obligé de
+démontrer l’intention libérale du titulaire du compte pour conserver les deniers (Cass. 1e civ., 13 févr.
+2013).
+
+Ces exemples prouvent, si besoin est, les risques inhérents au don manuel. En effet, exception faite de
+la condition de forme, les conditions d’existence et de validité des donations s’appliquent donc au don
+manuel… et le notaire n’est pas présent pour vérifier qu’il en est bien ainsi.
+
+Ceci doit inciter, d’une part, à passer de préférence par une donation notariée ou, d’autre part, à assortir
+le don d’un pacte adjoint, s’il est adopté par les parties comme modalité de transmission.
+
+                                             Remarque pratique
+A cheval sur le don manuel !
+
+Les animaux peuvent faire l’objet d’un don manuel. La Cour de cassation a précisé qu’« un cheval, sous
+réserve de la protection qui lui est due en tant qu’animal, être vivant doué de sensibilité, est soumis
+au régime des biens et, comme tel, susceptible d’appropriation dont la preuve peut être rapportée par
+une possession à titre de propriétaire » (Cass. 1e civ., 17 févr. 2016, n° 15-14.121).
+
+L’écrit fait son retour avec le pacte adjoint ; ce dernier est parfois analysé comme une convention
+récognitive qui en conséquence reconnaît la donation et en précise les modalités particulières
+(notamment les réserves, charges et conditions).
+
+L’acte notarié n’est donc pas nécessaire, dès lors que le pacte prend effectivement place après la
+donation et n’en comporte pas l’acceptation, auquel cas la donation serait nulle (nullité absolue des
+donations sous seing privé).
+
+                                             Remarque pratique
+
+Pratiques mal maitrisées : gare aux conséquences des erreurs commises !
+
+La rédaction du pacte adjoint est délicate car il ne doit pas pouvoir être confondu avec une donation
+sous seing privé, entachée de nullité absolue (en ce sens, Cass. 1e civ., 15 oct. 1993). Aussi il est
+préférable d’utiliser le passé plutôt que le présent pour souligner l’autonomie de la tradition, et donc
+d’établir l’écrit postérieurement, par exemple sous l’intitulé « reconnaissance de don manuel ».
+
+Autre danger : les conditions d’une donation notariée sont nulles pour avoir été stipulées dans un acte
+sous seing privé, et la nullité des conditions entraîne celle de la donation (Cass. 1e civ., 17 oct. 2007,
+n° 05-14.818).
+
+En application des articles 931 à 933 du Code civil, qui énoncent des règles d’ordre public, la donation
+entre vifs ne produit effets que du jour où elle est acceptée par le donataire, qui peut être représenté
+à l’acte par la personne fondée de sa procuration passée devant un notaire ; la sanction de l’irrégularité
+est la nullité absolue (à propos de l’acceptation de la donation par un clerc de notaire investi d’une
+procuration établie sous seing privé : Cass. 1e civ., 11 sept. 2013, n° 12-15.618).
+
+La forme du pacte adjoint pause donc un réel problème en pratique – trop souvent négligé, de surcroît.
+
+Utiliser une lettre missive entre les parties, voilà un commencement de preuve par écrit. Il s’agirait
+d’opérer un échange de courriers – recommandé avec accusé de réception ? –, l’un annonçant le don
+manuel et ses modalités, l’autre, en retour, remerciant le donateur.
+
+Mais il est évident qu’un document signé à la fois par le donateur et par le donataire serait préférable.
+A condition qu’il ne puisse être assimilé à une donation sous seing privé…
+                         C - Absence de formalisme : donations indirecte et déguisée
+Il existe enfin deux autres exceptions à la forme solennelle des donations, qui sont elles aussi souvent
+confondues : la donation indirecte et la donation déguisée.
+
+Il convient pourtant de distinguer la donation déguisée, qui suppose la volonté de simulation, de la
+donation indirecte, qui ne comporte pas cet élément.
+
+Ainsi la donation indirecte présente accessoirement le caractère d’une libéralité, sans pour autant que
+cela apparaisse dans l’acte. Celui-ci, pour autant, n’en reste pas moins parfaitement valable.
+
+Parmi les très nombreux exemples de donations indirectes, on note les ventes et locations à vil prix,
+ainsi que les cautionnements et les clauses de répartition inégale des bénéfices, dans certains cas. Le
+fait pour le donataire de ne pas assumer la charge prévue par l’acte de donation peut également être
+considérée comme une donation indirecte ; ainsi, « en ne réclamant pas pendant de longues années le
+paiement de la rente conçue en complément de retraite, [les parents] qui avaient déjà par le passé
+
+favorisé leur fils, avaient clairement manifesté l’intention de le gratifier en le déchargeant de l’obligation
+contractée en contrepartie de la donation » (Cass. 1e civ., 15 mai 2019, n° 18-17.372).
+
+L’assurance vie revêt parfois également le caractère de donation indirecte, notamment quand les
+circonstances – proximité du décès – rendent le droit de rachat illusoire (Cass. ch. mixte, 21 déc. 2007,
+et Cass. com., 26 oct. 2010).
+
+En soutenant artificiellement l’activité professionnelle de son fils et en se substituant à lui dans le
+paiement de ses dettes, s’appauvrissant ainsi à son profit, une mère peut consentir une donation
+indirecte (Cass. 1e civ., 18 mars 2020, n° 18-25.309). Idem s’agissant, toujours entre une mère et son fils,
+d’un abandon de fermages (Cass. 1e civ., 21 sept. 2022, n° 20-22.139).
+
+Ce qui réunit ces opérations ? Le déséquilibre volontaire… qui doit trouver sa cause dans l’intention
+libérale.
+
+                                                 Remarque pratique
+
+Preuve de l’intention libérale : une question de fond !
+
+Des époux ont consenti une donation-partage de la nue-propriété de leurs biens immobiliers à leurs
+deux enfants ; par acte sous seing privé, ils ont accordé à leur fille la jouissance gratuite de l’immeuble
+qui lui avait été attribué, à charge pour elle d’assumer les dépenses afférentes au bien.
+
+La Cour de cassation valide l’arrêt d’appel qui a tranché quant à l’animus donandi : « en estimant
+souverainement que la jouissance par [le nu-propriétaire] de l’immeuble qui lui avait été attribué avait
+pour contrepartie son engagement de supporter l’ensemble des charges grevant l’immeuble, la cour
+d’appel a écarté l’intention libérale et, par là-même, exclu l’existence d’une libéralité » (Cass. 1e civ., 30
+janv. 2013, n° 11-27.094).
+
+A l’occasion d’un abandon d’usufruit par sa titulaire, la Cour de cassation a considéré que la donatrice
+« entendait gratifier la société en accroissant la valeur de ses actions et ses biens dès lors que cette
+dernière était la bénéficiaire de la donation intervenue en sa faveur et non les enfants ». (Cass. com.,
+10 avr. 2019, n° 17-19.733). Cette solution, discutable, a de lourdes conséquences fiscales (taxation
+entre étrangers au tarif de 60 %, sans oublier une possible taxation de la société à l’impôt sur les
+sociétés ; en ce sens, CE, 14 oct. 2019, n° 417095).
+
+La donation déguisée, pour sa part, est généralement dissimulée sous la forme d’un acte à titre onéreux
+– très régulièrement une vente –, dont elle ne fait qu’emprunter les apparences. On trouve notamment
+ici les ventes et les reconnaissances de dettes fictives, également recherchées, mais pour d’autres
+raisons, par l’administration fiscale.
+
+La validité des donations déguisées, qui s’apprécie selon le droit commun des donations, est le
+principe. Les libéralités faites sous couvert d’actes à titre onéreux sont ainsi valables lorsqu’elles
+réunissent les conditions de forme requises pour la constitution des actes dont elles empruntent
+l’apparence, les règles auxquelles elles sont assujetties quant au fond étant celles propres aux actes à
+titre gratuit (Cass. 1e civ., 29 mai 1980 et 6 nov. 2013, n° 12-23.363).
+
+La simulation a donc pour conséquence de soumettre la donation au rapport, à la réduction ou à la
+révocation pour l’une des causes légales, sauf manœuvres frauduleuses, auquel cas l’opération est nulle
+dans son entier.
+
+De la même manière, en l’absence de déclaration de la donation à la succession dans une intention
+frauduleuse, les règles du recel successoral s’appliquent (même en présence d’une donation hors part
+reçue par un enfant ; Cass. 1e civ., 4 mars 2015, n° 13-20.689) : son auteur ne peut plus prétendre à
+aucune part dans les objets recélés (C. civ., art. 778).
+
+Le recel ne peut bien sûr être invoqué que par ceux à qui il a porté préjudice au titre de l’égalité entre
+cohéritiers ou au titre de la protection de la réserve (Cass. 1e civ., 25 mai 2016, n° 15-14.863). Par ailleurs,
+après avoir constaté que « la donation (…) avait porté sur une somme d’argent et non sur les actions
+que les deniers avaient permis d’acquérir », la Cour de cassation a considéré que les frère et sœur « ne
+pouvaient prétendre, au titre d’un recel successoral, à la restitution des actions et dividendes » (Cass.
+1e civ., 8 oct. 2014, n° 13-10.074).
+
+                                             Remarque pratique
+
+Présomption de déguisement : règles de l’article 918 du Code civil.
+
+La valeur en pleine propriété des biens aliénés, soit à charge de rente viagère, soit à fonds perdus, ou
+avec réserve d’usufruit à l’un des successibles en ligne directe, est imputée sur la quotité disponible
+et l’éventuel excédent sujet à réduction (cf. infra). Cette imputation et cette réduction ne peuvent être
+demandées que par ceux des autres successibles en ligne directe qui n’ont pas consenti à ces
+aliénations (C. civ., art. 918).
+
+La présomption de donation déguisée hors part successorale ainsi édictée est irréfragable (pas même
+écartée par la preuve que l’héritier s’est acquitté de la contrepartie de l’aliénation), mais doit être
+appliquée de manière stricte : ainsi l’échange n’est-il pas assimilé à la vente et donc pas concerné par
+la présomption (en ce sens, Cass. 1e civ., 25 sept. 2013, n° 12-20.541).
+
+Le Conseil constitutionnel a validé ce texte (Décision n° 2013-337 QPC, 1er août 2013), au champ
+d’application « précisément défini et (…) en adéquation avec l’objet de la loi » (protéger les héritiers
+réservataires).
+
+La Cour de cassation s’est montrée conciliante avec les parties en écartant l’application de ce texte
+dès lors que les circonstances « démontraient qu’elles poursuivaient un objectif global de transmission,
+connu et accepté par l’ensemble des héritiers réservataires » (Cass. 1e civ., 26 janv. 2022, n° 20-14.155,
+caractère strictement identique et quasi-concomitance des cessions de parts litigieuses au profit de
+tous les enfants à la suite d’actes de même nature).
+
+                  II - Conditions de fond : validité de l’acte
+
+La donation doit respecter les autres conditions générales de validité des contrats, savoir (C. civ., art.
+1128) :
+1° Le consentement des parties ;
+2° Leur capacité de contracter ;
+3° Un contenu licite et certain.
+
+Cela commence, bien sûr, par un grand principe : seul celui qui est sain d’esprit peut donner (C. civ.,
+art. 901), la preuve de l’insanité d’esprit incombant à celui qui l’invoque, sous le contrôle du juge.
+
+Erreur, dol et violence vicient le consentement lorsque, sans eux, l’une des parties n’aurait pas
+contracté ou aurait contracté à des conditions substantiellement différentes, toutes choses dont le
+caractère déterminant s’apprécie eu égard aux personnes et aux circonstances (C. civ., art. 1130).
+
+Les vices du consentement sont une cause de nullité relative du contrat (C. civ., art. 1131).
+
+Si le vice du consentement qu’est la violence – physique mais aussi morale – est parfaitement
+appréhendable (donations « consenties » sous la menace), précisons que l’erreur peut également
+survenir, bien que plus rarement (erreur sur l’objet de la donation mais également erreur sur la personne
+du donataire, avec par exemple la découverte qu’une filiation présumée était erronée).
+
+Le dol, en tant que manœuvre destinée à tromper, peut s’envisager dans certaines situations (avec par
+exemple le détournement frauduleux de l’affection du donateur). Il nécessite démonstration de
+l’intention de tromper (en ce sens, Cass. 1e civ., 25 juin 2014, n° 13-23.925).
+
+Quant à la capacité des parties à disposer entre vifs – laquelle s’apprécie évidemment au jour de la
+donation –, elle peut être largement réduite par la loi (en général par mesures de protection, pour les
+incapables majeurs comme pour les mineurs). L’acceptation d’une donation qui ne comprend aucune
+charge est possible par chacun des père et mère du mineur non émancipé. En revanche, l’accord des
+deux parents est requis en présence de charges.
+
+                                             Remarque pratique
+
+Autorisation d’une donation : cas d’une personne sous habilitation familiale
+
+Selon l’article 494-6, alinéa 4, du Code civil, « la personne habilitée ne peut accomplir en représentation
+un acte de disposition à titre gratuit qu’avec l’autorisation du juge des tutelles ».
+
+Pour la Cour de cassation, « il incombe par conséquent au juge des contentieux de la protection, de
+s’assurer, d’abord, au vu de l’ensemble des circonstances, passées comme présentes, entourant un
+tel acte, que, dans son objet comme dans sa destination, la donation correspond à ce qu’aurait voulu
+la personne protégée si elle avait été capable d’y consentir elle-même, ensuite, que cette libéralité est
+conforme à ses intérêts personnels et patrimoniaux, en particulier que sont préservés les moyens lui
+permettant de maintenir son niveau de vie et de faire face aux conséquences de sa vulnérabilité »
+(Cass. 1e civ., 15 déc. 2021, n° 21-70.022).
+
+Il existe également un certain nombre d’interdictions de recevoir (notamment personnel médical et
+ministres du culte qui ont accompagné une personne pendant la maladie dont elle meurt ; en ce sens,
+C. civ., art. 909 et CASF, art. L 116-4), dans un souci de protection des héritiers plus que du disposant
+lui-même. Le Conseil constitutionnel a cependant considéré comme inconstitutionnelle la nullité des
+libéralités consenties à des employés de maison (Cons. const., 12 mars 2021, n° 2021-888 QPC).
+
+S’agissant de l’objet, il doit être déterminé – ou à défaut déterminable, la donation portant sur un bien
+qui est dans le commerce – mais également licite.
+
+Pour terminer, la cause de la donation doit exister et être licite. En la matière, il convient de noter que
+la jurisprudence ne censure plus désormais pour illicéité la donation contribuant à entretenir une
+relation adultère (Cass. 1e civ., 3 févr. 1999, n° 96-11.946).
+
+                                             Remarque pratique
+
+Difficile d’imposer un partage amiable…
+
+Afin de « diriger » ses deux enfants vers un partage amiable, une mère a précisé : « le partage de mes
+biens devra avoir lieu à l'amiable. Tout recours au tribunal aura pour effet de réduire la part du
+demandeur ayant saisi le tribunal à la seule réserve sur les biens de ma succession qui lui est reconnue
+par la loi ».
+
+Pour la Cour de cassation, « cette clause, qui avait pour effet de porter une atteinte excessive au droit
+absolu, reconnu à tout indivisaire, de demander le partage, devait être réputée non écrite » (Cass. 1e
+civ., 13 avr. 2016, n° 15-13.312).
+
+       Chapitre 2 : Effet des donations
+            Section 1 : Transfert de propriété
+
+La donation entraîne transfert de propriété du donateur au donataire. Ledit transfert se fait en
+principe immédiatement et sans formalité.
+
+            Section 2 : Principe d’irrévocabilité
+
+De surcroît, la donation est alors irrévocable. Si l’irrévocabilité est le principe des conventions
+(qui tiennent lieu de loi à ceux qui les ont faites), elle souffre en général certaines exceptions
+comme le consentement mutuel des parties (C. civ., art., 1193).
+
+Dans ce cas, la question est de savoir à quoi correspond précisément la révocation à l’amiable
+ainsi opérée : la rétrocession des biens ou droits transmis s’analyse-t-elle comme une nouvelle
+libéralité, comme une opération onéreuse (en présence d’une contrepartie) ou encore
+l’exécution d’une obligation alimentaire ? Le traitement (civil mais aussi fiscal) de l’opération
+s’en trouvera changé.
+
+                  I - Principes généraux
+
+Le formalisme lié aux donations trouve en majeure partie sa justification dans cette irrévocabilité dite
+« spéciale » – même si elle a été largement rattrapée par celle des contrats ordinaires (cf. infra).
+
+Restent alors les causes légales de révocation des donations, au nombre de trois (C. civ., art. 953) :
+- l’inexécution des conditions sous lesquelles aura été faite la donation,
+- l’ingratitude du donataire
+- et la survenance d’enfant.
+
+Sont visées ici les seules causes de révocation unilatérale par le donateur – lequel ne peut s’arroger
+dans l’acte une faculté de revenir sur son intention libérale. Une révocation par consentement mutuel
+reste en revanche parfaitement possible (en ce sens, CE 19 nov. 2004, n° 249358).
+
+Notons que les deux premières causes – inexécution des conditions et ingratitude – nécessitent une
+action en justice (C. civ., art. 956), alors que la dernière – survenance d’enfant –, non.
+
+Tout d’abord, les donations faites par une personne sans enfants ou descendants vivants lors de la
+donation étaient ainsi révoquées de plein droit – c’est-à-dire sans nécessité d’une décision judiciaire
+mais également, et c’était fort ennuyeux, sans possibilité d’y renoncer – par la survenance d’un enfant
+du donateur (C. civ., art. 960 ancien).
+
+Si la survenance d’enfants issu du donateur, même après son décès (enfant posthume), ou adoptés
+par adoption plénière, entraîne bien révocation de plein droit, de quelque valeur que la donation puisse
+être et à quelque titre qu’elle ait été faite, il est désormais nécessaire que ladite révocation soit prévue
+dans l’acte de donation (C. civ., art. 960 nouveau). Le fait que l’enfant du donateur soit conçu lors de
+la donation n’y change rien (C. civ., art. 961).
+
+Il convient d’appliquer la nouvelle règle – révocation pour survenance d’enfant seulement si elle est
+prévue dans l’acte – uniquement pour les donations consenties après le 1er janvier 2007.
+
+En revanche, s’agissant des donations antérieures, la révocation reste automatique (C. civ., art. 964
+ancien) et le seul moyen de confirmer la donation révoquée est d’en consentir une nouvelle du ou des
+mêmes biens.
+
+Nous reviendrons plus loin sur les conditions qui peuvent figurer dans un acte de donation (ou dans un
+pacte adjoint) et nous verrons dans quelle mesure il convient de tempérer le principe posé ci-dessus.
+
+Notons simplement qu’en cas de révocation intervenant pour inexécution des conditions, les biens
+rentreront dans les mains du donateur libres de toutes charges et hypothèques du chef du donataire.
+Le donateur aura d’ailleurs contre les tiers détenteurs des immeubles donnés tous les droits qu’il aurait
+contre le donataire lui-même (C. civ., art. 954).
+
+La révocation pour cause d’ingratitude, pour sa part, n’autorise à revenir ni sur les aliénations faites par
+le donataire, ni sur les hypothèques et autres charges réelles qu’il aura imposé sur l’objet de la donation
+dès lors qu’elles sont antérieures à la publication de la demande en révocation. Dans ce cas, le
+donataire devra restituer la valeur des objets aliénés au temps de la demande et les fruits perçus à
+compter de ce jour (C. civ., art. 958).
+
+La demande en révocation pour cause d’ingratitude devra être formée dans l’année, à compter du jour
+du délit imputé par le donateur au donataire, ou du jour que le délit aura pu être connu par le donateur.
+Cette révocation ne pourra être demandée par le donateur contre les héritiers du donataire, ni par les
+héritiers du donateur contre le donataire, à moins que, dans ce dernier cas, l’action n’ait été intentée
+par le donateur, ou qu’il ne soit décédé dans l’année du délit (C. civ., art. 957 ; Cass. 1e civ., 1er févr. 2012,
+n° 10-27.276 pour une demande d’expulsion du donateur). Un légataire universel a la qualité d'héritier
+au sens de ce texte (Cass. 1e civ., 27 janv. 2021, n° 19-18.278).
+
+La donation entre vifs ne pourra être révoquée pour cause d’ingratitude que (C. civ., art. 955) :
+- si le donataire a attenté à la vie du donateur,
+
+- s’il s'est rendu coupable envers lui de sévices, délits ou injures graves
+- ou s’il lui refuse des aliments.
+
+Notons que les donations en faveur du mariage ne sont pas révocables pour cause d’ingratitude (C. civ.,
+art. 959).
+
+Si la révocation d’une donation peut toujours intervenir par consentement mutuel, l’opération doit
+néanmoins avoir une cause licite ; en cas de litige, le juge doit vérifier « si la cause de l’acte révocatoire
+ne résidait pas dans la volonté des parties de contourner les dispositions d’ordre public » (Cass. 1e civ.,
+30 nov. 2022, n° 21-11.507, à propos d’une tentative de contournement des règles de la réserve
+héréditaire).
+
+                                                  EXERCICE N°2
+
+En 2010, Georges a fait donation à son fils Antoine d’une propriété immobilière sise à Biarritz, à charge
+pour Antoine de verser à son père une rente viagère fixée à 300 €/mois.
+Depuis juillet dernier, Antoine ne verse plus cette rente.
+Ses frères et sœurs prétendent que cette donation est nulle en raison du non paiement de la rente.
+Questions :
+La donation est-elle anéantie ?
+La donation peut-elle être révoquée ? Si oui, comment faire ?
+
+Réponses :
+
+                  II - Cas des donations de biens présents entre époux
+
+Le cas des donations entre époux mérite une attention particulière. Depuis le 1er janvier 2005, les
+donations de biens présents ne sont plus révocables qu’en vertu des règles de droit commun explorées
+supra – exception faite de la survenance d’enfants, nous l’avons vu (C. civ., art. 1096, al. 2). Auparavant,
+ces mêmes donations étaient par principe révocables à tout moment (règle d’ordre public).
+
+Les donations rémunératoires, qui récompensent des services rendus au donateur par le donataire, ne
+constituent pas des libéralités et échappent aux règles applicables à ces dernières (rapport, réduction
+et révocabilité ; Cass. 1e civ., 30 mai 1979).
+
+Dans tous les cas, « il appartient à l’époux qui soutient que les paiements qu’il a effectués pour le
+compte de son conjoint constituent une donation révocable d’établir qu’ils n’ont pas eu d’autre cause
+que son intention libérale » (Cass. 1e civ., 16 déc. 2020, n° 19-13.701). A noter que, « sauf convention
+contraire des époux, l’apport en capital de fonds personnels par un époux séparé de biens afin de
+financer la part de son conjoint lors de l’acquisition d’un bien indivis affecté à l’usage familial ne
+participe pas de l’exécution de son obligation de contribuer aux charges du mariage », ce qui ouvre la
+porte à la qualification de donation rémunératoire (Cass. 1e civ., 9 févr. 2022, n° 20-14.272, pour une
+donation rémunératoire de 475 000 € validée au profit de l’épouse qui avait eu le désir de monter son
+
+cabinet de publicité mais qui, en raison de l’opposition de son conjoint, avait cessé toute activité
+professionnelle et s’était occupée de manière plus intensive des enfants et de son conjoint, permettant
+à celui-ci de gérer ses affaires).
+
+                                             Remarque pratique
+
+Donation rémunératoire : elle n’a de donation que le nom !
+
+La donation rémunératoire correspond, par exemple, à la rémunération d’un service rendu par un époux
+qui est au-delà de la simple contribution aux charges du mariage. Ainsi, le fait d’avoir mis sa carrière
+professionnelle entre parenthèses et surtout d’avoir collaboré avec son conjoint sans rémunération
+peut amener les juges à une telle analyse.
+
+Parmi les questions restées alors en suspens, on trouve la « rétroactivité » potentielle de l’irrévocabilité.
+Quid des donations intervenues avant la date fatidique ?
+
+La loi n’est en fait applicable que pour les donations consenties après le 1er janvier 2005, ce qui est de
+nature à conforter les époux entre qui avaient consenti une donation au regard de la règle de révocation
+en cours à l'époque. Une réponse ministérielle (Rép. Roustan, JOAN 7 mars 2006) et une décision de la
+Cour de cassation (Cass. 1e civ., 10 juill. 2013, n° 11-28.124) ont confirmé cette interprétation,
+expressément retenue par la loi portant réformant les successions et libéralités.
+
+Ces nouvelles règles, une fois bien établies, doivent améliorer la sécurité juridique en général et
+accélérer la liquidation des intérêts patrimoniaux en cas de séparation.
+
+                                             Remarque pratique
+
+Donation de biens présents avant le 1er janvier 2005 et divorce
+
+Si, au cours d’une procédure de divorce, un époux a invité le juge à prendre en considération, pour la
+fixation de la prestation compensatoire, les droits de son conjoint dans un immeuble indivis acquis
+grâce à la donation qu’il invoquait, donation antérieure au 1er janvier 2005, il peut par là même avoir
+marqué sa renonciation non équivoque à user ultérieurement de la faculté de révocation de la libéralité
+(Cass. 1e civ., 10 juin 2015, n° 14-15.615).
+
+Notons qu’afin de gérer au mieux le problème de l’usufruit successif – qualifié de donation à terme de
+bien présent par la Cour de cassation –, le législateur a précisé que les donations de biens présents
+qui ne prennent pas effet au cours du mariage consenties à compter du 1er janvier 2007 restent
+révocables (C. civ., art. 1096, al. 2, a contrario).
+
+De telles donations consenties entre le 1er janvier 2005 et le 1er janvier 2007 sont librement révocables
+(loi du 23 juin 2006, art. 47-III, interprétant la loi du 26 mai 2004).
+
+La donation entre époux pendant le mariage – comprendre « donation de biens à venir » – est, pour sa
+part, assimilée à une disposition testamentaire. Elle en conserve une libre révocabilité (C. civ., art. 1096,
+al. 1er). Pas plus que la donation de biens présents elle n’est révoquée par la survenance d’enfants
+(C. civ., art. 1096, al. 3). En raison de sa nature, elle est étudiée dans le cadre de la transmission à cause
+de mort.
+
+Simplement, compte tenu des liens étroits entre transmission à titre gratuit entre vifs et à cause de
+mort, il apparaît utile de préciser ici que, depuis le 1er janvier 2007 (date d’entrée en vigueur de la loi du
+23 juin 2006), les libéralités reçues du défunt par le conjoint survivant s’imputent sur les droits de
+celui-ci dans la succession, ledit conjoint pouvant en réclamer le complément sans jamais recevoir une
+portion des biens supérieure à la quotité disponible spéciale entre époux définie à l’article 1094-1 du
+Code civil (C. civ., art. 758-6).
+
+Suite à la réforme des droits du conjoint survivant (loi du 3 déc. 2001 applicable aux successions
+ouvertes après le 1er juillet 2002), un doute subsistait en la matière de cumul des droits successoraux
+légaux et des libéralités consenties par une donation au dernier vivant.
+
+La Cour de cassation a précisé que ce cumul ne pouvait ni porter atteinte à la nue-propriété de la
+réserve héréditaire ni dépasser l'une des quotités disponibles spéciales permises entre époux (Cass.,
+avis, 26 sept. 2006, n° 006-0009).
+
+L’abrogation du 2e alinéa de l’article 1099 du Code civil par la loi du 26 mai 2004 fait que la donation
+déguisée de biens présents entre époux consenties depuis le 1er janvier 2005 ne sont plus nulles de
+plein droit. Quand un époux acquiert un bien avec des deniers qui lui ont été donnés par l’autre à cette
+fin, la donation n’est que des deniers et non du bien auquel ils sont employés. En ce cas, les droits du
+donateur ou de ses héritiers n’ont pour objet qu’une somme d’argent suivant la valeur actuelle du bien.
+Si le bien a été aliéné, on considère la valeur qu’il avait au jour de l’aliénation, et si un nouveau bien a
+été subrogé au bien aliéné, la valeur de ce nouveau bien (C. civ., art. 1099-1).
+
+                                               Remarque pratique
+
+Donation de biens présents entre époux : pas de clause de non divorce !
+
+Les dispositions impératives de l’article 265, alinéa 1er du Code civil font obstacle à l’insertion, dans une
+donation de biens présents prenant effet au cours du mariage, d’une clause résolutoire liée au
+prononcé du divorce ou à une demande en divorce (Cass. 1e civ., 14 mars 2012, n° 11-13.791).
+
+Sort des donations entre époux : tableau de synthèse
+
+                              Application dans le temps
+                                                  Donations
+                                                  effectuées
+                                                  à partir du
+
+                                                                                                       t
+                                                  01/01/2005
+
+                             Principe :                                    Principe :
+                      Révocables à tout moment                           Irrévocables
+
+                                                                       Exceptions :
+                              Exception :
+                                                          Inexécution des charges & conditions
+                       Donations rémunératoires
+                                                                       Ingratitude
+
+                                           TOUJOURS REVOCABLES :
+                                       Donation entre époux (de biens à venir)
+                     Donations qui ne prennent pas effet pendant le mariage (usufruits successifs)
+
+      PARTIE 2 : LES DIFFERENTS TYPES DE DONATIONS
+
+      Chapitre 1 : Nature des donations eu égard à leur traitement
+      successoral
+
+Si la transmission à cause de mort fait l’objet d’un cours à part entière, les interactions avec la
+transmission entre vifs ont une telle importance qu’il n’est pas possible d’étudier les donations sans
+aborder leur sort dans le cadre de la succession.
+
+                         Successions                               Donations
+                                              Interactions
+
+                   Mutation à cause de mort                    Mutation entre vifs
+
+      Acquisition à titre onéreux             Acquisition à titre gratuit
+
+                                    PROPRIETE
+
+         Afin de comprendre quels mécanismes sont en jeu, rappelons tout d’abord les grands principes
+qui régissent la transmission en droit français. L’idée principale est simple : il existe des entraves légales
+à la libre disposition du patrimoine.
+
+« Les libéralités, soit par actes entre vifs, soit par testament, ne pourront excéder la moitié des biens
+du disposant, s’il ne laisse à son décès qu’un enfant ; le tiers, s’il laisse deux enfants ; le quart, s’il en
+laisse trois ou un plus grand nombre » (C. civ., art. 913).
+
+Ainsi, les enfants – pour ne citer qu’eux – ont dans la succession de leur auteur une part réservée,
+appelée réserve héréditaire, qu’ils doivent en principe recevoir en pleine propriété, sans charge ni
+condition. La réserve globale est répartie par parts égales entre ceux qui en bénéficient.
+
+Reste donc une portion de patrimoine sur laquelle chacun a libre disposition : c’est la quotité
+disponible.
+
+Afin que la protection de la réserve soit effective, il doit être tenu compte non seulement des
+dispositions à cause de mort mais également des dispositions entre vifs. Ce qui vaut pour la protection
+de la réserve vaut d’ailleurs pour le maintien de l’égalité entre enfants.
+
+Il existe ainsi deux mécanismes distincts : le rapport, qui vise à garantir l’égalité entre enfants (par souci
+de simplification, nous ne nous occuperons ici que de la transmission aux enfants), et la réduction, qui
+pour sa part est destinée à garantir le service de la réserve.
+L’un comme l’autre prennent place lors des opérations consécutives à la succession (lors du partage
+pour le rapport, et dès l’ouverture de la succession pour la réduction).
+
+Prenons l’exemple d’époux mariés sous le régime de la communauté légale avec deux enfants
+communs uniquement (exemple que nous conserverons ensuite pour illustrer plus aisément nos
+propos relatifs à la nature des donations).
+
+Plaçons-nous au décès de Monsieur, en l’absence de dispositions entre vifs ou à cause de mort.
+Chacun des enfants bénéficiera de la moitié du patrimoine du défunt (ses biens propres et la moitié
+de la communauté), sous réserve des droits du conjoint. Si ce dernier opte pour le 1/4 des biens de la
+succession en propriété, chacun des enfants recevra 3/8 du patrimoine en propriété.
+
+                                 Madame                  Monsieur
+
+                           Biens                                  Biens
+                          propres                                propres
+
+                                           Communauté
+
+                                                    Droits du conjoint
+                    SUCCESSION
+                                                 Enfant A       Enfant B
+                                                   50%            50%
+
+D’une situation relativement simple, nous allons passer – toujours dans le même cadre familial – à une
+situation sensiblement plus complexe… mais aussi plus proche de la réalité, tant sur le plan du
+fonctionnement du régime matrimonial que sur le plan de la transmission.
+
+Outre les créances et récompenses entre époux qu’il conviendra de régler, il faudra s’attacher à traiter
+la transmission entre vifs et à cause de mort du patrimoine, qu’elle concerne le conjoint, les enfants ou
+des tiers. S’agissant des donations, nous allons voir l’importance de leur nature dans le cadre de cette
+prise en compte.
+
+               Section 1 : Donations en avancement de part successorale
+Tout héritier venant à la succession doit rapporter à ses cohéritiers tout ce qu’il a reçu du défunt par
+donations entre vifs.
+
+                                                  EXERCICE N°3
+
+Alain décède ab intestat, laissant deux enfants, Anna et Paul.
+De son vivant, Alain avait consenti une donation en avance de part successorale à Paul.
+Question :
+
+Quid des droits des enfants dans la succession de leur père ?
+
+Réponse :
+
+Le rapport, qui ne se fait donc qu’à la succession du donateur (C. civ., art. 850), est dû de la valeur du
+bien donné à l’époque du partage, d’après son état à l’époque de la donation. Si le bien a été aliéné
+avant le partage, on tiendra compte de la valeur qu’il avait à l’époque de l’aliénation et, si un nouveau
+bien a été subrogé au bien aliéné, de la valeur de ce nouveau bien à l’époque du partage d’après son
+état à l’époque de l’acquisition. Toutefois, si la dépréciation du nouveau bien était inéluctable au jour
+de son acquisition en raison de sa nature (ex. : automobile), il n’est pas tenu compte alors de la
+subrogation (C. civ., art. 860).
+
+Le dispositif a été validé par la Cour de cassation, celle-ci refusant de transmettre une QPC en la
+matière car estimant que « la règle de subrogation liquidative contestée (…) permet de parer aux
+risques de fraude consistant, pour l’héritier donataire, à limiter artificiellement le montant du rapport,
+en vendant le bien donné pour procéder à un autre investissement à son seul profit » (Cass. 1e civ.,
+14 févr. 2024, n° 23-19.059).
+
+                                             Remarque pratique
+
+Une véritable évaluation, pas un abattement.
+
+Pour fixer le montant du rapport d’un terrain donné à un homme par ses parents, une cour d’appel a
+appliqué un abattement de 25 % sur la valeur au partage du bien pour tenir compte du fait que le
+donataire l’a viabilisé. Elle a été sanctionnée par la Cour de cassation pour ne pas avoir recherché,
+comme l’exige le texte, la valeur du bien à l’époque du partage d’après son état à l’époque de la
+donation (Cass. 1e civ., 9 févr. 2022, n° 20-20.587).
+
+Le rapport d’une donation faite sous couvert d’une vente à moindre prix n’est dû que pour l’avantage
+ainsi conféré, correspondant à la différence entre la valeur du bien donné et le prix payé (Cass. 1e civ.,
+11 juill. 2019, n° 18-19.415).
+
+                                             Remarque pratique
+
+Cristalliser les valeurs en un point unique.
+
+S’agissant de prendre en compte la valeur rapportable d’un terrain donné non encore constructible
+mais devant être, à dires d’expert, « assimilé à un terrain d’urbanisation future » – autrement dit, avec
+de belles perspectives de constructibilité –, la Cour de cassation a cassé l’arrêt de la cour d’appel qui,
+« prenant en compte un hypothétique changement de destination de l’objet de la donation, ne s’est
+pas placée à l’époque du partage pour en apprécier la valeur » (Cass. 1e civ., 13 févr. 2013).
+
+                                                  EXERCICE N°4
+
+Alain décède ab intestat, laissant 2 enfants, Anna et Paul.
+De son vivant, il avait fait donation à Paul d’un studio. Valeur au jour de la donation : 45.000 €. Valeur
+au jour du partage 60.000 €. Paul n’a pas réalisé de travaux.
+A son décès, Alain laisse sa maison (200.000 €) et divers avoirs financiers (40.000 €).
+Question :
+Quid des droits des enfants dans la succession de leur père ?
+
+Réponse :
+
+                                                  EXERCICE N°5
+
+Mêmes données que dans l’exemple précédent.
+Mais cette fois Alain avait également consenti une donation à Anna, portant sur une maison alors
+évaluée à 150.000 €. Au jour du partage cette maison vaut 200.000 €.
+Les biens qu’Alain laisse à son décès ne sont plus que ses divers avoirs financiers (40.000 €).
+Question :
+Quid des droits des enfants dans la succession de leur père ?
+
+Réponse :
+
+                                            EXERCICE N°6
+Pierre a donné, en avance de part successorale, à son fils Mathieu une maison valant 100. Mathieu a
+investi 10 pour faire réaliser une piscine.
+Suite au décès de Pierre, le partage successoral intervient entre Mathieu et sa sœur Delphine. La
+maison vaut 150. La maison sans la piscine est estimée à 120.
+Question :
+Quel est le montant du rapport successoral dû par Mathieu ?
+
+Réponse :
+
+                                             Remarque pratique
+
+Modification des règles du rapport par convention entre héritiers.
+
+Des héritiers avaient établi une convention, avant l’ouverture de la succession, selon laquelle les dons
+manuels qu’ils avaient reçus seraient rapportés à la succession affectés d’un indice à déterminer lors
+du partage. Cette convention constituait une modification licite des règles du rapport et non un pacte
+sur succession future prohibé (Cass. 1e civ., 18 mai 1994, n° 92-11.829).
+
+Sauf stipulation contraire dans l’acte de donation, cette dernière est considérée comme rapportable
+lorsqu’elle bénéficie à un héritier présomptif. Elle est dite « en avancement de part successorale » – et
+auparavant en avancement d’hoirie, l’hoirie étant un synonyme peu usité de succession –, c’est-à-dire
+qu’elle est considérée comme une avance sur part successorale. Dès lors, il est clair que la donation
+n’a pas vocation à rompre l’égalité entre les cohéritiers en avantageant l’un d’entre eux.
+
+En application de l’article 847 du Code civil, les dons faits directement aux petits-enfants, eux-mêmes
+enfants de ceux qui se trouvent successibles à l’ouverture de la succession sont toujours réputés faits
+avec dispense du rapport ; le parent venant à la succession du donateur n’est pas tenu de les rapporter
+(Cass. 1e civ., 6 mars 2019, n° 18-13.236).
+
+                                             EXERCICE N°7
+Mêmes données que dans l’exemple précédent.
+A son décès Pierre laisse divers biens évalués à 300.
+Question :
+Quels sont les droits des enfants dans la succession de leur père ?
+
+Réponse :
+
+On peut constater que la donation ne rompt pas l’égalité globale entre les enfants. Le rapport se fait
+en moins prenant (C. civ., art. 858), c’est-à-dire en valeur. Le montant du rapport est ainsi imputé sur
+les droits du donataire, en l’occurrence d’abord sur sa réserve et ensuite sur la part lui revenant dans
+la quotité disponible (C. civ., art. 919-1). Par conséquent, il n’a pas à régler d’indemnité si lesdits droits
+sont suffisants.
+
+                                             Remarque pratique
+Conjoint et rapport : une place à part.
+
+Si le conjoint survivant n’est finalement pas débiteur du rapport pour n’en être pas créancier par ailleurs
+– étant exclu d’une égalité bâtie par la loi entre les enfants et malgré sa qualité d’héritier –, il se retrouve
+confronté à une logique assez similaire en matière d’imputation des libéralités qu’il a reçues sur ses
+droits légaux notamment puisqu’il est soumis à un « rapport spécial en moins prenant des libéralités
+reçues » (application de C. civ., art. 758-6, confirmée pour une donation déguisée par Cass. 1e civ.,
+12 janv. 2022, n° 20-12.232).
+
+                                                EXERCICE N°8
+Mêmes données que dans l’exemple précédent.
+Mais cette fois, les biens laissés par Pierre à son décès sont évalués à 90.
+Question :
+Quels sont les droits des enfants dans la succession de leur père ?
+
+Réponse :
+
+                                                  EXERCICE N°9
+
+Julie décède ab intestat, laissant 3 enfants, Romane, Thomas et Antoine. De son vivant, elle avait fait
+donation à chacun d’une somme de 50.000 €.
+Romane l’a investie dans l’achat de son appartement (prix 100.000€, val partage 120.000 €).
+Thomas a acquis un terrain pour 50.000 €, qui, en raison de la baisse des prix dans le secteur
+géographique, est en moins-value (val partage 45.000 €).
+Antoine l’a utilisé pour s’acheter une voiture haut de gamme qu’il a encore mais qui ne vaut plus que
+20.000 € au jour du partage.
+A son décès, Julie laisse son appartement (450.000 €) et divers avoirs financiers (40.000 €).
+Question :
+Quels sont les droits des enfants dans la succession de leur mère ?
+
+Réponse :
+
+                                     Remarque pratique
+Don manuel d’une somme d’argent : quelles conséquences civiles ?
+
+Les dons manuels faits aux enfants, en l’absence de précision contraire, sont faits en avancement de
+part successorale. Le rapport d’une somme d’argent est égal à son montant. Toutefois, si elle a servi à
+acquérir un bien, le rapport est dû de la valeur de ce bien (C. civ., art. 860-1). Du nominalisme monétaire,
+on revient donc aux règles sus-décrites de l’article 860. Cette exception « tend à garantir l’équité en
+empêchant le donataire de se dispenser du rapport par l’achat d’un bien de consommation dont la
+valeur ne peut que diminuer » (Cass. 1e civ., 14 févr. 2024, n° 23-19.059). Tout est donc question de
+traçabilité…
+
+Pour la Cour de cassation, « ne constitue pas une acquisition au sens de l’article 860-1 du code civil le
+financement, par des fonds donnés, de travaux de construction effectués par le propriétaire du
+terrain », aussi « le financement de ces travaux était sans incidence sur le montant du rapport de ce
+don » (Cass. 1e civ., 14 mai 2014, n° 12-25.735).
+
+Le principe du rapport à la valeur du bien donné à l'époque du partage, d'après son état à l'époque de
+la donation, peut être écarté dans l’acte. S’il résulte par exemple d’une stipulation de rapport forfaitaire
+que la valeur sujette à rapport est inférieure à la valeur du bien déterminé selon les règles d’évaluation
+sus-décrites, cette différence forme un avantage indirect acquis au donataire hors part successorale
+(C. civ., art. 860, al. 4 ; confirmé par Cass. 1e civ., 6 nov. 2013).
+
+Quelle est la finalité de la donation hors part successorale (dite « préciputaire » avant la réforme) et
+quelles en sont les modalités et conséquences ?
+
+            Section 2 : Donations hors part successorale
+La logique des donations faites hors part successorale est différente de celle qui prévaut en matière
+de donation en avance de part successorale : cette fois, le donateur souhaite avantager l’un des
+cohéritiers.
+
+La libéralité doit être hors part successorale ou avec dispense de rapport de manière expresse (C. civ.,
+art. 919, al. 1er). Elle s’impute sur la quotité disponible et l’excédent est sujet à réduction (C. civ., art. 919-
+2).
+
+La dispense de rapport dépend donc d’une précision expresse du donateur, et son absence, explicable
+voire logique, condamne la transmission à n’être qu’une simple avance.
+
+Tel est le cas pour une donation déguisée (Cass. 1e civ., 17 janv. 1995, n° 93-11.412 à propos de la cession
+d’une étude notariale moyennant un prix non versé) et pour une donation indirecte (Cass. 1e civ.,
+25 févr. 2009, n° 07-20.010 à propos de la prise en charge des droits de mutation par le donataire lors
+d’une donation-partage à 5 des 6 enfants). Il n’est plus ici question d’assurer l’égalité mais de préserver,
+par l’action en réduction, la réserve des héritiers au jour du décès.
+
+                                              Remarque pratique
+
+Caractère hors part : jusqu’au bout !
+
+Si naturellement la déclaration que la donation est hors part successorale peut figurer dans l’acte de
+donation, elle peut aussi figurer dans une disposition postérieure, cette dernière devant être faite soit
+dans la forme des donations entre vifs, soit dans la forme testamentaire (en ce sens, C. civ., art. 919,
+al. 2).
+
+Une donation peut donc être qualifiée de donation hors part « jusqu’au bout » (décès du donateur).
+
+En revanche, passer d’une donation hors part à une simple avance de part ne se peut qu’en cas de
+« volonté non équivoque (du donataire) de renoncer à se prévaloir de la donation préciputaire »
+(Cass. 1e civ., 26 janv. 2011, à propos d’un projet de partage égalitaire), dans une donation-partage le
+cas échéant (cf. infra).
+
+Encore faut-il que la donation ait été acceptée en tant que donation hors part par le donataire car, si
+tel n’est pas le cas, le donateur peut, dans son testament, écarter le caractère hors part (Cass. 1e civ.,
+29 juin 2011).
+
+Les donations faites à un successible qui excèdent la portion disponible peuvent être retenues en
+totalité par les gratifiés, mais il doit désintéresser ses cohéritiers en argent. Le paiement de l’indemnité
+par l’héritier réservataire se fait en moins prenant et en priorité par voie d’imputation sur ses droits
+dans la réserve (C. civ., art. 924).
+
+Il s’agit de reconstituer le patrimoine total du défunt à partir des biens existants au décès, desquels
+sont déduites les dettes et auxquels sont ajoutés tous les biens donnés (c’est la réunion fictive). Cette
+masse de calcul permet de déterminer réserve et quotité disponible.
+
+Les biens donnés sont réunis fictivement pour leur valeur à l’ouverture de la succession d’après leur
+état à l’époque de la donation (récemment rappelé par Cass. 1e civ., 22 oct. 2014, n° 13-24.034). Si les
+biens ont été aliénés, il est tenu compte de leur valeur à l’époque de l’aliénation et, s’il y a eu
+subrogation, de la valeur des nouveaux biens au jour de l’ouverture de la succession. Toutefois, si la
+dépréciation du nouveau bien était inéluctable au jour de son acquisition en raison de sa nature, il n’est
+pas tenu compte alors de la subrogation (C. civ., art. 922).
+
+                                             Remarque pratique
+
+Somme d’argent utilisée à l’acquisition d’une nue-propriété : rapport et réunion fictive
+
+La donation d’une somme d’argent employé à l'acquisition de la nue-propriété d’un bien dont le
+donateur achète concomitamment l’usufruit donne lieu à réunion fictive de la valeur de ce bien au jour
+de l’ouverture de la succession, d’après son état à l’époque de son acquisition (Cass. 1e civ., 17 oct. 2019,
+n° 18-22.810) ; une même logique est applicable si la donation est rapportable, la valorisation s’opérant
+à l’époque du partage et visant l’égalité entre cohéritiers.
+
+Pour terminer, notons l’importance et du rapport, et de la réduction : ainsi les héritiers réservataires
+peuvent prétendre au rapport et à la réduction de libéralités consenties par l’époux prédécédé alors
+même que les époux ont opté pour le régime de la communauté universelle avec clause d’attribution
+au conjoint survivant (Cass. 1e civ., 3 avr. 2019, n° 18-13.890).
+
+                                             Remarque pratique
+
+Valoriser, un art difficile… voire impossible.
+
+S’il n’est jamais évident de valoriser un bien, qui plus est dans un état qui était le sien dans un passé
+parfois lointain, cela devient une gageure lorsque l’exercice concerne une entreprise.
+
+Que vaudrait aujourd’hui l’entreprise dans l’état qui était le sien quelques années auparavant ? La
+question elle-même n’a guère de sens !
+
+La Cour de cassation a reproché à une cour d’appel son refus de prendre en compte l’activité des
+donataires au sein de la société-cible dans une affaire complexe : une société holding avait en effet
+acquis au moyen d’un emprunt les titres de la société d’exploitation (société-cible), avant que les titres
+de la holding, faiblement valorisés compte tenu de la situation, soient donnés hors part à certains de
+leurs enfants.
+
+En ignorant leur action au sein des organes sociaux, la cour d’appel n’a pas vérifié si « la disparition du
+passif grevant cette société et la plus-value prise par les biens donnés résultaient indirectement du
+travail qu’ils avaient fourni » (Cass. 1e civ., 8 juill. 2009, n° 07-18.041).
+
+METHODOLOGIE : COMMENT DETERMINER SI UNE LIBERALITE DONNE LIEU A REDUCTION ET POUR QUEL MONTANT ?
+
+   -   Masse de calcul de la quotité disponible et de la réserve (montant)
+   -   Quotité disponible et la réserve (quotité et montant)
+   -   Imputations des libéralités (par secteur et ordre chronologique)
+   -   Réduction (quotité)
+   -   Partage (montant de l’indemnité de réduction, masse à partager et attributions)
+
+                                             Remarque pratique
+
+Rapport des dettes : opération de partage, à la différence du rapport des donations.
+
+Contrairement au rapport des donations (C. civ., art. 843 et s.), opération préalable au partage, le
+rapport des dettes des copartageants (C. civ., art. 864 et s.) fait partie des opérations de partage à
+proprement parler.
+
+En conséquence, s’il appartient à l’héritier qui demande le rapport d’une dette par l’un de ses
+copartageants de prouver son existence, une fois cette preuve rapportée, le copartageant qui prétend
+s’en être libéré doit justifier le paiement ou le fait qui a produit l’extinction de son obligation (Cass. 1e
+civ., 12 févr. 2020, n° 18-23.573, appliquant le droit commun de la preuve)
+
+Revenons une nouvelle fois à notre famille. Nous envisageons toujours le décès du survivant des époux,
+les enfants, A et B, étant les héritiers.
+
+La seule disposition prise en matière de transmission du patrimoine est une donation faite à A avec
+dispense de rapport.
+
+Le bien, donné pour 100, vaut au jour du décès, dans l’état au jour de la donation, 120. Les biens
+existants ont une valeur de 300.
+
+                                Dispense de rapport
+                                       Valeur : 100 lors de la donation, 120 au décès
+                                                             +                           QD = RP = 140
+                                                  Biens existants : 300
+
+                         Quotité disponible          Réserve de A               Réserve de B
+                                 1/3                       1/3                          1/3
+
+                                           Biens présents / 2               Biens présents / 2
+               Contrôle OK !               + (300 / 2)
+                                             150 (biens présents)        150 (biens présents)
+
+On vérifie simplement que la donation ne dépasse pas la quotité disponible.
+
+Si tel n’est pas le cas, il n’y a pas réduction et on « oublie » la donation. Le partage se fera ici sur les
+biens existant au décès, par parts égales entre les enfants (soit 150 chacun) à défaut de dispositions
+contraires.
+
+Voyons maintenant ce qui se passe si la seule disposition prise en matière de transmission du
+patrimoine est une donation faite à A avec dispense de rapport.
+
+Le bien, donné pour 100, vaut au jour du décès, dans l’état au jour de la donation, 120. Les biens
+existants ont une valeur de 150.
+
+                                        Valeur : 100 lors de la donation, 120 au décès
+                                                              +                           QD = RP = 90
+
+                                              Biens existants au partage : 150
+
+                            Réserve de A           Quotité disponible             Réserve de B
+                                  1/3                       1/3                          1/3
+
+                                            QD + RP = 180 (maximum)              RP = 90 (minimum)
+
+                                                + [RP - (120 - QD)]
+                                                 60 (biens présents)             90 (biens présents)
+
+Au cas particulier, la donation hors part successorale dépasse la quotité disponible. La donation doit
+être réduite à hauteur de 30. En pratique, B prendra sa réserve sur les biens présents (90) et A la
+sienne, amputée de l’indemnité de réduction due (soit le reste des biens présents, 60).
+
+Donations rapportables et donations hors part répondent donc de logiques radicalement différentes.
+
+En cas de donation rapportable, le donateur conserve au maximum sa capacité à disposer
+gratuitement au profit des autres personnes qu’il souhaite gratifier, et notamment le conjoint survivant
+(notons que, s’agissant de tiers, la donation portera nécessairement sur la quotité disponible). A
+l’inverse, en cas de donation hors part successorale, les donations postérieures et les legs risquent
+d’être soumis à réduction en totalité ou en partie.
+
+Lorsqu'il y a lieu à réduction, elle se fait en commençant par les dispositions testamentaires. Ensuite,
+les donations sont réduites en remontant de la plus récente à la plus ancienne (C. civ., art. 923). La
+réduction s’opère par principe en valeur, donc sous forme d’indemnité (C. civ., art. 924).
+
+Qui sera le plus souvent perdant dans le cadre de la réduction ? Tout simplement celui dont la
+protection s’envisage essentiellement à cause de mort, c’est-à-dire le conjoint !
+
+                                               Remarque pratique
+
+Sauvegarder le disponible : imputation sur la réserve globale
+
+Afin de préserver la quotité disponible, il est possible par exemple de prévoir l’imputation de la
+donation faite à un enfant sur la réserve globale (solution autorisée par l’article 919-1 du Code civil, qui
+n’impose ses règles que « s’il n’en a pas été autrement convenu dans l’acte de donation »).
+
+Dans ce cas, suite à la réunion fictive des libéralités, ladite donation est prise en compte en priorité sur
+la réserve de l’ensemble des enfants – quitte d’ailleurs à ce qu’apparaisse une indemnité due par le
+donataire à ses frères et sœurs – et, en général, épargne ainsi la quotité disponible.
+
+            Section 3 : Présents d’usage et frais spécifiques au profit des
+            successibles
+Les frais de nourriture, d'entretien, d'éducation, d'apprentissage, les frais ordinaires d'équipement, ceux
+de noces et les présents d'usage ne doivent en principe pas être rapportés (C. civ., art. 852). Bien que
+souvent il s’agisse de libéralités, elles sont soumises à un régime particulier sur le plan du rapport.
+
+La dispense de rapport des frais de nourriture et d'entretien n'est soumise à aucune condition. Elle ne
+résulte pas nécessairement d’une obligation légale et ignore les ressources personnelles du
+successible. Ainsi, par exemple, il importe peu que les sommes versées constituent la plus grande
+partie des revenus du bénéficiaire et représentent une part importante de l’actif successoral du
+disposant (environ 45 %) dès lors qu’il s’agit de « l’expression d’un devoir familial » (entre parent et
+enfant) et que cela s’est fait « sans pour autant entraîner un appauvrissement significatif du
+disposant » (Cass. 1e civ., 1er févr. 2012, n° 10-25.546).
+
+Les frais d'éducation et d'apprentissage recouvrent toutes les dépenses exposées pour permettre au
+successible d'effectuer une formation universitaire ou professionnelle.
+
+Les frais d'établissement, destinés pour leur part à l’installation du successible dans le cadre d'une
+activité professionnelle, sont au contraire soumis au rapport.
+
+Les frais de noces sont les dépenses occasionnées par la cérémonie du mariage et par les
+réjouissances qui l'accompagnent (cérémonies, vêtements, réceptions, etc.).
+
+Les présents d'usage correspondent aux cadeaux faits à l'occasion des événements familiaux les plus
+divers (naissance, baptême, anniversaire, étrennes, fête patronale, etc.). Ils doivent réunir, pour avoir
+cette qualification, deux conditions :
+- être réalisés, donc, pour l’une des occasions susmentionnées, résultant d'une coutume ou d'une
+habitude
+- et avoir une valeur modeste.
+
+La loi du 23 juin 2006 a codifié la jurisprudence (Cass. 1e civ., 10 mai 1995, n° 93-15.187) en précisant
+que le caractère de présent d'usage s'apprécie à la date où il est consenti et compte tenu de la fortune
+du disposant (C. civ., art. 852, al. 2). Les critères à étudier sont donc relatifs et non absolus, le juge du
+fond ayant en la matière un pouvoir d’appréciation souverain. L'appauvrissement réel du donateur n’est
+pas évident ici. Dès lors, les présents d’usage n'entrent pas en ligne de compte, tant en matière de
+réduction que de rapport. Accessoirement, ils sont dispensés du paiement des droits de mutation à
+titre gratuit.
+
+                                             Remarque pratique
+
+Rapport et réduction : apports de la loi du 23 juin 2006
+
+De manière schématique, les nouveautés en la matière sont au nombre de quatre :
+1- L'héritier qui renonce à la succession peut cependant retenir le don entre vifs jusqu'à concurrence
+de la portion disponible à moins que le disposant ait expressément exigé le rapport en cas de
+renonciation. Lorsque la valeur rapportée excède les droits qu'il aurait dû avoir dans le partage s'il y
+avait participé, l'héritier renonçant indemnise les héritiers acceptants à concurrence de cet excédent
+(C. civ., art. 845).
+
+2- Le donataire qui n'était pas héritier présomptif lors de la donation, mais qui se trouve successible
+au jour de l'ouverture de la succession, ne doit pas le rapport, à moins que le donateur ne l'ait
+expressément exigé (C. civ., art. 846).
+3- Le rapport est dû en cas de donation de fruits ou de revenus, à moins que la libéralité n'ait été faite
+expressément hors part successorale (C. civ., art. 851, al. 2).
+4- Les frais de nourriture, d'entretien, d'éducation, d'apprentissage et de noces, ainsi que les présents
+d'usage, peuvent être rapportés si telle est la volonté du disposant (C. civ., art. 852, in fine).
+
+            Section 4 : Donations partages
+
+                  I - Principes généraux
+
+Toute personne peut faire, entre ses héritiers présomptifs, la distribution et le partage de ses biens et
+de ses droits. Cet acte revêt la forme, du vivant du donateur, d’une donation-partage (C. civ., art. 1075),
+laquelle comprend en principe, comme son nom l’indique, une donation et un partage, réunis en une
+seule opération.
+
+La loi du 23 juin 2006 a étendu la donation-partage à tous les présomptifs héritiers et non plus aux
+seuls enfants. Cet outil permet donc désormais le règlement anticipé des successions quelle que soit
+la situation familiale, avec par exemple une donation-partage entre frères et sœurs en l’absence de
+descendants du donateur.
+
+On notera le cas inusité du tiers bénéficiant de la donation de l’entreprise individuelle qui peut
+participer à la donation-partage (C. civ., art. 1075-2), disposition antérieure à la loi du 23 juin 2006 mais
+étendue par celle-ci aux droits sociaux.
+
+La donation-partage doit être passée devant notaire sous peine de nullité et ne peut avoir pour objet
+que des biens présents (C. civ., art. 1076).
+
+Malgré un débat doctrinal encore vif, la pratique du "don manuel-partage" demeure très incertaine et
+doit en conséquence être évitée (en ce sens, Cass. 1e civ., 1er déc. 1999, à propos d’une "donation-
+partage" « ne pouvait être réalisée par voie de conclusions », dans le cadre d'une instance judiciaire).
+
+Plus généralement, lui sont applicables les causes de nullité et les cas de révocation étudiés en matière
+de donation simple.
+
+On notera que la donation et le partage peuvent être réalisés par actes séparés dès lors que
+l’ascendant intervient aux deux actes (C. civ., art. 1076). En cas de décès du donateur avant partage, la
+donation sera considérée comme une donation simple et non comme une donation-partage. Elle n’en
+présentera donc pas les atouts, que nous allons maintenant exposer.
+
+La qualification de donation-partage « suppose nécessairement une répartition de biens effectuée par
+le disposant lui-même ou, tout au moins, sous sa direction et avec son concours » (Cass. 1e civ.,
+12 juin 2023, n° 21-20.361).
+
+D’une manière générale, la donation laissant certains donataires en indivision, bien que défendue par
+une part non négligeable de la doctrine et utilisée régulièrement par les notaires (partage partiel
+seulement), est donc à déconseiller. La Cour de cassation l’a d’ailleurs regardée comme une donation
+
+simple à plusieurs reprises (Cass. 1e civ., 6 mars 2013, n° 11-21.892 et 20 nov. 2013, n° 12-25.681),
+précisant que quelle qu’ait été la qualification donnée par les parties, l’acte qui n’attribue que des droits
+indivis à certains gratifiés ne peut opérer un partage.
+
+A propos d’une donation-partage portant notamment sur des œuvres d’art attribuant à chacun des
+donataires un lot composé, entre autres, de 15 % des œuvres d’art transmises, le donateur s’étant
+réservé la faculté de procéder à des attributions partielles dans la limite fixée, la Cour de cassation
+considère que le partage d’ascendant se forme dès que l’un des enfants a accepté son lot et que le
+refus de certains bénéficiaires est sans effet sur la validité et l’opposabilité de la donation-partage
+(Cass. 1e civ., 13 févr. 2019, n° 18-11.642).
+
+                  II - Spécificité des donations partages pour la réduction
+
+L’action en complément de part pour lésion de plus du quart ne peut être exercée contre les donations
+partages (C. civ., art. 1075-3), contrairement à ce qui se passe pour les partages classiques (C. civ.,
+art. 889). La donation-partage inégalitaire, bien que moins fréquente, est donc parfaitement valable.
+
+Si les donations partages suivent les règles des donations pour tout ce qui concerne l’imputation, le
+calcul de la réserve et la réduction, l’action en réduction, qui ne peut être introduite qu’après le décès
+de l’ascendant qui a fait le partage, se prescrit par 5 ans – contre 10 ans en droit commun – à compter
+du décès dudit ascendant (C. civ., art. 1077-2).
+
+L’action en réduction n’est ouverte que s’il n’existe pas, à l'ouverture de la succession, des biens non
+compris dans le partage et suffisants pour composer ou compléter la réserve du descendant qui ne l’a
+pas reçue dans son entier, compte tenu des libéralités dont il a pu bénéficier (C. civ., art. 1077-1).
+
+Seuls les biens ou droits que l’ascendant laisse au jour de son décès et qui n’ont pas été compris dans
+le partage sont attribués ou partagés conformément à la loi (C. civ., art. 1075-5), c’est-à-dire eu égard
+aux droits héréditaires, mais seulement une fois que le descendant aura parfait sa réserve au moyen
+de tout ou partie desdits biens s’il y a lieu à réduction.
+
+                                             Remarque pratique
+
+Cas de l’héritier présomptif non encore conçu.
+
+L’héritier présomptif non encore conçu au moment de la donation-partage dispose d’une action pour
+composer ou compléter non pas sa réserve… mais sa part héréditaire (C. civ., art. 1077-2, al. 3). Cette
+générosité tient sans doute à l’absence de volonté du donateur de l’exclure.
+
+Notons que le rapport des biens objet de la donation-partage à la masse successorale à partager n’a
+pas lieu d’être. En effet, le rapport – fait, rappelons-le, à des fins d'égalité – est une opération
+préliminaire au partage qui, par conséquent, ne concerne pas les donataires copartagés ayant acquis
+les biens attribués à titre définitif (Cass. 1e civ., 16 juill. 1997, n° 95-13.316).
+
+Les biens reçus par donation-partage peuvent constituer, soit un avancement de part successorale
+imputable sur la part de réserve, soit, si cela est expressément précisé, une donation faite hors part
+successorale (C. civ., art. 1077).
+
+Nonobstant, compte tenu de l’absence de rapport, les excédents de lots, même reçus en avancement
+de part successorale, restent acquis au(x) donataire(s), sauf réduction pour atteinte à la réserve. Il en
+résulte, dans les mêmes limites, que les plus-values et moins-values faites par les copartageants
+resteront sans incidence suite au partage. Si le donateur souhaite conserver l’égalité, il doit donc la
+prévoir lors de la donation-partage déjà.
+
+                  III - Spécificités des donations partages en matière d’évaluation
+
+Contrairement au droit commun des donations entre vifs – et sauf convention contraire –, les biens
+donnés sont évalués au jour de la donation-partage pour l’imputation et le calcul de la réserve à une
+double condition (C. civ., art. 1078) :
+- tous les héritiers réservataires vivants ou représentés au décès de l’ascendant ont reçu un lot dans
+le partage anticipé et l’ont expressément accepté,
+- et il n’a pas été prévu de réserve d’usufruit portant sur une somme d’argent.
+
+Il a été fort logiquement jugé que, « pour le calcul de la réserve, les biens donnés doivent être estimés
+à leur valeur réelle au jour de la donation-partage, quelles qu’aient pu être celles énoncées à l’acte »
+(Cass. 1e civ., 25 mai 2016, n° 15-16.160).
+
+On notera que doctrine et jurisprudence, pour l’application de l’article 1078 du Code civil, assimilent à
+l’usufruit sur somme d’argent les divers mécanismes de report de l’exigibilité d’une somme d’argent
+jusqu’au décès du donateur (par exemple l’usufruit sur créance ; Cass. 1e civ., 18 mai 1978, n° 76-15.168).
+
+Si les conditions sont réunies, plus-values et moins-values affectant les différents lots après la
+donation-partage sont donc ignorés dans le cadre de l’action en réduction. Notons cependant qu’en
+cas de réduction, pour le calcul de l’indemnité, il convient de revenir aux règles de droit commun (Cass.
+1e civ., 17 déc. 1996, n° 94-17.911).
+
+L’indemnité se calcule donc d’après la valeur des objets donnés à l’époque du partage de succession
+(et non du décès, ceci afin d’assurer l’attribution certaine de la réserve au jour du partage) dans leur
+état au jour de la donation (C. civ., art. 924-2).
+
+Schéma récapitulatif : les différentes donations face au rapport et à la réunion fictive.
+NB : DAPS = donation en avancement de part successorale ; DHPS = donation hors part successorale.
+
+                  IV - Incorporation de donations
+
+Le lot de certains gratifiés pourra être tout ou partie formé des donations rapportables ou hors part
+déjà reçues de l’ascendant – ou même des emplois et remplois qui auront pu en être faits dans
+l’intervalle (C. civ., art. 1078-1, al. 1er) –, y compris en l’absence de nouvelles donations de l’ascendant
+(C. civ., art. 1078-3). La date d’évaluation applicable au partage anticipé sera applicable aux donations
+incorporées, toute stipulation contraire étant réputée non écrite (C. civ., art. 1078-1, al. 2).
+
+Le Ministère de la justice a donné sa position : « il ne semble pas possible que les parties puissent
+imposer (…) une estimation des biens à une date antérieure à la donation-partage », ce qui est
+discutable. Il semble moins exigeant et plus cohérent lorsqu’il précise que « l’équilibre de ce type de
+libéralité implique un principe d’unicité de date interdisant de choisir des moments d’évaluation
+différents pour chacun des biens objets d’un même acte de donation-partage » (Rép. min. Le Roch,
+JOAN 7 juin 2016, « sous réserve de l'appréciation souveraine des juridictions »).
+
+Les parties – c’est-à-dire l’ascendant donateur et les donataires – peuvent aussi convenir qu’une
+donation antérieure faite hors part sera incorporée au partage et imputée sur la part de réserve du
+donataire à titre d’avancement de part successorale (C. civ., art. 1078-2).
+
+Voilà donc un excellent moyen de « mettre à plat » des donations antérieures isolées qui peuvent, avec
+le recul et d’éventuels changements de situation, manquer de liant. Il s’agit dès lors de reprendre le
+tout – y compris, d’ailleurs, d’éventuelles donations partages antérieures – dans un seul acte et de
+réaliser un véritable partage anticipé, souvent nécessaire à organiser une transmission.
+
+La doctrine dominante – suivie d’ailleurs par l’administration fiscale et que nous sommes enclins à
+suivre également – admet même que la donation-partage puisse attribuer un bien incorporé à un autre
+qu’au donataire « initial » (en ce sens : P. CATALA ; contra, G. MORIN), ce qui contribue fortement à la «
+mise à plat » recherchée.
+
+                  V - Types de donations partages
+
+Il existe trois types de donations partages, qui dépendent des personnes intervenant à l’acte.
+
+S’il n’y a qu’un seul donateur (cas que nous avons traité jusque-là par souci de clarté), il s’agit d’une
+donation-partage qualifiée de « simple ».
+
+En principe, le donateur n’y dispose à titre gratuit que de ses biens propres. Par exception, il peut
+également, avec le consentement de son conjoint, transmettre des biens communs.
+
+Notons que le conjoint n’est pas considéré comme codonateur et que l’opération, assimilée à
+l’aliénation d’un bien commun au profit d’un seul des conjoints, ouvrira droit à récompense lors de la
+dissolution de l’union (en ce sens, « en l’absence de clauses contraires résultant du contrat de
+mariage », RM Janetti, JOAN 16 déc. 1996).
+                         A - Donations partages conjonctives
+Il est également possible de réaliser une donation-partage conjonctive, par laquelle deux époux
+réunissent les biens qu’ils donnent et partagent sans considération de leur origine (chaque donataire
+est d’ailleurs censé recevoir une quote-part de chacun des donateurs).
+
+Cette opération, couramment pratiquée, est à la fois souple et efficace en matière de règlement
+anticipé de la transmission.
+
+On notera de surcroît que l'action en réduction – qui se prescrit par cinq ans ici – ne peut être
+introduite qu'après le décès du survivant des ascendants en cas de partage conjonctif (C. civ.,
+art. 1077-2, al. 2), sauf pour l’enfant non commun qui peut agir dès le décès de son auteur.
+
+En présence d’enfants communs, cette particularité conduit à apprécier la réserve des enfants non sur
+une mais sur deux successions, la première n’étant liquidée qu’à titre provisoire.
+
+La loi du 23 juin 2006 a adoubé une pratique notariale jusque-là confidentielle, celle de la donation-
+partage au profit de donataires comprenant des enfants non issus des deux époux.
+
+Il est ainsi précisé qu’en cas de donation-partage faite conjointement par deux époux, l'enfant non
+commun peut être alloti du chef de son auteur en biens propres de celui-ci ou en biens communs,
+sans que le conjoint puisse toutefois être codonateur des biens communs (C. civ., art. 1076-1).
+                         B - Donations partages cumulatives
+Enfin, il existe un dernier type de donation-partage : la donation-partage cumulative.
+
+Ici, c’est le conjoint survivant qui réunit en une seule masse les biens de la succession du prémourant
+et des biens qu’il souhaite donner pour les partager, là encore sans considération de leur origine, entre
+les descendants.
+
+Sont donc réglés en une seule et même opération une donation-partage et le partage d’une
+succession, ce qui génère des contraintes supplémentaires. Si le partage successoral amiable est
+désormais le principe (C. civ., art. 836 issu de la réforme du 23 juin 2006), il implique néanmoins
+l’accord de tous les copartageants. En présence d’une personne protégée parmi les copartageants, le
+partage à l'amiable nécessite l’autorisation du conseil de famille ou, à défaut, du juge, qui désigne, s’il y
+a lieu, un notaire pour y procéder (C. civ., art. 507).
+
+                                             Remarque pratique
+
+Révocation pour inexécution des conditions, prérogative… du donateur
+
+En cas de donation-partage par le parent survivant, acceptée par tous les enfants, de biens qui
+dépendaient de la communauté, seul le conjoint survivant a la qualité de donateur, d’où il retourne que,
+pour apprécier les conditions d’ouverture de l’action en révocation pour inexécution des charges
+(C. civ., art. 953 et 954), il n’y a pas à rechercher si ces dernières ont été déterminantes pour le
+consentement des enfants (Cass. 1e civ., 28 mai 2015, n° 14-13.479).
+
+                         C - Donations partages transgénérationnelles
+Toute personne peut faire la distribution et le partage de ses biens et droits entre des descendants de
+degrés différents, qu’ils soient ou non ses héritiers présomptifs, depuis le 1er janvier 2007 (C. civ.,
+art. 1075-1).
+
+S’adaptant aux réalités démographiques – allongement de la durée de vie et, en conséquence,
+cohabitation entre plusieurs générations –, le législateur a ouvert, avec la loi du 23 juin 2006, une
+nouvelle possibilité : la donation-partage « transgénérationnelle ».
+
+Elle permet de faire participer les petits-enfants et de faire renoncer par anticipation leurs parents –
+enfants et donc héritiers réservataires du ou des donateurs – à l’exercice de l’action en réduction
+s’agissant des biens reçus par leurs propres enfants.
+
+Ainsi, lorsque l'ascendant procède à la donation-partage, ses enfants peuvent consentir à ce que leurs
+propres descendants soient allotis en leur lieu et place, en tout ou partie (C. civ., art. 1078-4, al. 1er).
+
+Les descendants d’un degré subséquent peuvent, dans le partage anticipé, être allotis séparément ou
+conjointement entre eux (C. civ., art. 1078-4, al. 2). Le partage s’opère alors par souche. Les attributions
+peuvent concerner des descendants de degrés différents dans certaines souches et non dans d’autres
+(C. civ., art. 1078-6).
+
+Les donations partages faites à des descendants de degrés différents peuvent également comporter
+les conventions sus-décrites en matière d’incorporation des donations antérieures (C. civ., art. 1078-
+7).
+
+Il y a désormais donation-partage même si l’ascendant donateur n’a qu’un enfant, que le partage se
+fasse entre celui-ci et ses descendants ou entre ses descendants seulement (C. civ., art. 1078-5, al. 1er).
+
+La donation-partage requiert le consentement, dans l’acte, de l’enfant qui renonce à tout ou partie de
+ses droits, ainsi que de ses descendants qui en bénéficient. La libéralité est nulle lorsque le
+consentement du renonçant a été vicié par l’erreur, le dol ou la violence (C. civ., art. 1078-5, al. 2).
+
+Dans la succession de l’ascendant donateur, les biens reçus par les enfants ou leurs descendants à
+titre de partage anticipé s’imputent sur la part de réserve revenant à leur souche et subsidiairement
+sur la quotité disponible (C. civ., art. 1078-8, al. 1er). Les donations faites aux membres d’une même
+souche sont imputées ensemble, quel que soit le degré de parenté avec le défunt (C. civ., art. 1078-8,
+al. 2).
+
+Si les descendants d’une souche n’ont pas reçu de lot dans la donation-partage ou n’y ont reçu qu’un
+lot inférieur à leur part de réserve, ils sont remplis de leurs droits sur les biens existants dès lors que
+ces derniers sont suffisants pour composer ou compléter leur part (C. civ., art. 1078-8, al. 4).
+
+Pour illustrer la donation-partage « transgénérationnelle », prenons l’exemple d’une personne (A) qui
+souhaite réaliser une donation-partage entre ses deux enfants (B et C) et ses petits-enfants (F et G,
+enfants de C, D et E, enfants de B, n’étant pas gratifiés).
+
+Ici, A souhaite donner un bien d’une valeur de 100 à B, un bien d’une valeur de 50 à C, un bien d’une
+valeur de 25 à F, sur la réserve de C, et un bien d’une valeur de 25 à G, sur la réserve de C. Dans ce
+cadre, C est prêt à renoncer par avance à ses droits à réserve – c’est-à-dire à l’action en réduction –
+sur les donations faites à ses propres enfants. A s’interroge, lui, sur les conséquences exactes de
+l’opération à réaliser. Reprenons sous forme de schéma la transmission envisagée.
+
+                                                             Parent (A)
+                                                                                           50
+                                                           Donation-partage
+                                 Enfant (B)                par A au profit de           Enfant (C)
+                                                             B, C, F et G
+
+                  Petit-enfant (D)              Petit-enfant (E)     Petit-enfant (F)           Petit-enfant (G)
+
+                                 Réunion fictive                            25                         25
+                                                        25 (?)
+
+                                           QD           25 (?)                  Consentement dans l'acte
+                       100 (?)                                                   de l'enfant qui renonce
+                                      Toujours          50 (?)                    et des descendants
+                                     disponible                                    qui en bénéficient
+                     Réserve souche B       Réserve souche C
+
+Au décès de A, il convient de procéder à la réunion fictive des biens donnés afin de déterminer s’il y a
+ou non atteinte à la réserve. Au cas particulier, les biens donnés à F et G s’ajoutent aux biens reçus par
+C lui-même et la réserve n’est pas celle de C uniquement mais celle de la souche entière. Si la réserve
+est suffisante – comme sur le schéma –, la quotité disponible reste libre et peut profiter… aux petits-
+enfants, par exemple, ou encore au conjoint survivant.
+
+Les valeurs retenues ici pour la réunion fictive sont celles au jour de la donation-partage. Est-ce bien
+juste, de manière générale et au cas particulier ? Il ne s’agit pas d’un principe – les biens devraient en
+effet être évalués au jour du décès selon leur état au jour de la donation-partage – mais le « gel des
+valeurs » (règle prévue à l'article 1078 du Code civil et étudiée supra) serait en revanche bienvenu.
+
+Lorsque tous les enfants de l’ascendant donateur (la génération intermédiaire) ont donné leur
+consentement au partage anticipé et qu'il n'a pas été prévu de réserve d’usufruit portant sur une
+somme d’argent, les biens dont les gratifiés ont été allotis sont évalués au jour de la donation-partage
+(C. civ., art. 1078-8, al. 3).
+
+                                                                  Parent (A)
+                                                                                                50
+                                                              Donation-partage
+                                   Enfant (B)                 par A au profit de             Enfant (C)
+                                                                B, C, F et G
+
+                     Petit-enfant (D)              Petit-enfant (E)       Petit-enfant (F)           Petit-enfant (G)
+
+                                   Réunion fictive                               25                         25
+                                              QD             25
+                            100                                                       Succession de A
+                                                             50                           Principe :
+                                                                                       gel des valeurs
+                        Réserve souche B       Réserve souche C
+
+Mais nous n’avons ici réglé le problème que dans le cadre de la succession du donateur, A. Reste à voir
+ce qui se passe dans celle de C, dont la renonciation anticipée à l’action en réduction au profit de F et
+G doit être prise en compte dans un second temps. En effet, le saut de génération n’a pas vocation à
+déséquilibrer la transmission du patrimoine telle que prévue par la loi. Il ne doit notamment pas
+permettre un contournement du principe de la réserve, ici en l’occurrence la réserve de chacun des
+enfants de C.
+
+Dans la succession de l’enfant qui a consenti à ce que ses propres descendants soient allotis en son
+lieu et place, les biens reçus par eux de l’ascendant sont donc traités comme s’ils les tenaient de leur
+auteur direct (C. civ., art. 1078-9, al. 1er), et non du donateur. Ces biens sont soumis aux règles dont
+relèvent les donations entre vifs pour la réunion fictive, l’imputation, le rapport et, le cas échéant, la
+réduction (C. civ., art. 1078-9, al. 2). La transmission s’inscrit ainsi dans le cadre connu des actions en
+rapport – rapport a priori nécessaire si le partage a été réalisé entre les souches et non entre les
+donataires – et en réduction.
+
+Dans l’exemple précédent, lors du partage de la succession de C, ses enfants devraient le rapport des
+donations reçues de A sur la réserve de la souche. Les règles générales seraient donc applicables. En
+particulier, le rapport est fait en principe pour la valeur des biens donnés au jour du partage dans leur
+état au jour de la donation.
+
+                                                           Enfant (C)
+
+                              25       Petit-enfant (F)            Petit-enfant (G)    25
+
+                                                           Valeur
+                                                    au jour du partage
+                                                         dans l’état
+                              90                   au jour de la donation
+                                                           Rapport
+
+                                          90 (?!)
+                                                                            40 (?!)
+
+Lorsque tous les descendants d’une même souche ont reçu et accepté un lot dans le partage anticipé
+et qu’il n’a pas été prévu d’usufruit sur une somme d’argent, les biens dont ont été allotis les gratifiés
+sont traités comme s’ils les avaient reçus de leur auteur par donation-partage (C. civ., art. 1078-9, al.
+3). On retrouve alors la transposition des règles de l’article 1078 du Code civil (« gel des valeurs ») entre
+seconde et troisième génération. Au décès de C, tout se passe comme si les petits-enfants avaient
+reçu les biens de leur parent par donation-partage.
+
+                                                           Enfant (C)
+
+                                25      Petit-enfant (F)           Petit-enfant (G)   25
+
+                                                         Valeur
+                                                au jour de la succession
+                                90                     dans l’état
+                                                 au jour de la donation               40
+
+                                                      Réunion fictive
+
+                                                              QD
+
+                                              25                             25
+
+Enfin, il existe un dernier moyen d’atteindre la stabilité recherchée : il faut que l'enfant qui a consenti à
+ce que ses propres descendants soient allotis en son lieu et place procède ensuite lui-même, avec ces
+derniers, à une donation-partage à laquelle sont incorporés les biens antérieurement reçus (C. civ.,
+art. 1078-10). Cette nouvelle donation-partage peut comporter toutes les conventions habituelles.
+
+Récapitulons…
+
+                                                 EXERCICE N°10
+
+Alain décède ab intestat, laissant 2 enfants, Anna et Paul.
+De son vivant, il avait fait donation :
+- En 2010, à Paul d’un studio pour 45.000 € (valeur décès : 60.000 € ; valeur partage : 60.000 €)
+- En 2011, à sa compagne, Marion, de sa maison pour 150.000€ (valeur décès : 170.000 ; valeur partage :
+200.000 €)
+A son décès, Alain laisse divers avoirs financiers (40.000€).
+
+Question :
+Quels sont les droits des enfants dans la succession de leur père ?
+
+Réponse :
+
+                        Masse de calcul de la QD et de la réserve
+ Biens existants (biens restants+biens légués)
+ Réunion fictive des libéralités
+
+                                                 Total
+
+                                Quotité disponible et réserve
+                                Quotité     Masse de calcul                   Montant
+ QD
+ Réserve globale
+ Réserve individuelle
+
+                                         Imputations des libéralités
+                                          Ri Anna     Ri Paul        QD
+   Date       Gratifié    APS     HPS                                                 Solde QD        Excédent
+
+                                 Reste
+
+Réduction ?
+
+Droits dans la succession et le partage
+
+      Chapitre 2 : Donations avec réserves, charges et conditions
+            Section 1 : Principes
+Il est parfaitement admis qu’une donation peut être assortie de charges et conditions imposées aux
+donataires. Il en est de même pour une donation-partage.
+
+Dans toute disposition entre vifs, les conditions impossibles, comme celles qui sont contraires aux lois
+ou aux mœurs, sont cependant réputées non écrites (C. civ., art. 900).
+
+Toute donation entre vifs faite sous des conditions dont l’exécution dépend de la seule volonté du
+donateur (condition potestative) est nulle (C. civ., art. 944). Il en va de même pour la donation faite
+sous condition que le donataire acquitte d’autres dettes ou charges que celles qui existent à l’époque
+de la donation (C. civ., art. 945) ou que le donateur se réserve la liberté de disposer d’un effet compris
+dans la donation (C. civ., art. 946). La clause de maintien dans l’indivision semble de même proscrite
+car contraire au principe d’ordre public selon lequel nul ne peut être contraint de demeurer dans
+l’indivision (C. civ., art. 815).
+
+Lorsque l’exécution d’une charge n’est pas remplie par le donataire, deux issues très différentes
+peuvent être envisagées : la révocation de la libéralité ou la révision de la charge.
+
+L’inadaptation ou de l’obsolescence de la charge devrait en permettre la révision judiciaire pour un
+donataire soucieux de se conformer « au dessein primordial du disposant » (Cass. 1e civ., 8 mai 1968)
+plutôt que d’en venir purement et simplement à la révocation de la donation.
+
+En revanche, la jurisprudence sanctionne de nullité la donation dans son ensemble lorsque la condition
+ou la charge mise en cause était une cause « impulsive et déterminante » de la donation (en ce sens,
+Cass. 1e civ., 12 janv. 1970, n° 68-12.324).
+
+Dans ce dernier cas, les biens rentrent dans les mains du donateur, libres de toutes charges et
+hypothèques du chef du donataire (C. civ., art. 954).
+
+Si l’article 956 du Code civil prévoit que la révocation pour cause d’inexécution des conditions n’a
+jamais lieu de plein droit, il est cependant admis qu’une clause stipulant la révocation de plein droit est
+valable dans la mesure où elle marque clairement la volonté des parties de se dispenser de
+l’intervention du juge (Cass. 1e civ., 20 juin 1960, n° 58-12.366 ; Cass. 1e civ., 25 sept. 2013, n° 12-13.747).
+
+Quant à la révision judiciaire des conditions et charges, elle peut être demandée par tout donataire
+lorsque, par suite d’un changement de circonstances, l’exécution en est devenue pour lui soit
+extrêmement difficile, soit sérieusement dommageable (C. civ., art. 900-2).
+
+Notons que la demande peut intervenir en réponse à l’action en exécution ou en révocation que les
+héritiers du donateur ont introduite (C. civ., art. 900-3).
+
+Le juge saisi de cette demande peut, soit réduire en quantité ou périodicité les prestations grevant la
+libéralité, soit en modifier l’objet en s’inspirant de l’intention du disposant, soit même les regrouper,
+avec des prestations analogues résultant d’autres libéralités (C. civ., art. 900-4).
+
+Autre point essentiel : une condition ne doit pas être potestative – c’est-à-dire faire dépendre
+l’exécution de la donation d’un événement qu’il est au pouvoir de l’une ou de l’autre des parties
+contractantes de faire arriver ou d’empêcher –, à peine de nullité (C. civ., art. 944).
+
+            Section 2 : Donations avec réserves
+Le donateur peut faire la réserve à son profit de la jouissance – droit d’usage et d’habitation – ou de
+l'usufruit des biens meubles ou immeubles donnés. Il peut également en disposer au profit d'une autre
+personne que le donataire de la nue-propriété (C. civ., art. 949).
+
+Il n’y a pas de contradiction avec la règle « donner et retenir ne vaut » puisqu’il s’agit du transfert
+immédiat et irrévocable d’un droit réel – la nue-propriété. La réserve, contrairement à la charge,
+diminue donc l’objet de la donation.
+
+                  I - Réserve d’usufruit
+
+L’usufruit est le droit de jouir des choses dont un autre a la propriété, comme le propriétaire lui-même
+mais à la charge d’en conserver la substance (C. civ., art. 578).
+
+L’usufruitier a ainsi le droit de jouir de toute espèce de fruits, soit naturels, soit industriels, soit civils,
+que peut produire l’objet dont il a l’usufruit (C. civ., art. 582).
+
+L’usufruit s’éteint notamment par la mort de l’usufruitier ou, s’agissant d’un usufruit à durée fixe, par
+l’expiration du temps pour lequel il a été accordé (C. civ., art. 617).
+
+Il est possible de prévoir un usufruit successif dans le cadre d’une donation. En pratique, la clause est
+couramment utilisée pour les donations partages avec réserve d’usufruit, ce dernier étant réservé par
+le donateur à son profit mais également, pour le cas où son conjoint lui survivrait, au profit de ce dernier.
+
+La réversion d’usufruit a été qualifiée de donation de bien présent à terme (Cass. 1e civ., 21 oct. 1997,
+n°95-19.759 ; pour davantage de précisions sur les donations à terme, voir infra). Le second usufruit
+existe donc dès la donation mais ne s’ouvre qu’au décès du donateur. Pour qu’il y ait donation, il faut
+d’ailleurs que l’usufruit soit accepté par l’époux.
+
+Pour éviter le délicat problème que représenterait l’irrévocabilité ici, le législateur a précisé que les
+donations de biens présents ne prenant pas effet au cours du mariage restent bien révocables (C. civ.,
+art. 1096, al. 2).
+
+Notons que s’il est possible de retenir l’usufruit, il est également possible de le donner ; il s’agit d’un
+usufruit à durée fixe (ex. : enfant à pourvoir le temps de leurs études) ou viager (ex. : parents à protéger
+leur vie durant), lequel peut notamment permettre au bénéficiaire de la transmission de percevoir des
+revenus.
+
+La renonciation à un usufruit, acte neutre en principe, est très souvent constitutif d’une donation
+indirecte car il s’avère translatif de propriété au profit du nu-propriétaire et relève généralement d’une
+intention libérale.
+
+                  II - Réserve de droit d’usage et d’habitation
+
+Le droit d’habitation se restreint à ce qui est nécessaire pour l’habitation de celui à qui ce droit est
+concédé et de sa famille (C. civ., art. 633). Le droit d’habitation ne peut être ni cédé ni loué (C. civ.,
+art. 634), et il en est de même pour le droit d’usage (C. civ., art. 631).
+
+Si le droit ne se perd pas en l’absence d’occupation (Cass. 3e civ., 2 févr. 2011, n°09-17.108), il peut être
+supprimé si son titulaire en a abusé (en ce sens, Cass. 3e civ., 14 nov. 2007, n°06-16.968 suite à la mise
+à disposition du bien à la sœur du titulaire).
+
+Le droit viager d’habitation de la résidence principale et d’usage du mobilier la garnissant qui est prévu
+au profit du conjoint survivant (C. civ., art. 764) fait exception.
+
+En effet, lorsque le logement n’est plus adapté à ses besoins, le conjoint peut le louer à usage
+d’habitation afin de dégager les ressources nécessaires à de nouvelles conditions d’hébergement. Ce
+droit ne se distingue donc plus guère d’un usufruit que par l’impossibilité pour son titulaire de le céder
+– possibilité toute théorique s’agissant de la cession isolée de l’usufruit. Notons simplement que le
+droit d’habitation et d’usage du conjoint fait partie des droits successoraux recueillis par celui-ci ; à ce
+titre, il n’est pas applicable en matière de donation.
+
+Les droits d’usage et d’habitation s’établissent et se perdent de la même manière que l’usufruit (C. civ.,
+art. 625).
+
+            Section 3 : Donations avec charges et conditions
+On peut tout d’abord se demander s’il convient ou non de distinguer les notions de charge et de
+condition, tant ces termes paraissent interchangeables. La réponse est positive.
+
+La charge, stipulée au profit du donateur lui-même, d’un tiers, voire du donataire, implique une
+obligation de faire ou de donner alors que la condition laisse toute liberté au gratifié. Par ailleurs, la
+charge affecte les biens, tandis que la condition concerne la personne.
+
+Dans le cadre de notre étude, nous n’approfondirons cependant pas la distinction afin de laisser
+davantage de champ à chacune des clauses étudiées, qu’elle soit charge ou condition. En pratique
+d’ailleurs, il n’est pas toujours évident de faire la différence.
+
+                  I – Principes
+
+En règle générale, la stipulation de charges – contraintes imposées au donataire par le donateur – ne
+change pas le caractère de la convention, laquelle reste une libéralité soumise aux règles des donations
+pour le tout. La stipulation de charges n’a donc pas pour effet de scinder le contrat en deux parties
+distinctes dont l’une correspondrait aux charges imposées – constituant par lui-même une disposition
+à titre onéreux – et l’autre opérerait une véritable libéralité, sans charges.
+
+L’importance des charges est cependant susceptible de transformer la donation en un contrat
+commutatif. A cet égard, il appartient aux tribunaux de décider, d’après les circonstances de fait et
+l’intention des parties, si la gratuité de l’acte subsiste malgré les charges dont il est affecté.
+
+La prise en compte d’une donation avec charge pour rapport et réunion fictive s’opère sous déduction
+de la charge ; ainsi, par exemple, « le rapport n’est dû qu’à concurrence de l’émolument net procuré
+par la libéralité, calculé en déduisant de la valeur du bien donné à l’époque du partage, d’après son état
+à l’époque de la donation, le montant de la charge déterminé au jour de son exécution » (Cass. 1e civ.,
+16 nov. 2022, n° 21-11.837).
+
+Le donateur peut parfaitement renoncer ensuite aux charges et conditions qu’il a lui-même posées
+dans l’acte. Si tout acte portant donation entre vifs doit être passé devant notaire, aucun texte n’oblige
+le donateur qui entend renoncer postérieurement à une clause de cet acte – y compris si cette
+dernière est protectrice de ses intérêts – à utiliser la forme authentique (Cass. 1e civ., 14 mai 1996, n° 94-
+15.826).
+
+La Cour de cassation a pu considérer qu’en ne réclamant pas pendant de longues années le paiement
+de la rente conçue en complément de retraite, les donateurs, qui avaient déjà par le passé favorisé leur
+fils, avaient clairement manifesté l’intention de le gratifier en le déchargeant de l’obligation contractée
+en contrepartie de la donation, opération considérée également comme une donation et donc
+rapportable (Cass. 1e civ., 15 mai 2019, n° 18-17.372)
+
+                  II - Condition suspensive
+
+L’obligation contractée sous condition suspensive est celle qui dépend d’un événement futur et
+incertain ou, plus rarement, d’un événement arrivé mais encore inconnu des parties (C. civ., art. 1304).
+
+Dans le premier cas – le plus fréquent et le seul que nous envisagerons infra –, l’obligation ne peut être
+exécutée qu’après l’événement. Dans le second cas, l’obligation a son effet du jour où elle a été
+contractée.
+
+Lorsque la donation a été contractée sous une condition suspensive, la chose donnée demeure donc
+entre les mains du donateur qui ne s’est obligé de la livrer qu’en cas de réalisation de la condition (en
+ce sens, C. civ., art. 1304-5). La donation sous condition suspensive est donc une donation à naître.
+
+                  III - Condition résolutoire
+
+                         A - Définition
+La condition résolutoire est celle qui, lorsqu’elle s’accomplit, opère la révocation de l’obligation, et qui
+remet les choses au même état que si l’obligation n’avait pas existé (C. civ., art. 1304).
+
+Elle ne suspend pas la donation mais oblige seulement le donataire à restituer ce qu’il a reçu, dans le
+cas où l’événement prévu par la condition arrive (en ce sens, C. civ., art. 1304-7).
+                         B - Droit de retour conventionnel
+Le donateur peut stipuler, à son seul profit, le droit de retour des objets donnés, soit pour le cas du
+prédécès du donataire seul, soit pour le cas du prédécès du donataire et de ses descendants (C. civ.,
+art. 951).
+
+Dans cette dernière hypothèse, il a été jugé qu’« un descendant renonçant ne peut faire obstacle au
+droit de retour qu’il soit légal ou convenu au cas de prédécès du donataire » car « les descendants
+ayant perdu leur qualité d’héritier, il devait être considéré que la donataire n’avait laissé aucune
+postérité pour lui succéder » (Cass. 1e civ., 16 sept. 2014, n°13-16.164).
+
+L’effet du droit de retour sera de résoudre toutes les aliénations des biens donnés et de faire revenir
+ces biens au donateur, libres de toutes charges et hypothèques, hormis l’hypothèque de la dot et des
+conventions matrimoniales, le cas échéant et sous certaines conditions (C. civ., art. 952).
+
+En effet, le bien donné sous condition résolutoire d’une clause de retour entre dans le patrimoine du
+donataire qui peut en disposer… mais sous la même condition (Cass. 1e civ., 6 févr. 1996), ce qui devrait
+décourager largement un tiers acquéreur potentiel.
+
+En règle générale, le droit de retour n’est pas stipulé seul mais accompagné d’une interdiction d’aliéner,
+d’hypothéquer ou de nantir le bien, afin d’en garantir l’exécution la plus efficace possible.
+
+                  IV - Interdiction d’aliéner, d’hypothéquer ou de nantir
+
+Les clauses d’inaliénabilité affectant un bien donné ou légué ne sont valables que si elles sont
+temporaires et justifiées par un intérêt sérieux et légitime (C. civ., art. 900-1).
+
+A été reconnu le caractère sérieux et légitime de la clause d’inaliénabilité stipulée jusqu’au décès du
+donateur pour lui garantir, en tant qu’usufruitier, que le nu-propriétaire sera le donataire choisi – un
+descendant le plus souvent – plutôt qu’un tiers (Cass. 1e civ., 15 juin 1994).
+
+Notons que le juge peut autoriser l’aliénation de tout ou partie des biens faisant l’objet de la libéralité
+en ordonnant que le prix en sera employé à des fins en rapport avec la volonté du disposant (C. civ.,
+art. 900-4, al. 2) et qu’est réputée non écrite la clause qui prive de la libéralité celui qui mettrait en
+cause la validité d’une clause d’inaliénabilité ou bien demanderait l’autorisation d’aliéner (C. civ., art.
+900-8).
+
+En ce qu’elle est subordonnée à des considérations personnelles d’ordre moral ou familial inhérentes
+à la donation, l’action tendant à être autorisé à disposer du bien donné avec clause d’inaliénabilité,
+prévue à l’article 900-1 du Code civil, est exclusivement attaché à la personne du donataire, de sorte
+que cette action ne peut être exercée ni par le liquidateur judiciaire (Cass. com., 9 nov. 2004, n° 02-
+11.717) ni par un créancier à la place de ce dernier (Cass. 1e civ., 8 mars 2005, n° 03-20.968).
+
+                                             Remarque pratique
+
+Parties souhaitant, à l’inverse, davantage de liberté en matière de cession…
+
+L’article 924-4 du Code civil précise que, lorsque, au jour de la donation ou postérieurement, le
+donateur et tous les héritiers réservataires présomptifs ont consenti à l’aliénation du bien donné, aucun
+héritier réservataire, même né après que le consentement de tous les héritiers intéressés a été recueilli,
+ne peut exercer l’action contre les tiers détenteurs.
+
+Dans un acte de donation-partage notamment, les parties peuvent prévoir cette clause sur les biens
+dont chacun des donataires copartagés a été alloti (eu égard aux aliénations et constitutions de droits
+
+réels sur lesdits biens). L’action en réduction ne pourra ainsi être exercée contre le tiers bénéficiaire
+de l’aliénation ou de la constitution des droits réels.
+
+                  V - Obligation d’emploi ou de remploi
+
+Une obligation d’emploi peut être incluse dans une donation de somme d’argent afin de préciser
+l’utilisation que doit en faire le donataire. La clause de remploi prévoit quant à elle le sort du prix de
+vente du bien transmis.
+
+Elle peut notamment anticiper la vente d’un bien démembré en prévoyant, soit le remploi dans un bien
+lui-même démembré, soit un quasi-usufruit au profit de l’usufruitier (qui peut disposer des sommes
+comme un propriétaire à charge de les rendre à son décès).
+
+Il s’agit donc bien de convertir en obligation ce qui relève généralement de la libre convention entre les
+parties, afin soit de protéger davantage le nu-propriétaire, soit favoriser les desseins de l’usufruitier.
+
+Dans la mesure où la donation peut consolider tout ou partie des plus-values latentes et où des clauses
+de remploi peuvent parfois apparaître comme contrevenant au principe d’irrévocabilité spéciale, ces
+dernières doivent être utilisées avec précaution, d’autant qu’elles sont généralement suspectes aux
+yeux de l’administration fiscale (en ce sens, BOI 13 L-2-04, 16 mars 2004, affaire n° 2003-10).
+
+Notons également que l’usage d’une clause de remploi peut être préféré à celui d’une interdiction
+d’aliéner en contrepoint d’un droit de retour. Le donateur bénéficiera du retour du bien qui aura été
+subrogé au bien donné. La clause peut néanmoins s’avérer insuffisante, notamment si l’objet du remploi
+choisi est un contrat d’assurance vie (capital décès hors succession).
+
+                                             Remarque pratique
+
+Régler les rapports entre usufruitier et nu-propriétaire : prise en charge des grosses réparations.
+
+Rappelons en préambule que, s’agissant du démembrement d’un immeuble, l’usufruitier n’est tenu
+qu’aux réparations d’entretien et que les grosses réparations prévues à l’article 606 du Code civil sont
+en principe à charge du seul nu-propriétaire (C. civ., art. 605). Mais là où le nu-propriétaire peut
+imposer des travaux (sous peine de remise en cause de l’usufruit en raison de l’abus de jouissance que
+commettrait l’usufruitier « en le laissant dépérir faute d’entretien » ; C. civ., art. 618), l’usufruitier reste
+sans armes (Cass. 1e civ., 18 déc. 2013, n° 12-18.537).
+
+L’acte de donation peut alors organiser ces rapports, en étant par exemple plus exigeant envers le nu-
+propriétaire (obligation d’effectuer les grosses réparations ; en ce sens, Cass. 3e civ ; 9 oct. 1985, n°84-
+13548) ou plus libéral avec l’usufruitier (dispensé de ses obligations relatives aux travaux d’entretien ;
+en ce sens, Cass. 1e civ., 18 oct. 1994, n° 93-11.384).
+
+                  VI - Administration des biens d’un mineur par un tiers
+
+Le donateur peut souhaiter ne pas confier l’administration des biens donnés aux administrateurs
+légaux du donataire mineur.
+
+En effet, il est prévu (C. civ., art. 384, issu de l’ordonnance n° 2015-1288 du 15 octobre 2015) que les
+biens donnés au mineur sous la condition qu’ils soient administrés par un tiers sont soustraits à
+l’administration légale. Ce tiers administrateur a les pouvoirs qui lui ont été conférés par la donation
+
+ou, à défaut, ceux d'un administrateur légal sous contrôle judiciaire. En général, le tiers désigné n’est
+autre que le donateur ou un parent du mineur.
+
+Ce texte, qui reprend dans les grandes lignes les principes de l’article 389-3, al. 3 ancien, s’en distingue
+néanmoins en prévoyant que, lorsque le tiers administrateur refuse cette fonction ou s’il ne remplit pas
+les conditions pour exercer cette charge (C. civ., art. 395 et 396), le juge des tutelles désigne un
+administrateur ad hoc pour le remplacer (en vigueur au 01/01/2016, applicable aux administrations
+légales en cours à ce jour).
+
+                                             Remarque pratique
+
+Exception à l’administration légale : sans exception !
+
+La Cour de cassation a précisé que « l’article 389-3 du Code civil [devenu l’article 384], qui permet au
+disposant, sans aucune distinction, de soustraire à l’administration légale des père et mère les biens
+qu’il donne ou lègue à un mineur, est une disposition générale qui ne comporte aucune exception pour
+la réserve héréditaire » (Cass. 1e civ., 6 mars 2013, n° 11-26.728), sans d’ailleurs que « l’intérêt de l’enfant »
+n’entre en ligne de compte (Cass. 1e civ., 26 juin 2013, n° 11-25.946).
+
+                  VII - Clause de mise en communauté ou d’exclusion de communauté
+
+Il est possible de prévoir dans une donation que les biens qui en font l’objet appartiendront à la
+communauté (C. civ., art. 1405, al. 2). Certains notaires proposent une « clause de sauvegarde », inspirée
+de la clause de reprise des apports en cas de divorce (C. civ., art. 265, al. 3), dont l’efficacité n’est pas
+établie.
+
+On notera le droit qu’a l’héritier réservataire de limiter les effets de la libéralité à la quotité disponible,
+tant que la succession du donateur n’est pas close (Cass. 1e civ., 11 sept. 2013, n°12-11.694, à propos d’un
+legs).
+
+A l’inverse, il est possible de donner des biens sous condition d’exclusion de communauté ; ils restent
+alors propres, même au regard d’une éventuelle communauté future (C. civ., art. 1498, al. 1er, in fine, pour
+la communauté de meubles et acquêts ; Cass. 1e civ., 27 juin 1972, pour la communauté universelle).
+
+                  VIII - Donations graduelles
+
+La technique de la donation graduelle est issue d’une pratique ancienne mais confidentielle : la
+substitution fidéicommissaire, envisagée par le Code civil dans des cas limitativement prévus et avant
+des contraintes très restrictives (C. civ., art. 1048 et 1049 anciens).
+
+La donation graduelle a un champ d’application plus large et permet, par exemple, de conserver des
+biens dans la famille ou de protéger en même temps un enfant handicapé – par priorité – et ses frères
+et sœurs – dans un second temps.
+
+Une libéralité peut donc être grevée d’une charge comportant l’obligation pour le donataire de
+conserver les biens ou droits qui en sont l’objet et de les transmettre, à son décès, à un second gratifié,
+désigné dans l’acte (C. civ., art. 1048). La libéralité ainsi consentie ne peut produire son effet que sur
+des biens ou des droits identifiables à la date de la transmission et subsistant en nature au décès du
+
+grevé (C. civ., art. 1049, al. 1er). Lorsqu’elle concerne un immeuble, la charge grevant la libéralité est
+soumise à publicité (C. civ., art. 1049, al. 3).
+
+Lorsqu’elle porte sur des valeurs mobilières, la libéralité produit également son effet, en cas d’aliénation,
+sur les valeurs mobilières qui y ont été subrogées (C. civ., art. 1049, al. 2). Le législateur a donc souhaité
+tirer les conséquences de la qualification d’universalité de fait retenue pour le portefeuille de valeurs
+mobilières (Cass. 1e civ., 12 nov. 1998, n° 96-18.041, arrêt Baylet).
+
+Les droits du second gratifié s’ouvrent en principe à la mort du grevé. Toutefois, le grevé peut
+abandonner, au profit du second gratifié, la jouissance du bien ou du droit objet de la libéralité, sans
+toutefois préjudicier aux créanciers du grevé antérieurs à l’abandon, ni aux tiers ayant acquis, de ce
+dernier, un droit sur le bien ou le droit abandonné (C. civ., art. 1050). Le second gratifié est réputé tenir
+ses droits directement de l’auteur de la libéralité (C. civ., art. 1051), et non du premier gratifié.
+
+Par exemple, A qui a deux enfants, B, lourdement handicapé, et C, peut prévoir la donation graduelle
+hors part successorale d’un immeuble locatif (B est le premier gratifié, C, le second).
+
+                                                             Parent (A)
+
+                                               Bien identifiable à la date de la donation
+                                           et qui subsistera en nature au décès du grevé
+
+                                                     
+                         Donation graduelle
+                                                                                       C réputé tenir
+                         obligation de conserver                                     ses droits de A
+
+                                           Enfant (B)                          Enfant (C)
+
+                                          Succession
+
+Le second gratifié ne peut être soumis à l’obligation de conserver et de transmettre comme l’est le
+premier. Si la charge a été stipulée au-delà du premier degré, elle demeure valable, mais pour le premier
+degré seulement (C. civ., art. 1053).
+
+Si le grevé est héritier réservataire du disposant, la charge ne peut être imposée que sur la quotité
+disponible (C. civ., art. 1054, al. 1er), la réserve devant en principe n’être grevée d’aucune charge.
+
+Le donataire peut toutefois accepter, dans l’acte de donation ou postérieurement, que la charge grève
+tout ou partie de sa réserve (C. civ., art. 1054, al. 2).
+
+En cas d’acceptation postérieure, un acte doit être établi dans les conditions prévues pour la
+renonciation anticipée à l’action en réduction, c’est-à-dire un acte authentique spécifique reçu par
+deux notaires. La charge portant, avec son consentement, sur la part de réserve du grevé bénéficie de
+plein droit, dans cette mesure, à l’ensemble de ses enfants nés et à naître (C. civ., art. 1054, al. 4).
+
+L’auteur d’une donation graduelle peut la révoquer à l’égard du second gratifié tant que celui-ci n’a pas
+notifié, dans les formes requises en matière de donation, son acceptation au donateur. A titre
+dérogatoire, la donation graduelle peut être acceptée par le second gratifié après le décès du donateur
+(C. civ., art. 1055).
+
+En cas de prédécès du second gratifié au grevé – ou de renonciation de ce dernier au bénéfice de la
+libéralité graduelle –, les biens ou droits qui en faisaient l’objet dépendent de la succession du grevé,
+à moins que l’acte ne prévoie expressément que ses héritiers pourront la recueillir ou désigne un autre
+second gratifié (C. civ., art. 1056).
+
+Les héritiers du second gratifié, lorsqu’ils recueillent la libéralité, sont également réputés tenir leurs
+droits directement de l’auteur de la libéralité (C. civ., art. 1051 in fine).
+
+La technique de la donation résiduelle est donc une technique envisageable au même titre que le
+démembrement de propriété ou la fiducie. Elle comporte pour le premier gratifié une double obligation
+de conserver – qui peut être renforcée par une clause d’inaliénabilité dans l’acte de donation – et de
+transmettre, à son décès, les biens objets de la libéralité. Il s’agit donc d’une contrainte forte pour lui…
+et, corrélativement, d’une garantie importante pour le second gratifié.
+
+Elle peut être utilisée, à défaut de précision contraire, quels que soient les liens de parenté entre les
+parties ; en pratique, elle devrait surtout intervenir pour les enfants – premiers gratifiés – et les petits-
+enfants – seconds gratifiés – ou encore entre les frères et sœurs – premiers gratifiés –et les neveux
+et nièces – seconds gratifiés, comme cela arrivait avant le 1er janvier 2007. Enfin, éléments nouveaux,
+elle devrait prendre place entre le conjoint et les enfants – notamment les enfants non communs – et
+entre frères et sœurs dont l’un est handicapé et sans postérité.
+
+                  IX - Donations résiduelles
+
+Extrapolée du legs de residuo, la donation résiduelle prévoit qu’une personne sera appelée à recueillir
+ce qui subsistera du don fait à un premier gratifié à la mort de celui-ci (C. civ., art. 1057).
+
+La libéralité résiduelle n’oblige pas le premier gratifié à conserver les biens reçus. Elle l’oblige à
+transmettre les biens subsistants. Lorsque les biens, objets de la libéralité résiduelle, ont été aliénés
+par le premier gratifié, les droits du second bénéficiaire ne se reportent ni sur le produit de ces
+aliénations ni sur les nouveaux biens acquis (C. civ., art. 1058).
+
+Le premier gratifié n’est d’ailleurs pas tenu de rendre compte de sa gestion au disposant ou à ses
+héritiers (C. civ., art. 1060).
+
+Reprenons l’exemple de A qui a deux enfants, B, lourdement handicapé, et C, et qui cette fois prévoit
+la donation résiduelle hors part successorale de deux immeubles locatifs (B est le premier gratifié, C,
+le second). L’un des immeubles est cédé par B.
+
+                                                        Parent (A)
+
+                                       Biens identifiables à la date de la donation
+
+                                                                              Donation résiduelle
+                                                                                aucune obligation
+                                                                                 de conservation
+                     Cession
+
+                                                                                   C réputé tenir
+                                                                                  ses droits de A
+
+                                     Enfant (B)                           Enfant (C)
+
+                                       Succession de B
+
+Le premier gratifié ne peut disposer par testament des biens donnés à titre résiduel. La libéralité
+résiduelle peut même lui interdire de disposer des biens par donation entre vifs. Toutefois, lorsqu’il est
+héritier réservataire, le premier gratifié conserve la possibilité de disposer entre vifs ou à cause de mort
+des biens qui ont été donnés en avancement de part successorale (C. civ., art. 1059).
+
+Pour le reste, le régime des libéralités résiduelles est calqué sur celui des libéralités graduelles (C. civ.,
+art. 1061). Ainsi, on retrouve :
+- le fait que la donation doit porter sur des biens ou des droits identifiables à la date de la transmission
+et subsistant en nature au décès du grevé, avec l’exception liée au portefeuille de valeurs mobilières
+en matière de subrogation (en ce sens, C. civ., art. 1049) ;
+- le fait que le second gratifié est réputé tenir ses droits directement de l’auteur de la libéralité et non
+du premier gratifié (en ce sens, C. civ., art. 1051) ;
+- la possibilité pour l’auteur de la donation de la révoquer à l’égard du second gratifié tant que celui-ci
+n’a pas notifié, dans les formes requises en matière de donation, son acceptation au donateur, la
+donation graduelle pouvant à titre dérogatoire être acceptée par le second gratifié après le décès du
+donateur (en ce sens, C. civ., art. 1055) ;
+- le fait enfin qu’en cas de prédécès du second gratifié au grevé ou de renonciation au bénéfice de la
+libéralité, les biens ou droits qui en faisaient l’objet dépendent de la succession du grevé, sauf clause
+expresse dans l’acte prévoyant la transmission aux héritiers du second gratifié ou désignant un autre
+second gratifié (en ce sens, C. civ., art. 1056).
+
+            Section 4 : Donations à terme
+
+                  I – Principes
+
+Le terme diffère de la condition en ce qu’il ne suspend pas l’engagement mais en retarde seulement
+l’exécution (C. civ., art. 1305).
+
+Ainsi, la nécessité d’un dépouillement actuel et irrévocable de la chose donnée (C. civ., art. 894), qui
+marque le transfert définitif de la propriété, n’a pas pour corollaire obligatoire la remise immédiate du
+
+bien donné, laquelle ne constitue qu’une modalité, librement arrêtée entre les parties, du transfert de
+sa jouissance (Cass. 2e civ., 22 fév. 2005, n°03-14.111)
+
+Le terme est un événement futur et certain, contrairement à une condition, qui bien que d’apparence
+voisine, sera incertaine non seulement dans sa date mais également dans sa réalisation-même (Cass. 1e
+civ., 13 juil. 2004).
+
+Tant que le terme n’est pas arrivé, le donateur garde la propriété du bien et en assure la gestion.
+
+                  II - Donation facultative
+
+Le donateur peut se réserver, dans l'acte de donation, la faculté de substituer un autre bien à celui
+donné. La donation facultative porte sur une chose particulière – objet unique de la donation – mais le
+donateur peut par conséquent se libérer par la remise d'une autre.
+
+Le donataire a un droit de créance à l'encontre du donateur, à défaut de transfert de propriété
+immédiat. Le donateur conserve quant à lui les droits d’un propriétaire. S’il aliène le bien donné, il a en
+principe la charge d'en réinvestir le prix dans un autre bien, lequel se substituera au bien initialement
+donné pour être remis à terme au donataire.
+
+                                             Remarque pratique
+
+Donation avec faculté de substitution
+
+Peu usitée, la donation avec faculté de substitution, contrairement à la donation facultative, entraîne
+un transfert de propriété immédiat du bien donné. La validité de cette clause suppose, bien sûr, que la
+valeur du bien substitué soit égale à celle de l’objet principal de la donation. En cas d’exercice de la
+faculté de substitution, le bien initialement transmis revient dans le patrimoine du donateur ; le bien
+prévu dans l’acte de donation le remplace. La faculté est ouverte sur une période déterminée.
+
+                  III - Donation alternative
+
+Le donateur peut prévoir, dans l'acte de donation, qu'il donnera, à une date qu’il détermine, une chose
+ou une autre (le choix pouvant être transféré au donataire).
+
+Sans pour autant contrevenir au principe « donner et retenir ne vaut », la donation alternative permet
+donc de se réserver une porte de sortie, que l’on pourrait qualifier de « droit de repentir », s’agissant
+par exemple d’une transmission d’entreprise d’abord voulue mais qui se révèlerait finalement
+inopportune.
+
+Notons que les deux choses qui sont l'objet de la donation alternative doivent effectivement figurer
+dans le patrimoine du donateur lors de la donation, ce qui peut poser problème dans l’exemple pris.
+
+            Section 5 : Dot
+Lorsque la donation est consentie conjointement par les époux avec stipulation que la libéralité entre
+dans les prévisions de l'article 1438 du Code civil (C. civ., art. 1438 : « Si le père et la mère ont doté
+conjointement l’enfant commun sans exprimer la portion pour laquelle ils entendaient y contribuer, ils
+sont censés avoir doté chacun pour moitié, soit que la dot ait été fournie ou promise en biens de
+communauté, soit qu’elle l’ait été en biens personnels de l’un des époux. Au second cas, l’époux dont
+
+le bien personnel a été constitué en dot, a, sur les biens de l’autre, une action en indemnité pour la
+moitié de ladite dot, eu égard à la valeur du bien donné au temps de la dotation. »), chaque époux est
+considéré comme donateur pour moitié.
+
+La doctrine admet que l’article 1438, malgré sa localisation, est applicable quel que soit le régime
+matrimonial des époux (en ce sens, CA Paris, 26 juin 1874 et CA Rouen, 28 janv. 1935).
+
+A l’appui de cette position, on remarque que l’article vise notamment les biens « personnels », et non
+les seuls biens propres. De surcroît, il organise un système d’« indemnité », et non de récompense.
+
+                                             Remarque pratique
+
+Fiscalité en ligne…
+
+Il résulte de l'article 1438 du Code civil que l’enfant donataire bénéficie deux fois de l’abattement en
+ligne directe. En outre, l’application du tarif progressif sur chaque moitié du bien conduit également à
+une atténuation du montant des droits. Si l’indemnité n’a pas été réglée au cours du mariage, cette
+créance de l’époux qui a fourni le bien est imposable aux droits de succession lors de son décès.
+Corrélativement, c’est une dette déductible de l’actif laissé par l’époux débiteur dans les conditions
+fixées par les articles 768 et suivants du CGI.
+
+On notera que l’administration est vigilante et sanctionne par l’abus de droit (LPF, art. L 64) la
+stipulation de dot lorsqu’elle est fictive et dissimule en réalité la donation d'un bien propre afin de
+bénéficier de deux abattements au lieu d'un seul (ex. : Cass. com., 24 avr. 1990, n° 88-14.365,
+sanctionnant une donation de la nue-propriété d’un immeuble à un enfant de 17 mois).
+
+      CORRIGES DES EXERCICES
+                                       CORRIGE DE L’EXERCICE N°1
+Christophe n’est pas propriétaire de cet appartement car la donation doit prendre la forme d’un acte
+authentique. La donation dont il se prévaut est nulle en la forme.
+
+                                          CORRIGE DE L’EXERCICE N°2
+Ici, les dispositions légales sont applicables et l’intervention du juge est nécessaire.
+Du vivant du donateur, ce dernier est juridiquement le seul à pouvoir agir. Les frères et sœurs d’Antoine
+ne peuvent pas obtenir cette révocation.
+La donation peut prévoir une clause de révocation automatique (sous forme de condition résolutoire
+dans l’acte). La clause fixe alors les modalités de preuve pour constater la défaillance du donataire. Il
+suffit de constater dans un acte le non-respect des charges et conditions pour que la donation soit
+anéantie.
+Cf., dans cette même partie, Section 2, III, C).
+
+                                         CORRIGE DE L’EXERCICE N°3
+Chacun d’Anna et de Paul a vocation à recueillir la moitié de la succession de son père.
+Cette moitié portera sur une masse comprenant :
+- Les biens laissés par le père à son décès
+- La valeur des biens donnés à Paul (rapport)
+Il s’agit de la masse à partager entre les héritiers.
+
+                                        CORRIGE DE L’EXERCICE N°4
+Chacun d’Anna et de Paul a vocation à recueillir la moitié de la succession de son père.
+Cette moitié portera sur la masse à partager (MAP) comprenant :
+      Les biens laissés par le père à son décès       240.000
+      Le rapport dû par Paul                            60.000
+                                       Total          300.000
+Chacun recueillera la moitié, soit                     150.000
+
+                                       CORRIGE DE L’EXERCICE N°5
+Chacun d’Anna et de Paul a vocation à recueillir la moitié de la succession de son père.
+Cette moitié portera sur la masse à partager (MAP) comprenant :
+   • Les biens laissés par le père à son décès         40.000
+   • Les biens donnés à Paul                           60.000
+   • Le rapport dû par Anna                          200.000
+                                      Total          300.000
+Chacun recueillera la moitié, soit                    150.000
+
+PARTAGE SUCCESSORAL (PROPOSITION)
+ATTRIBUTIONS A PAUL
+   • SON RAPPORT EN MOINS PRENANT                           60.000
+   • AVOIRS FINANCIERS DE SON PERE                          40.000
+   • SOULTE DUE PAR SA SŒUR                                 50.000
+   • TOTAL EGAL A SES DROITS                               150.000
+ATTRIBUTIONS A ANNA
+   • SON RAPPORT EN MOINS PRENANT                         200.000
+
+   •   SOULTE DUE À SON FRÈRE                                           – 50.000
+   •   TOTAL EGAL A SES DROITS                                           150.000
+
+                                         CORRIGE DE L’EXERCICE N°6
+Montant du rapport : 120, soit la valeur de la maison sans la piscine au jour du partage.
+C’est la plus-value naturelle qui est partagée entre cohéritiers, et seulement celle-ci, l’exclusion de
+celle apportée par le donataire lui-même.
+
+                                      CORRIGE DE L’EXERCICE N°7
+Chacun de Mathieu et Delphine a vocation à recueillir la moitié de la succession de son père.
+Cette moitié portera sur la masse à partager (MAP) comprenant :
+   • Les biens laissés par le père à son décès      300.000
+   • Les biens donnés à Paul                         120.000
+                                      Total         420.000
+Chacun recueillera la moitié, soit                   210.000
+
+                    Valeur : 100 lors de la donation, 120 lors du partage
+                                               +                     pour mémoire :
+                              Biens existants au partage : 300       QD = RP = 140
+
+             Réserve de A         Quotité disponible             Réserve de B
+                 1/3                        1/3                        1/3
+
+                   (300 + 120) / 2 = 210           (300 + 120) / 2 = 210
+
+                       + 90 (biens présents)       210 (biens présents)
+
+                                      CORRIGE DE L’EXERCICE N°8
+Chacun de Mathieu et Delphine a vocation à recueillir la moitié de la succession de son père.
+Cette moitié portera sur la masse à partager (MAP) comprenant :
+   • Les biens laissés par le père à son décès        90.000
+   • Les biens donnés à Paul                         120.000
+                                       Total         210.000
+Chacun recueillera la moitié, soit                   105.000
+On peut constater que la valeur rapportable de la donation dépasse les droits du gratifié.
+
+Il doit donc indemniser B à hauteur de 15, c’est-à-dire pour la valeur donnée dépassant ses droits
+
+                     Valeur : 100 lors de la donation, 120 lors du partage
+                                              +                      Pour mémoire :
+                               Biens existants au partage : 90        QD = RP = 70
+
+              Réserve de A         Quotité disponible             Réserve de B
+                  1/3                        1/3                        1/3
+
+                    (90 + 120) / 2 = 105            (90 + 120) / 2 = 105
+
+                        - 15 (indemnité)          90 (biens présents) + 15 (indemnité)
+
+successoraux.
+
+                                                   CORRIGE DE L’EXERCICE N°9
+Chacun a vocation à recueillir le tiers de la succession de sa mère.
+Ce tiers portera sur la masse à partager (MAP) comprenant :
+   • Les biens laissés par la mère à son décès         490.000
+   • Le rapport de Romane                               60.000
+   • Le rapport de Thomas                               45.000
+   • Le rapport d’Antoine                               50.000
+                                    Total              645.000
+Chacun recueillera un tiers, soit                       215.000
+
+Partage successoral (proposition)
+Attributions à Romane
+    • Son rapport en moins prenant                                                60.000
+    • Quote-part du prix de vente appt et avoirs                                  155.000
+    • Total égal à ses droits                                                     215.000
+Attributions à Thomas
+    • Son rapport en moins prenant                                                 45.000
+    • Quote-part du prix de vente appt et avoirs                                   170.000
+    • Total égal à ses droits                                                      215.000
+Attributions à Antoine
+    • Son rapport en moins prenant                                                 50.000
+    • Quote-part du prix de vente appt et avoirs                                   165.000
+    • Total égal à ses droits                                                      215.000
+
+                                                   CORRIGE DE L’EXERCICE N°10
+
+Rappels méthodologiques
+Nous sommes en présence :
+
+    • D’héritiers réservataires
+    • D’une libéralité préciputaire
+Il convient de donc de vérifier si la donation faite à Marion, la compagne du défunt, porte atteinte ou
+non à la réserve des enfants :
+    - Masse de calcul de la quotité disponible et de la réserve (montant)
+    - Quotité disponible et la réserve (quotité et montant)
+    - Imputations des libéralités (par secteur et ordre chronologique)
+    - Réduction (quotité)
+    - Partage (montant de l’indemnité de réduction, masse à partager et attributions)
+
+                    Masse de calcul de la QD et de la réserve
+ Biens existants (biens restants+biens légués)                                    40 000
+ Réunion fictive des libéralités
+    - A Paul                                                                       60 000
+    - A Marion                                                                    170 000
+                                           Total                                  270 000
+
+                            Quotité disponible et réserve
+                          Quotité    Masse de calcul      Montant
+ QD                              1/3           270 000                             90 000
+ Réserve globale                 2/3           270 000                            180 000
+ Réserve individuelle            1/3           270 000                             90 000
+
+                                         Imputations des libéralités
+                                        Ri Anna      Ri Paul        QD
+   Date      Gratifié   APS    HPS                                                   Solde QD         Excédent
+                                        90 000      90 000        90 000
+ 2010        Paul         X                           60 000                             90 000
+ 2011        Marion              X                                 90 000                     0         80 000
+
+                              Reste       90 000          30 000              0
+
+Réduction : oui
+La donation faite à Marion est réductible en valeur. Elle est débitrice d’une indemnité de réduction.
+Dans le cas d’une atteinte à la réserve, la réductibilité doit être évaluée en proportion. Il s’agit en fait
+de déterminer la portion excessive de la libéralité : fraction réductible/valeur totale de la libéralité.
+Cette proportion est déterminée avec les valeurs au jours du décès.
+Ici la libéralité faite à Marion est réductible dans la proportion de : 80.000 / 170.000
+L’indemnité de réduction étant due au moment du partage, cette proportion sera à appliquer à la valeur
+du bien objet de la libéralité au jour du partage.
+Ici l’indemnité de réduction sera de : 80.000/170.000 x 200.000 = 94.000
+
+Droits dans la succession et le partage
+La masse à partager (MAP) comprend :
+        Les biens existants au décès             40.000
+        Le rapport de Paul                       60.000
+        L’indemnité de réduction due par Marion 94.000
+                                     Total      194.000
+        Chacun recueillera la moitié, soit       97.000

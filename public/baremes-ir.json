@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "sections_avis": [
+      {
+        "categorie": "Traitements et Salaires",
+        "cases": [
+          { "id": "1AJ", "label": "Revenus déclarant 1", "type": "revenu" },
+          { "id": "1BJ", "label": "Revenus déclarant 2", "type": "revenu" }
+        ]
+      },
+      {
+        "categorie": "Charges déductibles",
+        "cases": [
+          { "id": "6DD", "label": "Déductions diverses", "type": "charge" },
+          { "id": "6GU", "label": "CSG déductible", "type": "charge" }
+        ]
+      }
+    ]
+  },
+  "baremes": {
+    "2024": {
+      "tranches_ir": [
+        { "limite": 11294, "taux": 0 },
+        { "limite": 28797, "taux": 0.11 },
+        { "limite": 82341, "taux": 0.30 },
+        { "limite": 177106, "taux": 0.41 },
+        { "limite": null, "taux": 0.45 }
+      ],
+      "configuration": {
+        "pension_max": 6674,
+        "abattement_10_max": 14176,
+        "plafond_quotient_familial": 1759,
+        "age_limite_rattachement": 21,
+        "age_limite_etudiant": 25
+      }
+    },
+    "2025": {
+      "tranches_ir": [
+        { "limite": 11520, "taux": 0 },
+        { "limite": 29373, "taux": 0.11 },
+        { "limite": 83988, "taux": 0.30 },
+        { "limite": 180648, "taux": 0.41 },
+        { "limite": null, "taux": 0.45 }
+      ],
+      "configuration": {
+        "pension_max": 6807,
+        "abattement_10_max": 14459,
+        "plafond_quotient_familial": 1794,
+        "age_limite_rattachement": 21,
+        "age_limite_etudiant": 25
+      }
+    }
+  }
+}

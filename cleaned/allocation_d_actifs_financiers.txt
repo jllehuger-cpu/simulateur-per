@@ -1,0 +1,1942 @@
+
+       INTRODUCTION
+
+L’allocation d’actifs financière est une discipline qui requière une certaine méthodologie. Elle
+s’inscrit dans un horizon de court terme qui peut varier de 6 mois à 5 ans contrairement à
+l’allocation patrimoniale qui est plus long terme 10 à 30 ans.
+
+Nous allons passer en revue l’ensemble des étapes du processus d’allocation d’actifs. Nous
+aborderons dans un premier temps l’étude client. Celle-ci débutera par le bilan patrimonial
+du client concerné. Celui-ci sera réalisé sous l’angle économique à ce stade. Il sera complété
+ultérieurement avec les aspects juridiques et fiscaux. Nous aborderons ensuite les différents
+objectifs économiques et leurs problématiques respectives ainsi que les principaux aspects
+règlementaires de la démarche de conseil. Enfin, nous analyserons les différents risques
+perçus par l’investisseurs ainsi que les principales mesures qui y sont actuellement
+associées. Ceci sera en partie réalisé via un questionnaire de risque client qui viendra
+compléter et terminer toute l’approche préliminaire étude client.
+
+Nous aborderons ensuite la méthodologie de la diversification sous différentes formes et son
+impact sur le risque tant sur un portefeuille mono-actif que plusri-actifs. Nous analyserons
+les différents éléments qui interagissent ainsi que les bonnes pratiques en la matière. Nous
+nous pencherons également sur les cycles économiques, leur développement et impact en
+terme de performance des actifs financiers. Ceci sera complété par une initiation aux
+aspects et biais comportementaux du client et du conseiller, élément important à connaitre
+afin de présenter la recommandation d’allocation d’actifs.
+
+       PARTIE I - BILAN PATRIMONIAL ET PLANIFICATION DES FLUX
+       FINANCIERS
+
+L’une des étapes du processus d’allocation d’actifs si ce n’est la première, est d’établir le
+bilan patrimonial du client sous un angle économique et financier. Il est impératif de
+distinguer le stock (actifs détenus) et les flux (revenus) ainsi que la dimension temporelle. En
+effet, le bilan est réalisé à l’instant t mais peut également être évalué à un instant t+1 (celui
+de la date retenue pour la réalisation de l’objectif par exemple). Si aucune date n’est précise,
+une période de 10 ou 15 ans par exemple peut être appropriée. L’intérêt de cet exercice est
+qu’il permet au client de se projeter dans le temps en fonction des éléments qu’il a
+communiqué. Cela lui permettra également en général de les compéter dans l’espace
+temporel, chose qu’il a très souvent des difficultés à réaliser.
+
+       Chapitre I - Étude des Actifs / Passifs
+
+Cette étape consiste à lister les actifs et les passifs et à les évaluer à une valeur de marché.
+On distinguera les actifs en fonction de leur degré de liquidité et de leur type (classe d’actifs),
+ce qui permettra d’en évaluer l’importance au sein du patrimoine. A plupart des biens sont
+facilement identifiables et peut être classés au sein d’une classe d’actifs. Concernant le fonds
+en Euro, il peut soit être mis à part, soit intégré dans les actifs monétaires étant donné son
+degré de liquidité et sa garantie en capital (exception faite de la faillite de l’assureur). Enfin,
+s’il s’agit d’un couple, on distinguera si possible les biens propres des biens communs ce qui
+permettra d’identifier les éventuels déséquilibres, tant globaux que par classe d’actifs.
+
+       Attention
+       Une Unité de Compte (UC) n’est pas une classe d’actifs. C’est un support
+       d’investissement adossé à une convention en assurance vie.
+
+                                                         Actifs
+
+                                                 Monsieur         Madame         Total         Proportion
+        Disponibilités Monétaires                                                                20.3%
+           Compte bancaire                       10 000            8 0000      18 000              1%
+           Livret A                               15 000           18 000      33 000             1.8%
+           Fonds en euros                       140 000           180 000     320 000            17.5%
+
+        Actifs financiers cotés
+          Obligations                               0                0            0                    0%
+          Actions                                80 000           25 000       105 000                5.7%
+          Actifs alternatifs                        0                0            0                    0%
+          Or                                        0                0            0                    0%
+          Matières premières                        0                0            0                    0%
+
+        Actifs financiers non cotés
+          Société                                    0               0            0                    0%
+          Commerce                                   0            350 000      350 000                19.1%
+          Entreprise nom personnel                   0               0            0                    0%
+          Autre                                      0               0            0                    0%
+
+        Immobilier résidentiel
+
+            RP                                   250 000          250 000      500 000            27.5%
+            Résidence secondaire 1                  0             400 000      400 000            21.9%
+            Autres biens                            0                0            0                0%
+
+            Appartements                             0            100 000      100 000                5.5%
+
+        Immobilier professionnel                     0               0             0                  0%
+          Détention directe                          0               0             0                  0%
+          SCPI
+
+        Foncier
+          Forets                                     0               0             0                  0%
+          Vignes                                     0               0             0                  0%
+          Champs                                     0               0             0                  0%
+          Autres                                     0               0             0                  0%
+
+        Actifs alternatifs non financiers
+          Art                                        0               0             0                  0%
+          Autre                                      0               0             0                  0%
+
+        TOTAL                                    495 000          1 331 000      1 826            100%
+
+                                                  Passifs
+                                         Monsieur       Madame                  Total          Proportion
+    Prêts court terme (-1an)
+       Bancaire                               0                  0                0                   0%
+       Autre                                  0                  0                0                   0%
+
+    Prêt long terme
+       RP                                 100 000           100 000          200 000                  80%
+
+       Appartements                           0              50 000           50 000                  20%
+       Autres                                 0                 0
+
+    Cautions                                  0                  0                0                   0%
+    Autres                                    0                  0                0                   0%
+
+       Total                              100 000           150 000          250 000              100%
+
+On en déduit ensuite l’actif net soit dans notre exemple : 1 826 000 – 250 000 = 1 576 000€
+Une répartition via un camembert pourra alors être réalisée soit en incluant l’actifs et le passif
+afin d’illustrer l’importance du passif par rapport à l’actif, soit indépendamment.
+
+       Chapitre II - Étude des flux : recettes / dépenses
+
+Elle sera réalisée tout d’abord au temps t, c’est-à-dire le jour de l’analyse. On établira la liste
+des recettes (salaires, dividendes, revenus fonciers, autres...) d’une part. La déclaration
+d’impôt est un très bon support pour évaluer les recettes. Elles seront retenues hors
+abattement divers. Les besoins financiers pour la vie courante, le remboursement des prêts
+et les divers impôts seront estimés d’autre part. On calculera alors la capacité d’épargne /
+reste à vivre qui sera sensée couvrir les grosses dépenses (voiture par exemple si elle n’est
+pas déjà prise en compte, les imprévus et l’épargne résiduelle).
+
+Cette analyse sera ensuite réalisée dans l’espace-temps. On prendra en compte les
+différents évènements financiers qui pourront faire évoluer les revenus ou les dépenses et
+par déduction la capacité d’épargne. Ainsi, du temps t0 au terme fixé par l’objectif, on pourra
+cumuler tous les flux et en estimer la totalité. Cela permettra, sans prendre en compte une
+rentabilité des sommes investies de juger de leur importance par rapport à l’objectif
+recherché.
+
+                                                EXERCICE N° 1
+
+Énoncé : Monsieur et Madame HERVET, tous les deux âgés de 51, mariés sous le régime de la
+communauté, sont cadres supérieurs et vivent à Toulouse. Leurs revenus salariaux nets, qu’ils
+jugent stables, s’élèvent à 120 000€ (Monsieur 80 000€ et Madame 40 000 €).
+Ils sont propriétaires de leur résidence principale évaluée à 650 000 €. Leur prêt sur la
+résidence principale vient de se terminer.
+Ils possèdent un appartement qu’ils louent 800 € par mois. Ce bien a été financé par un prêt
+amortissable sur 20 ans qui se termine dans 5 ans ; le capital restant dû est de 35 000 €. Le
+loyer couvre les échéances. L’appartement est évalué à 270 000 €.
+
+Ils ont deux enfants, de 23 et 26 ans, qui étaient jusqu’à présent rattachés au foyer fiscal. Le
+coût des études est estimé à 15 000 €/enfant/an. L’aîné vient de terminer une école
+d’ingénieur et est parti travailler à Lyon, le second poursuit des études de médecine. Les
+besoins du foyer sont estimés hors financement des études, hors impôts à 70 000 €/an.
+L’impôt sur le revenu estimé est de 18 000€/an.
+
+Monsieur et Madame ont chacun un contrat d’assurance vie multisupports d’une valeur
+actuelle de 80 000 €, qu’ils considèrent comme une épargne retraite, totalement investi
+actuellement sur le fonds en euro.
+
+Questions :
+  1. Établir la situation actuelle.
+  2. Établir les flux au cours du temps jusqu’à la retraite (62 ans).
+
+       PARTIE II - PRINCIPALES PROBLÉMATIQUES PATRIMONIALES ET
+       IMPLICATIONS
+
+Une fois le bilan terminé, il sera nécessaire d’établir le profil de risque du client à partir d’un
+questionnaire (voir section risque). Même si certains aspects du risque sont occultés par la
+plupart des questionnaires, c’est un passage obligé avant tout conseil.
+Il sera alors nécessaire de déterminer le / les objectifs recherchés par le client, de les classer
+par ordre d’importance et de leur associer un horizon.
+
+       Chapitre I - Les objectifs
+
+Les objectifs financiers les plus répandus sont les suivant :
+      - Se constituer un patrimoine.
+      - Valoriser le patrimoine.
+      - Préparer un complément retraite.
+      - Vivre en partie ou totalement de ses rentes.
+      - Protéger le patrimoine…
+
+Bien souvent la question de la fiscalité y sera associée. Elle restera cependant secondaire
+dans notre approche. En effet, la fiscalité ne concerne que les plus-values ou les revenus
+(hors immobilier de défiscalisation et IFI). Or, avant de s’en préoccuper, il faut s’assurer que
+le patrimoine va en générer. Ce ne sera donc pas sous cet angle que nous aborderons
+l’allocation d’actifs patrimoniale, même si, à un stade, cet aspect entrera inévitablement en
+considération.
+
+       Chapitre II - Les problématiques
+
+Elles sont généralement liées aux risques de l’investissement et fonction de l’objectif
+recherché. Les principaux risques sont les suivants :
+
+       -   Liquidité.
+       -   Solvabilité.
+       -   Perte nominale.
+       -   Perte de pouvoir d’achat.
+       -   Fluctuations.
+
+Auquel s’ajoutera quasi-systématiquement, la fiscalité.
+Nous allons donc associer à l’objectifs/horizon des problématiques/risques financiers.
+
+       Illustration
+       A un objectif de retraite complémentaires à partir d’un patrimoine existant vont venir
+       se greffer les risques suivants :
+       - Récurrence / perte des revenus de certains actifs.
+       - Liquidité des actifs.
+       - Indexation des revenus avec l’inflation.
+       - Fiscalité des revenus.
+
+Aujourd’hui dans les conditions actuelles de rendement des classes d’actifs, le client sera
+obligé de supporter certains risques à divers degrés. En effet, la rémunération des actifs sans
+risques étant inférieure à l’inflation, le client devra donc assumer un certain niveau de risque
+que l’on devra estimer.
+
+De plus, les risques ne sont pas linéaires dans le temps. Certains augmentent avec le temps
+(perte de pouvoir d’achat) alors que d’autres diminuent (perte en nominal). Le client devra
+donc effectuer un arbitrage entre ces différents risques.
+
+       Chapitre III - Classes d’actifs et risques
+
+Les différentes classes d’actifs offrent une protection contre certains risques en contrepartie
+d’autres. Elles devront donc être proposé au client en fonction du type et du niveau de risque
+qu’il est prêt à accepter. De plus, le degré de risque évolue avec le temps, d’où l’importance
+de la notion d’horizon de placement.
+
+Voici un tableau récapitulatif des classes d’actifs et principaux risques en fonction des
+horizons :
+
+Nous reviendrons sur ces notions dans la partie Risques.
+
+       PARTIE III - ASPECTS RÉGLEMENTAIRES ET IMPLICATIONS VIS-
+       A-VIS DE LA DÉMARCHE D’ALLOCATION D’ACTIFS
+
+La démarche de conseil en allocation d’actifs s’inscrit dans une démarche plus globale de
+conseil en gestion de patrimoine. Elle repose essentiellement sur des conseils en
+investissements financiers et doit donc suivre une procédure CIF même si dans un premier
+temps, elle ne débouchera pas sur un conseil produit. Cette procédure est documentée par
+les différentes associations de CIF et comporte plusieurs étapes que nous allons résumer ici.
+
+       Chapitre I - Fiche d’Information Légale ou DER (Document
+       d’Entrée en Relation)
+
+Dès le premier contact, le CIF doit remettre ce document à son client et en récupérer la
+preuve. Le plus simple étant de lui en faire signer une copie. Ce document résume toutes les
+informations légales que le conseiller ou sa société doivent avoir communiquer au client dès
+l’entrée en relation à savoir :
+
+       -   Aspects administratifs de l’entreprise.
+       -   Statuts légaux et autorités de tutelle.
+       -   Les partenaires et le type d’accord existant.
+       -   Le mode de facturation et la rémunération du professionnel.
+       -   Le mode de communication.
+       -   Traitement des réclamations.
+
+annexe Plateforme de formation, support complémentaire « fiche d’information ou DER »
+
+       Chapitre II - Recueil des informations
+
+Les informations recueillies sur le prospect et le profil de risque permettent au CGP de
+connaitre du client son appétence au risque, son horizon d’investissement, ses projets
+personnels et professionnels, ses connaissances financières et la composition de son
+patrimoine.
+
+Les informations recueillies (situation familiale, patrimoniale et professionnelle) doivent être
+pertinentes au regard du service à fournir et des caractéristiques du clients.
+
+Le recueil des informations ne doit pas recourir sans fondement à l’auto-évaluation par le
+client.
+
+Les questions doivent distinguer entre la connaissance théorique et la détention de produit
+d’épargne et d’investissement.
+
+               Section 1 - Objectifs et horizon d’investissement du client :
+
+Afin de les déterminer, le conseiller doit :
+
+Proposer une liste d’objectifs d’investissements patrimoniaux ou plus précis (ex : préparation
+de la retraite, transmission du capital au moment du décès, constitution d’une épargne de
+précaution, valorisation du patrimoine…) en les explicitant et en offrant la possibilité de les
+hiérarchiser ;
+
+Interroger le client sur la durée envisagée de l’investissement ou de l’objectif recherché.
+
+La synthèse suivante a été réalisée à partir de la Position AMF n°2013-02 en date du
+08/01/2013 portant sur le recueil des informations relatives à la connaissance du client,
+entrée en vigueur le 1er Octobre 2013.
+
+Le professionnel doit :
+
+       -   Recueillir les informations du client au moyen de questions claires, précises et
+           compréhensibles. Il doit procéder à un questionnement proportionné. A cette fin,
+           la mise en place d’un arbre de décision approprié peut être utile par exemple sous
+           la forme d’un questionnaire logique.
+       -    L’accompagner durant le processus d’évaluation en lui fournissant des
+           renseignements lui permettant de comprendre les questions et leur finalité.
+       -   L’inviter à apporter les modifications nécessaires lorsque les informations fournies
+           présentent entre elles des incohérences manifestes ou incomplètes.
+
+Le CGP informe clairement et simplement que l’évaluation de l’adéquation vise à lui
+permettre d’agir au mieux de l’intérêt de son client.
+
+Le CGP prend des mesures raisonnables pour garantir que les informations recueilles sur ses
+clients sont fiables, il veille notamment à ce que :
+
+       -   Les clients soient informés de l’importance de fournir des informations exactes et
+           actualisées.
+       -   Les questions utilisées dans le processus puissent être comprises par le client,
+           permettent de comprendre de façon exacte ses objectifs et ses besoins, et portent
+           sur les informations nécessaires pour effectuer l’évaluation de l’adéquation.
+
+               Section 2 - Profil de risque du client
+
+Il doit être déterminé de manière objective au regard du rendement attendu par le client et
+du niveau de risque qu’il est prêt à supporter. Ainsi, le professionnel doit :
+
+       -   Attirer l’attention sur le fait qu’un rendement élevé est susceptible d’entrainer un
+           risque important en s’appuyant le cas échéant sur plusieurs scénarios d’évolution
+           de l’épargne (rendement, possibilité de quantifier de que le client est prêt à perdre
+           ou à gagner, probabilité de survenance, etc).
+       -   Définir de manière compréhensible et précise les différents profils et le cas échéant
+           les termes techniques ou complexes.
+       -   Se fonder principalement sur des questions en lien avec l’investissement.
+
+               Section 3 - Implications pour le conseil en allocation d’actifs
+
+Même si nous n’allons pas directement proposer un produit financier à notre client, tout au
+moins dans un premier temps, la procédure de recueil des information et d’évaluation du
+niveau d’acceptation de risque du client est indispensable. Pour ce dernier, il nous faudra
+passer par l’intermédiaire d’un questionnaire de risque. Certaines sociétés comme quantalys
+ou O2S par exemple vous propose des questionnaires types en ligne et calculent un score
+de risque. Ce peut être un élément de départ à l’analyse cependant, ces questionnaires sont
+relativement axés produit et risque de perte à court terme. Ils ne prennent pas en compte le
+risque de perte de pouvoir d’achat à long terme par exemple, risque qui peut dans certains
+cas être majeur. Il conviendra donc de le compléter en mettant en lumière auprès du client
+certains autres risques et en les interrogeant sur l’importance qu’ils ont à leurs yeux. L’AUREP
+vous propose un questionnaire Profil Invest Aurep intégrant ces facteurs
+
+       Chapitre III - Lettre de mission : document de
+       contractualisation de la relation
+
+Outre les éléments caractéristiques de chacune des parties, la lettre de mission va détailler :
+
+       -   La nature de la mission principale.
+       -   Les objectifs du clients classés le cas échéant par ordre de priorité et l’horizon.
+       -   La typologie de client.
+       -   Le déroulement de la mission.
+       -   Les modalités de la prestation.
+       -   Les modalités d’information du client.
+       -   La Nature du Conseil (indépendant ou non indépendant) .
+       -   Information sur le cout et frais liés.
+
+Le CGP devra détailler le cout de sa prestation. S’agissant d’un conseil global en allocation
+d’actifs, la rémunération proposée le sera à travers d’honoraires en fonction du temps passé.
+Le conseil pourra donc être réalisé de manière totalement indépendante surtout si celui-ci
+s’arrête avant le stade produit spécifiques. On pourra par exemple faire une lettre de mission
+globale d’allocation d’actifs dans un premier temps puis en faire une seconde pour la
+recherche de produits spécifiques (SCPI, assurance vie, mandats de gestion…), chacune
+pouvant être rémunéré différemment. A noter cependant qu’il est impossible dans une même
+mission de donner un conseil sur une base indépendante et non-indépendante.
+
+annexe Plateforme de formation, support complémentaire « lettre de mission »
+
+       Chapitre IV - Rapport de mission / déclaration d’adéquation
+
+Elle reprend dans un premier temps les éléments essentiels de la lettre de mission à savoir :
+
+       -   La demande.
+       -   La situation du client.
+       -   Les questions posées.
+       -   Les missions confiées.
+       -   Les objectifs.
+
+Une deuxième partie va aborder l’analyse de la situation et les réponses aux questions
+posées. Celles-ci doivent être claires, suffisantes et compréhensibles par le client et non
+trompeuses.
+
+Une troisième partie aborde alors les préconisations. Le conseiller doit formaliser les
+différentes propositions, leurs avantages et les risques qu’elles comportent. La déclaration
+d’adéquation explique pourquoi la recommandation formulée est adaptée au client, y
+compris la façon dont elle est conforme aux objectifs et à la situation particulière du client
+en ce qui concerne la durée d’investissement requise, les connaissance et l’expérience du
+client ainsi que de l’aptitude du client à l’égard du risque et sa capacité de perte.
+
+Il est très important à ce stade de bien mesurer le niveau et le type de risque de chacune
+des solutions en mettant clairement en avant la notion élémentaire suivante : No Risk, No
+Return. Dans les conditions actuelles de marché en Europe, étant donné le fait que les taux
+d’intérêts réels sont négatifs, le client devra supporter un certain risque, soit une perte de
+pouvoir d’achat facilement évaluable à court terme, plus difficilement à moyen terme, soit de
+la volatilité, illiquidité, perte ne capital….
+
+Les recommandations d’investissement ou de désinvestissement de classes d’actifs devront
+être justifiées. Le seul fait d’être diversifiant n’est pas une justification suffisante.
+Il pourra enfin dans un tableau récapitulatif synthétiser sa recommandation selon les
+thématiques suivantes :
+
+       -   La recommandation formulée est-elle adaptée au client ?
+       -   La recommandation est-elle conforme aux objectifs ?
+       -   La durée d’investissement est conforme à la situation particulière du client ?
+       -   La recommandation est adaptée aux connaissances et à l’expérience du client ?
+       -   La recommandation est adaptée au client vis-à-vis de son attitude à l’égard du
+           risque et de sa capacité à subir des pertes ?
+       -   Les services recommandés entrainent-ils un réexamen périodique ?
+
+Et ensuite déclarer que les préconisations sont en adéquation avec la situation et les
+objectifs du client.
+
+Cette déclaration sera signée des deux parties et conservé.
+
+annexe Plateforme de formation, support complémentaire « rapport de mission »
+
+       PARTIE IV - RISQUES : NOTIONS, MESURES ET PRATIQUES
+
+       Chapitre I - Perception du risque des clients
+
+La perception du risque est propre à chaque client et doit être testée avec un questionnaire
+de risque. Cependant, pour la majeure partie des clients patrimoniaux, le risque est perçu
+comme étant la probabilité d’une perte en capital plus ou moins élevée.
+
+La plupart des clients raisonnent en nominal, sans tenir compte de l’inflation. Ils considèrent
+qu’il n’y a pas de risque dans un investissement qui leur garanti de récupérer au moins leur
+capital à l’échéance. Ainsi les obligations d’État ou tout produit à capital garanti, pour
+lesquelles le risque de défaut est très faible, sont considérées comme non risquées.
+
+Si vous posez la question suivante à un client : Parmi les 3 possibilités d’investissement
+suivantes et en connaissant leur comportement sur la période passée présentée, laquelle
+vous semble la plus risquée.
+
+La plupart des clients patrimoniaux répondrons que pour eux, l’investissement le plus risqué
+est le 2 tout simplement parce qu’il produit une perte en capital.
+
+D’autres aspects du risque peuvent également être présent chez certains clients comme la
+capacité à tolérer de fortes variations par exemple (relativement fréquent) ou encore la
+capacité à tolérer une perte de pouvoir d’achat ou un rendement inférieur à un certain seuil.
+
+En réalité la notion de risque peut prendre un bon nombre de forme dont voici les principales :
+
+   Tolérance au risque (risk tolerance) : la volonté du client de prendre des risques. Elle
+    peut être défini par son attitude face au risque et sera qualifiée d’élevée ou de faible.
+
+   Aversion au risque (risk aversion) : le manque d’enthousiasme ou l’aversion du client vis-
+    à-vis du risque. Une personne averse au risque est peu susceptible de s'engager dans un
+    comportement à risque, car cela le rend mal à l'aise. L'aversion au risque est le revers de
+    la médaille « tolérance au risque ».
+
+   Capacité à prendre un risque (risk capacity) : la capacité financière du client à
+    supporter une perte financière potentielle. Le client peut-il donc se permettre de
+    prendre un risque financier ?
+
+   Niveau de risque à supporter (risk need) : le niveau de risque auquel il faut s'attendre
+    pour qu'un client atteigne des objectifs financiers précis. Des objectifs plus importants
+    peuvent exiger des rendements plus élevés sur l'investissement, au prix d'un risque plus
+    élevé.
+
+   Tolérance ou aversion aux pertes (loss tolerance / loss aversion) : on fait référence ici à
+    la théorie des perspectives 1 qui est une théorie fondatrice de l’économie et de la finance
+    comportementale et qui décrit la manière dont les individus évaluent de façon
+    asymétrique leurs perspectives de perte et de gain (pour donner un exemple très
+    simplifié, la douleur de perdre 1000 euros ne pourrait être compensée que par le plaisir
+    de gagner 2000, ou même 3000 euros). Les clients peuvent tolérer les fluctuations du
+    marché (tolérance au risque) tant qu'ils restent au-dessus d'un « point de référence »,
+    mais si le marché tombe en dessous de ce point, ils peuvent devenir très mécontents.
+    Incontestablement, il y a là un lien à construire avec notre « Ulcer Index ».
+
+   Sang-froid face au risque (risk composure) : cela fait référence à la possibilité que le
+    client se comporte « à chaud » fondamentalement différemment de sa tendance
+    naturelle théorique telle qu’exprimée lors d’une discussion avec un conseiller financier. Il
+    est possible d’apprécier ce potentiel écart en interrogeant le client sur ses décisions
+    passées.
+
+   Capacité à percevoir le risque (risk perception) : le jugement que le client ressent face
+    à la gravité du risque en association avec l'environnement macro-économique. Cette
+    perception peut être fortement influencée par les médias et / ou par un manque de
+    compréhension des risques (en raison d’une faible culture financière ou d’un manque
+    d’expériences antérieures sur les produits financiers.
+
+1 une théorie économique développée par Daniel Kahneman et Amos Tversky en 1979. Elle remet en cause
+la théorie de l'utilité espérée développée par John von Neumann et Oskar Morgenstern en 1944 et a valu à
+Daniel Kahneman le prix « Nobel » d'économie en 20021. Cette théorie est fondatrice de l'économie
+comportementale et de la finance comportementale et constitue l'une des premières théories économiques
+construite à partir de travaux expérimentaux.
+
+   Préférences en matière de risque (risk preference) : un client va utiliser des éléments
+    objectifs et subjectifs pour générer sa préférence en termes de risque. Il se peut qu'il n'y
+    ait pas toujours de justification pour les sentiments de l'individu concernant ses
+    préférences.
+
+   Profil de risque (risk profile) : c’est l’agrégation des facteurs précédents pour arriver à
+    une détermination globale du juste équilibre qui maximise sa capacité à atteindre un
+    objectif mais qui reste cohérent avec le niveau de risque qu’il veut et peut se permettre
+    de prendre.
+
+       Chapitre II - Les mesures du risque
+
+La mesure standard du risque la plus utilisée en finance est la volatilité qui n’est autre que la
+mesure statistique de l’écart type des performances annualisé. Ainsi, plus une classe d’actifs
+est volatile, plus elle est risquée. L’échelle de risque des classes d’actifs est donc souvent
+représentée comme suit :
+
+Il s’agit d’une échelle de risque à court terme (1 an) or l’horizon d’investissement patrimonial
+est à long terme. On peut donc raisonnablement s’interroger sur la pertinence de cette
+échelle de risque pour l’allocation d’actifs patrimoniale. En effet, cette échelle de risque
+répond-elle au principal risque perçu par les investisseurs patrimoniaux, à savoir le risque de
+perte à l’échéance ?
+
+Pour tenter de répondre plus précisément à cette question, il faut tout d’abord étudier la
+signification de la volatilité ainsi que son évolution en fonction de la durée d’investissement.
+
+               Section 1 - Interprétation de la volatilité
+
+La volatilité est une mesure statistique (écart type). Elle mesure donc les écarts moyens de
+performances par rapport à la moyenne. En d’autres termes, est ce que les performances
+
+hebdomadaires ou mensuelles sont toutes très proches les unes des autres et donc de la
+moyenne ou très différentes de la moyenne de ces mêmes performances ?
+
+Dans le premier cas, la volatilité sera faible, dans le second, elle sera élevée. Si la volatilité est
+élevée, cela signifie que l’investisseur a peu de chance d’obtenir une performance égale à la
+moyenne. Il fera soit mieux soit moins bien.
+
+Afin d’aller plus loin dans l’interprétation et de donner un réel sens à cette mesure, on y
+associe une loi de distribution statistique.
+
+Pour la plupart des actifs, on considère la loi de distribution des rendements la plus
+appropriée comme étant la loi normale.
+
+A partir de cette hypothèse que l’on vérifie avec des données historiques, on peut interpréter
+cette notion de risque de la manière suivante :
+
+                  -2σ -1σ                        +1σ +2σ
+µ - 1σ                                                                   µ+1σ
+
+µ-                                                                       µ+2σ
+2σ
+
+                                 50%
+                                         µ
+                                                      68%
+                                                                 95%
+
+µ : moyenne
+
+σ : écart type
+
+Dans 68% des cas, c’est-à-dire quasiment 7 années sur 10, la performance annuelle sera
+comprise entre la moyenne plus ou moins une fois la volatilité.
+
+Si la volatilité est de 15% et la moyenne de 7%, la performance annuelle sera comprise entre
+7-15 et 7+15 dans 68% des cas. Dans 95% des cas, c’est-à-dire plus de 9 années sur 10 ou 19
+années du 20, la performance annuelle sera comprise entre 7-2*15 et 7+2*15.
+
+Il s’agit bien de performance annuelle, mais qu’en est-il du risque de perte en capital au terme
+de l’investissement ? Cela dépend en réalité de l’évolution de la volatilité ou plutôt de
+l’évolution du risque avec le temps. Or les études empiriques nous montrent que ce risque
+n’évolue pas de la même manière pour toutes les classes d’actifs.
+
+En effet, si on raisonne en performances réelles, c’est-à-dire retraitées de l’inflation, on
+observe bien pour la classe d’actifs action, comme le montre le graphique ci-dessous, une
+baisse du risque avec le temps et ce de manière progressive, symétrique et régulière.
+
+Le graphique représente les performances annualisées et réelles d’investissements en action
+(US), réalisés de manière aléatoire sur une période donnée (10 ans, 11 ans….) et cela sur un
+échantillon de temps allant de 101 années.
+
+On observe que le risque de ne pas obtenir la moyenne est plus important pour un horizon
+de 10 ans que de 20 ans etc… On observe également que ce risque, outre le fait qu’il diminue
+avec le temps de détention, est symétrique par rapport à la moyenne, c’est-à-dire qu’un
+investisseur a autant de chance de faire mieux que la moyenne que moins bien. Cela rejoint
+bien la théorie qui pose l’hypothèse que les rendements sont distribués selon une loi normale.
+
+La volatilité annualisée est donc une fonction décroissante du temps pour les actions. Sa
+formule est la suivante :
+Risque à n an = Volatilité annuelle * Racine carrée de n.
+Exemple :
+Si la volatilité d’un actif est 18%
+Risque à 9 ans = 18 (volatilité annuelle) * √ 9 = 54% soit 6% annualisé.
+
+Cette relation mathématique ne se vérifie pas pour tous les actifs. En effet, le risque de la
+performance réelle des obligations d’État ne suit pas la même trajectoire d’après les données
+historique équivalentes.
+
+On observe distinctement une asymétrie entre les performances supérieures et inférieures
+à la moyenne d’une part et une décroissance du risque beaucoup plus lente sur la partie
+inférieure.
+Ainsi, si l’on raisonne en risque de perte réelle, au-delà de 15 ans, les obligations d’État
+apparaissent plus risquées que les actions.
+
+Une autre étude publiée dans la revue Banque supplément n° 761 juin 2013 sur les actifs
+français cette fois conclue de la même manière : « si on s’attache au maintien du pouvoir
+d’achat de l’épargne, quel que soit le pays étudié, les supports à revenus fixes ne battent pas
+l’inflation sur longue période »
+
+
+
+En conclusion sur ces notions, que peut-on retenir ?
+
+D’une part, que les actions sont plus volatiles à court terme que toutes les autres classes
+d’actifs hormis les matières premières.
+
+D’autre part, que les actions présentent moins de risque de perte de pouvoir d’achat au-delà
+d’un horizon compris entre 10 et 15 ans que les obligations.
+
+Ainsi, un investisseur dans ces deux classes d’actifs qui a un horizon de 15 ans ou plus est
+toujours soumis à un risque, soit de fortes variations, soit de perte de pouvoir d’achat.
+
+S’il veut minimiser ce dernier risque, il devra alors accepter les forte variations que lui
+imposent la classe d’actifs action ou détenir d’autres classes d’actifs qui le protègeront
+contre ce risque (immobilier par exemple).
+
+               Section 2 - La VaR (Value at Risk)
+
+Cette mesure tente de répondre à la question suivante : Quel est le niveau maximum de perte
+que je peux subir, à un horizon d’investissement donné, dans x% des cas ? De ce fait, elle
+répond bien à la notion de risque de notre investisseur patrimonial.
+
+Cette notion est très utilisée en salle de marché pour calculer le risque d’une position sur des
+durée courtes (1 journée / 1 nuit). Il est possible de la transposer sur des horizons plus longs.
+Il existe alors plusieurs méthodes de calcul parmi lesquelles je développerai la VaR historique
+et paramétrique.
+
+                       I - VaR Historique
+
+Le principe est simple, il consiste à partir des données historiques et donc d’un échantillon
+suffisamment long (60 ans de couverture minimum dans notre cas) de reconstituer une
+courbe de distribution des rendements. A partir de ces données et d’un seuil retenu, 90 ou
+95% des cas par exemple, on déterminera la perte potentielle maximale.
+
+         Illustration
+         Si j’ai 100 données de rendement sur une période de 10ans (1900 – 1910 ; 1901 -
+1911…..1990 -2000), il suffit de les classer par ordre décroissant et de lire le rendement obtenu
+à la 90 ou 95 ème observation. Cela me donnera la perte maximale encourue pour un
+investissement similaire sur les 10 prochaines années dans 90% ou 95% des cas. L’hypothèse
+sous-jacente étant que les performances passées ou tout au moins leur distribution et
+amplitude se reproduiront dans le futur.
+
+                       II - Var paramétrique
+
+                               A - Estimations
+
+Cette méthode est particulièrement utilisée pour estimer des pertes à court terme d’un
+portefeuille. En faisant usage d'une approche paramétrique, nous avons besoin de prendre
+en compte la distribution statistique et le type de données auxquelles elle s'applique.
+
+L’une des possibilités qui est offerte consiste à mesurer la VaR en considérant que les
+rentabilités (return) arithmétiques sont distribuées selon une loi normale.
+
+Dans ce cas, si on considère que la moyenne sur une certaine période est égale à 10% et que
+la volatilité est de 25%. Si le portefeuille vaut actuellement 1€, alors la VaR 95% à 1 an sera
+10% - (1.645 * 25%) soit -31.1% ou une valeur du portefeuille égale à 0.6887.
+
+                               B - Transposition à long terme d’un VaR paramétrique
+
+Plusieurs méthodes sont utilisées pour ce calcul. Outre la méthode retenue par Bale 3 pour
+le calcul de risque, la méthode de Kevin Dowd semble plus appropriée pour certains actifs
+comme les actions car elle prend en compte le réinvestissement des dividendes et donc
+l’effet boule de neige procuré par ce type d’investissement. Elle est donc basée sur des
+performances géométriques, ce qui complique quelque peu les formules mathématiques.
+
+Une autre méthode plus simple permet de calculer le VaR d’un investissement et d’obtenir
+un résultat relativement proche de celle proposée par Dowd, même si mathématiquement
+parlant, elle n’est pas exacte.
+
+Exemple : On souhaite calculer la VaR à 10 ans d’un investissement action d’une volatilité de
+18% et dont la moyenne arithmétique des rendements est de 7%.
+
+Calcul de la performance moyenne au terme Pm = 0.07 * 10 = 70% (ne pas capitaliser).
+
+Calcul du risque au terme R = 18 * √ 10 = 56.92%.
+
+Selon la loi normale, pour un seuil de confiance de 95%, le multiplicateur de risque est 1.6
+(lecture de la table). Ainsi, dans 95% au pire, la performance sera de 70-1.6*56.92 = -21.07%.
+Dans 5 % des cas, la performance sera inférieure à -21.07%.
+
+                                                EXERCICE N°2
+
+Considérons que le CAC 40 a une volatilité moyenne de 16%. Son espérance de rentabilité
+moyenne est de 7 / an.
+Votre client souhaite ne pas faire de perte au terme de son investissement sauf cas
+exceptionnel. Vous considérez que les cas exceptionnels représentent 5% des cas (1 fois
+toutes les 20 ans sur une base annuelle calendaire).
+
+Question :
+En utilisant la formulation précédente, déterminez la durée minium d’investissement (en
+années pleines) pour respecter le souhait du client sachant que pour un seuil de 95%, le
+multiplicateur est 1.6. Pour ce faire, procédez par tâtonnement (entre 12 et 17 ans).
+
+               Section 3 – Le SRI
+
+Le SRI, Summary Risk Indicator, issus de la règlementation PRIIPS, , est venu remplacé le SRRI
+Synthetique Risk and Reward Indicator. C’est une évolution qui va dans le sens de notre
+vision du risque à l’Aurep en intégrant plusieurs aspects du risque et non pas seulement la
+volatilité comme c’était le cas pour le SRRI.
+
+Au-delà du risque produit qui est traité séparément (certains produits sont par leur nature
+directement affecté à un risque 7), l’indicateur intègre trois aspects du risque financier :
+
+       -   Le risque de marché
+       -   Le risque de crédit
+       -    Le risque d’illiquidité
+
+Les risques de marché sont appréciés de manière quantitative lorsque cela est possible, soit
+lorsque des données de prix sont disponibles a minima mensuellement. Les méthodologies
+quantitatives déclinent toute une mesure de la perte basée sur la Value at Risk (VaR), calculée
+
+à un intervalle de confiance de 97 ,5%. Ces méthodologies diffèrent en fonction de catégories
+de produits spécifiques, telles que détaillées en annexe 2 de ce document.
+
+Le résultat en VaR est converti, afin de ne pas désavantager les produits long termes et donc
+pour des raisons de comparabilité, en une volatilité annualisée équivalente. C’est sur la base
+de leur volatilité annualisée, que les PRIIPs sont distribués au sein de l’échelle de la mesure
+de risque de marché, qui est une échelle de 1 à 7.
+
+Vient ensuite s’ajouter le risque de crédit, notamment pour les fonds obligataires. Il est estimé en fonction des
+notes de crédits des actifs détenus et d’une table de correspondance.
+
+La note finale est une addition des 2 en fonction de la table ci-dessous.
+
+Une mention sur l’illiquidité éventuelle du produit vient compléter la note.
+
+Si pour nous cet indicateur est une amélioration du précédent, il souffre encore de quelques
+manques. Il ne prend notamment pas en compte le risque de perte de pouvoir d’achat à long
+terme. Plus encore, le risque de marché est calculé en fonction de l’horizon recommandé du
+produit. Ainsi pour les fonds classique actions/oblig la durée est de 5 ans, pour les fonds
+immobiliers la durée est de 10 ans, ce qui les rends difficilement comparables. De plus, qu’en
+est il si le client à un horizon de 15 ans ? Il serait intéressant à notre avis de pouvoir calculer
+un SRI en fonction de l’horizon d’investissement du client, ce serait à nouveau un pas en avant
+dans la tentative de mesurer le risque d’un produit financier.
+
+               Section 4 - Autres considérations sur le risque de perte
+
+La théorie financière considère le risque comme une probabilité de ne pas obtenir la
+moyenne espérée mais pour l’investisseur patrimonial, le principal risque est que la moyenne
+elle-même ou plutôt l’espérance de performance soit négative ou trop faible sur la durée de
+son investissement. Ainsi définie, la valorisation des classes d’actifs devient une mesure de
+risque pertinente pour notre investisseur.
+
+En effet, une classe d’actifs surévaluée a certainement une probabilité de baisse élevée
+tandis qu’une classe d’actifs sous-évaluée a certainement t une probabilité de baisse bien
+plus faible sur le long terme. En d’autres termes, la valorisation ne nous permettrait-elle pas
+de nous positionner avec une meilleure probabilité sur une partie de la courbe de distribution
+et d’ainsi avoir plus de chances d’obtenir une performance égale ou supérieure à la moyenne
+par rapport à un investissement purement aléatoire ?
+
+Si on prend par exemple lune mesure de valorisation comme le PER pour les actions et que
+l’on compare la performance à 10 ans en fonction du degré de valorisation, on obtient bien
+une relation croissance entre la performance future anticipée et le niveau de valorisation.
+
+Source : JP Morgan
+
+                  Section 5 - Mesures de risque complémentaires classiques
+
+                                            Comment interpréter             Qu'elle est l'intérêt et la limite de
+                 Qu'est-ce que c'est ?
+                                                la valeur ?                           l'indicateur ?
+                                                                         + cet indicateur montre l'amplitude de
+                     c'est la perte           Plus la Perte Max est       cours que l'on peut observer sur une
+ Perte Max       maximale qu'a subi le        élevée, moins il faut     période donnée (du plus haut au plus bas)
+  (ou Max        fonds sur la période        finalement se féliciter
+ Drawdown)        par rapport au plus           d'avoir atteint un         - mais il n'indique pas s'il est fréquent
+                  haut sur la période            certain niveau              qu'on connaisse un plus bas aussi
+                                                                               important après un plus haut
+              c'est l’écart-type des
+                  observations pour
+                      lesquelles le                                       + alors que la volatilité considère les
+                     rendement est                                       écarts de performance par rapport à la
+              inférieur à un objectif,       Quand le fond baisse              moyenne des performances
+              il mesure les à-coups           sur une semaine, il        hebdomadaires du fonds, le DownSide
+DownSide Risk
+                     en dessous de           baisse de l'ordre du          Risk ne va considérer que les écarts
+   (DSR)
+               l’objectif de la valeur.       DSR par rapport à          négatifs par rapport à une performance
+              Plus généralement, on                l'EONIA.              de référence : en quelque sorte c'est la
+              entend par "downside                                             volatilité de territoire négatif
+                 risk" une mesure du
+                   risque à la baisse
+                      d’une valeur.
+                                            β baissier supérieur à 1
+                 c'est une appréciation        => va amplifier les
+                 du comportement du         réactions, ce qui n'est       + permet de voir si le fonds amplifie ou
+                  fonds, en période de              pas bien                    non la baisse du marché
+  β baissier
+                  baisse, par rapport à     β baissier inférieur à 1
+                      son indice de            => va atténuer les       - assez variable d'une période à une autre
+                        référence            réactions du marché,
+                                                ce qui est bien
+
+       PARTIE V - INTÉRÊT ET IMPACT DE LA DIVERSIFICATION
+
+La théorie développée par Markovitz sans les années 50 puis reprise par Sharpe montre
+l’intérêt de la diversification patrimoniale.
+
+Ce n’est cependant pas une potion magique comme cela peut être suggéré parfois à tort. En
+d’autres termes, diversifier un patrimoine n’est pas forcément une bonne chose.
+
+       Chapitre I – La notion de corrélation
+
+La notion de corrélation est un élément clés du principe de diversification. Elle est souvent
+mal comprise et utilisée à tort.
+
+C’est une notion mathématique qui cherche à représenter le comportement d’un fonds (ou
+d’une classe d’actifs) par rapport à un autre. Elle est bornée entre -1 et 1.
+
+L’objectif est de quantifier le comportement de la performance d’un fonds par rapport à sa
+performance moyenne et vis-à-vis d’un autre fonds. En d’autres termes, comment se
+comporte le fonds B quand le fonds A a une performance supérieure ou inférieure à sa
+moyenne. Est le cas également pour le fonds B et dans ce cas ils sont positivement corrélés
+ou est l’inverse pour le fonds B et dans ce cas ils sont négativement corrélés.
+
+         ALLOCATION D’ACTIFS FINANCIERS                                                       Partie V – Principes de diversiﬁcation et de gestion de portefeuille
+
+        Source 1
+        Source 2
+
+             Chapitre II - L’effet de la diversification selon Markovitz
+
+En associant 2 ou plusieurs classes d’actifs, on obtient un portefeuille (ou un patrimoine qui
+a les caractéristiques suivantes :
+
+                      E(rp) = ∑ xiE(ri) et
+
+                      ϴp² = ϴ²(∑i xiE(ri)) = ∑i∑j xixjϴij
+
+Avec E(rp), performance moyenne du portefeuille.
+
+Et ϴp², variance du portefeuille.
+
+ϴij , Co-variance entre i et j, notion très proche de la corrélation.
+
+              Illustration
+
+Si on considère deux actifs A et B, l’un ayant comme espérance de rendement, E(r) 10 et 15%
+et comme volatilité 5 et 6%, en combinant ces actifs, on obtient le tableau de rendement et
+de risque suivant pour le portefeuille :
+
+Avec une corrélation entre A et B de 0.6.
+
+Si on reporte ces données dans un graphique on obtient la frontière efficiente suivante, le
+point bleu représentant une combinaison de A et B.
+
+On met ainsi en évidence qu’en associant l’actif B à A, bien que celui-ci soit plus risqué, on
+parvient à faire baisser la volatilité tout en augmentant l’espérance de rendement.
+
+En se reportant au tableau, on peut identifier que le portefeuille détenant 70% de A et 30%
+de B a une espérance de performance de 11.5% et un risque de 4.8% contre une espérance
+de performance de 10% pour A et un risque de 5%. C’est le bienfait de la diversification.
+
+Cet effet bénéfique dépend aussi du degré de corrélation entre A et B, c’est à dire de la
+manière dont A se comporte par rapport à B. Plus il est faible, plus l’effet diversification est
+
+important comme le montre le graphique suivant avec une corrélation à 0.2 versus 0.6
+précédemment.
+
+Cependant, le bénéfice de la diversification n’est pas toujours assuré. En effet, si cette fois
+on associe à A une classe d’actifs B qui a une corrélation de 0.6 avec A (donc un pouvoir de
+diversification relativement important), une volatilité de 6% comme précédemment mais une
+espérance de performance de -5% et non plus de +15%, l’impact sera le suivant :
+
+Dans un premier temps, en ajoutant un faible pourcentage de B, mécaniquement, le risque
+baisse mais l’espérance de rendement également puis, plus on ajoute de l’actif B plus le
+risque augmente à nouveau et l’espérance de rendement baisse. En fait, si on souhaitait
+diminuer le risque, il aurait été préférable d’ajouter du monétaire ou du fonds euro plutôt que
+de l’actifs B.
+
+Si on raisonne désormais en couple rendement / risque, c’est-à-dire en ratio de sharpe (E(r)
+– Rf (Taux sans risque)) / Volatilité (risque), il n’y a aucun intérêt à ajouter l’actif B à A, c’est-
+à-dire de diversifier l’actif A avec B.
+
+Cet exemple nous montre que la diversification n’est qu’un élément du processus
+d’allocation d’actifs et non une fin en soi. En d’autres termes, la diversification n’est pas
+un remède miracle et n’a d’intérêt que dans un processus d’allocation d’actifs rigoureux.
+
+                    Section 1 - Application à la gestion action avec 2 titres
+
+Le graphique suivant illustre avec un cas comportant deux actions du marché français 1, la
+théorie de MARKOWITZ qui est à la base de la théorie du portefeuille.
+
+Les titres Air Liquide et Essilor sont caractérisés par les risques et les rentabilités suivants 2:
+pour Air Liquide : RA = 10,53 % et A= 17,5% ; pour Essilor : RE= 13,84% et E = 19 ,6%. La corrélation
+entre les rentabilités d’Air liquide et d’Essilor est de 0,31, ce qui veut dire que les variations
+des cours des deux titres sont plutôt « indépendantes ».
+
+Il est possible d’élaborer toute une série de portefeuilles, caractérisés par des proportions
+variées d'Air Liquide et d'Essilor. Le graphique suivant positionne certains de ces portefeuilles
+sur une carte rentabilité-risque. La lecture du graphique met en évidence un phénomène
+intéressant. L’action Air Liquide est moins risquée que l’action Essilor. Et pourtant,
+contrairement à ce que l’on pourrait penser, le portefeuille à risque minimum ne comprend
+pas que des titres Air Liquide. Après calculs, il apparaît que le portefeuille le moins risqué doit
+comporter environ 58 % d’Air Liquide et 42 % d’Essilor. Ce phénomène est dû à la faible
+corrélation entre les deux titres. Pour réduire le risque il a fallu introduire du produit plus
+risqué.
+    Les données correspondent aux valeurs observées sur la période 1998 à 2008
+    On rappelle que le risque, ou encore la volatilité, est mesuré par l’écart type des returns, noté s.
+
+                        Société           Rendement            Volatilité
+                        Air Liquide          10,53%             17,5%
+                        Essilor Intl         13,84%             19,6%
+
+                          Corrélation                 0,3144
+
+                          AIR LIQUIDE      ESSILOR         Rendement        Volatilité
+                              100%            0%                10,53%       17,53%
+
+                               90%            10%               10,86%       16,50%
+                               80%            20%               11,19%       15,71%
+                               70%            30%               11,52%       15,19%
+                               60%            40%               11,86%       14,97%
+                               50%            50%               12,19%       15,07%
+                               40%            60%               12,52%       15,48%
+                               30%            70%               12,85%       16,17%
+                               20%            80%               13,18%       17,12%
+                               10%            90%               13,51%       18,28%
+                                0%           100%               13,84%       19,61%
+
+                             Portefeuilles constitués à l’aide de deux titres
+
+                   Courbe rendement-risque Air Liquide – Essilor (1998-2008)
+
+Ces constatations permettent d’énoncer des principes importants :
+
+-   un portefeuille peut être moins risqué que chacune de ses composantes, si ces
+composantes sont peu corrélées entre elles.
+
+-     le fait d’augmenter le poids d’un actif risqué dans un portefeuille n’en augmente
+pas nécessairement le risque, dans la mesure où cet actif est peu corrélé avec le reste du
+portefeuille.
+
+               Section 2 - Généralisation au cas de plusieurs titres
+
+Quand le portefeuille comprend plus de deux actifs, la courbe rendement-risque est
+remplacée par une surface rendement-risque, comme sur le graphique suivant qui porte
+sur 5 valeurs françaises. En plus des deux valeurs précédentes, on a ajouté, toujours avec les
+données 1998-2008, les actions Dexia, Total et Carrefour.
+
+              Surface rendement-risque avec cinq valeurs françaises (1998-2008)
+
+Le portefeuille à risque minimum est maintenant constitué d’un mélange de cinq titres. Le
+niveau de risque minimum est plus faible qu’avec les deux seuls titres AIR LUQUIDE et
+ESSILOR : il est au niveau 11,62%, contre 14,9% précédemment. Le risque minimum avec cinq
+titres est nettement plus faible qu’avec le titre le moins risqué (Air Liquide avec 17, 5%)
+Ajouter des titres supplémentaires peu corrélés entre eux a encore fait baisser le risque
+minimum.
+Le gestionnaire du portefeuille aura pour travail d’ajouter des titres peu corrélés entre eux
+pour améliorer la performance en termes de rendement et de risque. Les combinaisons qu’il
+choisira se situeront sur la bordure supérieure de la surface rendement-risque (courbe verte
+du graphique suivant) : les portefeuilles correspondants bénéficieront des meilleurs
+arbitrages rendement-risque. Cette bordure supérieure est dénommée frontière des
+portefeuilles efficients.
+
+      La frontière des portefeuilles efficients avec cinq valeurs françaises (1998-2008)
+
+Le choix d’un portefeuille le long de cette frontière assure un niveau de rendement maximal
+pour un niveau de risque donné. Le choix définitif d’un point précis dépendra de l’aversion
+plus ou moins forte pour le risque qu’éprouve le détenteur du portefeuille.
+
+                       I - Les implications pour la gestion de portefeuille
+
+                               A - Nombre de lignes et niveau de risque
+
+Plus un portefeuille est diversifié, c'est-à-dire plus il dispose de lignes différentes peu
+corrélées entre elles, et plus son risque total se réduit. Si l'on ajoute dans le même
+portefeuille de nouveaux titres à performances peu corrélées, le risque du portefeuille va
+diminuer. Un portefeuille bien que composé de titres risqués peut afficher ainsi un niveau
+global de risque faible.
+
+Le graphique ci-dessous montre l'évolution du risque total d’un portefeuille, en fonction du
+nombre de lignes qu'il comporte. On constate que cette évolution tend vers une limite
+correspondant à un plancher de risque.
+
+Des études statistiques ont montré que plus le nombre de lignes augmente et plus la partie
+spécifique du risque du portefeuille diminue. Cette diminution n'est pas proportionnelle au
+nombre de titres : au-delà d'un certain nombre de lignes, la réduction du risque devient
+pratiquement négligeable.
+
+On rappelle qu’il est possible de décomposer le risque d'un titre en deux parties : le risque
+systématique, ou encore risque de marché, et risque spécifique, propre à la société
+étudiée. Dans un portefeuille, seule la partie spécifique du risque peut être éliminée par
+diversification. La partie systématique n'est pas éliminable et constitue un plancher de
+risque vers lequel tend le risque du portefeuille lorsque le nombre de lignes augmente.
+
+               Risque total, risque systématique, risque spécifique et nombre de lignes
+
+Le tableau suivant donne la relation entre le nombre de titres et la partie du risque spécifique
+éliminée.
+
+                                         Nombre de titres            % du risque
+                                                                  spécifique éliminé
+                                                 1                        0
+                                                 2                       34,6
+                                                 5                       73,9
+                                                10                       85,7
+                                                20                       98,2
+                                                30                       98,4
+
+                                       Diversification et risque spécifique 1
+
+Les études montrent que, généralement, au-delà de 15 ou 20 lignes, la partie spécifique du
+risque ne diminue pratiquement plus. La taille idéale d'un portefeuille vis-à-vis de ce critère
+pourrait se situer aux environs de 20 lignes.
+    JACQUILLAT, SOLNIK et PERIGNON : Marchés financiers : gestion de portefeuille et des risques, Dunod, 2009
+
+                               B - Avantages et limites de la diversification
+
+La diversification entraîne différentes conséquences positives :
+- Elle permet de répartir le risque sur un plus grand nombre de titres et donc de réduire
+   le risque que présente individuellement chaque valeur. La diversification permet de
+   réduire la part de risque spécifique que comporte chaque titre et ainsi de réduire la
+   volatilité du portefeuille.
+- Elle va entraîner un phénomène de lissage de performances. Dans un marché baissier,
+   les dépréciations seront inférieures à ce qui aurait pu être enregistré sans diversification.
+   Mais dans un marché haussier le portefeuille enregistrera des hausses inférieures à celles
+   atteinte par les titres ayant le plus progressé.
+- Dans le cas d’un portefeuille parfaitement diversifié, le rendement du portefeuille est
+   entièrement commandé par le rendement du marché pondéré par le bêta du portefeuille.
+
+Par contre, la diversification présente certains inconvénients et des limites :
+-     D'une part, la multiplication du nombre de valeurs à suivre rend plus lourde la gestion
+   du portefeuille, et accroît inévitablement un certain nombre de coûts.
+-     D’autre part, l’effet de la diversification comporte des limites. Même avec une
+   diversification très poussée, on ne peut pas supprimer totalement le risque.
+
+La diversification ne peut réduire complètement le risque, parce que tous les titres sont plus
+ou moins corrélés avec le marché. Dans la plupart des cas, les bêtas des titres sont positifs,
+ce qui veut dire que les titres évoluent plus ou moins fortement dans le même sens que le
+marché.
+
+La suppression totale du risque est cependant possible. Elle doit passer par l’utilisation de
+techniques de couverture faisant appel aux produits dérivés (cf. chapitre suivant). La
+couverture de portefeuille a pour objet de supprimer le risque systématique. (Voir partie
+sur les contrats futures)
+
+                               C - Quelques enseignements et règles opérationnelles simples
+
+Les règles ci-dessous résument certains des enseignements de la théorie du portefeuille :
+-      La contribution d’un titre au risque d’un portefeuille n’est pas mesurée par sa volatilité,
+   mais peut être inférieure.
+-      Un portefeuille à risque faible ne comprend pas nécessairement uniquement des actifs
+   à risque faible.
+-      Un portefeuille doit comporter entre 10 et 20 lignes : au-delà la réduction
+   supplémentaire du risque est marginale.
+-      Les lignes d’un portefeuille doivent être bien diversifiées donc peu corrélées entre
+   elles.
+-      Les lignes d’un portefeuille doivent présenter des montants approximativement
+   équilibrés.
+-      Les lignes d’un portefeuille doivent afficher un niveau minimal à apprécier par rapport
+   au montant total.
+-      Le risque du portefeuille ne peut être totalement supprimé par la seule diversification.
+
+                               D - La mesure de la qualité de l’arbitrage rendement-risque
+
+Plusieurs indicateurs sont utilisés pour apprécier la qualité de la relation rendement-
+risque 1. Le ratio de SHARPE est un des indicateurs les plus utilisés pour évaluer la
+performance des gérants. Il intègre à la fois le rendement, mais aussi la volatilité du
+placement, donc le risque qui a été pris. Il se calcule de la façon suivante :
+
+                                                       R p − Tz
+                                                SP =
+                                                         σP
+
+Où :
+- RP est le return du portefeuille.
+- Tz est le taux sans risque.
+- sP est la volatilité du portefeuille.
+
+Le ratio de Sharpe est le rapport entre l’excès de performance par rapport au taux sans
+risque et le risque supporté par le gérant, mesuré par la volatilité totale du portefeuille. Avec
+un ratio de Sharpe élevé, le gérant aura dégagé beaucoup de performance pour un niveau de
+risque faible : sa performance manifeste donc un bon rapport rendement-risque. Si le ratio
+de Sharpe est faible cela veut dire que le gérant a pris beaucoup de risque par rapport à la
+performance dégagée : sa performance manifeste donc un rapport rendement-risque peu
+satisfaisant.
+ Pour des développements beaucoup plus approfondis sur le thème de la mesure de la performance, cf : AMENC et LE
+SOURD : Théorie du portefeuille et analyse de sa performance, Economica, 2002 ; voir aussi : GRANDIN, HUBNER et
+LAMBERT : Performance de portefeuille, Synthex Pearson, 2006
+
+Exemple : Le portefeuille A obtient un return de 10% avec une volatilité de 6%. Le portefeuille
+B obtient un return de 15% mais avec une volatilité de 12%. Au premier abord, le portefeuille
+A apparaît moins performant que le portefeuille B. Mais le portefeuille A est moins volatil
+que B, fut étudier son arbitrage rentabilité/risque.
+
+Si le taux sans risque est à 1%, le ratio de Sharpe s’élève à (10% - 1%) / 6% = 1,5. Le ratio de
+Sharpe de B s’élève à (15% - 1%) / 12% = 1,17.
+
+Le portefeuille A est moins rentable que B, mais il offre un meilleur arbitrage
+rentabilité/risque. Le portefeuille A rentabilise mieux le risque que le portefeuille B.
+
+                    Rendement
+
+                                                                            B
+                       R= 15%                        A
+                       R= 10%
+                                                                      1,5
+
+                                                            1,17
+
+                                                   σ = 6%               σ = 12%      Risque
+
+                                      Illustration du ratio de Sharpe
+
+       Partie VI - Application à l’allocation d’actifs financière
+
+                       I - Le choix des actifs
+
+A ce stade, plusieurs approches sont possibles. Je vais en développer une qui me semble
+particulièrement appropriée pour l’allocation d’actifs financière. Comme nous venons de le
+démontrer précédemment, il ne suffit pas de diversifier en ajoutant des actifs pour améliorer
+la performance, baisser le risque ou générer un meilleur couple rendement risque.
+
+Pour y parvenir, il faut dans un premier temps sélectionner les actifs que l’on va intégrer ou
+retirer. En effet, nous venons d’illustrer l’effet d’une classe d’actifs qui a une espérance de
+performance négative sur le comportement du portefeuille.
+
+S’il y a un léger effet de diversification en abaissant le risque, l’effet sur la performance est
+bien supérieur et cela de manière négative. Il aurait été préférable d’ajouter du fonds en euro
+pour réduire le risque, cela aurait été plus bénéfique. En prenant en compte l’aspect
+psychologique des pertes telles qu’elles sont perçues par le client, je recommande donc
+
+d’évincer les classes d’actifs qui ont une espérance de performance négative ou inférieure
+au taux sans risque, même si elles ont un « pouvoir diversifiant ».
+
+Comment les identifier ? Pour cela, il faut nous reporter aux sections sur l’environnement
+économique et les valorisations. Travaillant dans le domaine de l’incertain et des probabilités,
+nous savons que les classes d’actifs fortement surévaluées ont une forte probabilité de
+baisse, accentué plus encore si l’environnement économique leur devient défavorable et ce
+quelle que soit leur volatilité.
+
+Il serait donc prudent dans un processus d’allocation d’actifs d’écarter ces classes d’actifs
+et de diversifier le portefeuille avec les autres. Cette première étape est certainement la plus
+importante et la plus difficile à réaliser.
+
+Ce process quelque peu intuitif, a été développé partiellement à une autre échelle par Nouriel
+Roubini en association avec Barclays, pour mettre en place une allocation d’actifs mondiale
+en choisissant certains pays plutôt que d’autres. Je cite : « Une troisième approche
+d’investissement dite démarche bêta « intelligente » (ou « optimisée »), remporte toutefois
+de plus en plus de succès. Imaginez que vous puissiez suivre des règles quantitatives qui
+vous permettent de trier les mauvais fruits, tels que les pays les plus susceptibles
+d’enregistrer de faibles performances, et par conséquent de générer de moindres
+rendements d’actions. Si vous parvenez à vous débarrasser de ces mauvais fruits, vous vous
+retrouvez en mesure de ne pouvoir cueillir que les plus belles pommes – pour une
+performance meilleure que la moyenne » N Roubini.
+
+                       II - La construction du portefeuille
+
+Une fois les actifs choisis ou plutôt éliminés, la seconde étape consiste à identifier le
+pourcentage de chacun d’entre eux dans le portefeuille, c’est-à-dire la répartition de chacun
+des actifs. Cette étape a été très étudiée et documentée. Elle repose sur des méthodes
+d’optimisation de certaines variables (couple rendement risque, diversification…).
+
+De nombreuses applications ou logiciels vous permettent de générer ces portefeuilles
+(quantalys, harvest, amc….). Mon objectif ici n’est pas de décortiquer l’approche
+mathématique mais simplement de vous donner des avantages et inconvénients de chacune
+d’entre elles.
+
+Un des points les plus importants est que toutes ces approches sont la résultante
+d’estimations de risque (volatilité future), de rendement et de corrélation. Comme nous
+l’avons vu précédemment, les performances futures ainsi que les corrélations entre les
+classes d’actifs, c’est-à-dire leurs comportements réciproques, sont très influencées pas
+l’environnement économique futur.
+
+Il faut donc être très vigilant par rapport à ces données.
+
+Je vous déconseille par exemple, une fois vos actifs sélectionnés, de calculer l’espérance de
+rendement sur les 10 années qui viennent de s’écouler ainsi que les corrélations. En effet, si
+au cours de votre horizon d’investissement (10 ans par exemple), on change d’environnement
+économique, il y a de très fortes chances pour que la corrélation et l’espérance de
+performance des classes d’actifs retenues soit très différents qu’au cours des 10 dernières
+années.
+
+N’hésitez donc pas à rentrer dans le logiciel vos propres estimations en fonction du scénario
+économique retenu. Une autre approche consisterait à calculer les corrélations et
+l’espérance de rendement durant ces mêmes périodes passées (par exemple la dernière
+période de reflation) à condition bien sûr d’avoir suffisamment de données (il faut remonter
+en général une cinquantaine d’années).
+
+Ce qui est important à ce niveau c’est que :
+
+      - La probabilité d’erreur sur le niveau de risque d’une classe d’actifs à long terme (10
+      ans et plus) est relativement faible.
+      - La probabilité d’erreur sur le rendement futur est 5 fois supérieure à la probabilité
+      d’erreur sur la corrélation (The effect of errors in means, variances, and covariances on
+      optimal portfolio choice, Chopra, Vijay K; Ziemba, William T Journal of Portfolio
+      Management; Winter 1993; 19, 2; ABI/INFORM Global).
+
+D’où le fait qu’il est préférable de privilégier des solutions pour lesquelles l’espérance de
+rendement est une résultante et ne fait pas partie de l’optimisation même si au premier
+abord, la solution trouvée apparait comme plus intéressante.
+
+Parmi les possibilités de répartition des actifs, je présenterai donc les solutions suivantes :
+
+   - L’équipondérassions : L’avantage étant qu’aucune estimation (rendement, risque,
+     corrélation) n’entre en considération pour déterminer le pourcentage de chaque actif.
+     L’inconvénient majeur est qu’elle peut résulter en une exposition en risque élevée pour
+     une classe d’actifs et qu’elle engendre des couts de transaction élevés (pour maintenir
+     cette équipondérassions).
+
+   - Le Maximum Ratio de Sharpe ou la meilleure combinaison rendement / risque. Si « sur
+     le papier », cela représente la meilleure solution, le degré d’erreur est très important
+     d’où le fait que cette optimisation n’est en fait que théorique et ne se vérifie quasiment
+     jamais lors d’une projection future pour la simple raison qu’elle nécessite d’estimer
+     correctement à la fois les rendements espérés futurs, les corrélations et les niveaux
+     de risques de chacune des classes d’actifs. A éviter !
+
+   - Le minimum variance ou l’allocation générant le risque le plus faible : Pour un client
+     patrimonial, cette solution est souvent la plus adaptée à son profil. Cependant, pour
+     déterminer ce portefeuille, il est nécessaire d’estimer correctement le risque de
+
+       chacun des actifs ainsi que leurs corrélations. C’est cette dernière variable qui est
+       sujette à un degré moyen d’erreur.
+
+   - L’équipondérassions en risque simple : La méthode consiste à pondérer les actifs
+     inversement à leur risque. C’est une méthode qui présente peu de risque d’erreur
+     excepté celui d’estimation et de projection du risque sur l’horizon d’investissement.
+     En effet, il est nécessaire de considérer le risque au terme des différentes classes
+     d’actifs et non la volatilité annuelle sous peine de sous-pondérer les actifs volatils à
+     court terme mais peut être beaucoup moins risqués à long terme et ainsi se priver de
+     l’intérêt de ces classes d’actifs.
+
+   - L’équipondérassions optimisée : cela consiste à s’assurer que la contribution en risque
+     dans le portefeuille final est équivalente pour chacune des classes d’actifs ainsi, si je
+     fais une erreur d’estimation sur une classe d’actifs, cela n’aura pas d’avantage d’impact
+     que si je fais une erreur d’estimation sur une autre. Cette méthode présente un certain
+     intérêt pour qui peut la mettre en place. Elle nécessite cependant une bonne
+     estimation des corrélations et de ce fait n’est pas forcément plus adaptée au client
+     patrimonial que le minium variance.
+
+   - Le maximum diversification : La encore, le concept est intéressant à savoir qu’il permet
+     de maximiser le pouvoir de diversification de chacun des actifs cependant, à nouveau,
+     il requiert une bonne estimation des corrélations.
+
+       PARTIE VII – ALLOCATION FINANCIERE ET GESTION DYNAMIQUE
+       DU RISQUE
+
+La gestion du risque fait partie intégrante du processus d’allocation d’actif. Comme nous
+l’avons déjà vu, elle repose sur les phases suivantes :
+
+      - Faire correspondre horizon et classes d’actifs, c’est-à-dire évaluer correctement le
+      risque de chacune des classes d’actifs au terme de l’horizon d’investissement.
+
+      - Éviter les classes d’actifs très fortement valorisées c’est-à-dire celles qui ont une
+      forte probabilité de baisse.
+
+      - Effectuer une « bonne diversification » avec les autres actifs en fonction des
+      possibilités présentées dans ce chapitre précédent.
+
+      - Échelonner les investissements et désinvestissements de manière systématique. On
+      se rapprochera alors mécaniquement davantage de la moyenne des rendements à long
+      terme qu’en investissant en une seule fois.
+
+      - Gérer l’exposition de manière dynamique en fonction des cycles économiques
+      (prendre des bénéfices).
+
+      - Réduire le risque au fur et à mesure que l’on se rapproche de l’échéance.
+
+Toutes ces phases ont été étudiées lors des chapitres précédents hormis les deux dernières
+que nous allons explorer dans ce chapitre.
+
+       Chapitre I - Caractéristiques des phases
+
+Tout comme au cours des cycles longs, les classes d’actifs se comportent différemment au
+cours d’un cycle économique.
+
+                               A - Définition d’un cycle économique
+
+Un cycle économique se compose de 4 phases que l’on nommera : reprise, expansion (phase
+ascendante), ralentissement ou surchauffe et récession (phase descendante).
+
+Les cycles économiques sont donc une succession de phases conjoncturelles et pour
+chacune est normalement associée une configuration bien précise des taux d'intérêts
+(niveaux et structures).
+
+Le graphique ci-dessous fait apparaître les différentes configurations en fonction de la phase
+conjoncturelle :
+
+Ainsi, on constate que la reprise de l'activité économique intervient généralement dans un
+contexte de taux d'intérêts faibles et avec une courbe des taux ascendante. Les taux
+d'intérêts faibles sont indispensables à la reprise, ils permettent de dynamiser
+l'investissement (du fait du faible coût du crédit) en injectant massivement des liquidités
+dans le circuit financier. La courbe des taux doit être ascendante ce qui traduit d'une
+confiance retrouvée dans l'avenir.
+
+En phase d'expansion, les taux d'intérêts augmentent en partie pour limiter l'inflation
+entrainée par la croissance. Parallèlement, la courbe des taux va s'aplanir (réduction du
+spread entre taux courts et taux longs) ce qui traduit une méfiance dans la continuité de la
+croissance.
+
+En phase de surchauffe, on assiste à une inversion de la courbe des taux qui est désormais
+descendante. Les taux courts eux vont rester élevés mais c’est la chute des taux longs qui
+va inverser la forme de la courbe des taux. Cela signifie que les acteurs économiques n'ont
+pas confiance en l'avenir. Puis peu à peu, les taux courts vont suivre la baisse des taux longs
+afin d'essayer de retrouver la croissance de la phase précédente.
+
+Enfin, la phase de récession arrive (2 trimestres consécutifs de croissance négative du PIB)
+et là les taux sont au plus bas afin de relancer l'activité économique. Les taux courts bas
+traduisent d'une confiance quasi nulle entre les acteurs économiques. Les taux courts vont
+continuer de baissier jusqu'à former une courbe des taux plate. La crise de confiance est
+alors très importante. En effet, les acteurs estiment que prêter de l'argent à court terme à un
+niveau de risque équivalent à prêter de l'argent sur le long terme. Puis, peu à peu, la courbe
+des taux va se repentifier et la courbe des taux va redevenir ascendante. C'est le début de la
+phase de reprise.
+
+On distingue les cycles de Kitchin d’une durée courte et ceux de Juglar d’une durée plus
+longue.
+
+Les cycles de KITCHIN : C'est un économiste Américain qui estime qu'un cycle économique
+dure environ 40 mois. C'est la variation des stocks qui explique le passage de la croissance
+à la récession. En effet, en phase d'expansion, les stocks augmentent considérablement, les
+entreprises voulant répondre à une demande croissance de la demande.
+
+Cette augmentation des stocks est donc due à une augmentation des capacités de
+production qui vont peu à peu devenir supérieures à la demande et ainsi entrainer la création
+de stocks importants. Puis, peu à peu, les entreprises vont anticiper ou constater un
+ralentissement de l'activité économique et la phase de déstockage va alors commencer. On
+entre alors dans la phase de récession.
+
+Les cycles de JUGLAR : C'est un économiste Français qui estime qu'un cycle économique
+dure entre 6 et 11 ans. Pour lui, l'évolution de la conjoncture s'explique par l'évolution de
+l'investissement. En phase d'expansion, les investissements sont forts du fait de taux
+d'intérêts encore faibles. La période de surchauffe correspond à une période de
+surinvestissement. Puis, peu à peu, avec l'élévation des taux d'intérêts (pour freiner l'inflation),
+la demande de crédit va peu à peu diminuer et l'investissement sera donc moins important.
+La phase de récession commence alors.
+
+Étant donné qu’aujourd’hui les systèmes d’information permettent de beaucoup mieux gérer
+les stocks, les cycles de Kitchin sont moins présents que précédemment en revanche, les
+cycles de Juglar ou cycle des affaires demeurent. C’est en les étudiant et en étant à même
+de se positionner dans le cycle que l’on pourra gérer le risque du patrimoine.
+
+                               B - Identification des phases
+
+Les cycles sont aujourd’hui régulés par les politiques des banques centrales. Comme
+mentionné dans la section précédente, les banques centrales ont tendance à augmenter les
+taux d’intérêts une fois l’économie en expansion afin d’éviter une trop grande surchauffe
+synonyme de hausse de l’inflation. Elles les baisseront également à partir du moment où ce
+risque sera écarté (fin de la surchauffe), afin de relancer l’activité et d’éviter une récession
+trop violente.
+
+Une phase ascendante peut se schématiser de la façon suivante :
+
+Afin d’essayer de se positionner dans le cycle, il convient donc d’étudier le comportement
+des indicateurs d’investissements, de confiance, de consommation et d’emploi. Parmi les
+indicateurs, en voici les principaux :
+
+      Cycle économique :
+
+              Indicateurs de production industrielle.
+              Indicateurs d’activité des services.
+              Indicateur d’activité de la construction.
+              Indicateurs de consommation.
+              Indicateurs du marché de l’emploi.
+
+      Cycle des taux :
+
+              Banque centrale.
+              Pente de la courbe.
+
+      Cycle budgétaire.
+
+      Production industrielle :
+
+              Indicateurs avancés de l’OCDE.
+              Enquêtes locales ou régionales auprès des industriels :
+                   PMI / ISM / IFO / INDICES MAKIT HSBC …
+
+      Construction.
+
+              Permis de construire, ventes immobilières, mises en chantier.
+
+      Consommateur.
+
+              Enquêtes de confiance, évolution des salaires.
+
+      Services.
+
+              Enquêtes PMI/ISM.
+
+      Marché de l’emploi.
+
+              Création d’emploi (Non Farm Payroll; ADP, Challenger survey; composante
+               emploi des enquêtes industrielle et services.
+              Inscription au chômage (hebdo) .
+
+        Illustration
+
+indicateurs avancés de l'OCDE
+
+       Chapitre II - Cycles et marchés
+
+Tout comme les cycles longs influencent le comportement des classes d’actifs à long terme,
+les cycles plus courts ont également une influence sur le comportement des classes d’actifs
+mais cette fois ci, à plus court terme. Intuitivement en effet, on peut imaginer que les classes
+d’actifs qui sont directement liées à l’activité économique (actions, obligations entreprises
+(spreads) immobilier résidentiel, matières premières), bénéficient des phases de reprise et
+d’expansion.
+
+ De plus, il faut tenir compte que les marchés anticipent l’évolution économique et donc
+idéalement se positionner pour certaines de ces classes d’actifs avant le retournement. Ainsi,
+on pourrait avoir la feuille de route suivante :
+
+En effet, les marchés anticipent environ de 6 mois l’évolution économique et cela de façon
+plutôt efficace comme le prouvent les données historiques suivantes :
+
+Il est donc toujours nécessaire d’anticiper à 6 – 12 mois pour se positionner de manière
+tactique. C’est en effet quand la récession est à son apogée qu’il faut songer à revenir sur les
+actifs risqués (obligations d’entreprises et actions) et non quand tout va bien et que le
+chômage est au plus bas.
+
+Une étude empirique d’UBS en octobre 2011 (Ryding the cycle) illustre bien ce schéma :
+
+Source : UBS Global Asset Management.
+
+Les quatre phases du cycle économique, comme illustré à la figue 1, sont les suivantes :
+   - Reprise : également appelée « phase ascendante » ou « d’expansion », cette phase
+      intervient à la suite d’une récession et se caractérise en général par une hausse de la
+      demande et de la production. Par conséquent, le niveau de l’emploi commence à se
+      redresser.
+   - Boom : l’activité économique est à son maximum mais les taux de croissance
+      commencent déjà à fléchir. La confiance accrue des consommateurs et des
+      entreprises se traduit par un niveau d’activité plus élevé. L’économie tourne
+      généralement à plein régime ou presque. Les goulets d’étranglement dans l’offre de
+      capital et de main-d’œuvre créent des déséquilibres.
+   - Contraction : également connue sous le nom de « phrase descendante » ou de
+      « fléchissement », cette phase maque la fin de la période de croissance du cycle
+      économique. Ce recul se caractérise par un cercle vicieux de la baisse des dépenses
+      de consommation et de réduction de la production et des investissements des
+      entreprises. Une vague de licenciements commence.
+   - Récession : cette phase intervient lorsque de PIB recule. Elle se caractérise par une
+      diminution des achats, des ventes, de la production et de l’emploi.
+
+Ils en déduisent un portefeuille type pour chacune des phases :
+
+       PARTIE VIII - PRÉSENTATION DU CONSEIL PATRIMONIAL
+       FINANCIER ET GESTION DES BIAIS COMPORTEMENTAUX
+
+       Chapitre I - Présentation du Conseil Patrimonial Financier
+
+La présentation du conseil doit suivre une certaine forme. Elle doit tout d’abord rappeler au
+client les principaux éléments, à savoir ses objectifs classés par ordre d’importance, son
+horizon, les risques et son degré d’acceptation du risque.
+
+Une fois le bilan patrimonial dressé ainsi que les premières conclusions qui en découlent, il
+est important de faire une analyse des flux dans le temps ainsi que des principaux
+évènements prévisibles.
+
+Enfin, il faut identifier les risques associés à l’objectif en les classant par ordre d’importance.
+
+Il faudra alors faire le choix des classes d’actifs que l’on va recommander en les justifiant ainsi
+que la manière d’investir et de désinvestir. Cette étape devient du financial planning. C’est
+une manière complémentaire de gérer certains risques.
+
+Une des questions qui se pose souvent au praticien est quand investir ? En réalité, ma
+question qu’il devrait se poser est dans quoi investir ? En effet, une fois ce choix fait, la
+meilleure manière d’investir est de le faire régulièrement (DCA en anglais, Dollar Cost
+Averaging). Cette stratégie se révèle bien meilleure que celle qui consisterait à attendre le
+prochain point bas, même si on était toujours capable d’investir à ce moment précis, ce qui
+est clairement impossible. Ces deux stratégies ont été testées par Maggiulli of Richoltz
+Wealth Management. L’une consiste à épargner et à acheter tous les mois pour 100$ (ajustés
+de l’inflation), l’autre consiste à les économiser jusqu’au prochain point bas (entre 2 plus haut
+historiques). Ces stratégies ont été étudiées sur la période 1920 et 1979, avec un horizon
+d’investissement de 40 ans.
+
+Dans 70% des cas la stratégie DCA fait mieux que Buy the Dip ! En voici la séquence.
+
+A partir du moment où l’horizon d’investissement est suffisamment long (20 ans et plus), il
+n’est donc pas nécessaire de trop se préoccuper du timing de celui-ci, d’autant plus que le
+processus d’allocation d’actifs mis en place aura déjà éliminé les classes d’actifs à risque
+de trop forte valorisation (probabilité cde baisse élevée).
+
+La stratégie la plus sage et la meilleure pour gérer le risque de timing est donc d’investir
+progressivement sur une certaine période et d’en faire de même pour désinvestir, le tout en
+fonction l’objectif et de l’horizon.
+
+        Illustration
+
+Un investisseur dispose de 200 000 euros à investir avec un horizon de 15 ans. Il est
+raisonnable de se donner 2 à 3 ans pour investir la totalité de la somme et le double pour la
+désinvestir. La périodicité peut être trimestrielle.
+
+       Chapitre II - Gestion des biais comportementaux
+
+Cette séquence nécessiterait un développement beaucoup plus conséquent que celui qui
+va être réalisé ici mais l’objectif est simplement de vous sensibiliser le lecteur et praticien à
+ce type de biais et de donner quelques éléments pour les gérer.
+
+Les biais vont impacter à la fois le client et le conseiller. Il est donc important d’essayer de
+mieux se connaitre afin de mieux gérer ses propres biais.
+
+Dans un monde idéal, le conseiller devrait présenter la proposition la plus rationnelle et le
+client l’accepter. Ceci est parfois loin d’être le cas. Cependant, si le client à la droit d’avoir
+des biais et ainsi être irrationnel, le conseiller doit essayer d’éviter de tomber dans le même
+schéma.
+
+Il devra donc se prémunir de donner trop d’importance à la dernière information, comme si
+à elle seule, elle allait changer totalement le cours des choses.
+
+Voici tout d’abord les principaux biais :
+
+       -   Aversion aux pertes : une perte à plus d’importance qu’un gain de même montant.
+           L'aversion à la perte est la réticence à se séparer d'un actif qui vaut moins que le
+           prix auquel le détenteur l'avait acheté, même si cette dépréciation ne fait que
+           traduire une dégradation des perspectives de cet actif.
+
+       -   La confiance excessive : c’est un biais cognitif bien établi dans lequel la confiance
+           subjective d'une personne dans ses jugements est nettement supérieure à la
+           précision objective de ces jugements, en particulier lorsque la confiance est
+           relativement élevée.
+
+       -   L’ancrage mental : C’est l’influence laissée par la première impression d’une
+           personne, d’un évènement, d’un prix, etc. et qui empêche le plus souvent de
+           prendre une décision en tenant compte des autres éléments importants. Un
+           exemple très évident d’ancrage est, en bourse lorsqu’une action vaut un certain
+           prix, que l’on achète cette action puis que son cours chute. Si on sait que le cours
+           de l’action continuera de chuter, alors la décision la plus rationnelle est de vendre
+           cette action le plus tôt possible pour limiter ses pertes. Mais beaucoup
+           d’investisseurs commettent l’erreur de conserver cette action en attendant qu’elle
+           revienne au prix qui est ancré dans leur mémoire (le prix initial).
+
+       -   La comptabilité mentale : La comptabilité mentale fait référence aux personnes
+           qui ont tendance à séparer leur argent dans des comptes distincts en se basant
+           sur une variété de critères subjectifs, comme la source de l'argent et son utilisation.
+           Selon la théorie, les individus attribuent différentes fonctions à chaque groupe
+           d'actifs, et souvent, cela a un effet irrationnel et préjudiciable sur leurs décisions de
+           consommation. De nombreuses personnes utilisent la comptabilité mentale, mais
+           elles ne réalisent pas que cette ligne de pensée est vraiment illogique. Concernant
+           les décisions d’investissement, un investisseur prend conscient qu'il est sujet au
+           biais d'ancrage ou à ses corollaires s'il pense que la première idée est toujours la
+           bonne ou s'il essaye de relativiser la portée des informations qui viennent remettre
+           en cause son analyse. Aussi, un investisseur atteint du biais d'ancrage prend ses
+           décisions d'achat et de vente très rapidement, à partir de quelques informations
+           seulement.
+
+Une série de question en annexe 2 peuvent vous permettre de mieux connaitre vos biais. L’un
+des plus classique est celui de la comptabilité mentale, c’est-à-dire se fixer comme objectif
+de récupérer les pertes avant d’arbitrer plutôt qu’étudier le potentiel des alternatives à partir
+du moment présent.
+
+Un des biais de l’investisseur sera toujours la préférence pour le gain certain. Ainsi, si vous
+présentez une solution lui offrant un gain certain et une autre une probabilité de gain (et de
+perte), il préférera très souvent celle lui offrant le gain même si le potentiel est bien inférieur
+à l’autre proposition. Or dans l’environnement économique et financier actuel, le gain certain
+n’existe pas. Les taux courts en euro étant à -0.30%, c’est une perte certaine assurée.
+
+Dans la proposition et surtout dans l’articulation de la proposition d’investissement, il sera
+donc très important de bien cadrer la stratégie, c’est-à-dire de bien définir comment et
+pourquoi. Cela permettra de créer un ancrage et si nécessaire une comptabilité mentale.
+Enfin, le client aura toujours tendance à raisonner actif par actif plutôt que de manière
+globale. C’est donc au conseiller de lui présenter la globalité du patrimoine avant chacun des
+actifs, surtout s’il lui a proposé une stratégie de diversification.
+
+En fait, la présentation et l’articulation de la stratégie d’investissement doit être pensée et
+liée au reporting futur, d’où l’importance d’être le plus rationnel possible et de toujours revenir
+à la stratégie de départ sans laisser trop de place aux dernières informations et toujours
+s’interroger si elles vont remettre l’intégralité de la stratégie en cause.
+
+                Comment savoir si l’investisseur est
+ Biais                                                                        Quels remèdes ?
+                       affecté par ce biais ?
+             Il pense que la meilleure façon de gagner
+                 en Bourse est de ne jamais perdre
+                                                               En focalisant sur l'espérance de gain (et non
+                      d'argent sur aucun titre
+                                                              sur le risque de perte) car c'est le seul critère
+                                                                 qui a de l'importance pour l'investisseur
+              Il pense qu'il est judicieux de prendre
+                                                                                performant
+             rapidement ses gains en Bourse parce
+            que les humeurs du marché évoluent très
+                                                               En gardant à l'esprit que leur objectif est de
+                                 vite
+                                                               réaliser la meilleure performance globale et
+                                                               pas de réussir le tour de force de ne perdre
+            Il aime se renforcer quand un de ses titres
+                                                                         d'argent sur aucune action
+            baisse de manière à pouvoir remettre plus
+Aversio             vite « les compteurs à zéro »
+                                                                  En n'oubliant jamais qu'il y a un coût
+ n à la
+                                                              d'opportunité à conserver des titres perdants
+ perte      Il a en portefeuille des titres qui ont perdu
+                                                                         (losers) en portefeuille.
+             une grande partie de leur valeur et dont il
+                  ne suit plus ni les performances ni
+                                                              En se rappelant d'une part que c'est la gestion
+                               l'actualité
+                                                               de long terme qui est la plus performante et
+                                                               d'autre part que les mouvements de marché
+             Il a remarqué que dès qu'il vend un titre,
+                                                                 durent fréquemment plus que quelques
+                       son cours progressait
+                                                               semaines. Il est donc souvent inopportun de
+                                                              vendre des titres après un rallye de quelques
+              Il est réticent à regarder l'actualité d'un
+                                                                                    jours
+               titre une fois qu'il l'a acheté. De même
+                 pour les titres qu'il a seulement failli
+                                acheter
+                                                                  En auditant ses performances et en les
+                Il ne prend pas assez de temps pour            comparant à celles du marché, de manière à
+                   analyser les actions. Il fait surtout      mesurer combien cela lui coûte de continuer à
+                confiance à sa « bonne étoile » pour                          gérer lui-même
+                      engendrer des plus-values                   En conservant à l'esprit que ce sont les
+              Il préfère se fier à ses intuitions qu'aux        investisseurs qui gardent longtemps leurs
+Confian             recommandations d'analystes                      titres qui affichent les meilleures
+  ce                          chevronnés.                                       performances
+excessi
+  ve         Il est sûr d'avoir fait mieux que le marché        En relativisant ses succès à la lumière des
+                ces derniers temps mais il ne connaît         performances du marché (quand un marché
+              avec exactitude ni ses performances ni          prend 30% en un an, tout le monde accumule
+                           celles du marché                                   les plus-values)
+
+                                                                 En multipliant ses sources d'information
+                                                                (analystes, brokers, journaux financiers...)
+                 Il négocie très rarement avec les            En tenant une comptabilité rigoureuse de ses
+               commerciaux ou inversement il est                      réussites et de ses échecs ;
+             persuadé d'être un très bon négociateur
+Ancrage
+              alors qu'il n'est pas commercial et n'a          En recueillant le maximum d'informations sur
+mental
+            jamais reçu une quelconque formation en             les prix de marché de manière à avoir une
+                             négociation ;                          ancre légitime, que ce soit pour des
+
+                                                                comparaisons statiques (par rapport aux
+              Il est client de la même banque depuis            valeurs comparables) et dynamiques (par
+              longtemps, sans trop savoir pourquoi ;             rapport aux valorisations historiques) ;
+
+            Il est particulièrement sûr de sa façon de            En confrontant son point de vue à celui
+                       gérer son portefeuille ;               d'autres investisseurs pour voir si sa première
+                                                              intuition est justifiable. Il faut néanmoins faire
+            Il prend ses décisions d'achat et de vente        attention à ce que les interlocuteurs aient des
+               très rapidement, à partir de quelques          avis contradictoires si non le risque est grand
+                      informations seulement ;                    de se conforter les uns les autres et de
+                                                               s'encourager à prendre des positions encore
+                Il a un titre sur lequel il se renforce                       plus tranchées ;
+                  régulièrement et qui représente
+                   aujourd'hui plus du tiers de son
+                              portefeuille ;
+                                                              En multipliant les conseillers. Car eux-mêmes
+              Il ne réinvestisse jamais sue une valeur        peuvent être sujets au biais de confirmation
+                 avec laquelle il a perdu de l'argent ;               et avoir des analyses viciées.
+
+            Il attend qu'un titre qui a beaucoup baissé
+                revienne à son cours d'achat pour le
+                               vendre.
+                                                                 En considérant qu'un titre est une bonne
+                                                                  affaire seulement quand son potentiel
+                                                                   d'appréciation à long terme est très
+              Il achète instinctivement les titres qui
+                                                                                important.
+                            dégringolent
+                                                               En gardant en mémoire qu'en bourse il n'y a
+              Il vend ses titres quand ils enregistrent
+                                                                 (presque) jamais de fumée sans feu. Au
+               une accélération soudaine à la hausse
+                                                                  contraire, compte tenu de l'inertie des
+                                                                marchés, quand un titre dévisse, c'est qu'il
+               Il s'accorde le droit de prendre des
+                                                              aurait dû décrocher depuis longtemps et que
+             positions hasardeuses sur certains titres
+                                                                 la chute n'est sans doute pas terminée.
+              quand il a accumulé des gains dans un
+                                                                Inversement, quand un titre accélère à la
+                          compartiment
+Compta                                                           hausse, c'est que le marché vient, de se
+ bilité                                                       rendre compte que les fondamentaux se sont
+                   Il est plus prudent dans ses
+mentale                                                                          améliorés.
+             investissements dans un compartiment
+                  quand il y subisse des pertes
+                                                                   En prenant des positions sur un titre
+                                                                seulement en raison de son potentiel, pas
+              Il s'astreigne à pondérer équitablement
+                                                                pour répondre à des ratios de pondération
+                         ses différentes lignes
+                                                                  que l'investisseur a fixé arbitrairement.
+             Il achète souvent des titres en retard sur
+                                                               En considérant comme indépendantes les
+                le reste du marché ou de leur secteur
+                                                              décisions qui le sont objectivement ; ce n'est
+                       pour jouer un rattrapage
+                                                               pas parce que l'investisseur a réalisé cinq
+                                                              bons investissements dans un compartiment
+                                                               que le sixième est assuré d'être excellent.
+
+       CONCLUSION
+
+L’allocation d’actifs financière n’est qu’une sous partie de l’allocation d’actifs patrimoniale qui
+consiste à répartir le patrimoine sur différentes classes d’actifs. C’est l’élément qui génèrera
+l’impact le plus important sur la performance à long terme de ce patrimoine. Il est donc
+important d’y consacrer des ressources et de développer une véritable méthodologie et non
+simplement diversifier le patrimoine en y ajoutant des classes d’actifs comme cela est trop
+souvent le cas. C’est également le cas en ce qui concerne l’allocation financière au sein d’un
+contrat d’assurance vie par exemple
+
+Il convient donc dans un premier temps par une sélection des classes d’actifs (fonds) à
+détenir. En effet, comme je l’ai démontré dans le chapitre 5, la diversification aléatoire n’est
+pas toujours bénéfique au couple rendement risque. Il est donc nécessaire d’effectuer des
+choix, c’est-à-dire d’aller jusqu’à écarter certaines classes d’actifs (fonds).
+
+Une fois cette première étape réalisée, se pose alors la question de la répartition de chacune
+des classes d’actifs (fonds) retenues. Au-delà des critères d’optimisation qui ont été
+développés au chapitre 6, il convient de bien tenir compte de l’appréhension du risque du
+client ainsi que de l’évolution du risque de chacune des classes d’actifs avec le temps. En
+effet, selon que le client raisonne en réel ou en nominal et en fonction de l’horizon
+d’investissement retenu, la hiérarchie du risque des classes d’actifs n’est pas la même.
+
+Cet élément est très important à long terme car il permettra ou non de faire bénéficier aux
+clients de l’intérêt des classes d’actifs de longue duration (actions / immobiliers) et intégrant
+le fait qu’il est aujourd’hui impossible, étant donné les niveaux de taux nominaux et réels, de
+réaliser un investissement sans risque. En effet, le client devra supporter soit un risque de
+volatilité à court terme, soit un risque de perte de pouvoir d’achat à long terme.
+
+Si l’allocation d’actifs permet de réduire ces risques, elle ne peut les annuler totalement. Elle
+les atténuera d’autant plus si les investissements et les désinvestissements sont lissés au
+cours du temps. De plus, une revue annuelle permettant à la fois de repositionner les classes
+d’actifs en fonction de leurs valorisations respectives et de prendre des bénéfices de
+manière systématique sur celles qui ont le plus progressé, permettra également d’améliorer
+la gestion du risque.
+
+L’ensemble du processus d’allocation d’actifs développé ici a pour objectif premier d’éviter
+les déconvenues majeures et d’orienter son client vers ce qu’il devrait faire, c’est-à-dire de
+le conseiller en essayant d’être le plus rationnel possible.
+
+       Annexe 1 : déposée sur Plateforme de formation : Support
+       complémentaire : fiche d'information ou DER
+
+       Annexe 2 : Questionnaire pour déceler les biais
+       comportementaux
+
+L’AVERSION AUX PERTES
+
+Le biais d'aversion à la perte est déterminé par les quatre questions suivantes :
+
+Question 1 : Quelles sommes êtes-vous prêt à mettre pour acquérir une action qui peut
+gagner 200 euros avec une probabilité de 50% et perdre 100 euros avec la même probabilité
+de 50% ?
+a) 0 euro
+b) 100 euros
+c) 50 euros
+
+Question 2 : Vous vendez vos titres...
+a) Quand vous considérez qu'ils n'ont plus leur place dans votre portefeuille
+b) Dès qu'ils ont perdu 10% de leur valeur
+c) Jamais vous attendez qu'ils remontent
+
+Question 3 : Si un de vos titres baisse sensiblement sans raison apparente, vous...
+a) Prenez très rapidement votre perte
+b) Vous renforcez pour revenir à l'équilibre sur la ligne plus rapidement
+c) Vous faites l'autruche et attendez que le vent tourne
+
+Question 4 : Selon vous, le meilleur investisseur est celui qui...
+a) A le portefeuille qui affiche la meilleure performance
+b) N'a jamais perdu d'argent sur une ligne
+c) Ne rate jamais un titre qui flambe
+
+LA CONFIANCE EXCESSIVE
+
+Le biais de la confiance excessive est déterminé par les quatre questions suivantes :
+
+Question 5 : En moyenne, vous conservez une ligne plutôt...
+a) un mois
+b) un an
+c) cinq ans
+
+Question 6 : Vous gérez vous-même votre portefeuille parce que...
+a) C'est plus amusant
+
+b) Vous avez confiance dans vos intuitions
+c) Les commissions des sociétés de gestion sont trop importantes
+
+Question 7 : Combien de sources d'information utilisez-vous pour sélectionner vos titres ?
+a) Une seule. Il ne faut pas s'éparpiller et l'information, cela coûte cher
+b) Quelques-unes. Cela n'est pas très fixé
+c) Une multitude car on n’est jamais trop bien informé
+
+Question 8 : Diriez-vous qu'au quotidien vous avez...
+a) Plutôt de la chance
+b) Plutôt pas de chance
+c) Aucun des deux
+
+L’ANCRAGE MENTAL
+
+Le biais de l'ancrage mental est déterminé par les quatre questions suivantes :
+
+Question 9 : Quand vous avez perdu de l'argent sur une valeur, vous...
+a) Ne réinvestissez plus jamais dessus
+b) Essayez de regagner avec elle très rapidement
+c) La regarder de temps en temps pour voir l'évolution de son cours
+
+Question 10 : Si le lendemain du jour où vous avez acheté un titre vous apprenez une
+information qui remet en cause votre analyse, vous...
+a) Revoyez votre analyse et, le cas échéant, revendez le titre
+b) Attendez qu'une autre information vienne conforter l'une ou l'autre des positions
+c) Relativisez la portée de l'information
+
+Question 11 : Vous pensez qu'en Bourse la première idée
+a) Est toujours la bonne
+b) Ne doit jamais être suivie
+c) Est souvent bonne quand il s'agit de vendre et mauvaise quand il s'agit d'acheter
+
+Question 12 : Pour le long terme vous préférez acheter
+a) Un titre qui affiche un PER de 15 alors que son concurrent direct affiche un PER de 20
+b) Un titre qui affiche un PER de 15 alors qu'historiquement les PER de son secteur sont autour
+de 20
+c) Un titre qui affiche un PER de 15 alors que le marché en général, au même moment, se
+négocie avec un PER de 20
+
+LA COMPTABILITE MENTALE
+
+Le biais de la comptabilité mentale est déterminé par les quatre questions suivantes :
+
+Question 13 : Depuis un certain temps vous suivez un titre dont le potentiel vous parait très
+important. Fautes de liquidités vous n'avez pas pu l'acheter mais cela n'a pas porté à
+conséquences car le cours est hésitant. Seulement subitement le titre prend 10% et de votre
+côté des liquidités se dégagent. Que faites-vous ?
+a) Vous achetez malgré la hausse
+b) Vous attendez que le titre revienne sur ses niveaux habituels pour passer un ordre d'achat
+c) Vous réfléchissez
+
+Question 14 : Quand un titre dévisse de 30% en un jour, vous...
+a) Achetez, sûr qu'il s'agit d'une occasion à ne pas rater
+b) Prenez une position à la vente, parce que l'expérience vous indique qu'un décrochage en
+appelle souvent un autre très vite
+c) Vous informez des raisons de la chute pour voir si elle est justifiée, exagérée ou insuffisante
+
+Question 15 : Quand vous constituez vos lignes, vous...
+a) Faites attention à ce qu'aucune ligne n'ait un poids trop important
+b) Vous astreignez de manière implacable à ce que chaque ligne « pèse » autant que les
+autres
+c) Ne regardez pas la répartition : un mois vous pouvez avoir dix lignes un autre seulement
+trois
+
+Question 16 : Si vous terminez une année en perte, vous...
+a) Pensez que vous devez vous rattraper l'année suivante
+b) Arrêtez d'investir en Bourse
+c) Considérez que ce n'est qu'anecdotique par rapport à tout ce que vous allez gagner
+
+       Annexe 3 : déposée sur Plateforme de formation : Support
+       complémentaire : lettre de mission
+
+       Annexe 4 : déposée sur Plateforme de formation : Support
+       complémentaire : rapport de mission
+
+       Annexe 5 : déposée sur Plateforme de formation : Support
+       complémentaire : KYC
+
+       CORRIGES D’EXERCICES
+
+                                       CORRIGE DE L’EXERCICE N°1
+
+       -    Votre situation patrimoniale actuelle
+
+                                                    Actifs
+
+                                            Monsieur         Madame          Total         Proportion
+       Disponibilités Monétaires
+            Fonds en euros                   80 000          80 000        160 000             15%
+
+        Immobilier de jouissance
+                    RP                      325 000          325 000         650               60%
+           Immobilier de rapport
+               résidentiel
+               Appartements                  135 000         135 000      270 000              25%
+
+                    TOTAL                   540 000          540 000        1 080             100%
+Total Passif : 35 000
+Prêt : 35 000
+
+       -    Votre capacité d’épargne actuelle et au cours de la période (2023 – 2035)
+
+       Votre capacité d’épargne actuelle est de 17 000€ / an. Elle va évoluer au cours du
+       temps suite au remboursement total du prêt immobilier dans 5 ans puis suite à la fin
+       des études de votre fils dans 6 à 7 ans. En contrepartie vos impôts augmenteront suite
+       à la perte d’une part ou d’une allocation étude. L’estimation de cette augmentation est
+       de l’ordre de 3 000€ environ.
+       Capacité d’épargne annuelle : 2023 – 2027 : 17 000€
+       Capacité d’épargne annuelle : 2027 – 2029 : 26 600€ (fin prêt)
+       Capacité d’épargne annuelle : 2029 – 2035 : 38 600€ (fin études)
+       Total épargne au cours de la période : 369 800€
+
+                                         CORRIGE DE L’EXERCICE N°2
+
+Réponse : 14 ans
+Il faut calculer le risque à terme dans un premier temps. Ensuite, nous savons que le client ne
+vaut pas faire de perte dans 97.5% des cas, donc la performance minimum doit être 0.
+Ensuite il faut trouver la durée qui permet de résoudre cette équation. la performance au
+terme puis le risque au terme et appliquer le coefficient multiplicateur pour connaitre la
+borne basse. Celle-ci doit être supérieure à zéro (le client ne veut pas faire de pertes).
+
+Essayons avec 17 ans
+
+Risque au terme : 16 * racine(17) = 65.96%
+
+Perf minimum dans 95% des cas : performance au terme – 1.6*65.96% 17 * 7% -(1.6*65.96%)
+= +13.46%
+
+La durée est suffisamment longue, peut-elle être moindre ?
+
+Essayons avec 15 ans :
+
+Risque au terme : 16 * racine(15) = 61.96%
+
+Perf minimum dans 95% des cas : performance au terme – 1.6*61.96%
+
+15 * 7% -(1.6*61.96%) = 5.86%
+
+La durée est suffisante mais peut être trop longue à nouveau.
+
+Essayons avec 13 ans
+
+Risque au terme : 16 * racine(13) = 57.68%
+
+Perf minimum dans 95% des cas : performance au terme – 1.6*57.68%
+
+13 * 7% -(1.6*57.68%) = -1.28%
+
+La durée est désormais insuffisante.
+
+La durée minimale à lui recommandé est donc 14 ans.
+
+                                  CORRIGE QUESTIONNAIRE ANNEXE 2
+
+Réponses symptomatiques de biais
+
+L’aversion aux pertes :
+1a
+2c
+3b
+4c
+
+La confiance excessive :
+5a
+6b
+7a
+8a
+
+L’ancrage mental :
+9a
+10c
+11a
+12a
+
+La comptabilité mentale :
+13b
+14a
+15b
+16a

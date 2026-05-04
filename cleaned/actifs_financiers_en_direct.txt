@@ -1,0 +1,2795 @@
+
+INTRODUCTION
+
+Chapitre 1 : Le contexte économique
+
+Le contexte économique de 2020-2024 est caractérisé par une forte hausse de l’inflation dans un
+premier temps qui a conduit les banques centrales à remonter de manière conséquente leur taux
+d’intérêts. Ces hausses ont eu pour effet de faire ralentir l’économie mondiale de faire baisser
+l’inflation a des niveaux acceptables. Depuis le début de l’année, les banques centrales ont donc
+commencé à procéder à des baisses de taux en vue de normaliser leur politique. La politique
+monétaire est un outil puissant utilisé par les banques centrales pour réguler la croissance et
+l’inflation.
+
+Ce fut le cas de la FED (la Banque centrale américaine), de 2007 jusqu’en décembre 2015, qui a
+provoqué une baisse « agressive » des taux de refinancement pour freiner la récession américaine et,
+plus récemment, de l’ensemble des Banques centrales des pays occidentaux, en particulier de la BCE,
+pour tenter de juguler les effets déflationnistes de la crise financière de 2007/2008. Tout
+dernièrement en mars 2020, la crise sanitaire a largement contribué à une nouvelle vague de création
+monétaire mondiale, avec cette fois un objectif non dissimulé de laisser filer un peu l’inflation par la
+FED.
+
+Cela revient à dire qu'elles acceptent d'injecter de la monnaie nouvelle dans l’économie en rachetant
+par exemple des titres disponibles sur le marché (open market ou QE) ou en utilisant des procédures
+non-conventionnelles visant à accroitre la liquidité des banques commerciales (TLRTO).
+
+La monnaie nouvelle ainsi créée, s'ajoutant à l'offre de capitaux proprement dite (l'épargne), augmente
+l'offre de "fonds prêtables" (accroit les liquidités disponibles dans l’économie), ce qui fait baisser les
+taux d’intérêt, sauf si, en principe, cette politique fait naître des craintes d'inflation.
+Cela se traduit notamment par :
+
+   •   De taux historiquement et durablement bas ;
+
+    • La masse monétaire importante ;
+Pour les Etats Unis par exemple, les graphiques qui suivent illustrent l’impact de ce type de politique
+sur les taux de refinancement pratiqués par la Réserve Fédérale depuis le début des années 2000
+ainsi que sur l’évolution de son bilan, qui a été multiplié par 4 entre 2007/2008 et 2014 (le même
+constat peut être fait pour la BCE au cours de la dernière décennie). La crise du Covid en 2020 a
+accru encore de 50% la masse monétaire.
+
+    • La dette importante des entreprises ;
+La stratégie des entreprises consiste à utiliser le levier de la dette dans ce contexte.
+La communication des banques centrales est logiquement examinée avec le plus grand soin par
+les opérateurs. C’est la raison pour laquelle le marché financier est guidé par les banques
+centrales.
+
+Graphe des taux REFI de la FED depuis 2000 (cible 4% d’ici 2023)
+
+Bilan de la FED :
+
+Chapitre 2 : Les instruments financiers
+Les instruments financiers sont les valeurs mobilières et les contrats financiers.
+
+Section 1 : Les valeurs mobilières
+Les valeurs mobilières de placement sont négociables et fongibles, ce qui les rend apte à être cotées
+sur les bourses (dites de valeurs mobilières), même si toutes ne le sont pas, une procédure
+d'admission nommée « introduction en bourse » étant indispensable en ce cas.
+De la notion de valeurs mobilières, découle des règles juridiques et fiscales. Par exemple une valeur
+mobilière peut se démembrer.
+Il est interdit (en France) d’avoir un compte débiteur en valeur mobilière. C’est la notion de vente à
+découvert.
+
+La dématérialisation des titres
+Depuis 1984, les titres (actions, obligations, ...) sont scripturaux et non plus en version « papier ». Ils
+sont désormais tracés auprès d’un teneur de compte puis une dépositaire.
+
+Section 2 : Les contrats financiers
+Les contrats financiers sont des instruments financiers à terme. Ils sont généralement privilégiés pour
+des prises de positions directionnelles ou pour réaliser des opérations de couverture.
+Les principales caractéristiques des contrats sont :
+
+    -   Le sous-jacent : c'est l'actif financier qu'on s'engage à vendre ou à acheter.
+    -   Le terme : c'est la date de dénouement finale de l'opération.
+
+Les contrats à terme sont des produits standardisés et cotés : Dans ce cas ils sont négociables sur
+un marché réglementé, centralisé et compensé. On retrouve comme principaux instruments
+financiers à terme les opérations à terme ferme, les futures, les options, les swaps, les CDS (crédit
+default swap) ... Ils doivent obéir à certains critères concernant leurs modalités d'exécution.
+
+La position de marché
+
+              Cas pratique / Exemple
+              Une position directionnelle consistant à acheter un actif (contrat ou valeur mobilière) pour le
+              revendre plus cher est dite « Longue » > En anglais LONG
+              Une position directionnelle consistant à vendre un contrat pour le racheter moins cher est dite
+              « courte ». > En anglais SHORT
+              « Big Short » est une position très agressive sur la baisse du marché
+
+Les instruments financiers sont fongibles et négociables
+
+           Attention
+           La fongibilité : Une obligation est fongible (ou interchangeable) lorsque son émetteur a déjà émis
+           une obligation aux mêmes conditions (même devise, même coupon, même échéance,
+           éventuellement même caractère subordonné) et que les obligations peuvent être assimilées en une
+           seule (et ne plus faire l’objet que d’une seule cotation). La seule différence tient dans le prix
+           d’émission, adapté aux conditions du marché (ce qui implique un rendement actuariel différent).
+           La négociation : La négociation est le fait d’acheter ou vendre à tout moment. Les titres se
+           négocient sur le marché financier. Les principaux titres sont négociés sur un marché centralisé,
+           organisé, règlementé, compensé.
+
+Exercice
+Les produits suivants sont des instruments financiers. Lesquels ?
+
+a - Les actions
+b- Les titres de dette
+c- Les effets de commerce
+d- Un lingot d’or
+e- Les bons de capitalisation
+f- Les parts ou actions d’OPC
+
+Exercice
+Que peut-on dire sur les contrats financiers ?
+
+a- Ils permettent de gérer les risques liés à la volatilité des cours
+b- Ils n’ont pas d’effet de levier
+c- Ils sont interdits aux particuliers
+
+Exercice
+Les produits suivants sont des instruments financiers. Lesquels ?
+
+a- Les actions
+b- Les titres de dette
+c- Les effets de commerce
+d- Un lingot d’or
+e- Les bons de capitalisation
+f- Les parts ou actions d’OPC
+
+Exercice
+Les contrats financiers peuvent faire l’objet d’un solde débiteur :
+
+a- Vrai
+b- Faux
+
+Chapitre 3 : L’infrastructure des marchés
+
+Section 1 : Le marché primaire
+C’est l’introduction en bourse d’un nouveau titre avec une première cotation.
+Le marché primaire obligataire est souvent réservé aux institutionnels. Des banques ou entreprises
+d’investissement sont généralement preneuses de titres en attendant de les revendre à des
+investisseurs finaux. On parle dans ce cas de placement réalisé par une banque d’investissement.
+
+Lorsque le prix d’émission correspond à la valeur nominale du titre, l'émission est dite au pair (le prix
+d'émission est égal à 100 %. Dans ce cas, le TRA (taux de rendement actuariel) est égal au taux facial.
+Cependant il est possible d'émettre une obligation au-dessous du pair. Dans ce cas, le prix d’émission
+est inférieur à la valeur nominale du titre et la différence représente une prime d'émission. Dans ce
+cas le taux de rendement actuariel est supérieur au taux facial. Cette prime d'émission permet
+d’ajuster le TRA du titre aux conditions définitives du marché.
+
+Section 2 : Le marché secondaire
+C’est le marché de « l’occasion » de titres.
+Un titre obligataire est soumis au jeu de l'offre et de la demande sur le marché financier une fois coté
+en bourse.
+Le marché secondaire est très dynamique. La bonne tenue du marché secondaire impacte le marché
+primaire. C'est parce qu’il y a un marché secondaire qu’un marché primaire existe.
+Lors de crises financières sur le marché secondaire, le marché primaire se retrouve souvent
+suspendu.
+
+Section 3 : Les intervenants dans les mécanismes de conservation des
+titres
+Marché centralisé :
+Un marché centralisé concentre les différentes instructions (sous forme d'ordres) et les confronte
+afin de donner naissance à une cotation. Un marché centralisé s'oppose à un marché de gré à gré où
+les deux parties en présence négocient le prix de la transaction dans un contexte bilatéral et non
+multilatéral.
+
+Marché organisé et règlementé :
+Un marché organisé et réglementé est un lieu d'échange sur lequel les transactions se déroulent
+conformément aux règles dont le respect est contrôlé par un régulateur (A.M.F). Les produits qui s'y
+échangent sont généralement standardisés et fongibles.
+Ce marché est réservé à des membres professionnels agréés.
+
+Marché compensé :
+La chambre de compensation joue le rôle d'intermédiaire entre un acheteur et un vendeur.
+Elle permet de neutraliser le risque de contrepartie. De ce fait, elle est garante de la bonne fin d’une
+opération.
+
+Dépositaire :
+Le dépositaire assure la conservation des instruments financiers déposés par ses clients (Entreprise
+d’investissement, prestataire en service d’investissement, banque). Le dépositaire gère les OST
+(opération sur titre), centralisation des paiements des coupons, dividendes etc…
+Il contrôle, dans le cas de la gestion collective (OPC), les ratios règlementaires et statutaires a
+postériori. Il signale tout dépassement au régulateur.
+Il est lui-même adhérant au dépositaire central.
+
+Dépositaire central :
+Un dépositaire central est un « super dépositaire » qui centralise la conservation globale des
+dépositaires, en rapport avec les émetteurs d’instruments financiers.
+Il contrôle les « dépositaire ordinaires », notamment sur le nombre d’instruments en circulation.
+
+Un dépositaire central qui a une double fonction
+   1. Il fait le lien entre les sociétés émettrices de titres financiers qui y déposent leurs titres, que
+      ceux-ci soient admis ou négociés sur des marchés réglementés ou des systèmes
+      multilatéraux de négociation ou non, et les intermédiaires financiers qui conservent ces titres
+      pour le compte des investisseurs ou leur propre compte. C’est la fonction de dépositaire
+      central stricto sensu.
+   2. Il permet aux intermédiaires financiers de réaliser les opérations de livraison des titres
+      financiers contre paiement à la suite des négociations ou des cessions réalisées sur ces titres.
+      C’est la fonction de gestionnaire de système de règlement-livraison.
+
+Euroclear France est le dépositaire central de titres financiers français. Créée en 1949 sous le nom
+de Sicovam SA, l’infrastructure a été rachetée en 2001 par le groupe Euroclear qui rassemble les
+dépositaires centraux anglais, belge, finlandais, hollandais et suédois, ainsi que le dépositaire central
+international, Euroclear Bank
+Clearstream est un leader européen des services post-négociation. La filiale en propriété exclusive
+de Deutsche Börse assure que la trésorerie et les titres sont livrés rapidement et efficacement entre
+les parties à la transaction. Plus de 300.000 obligations domestiques et commerce international, les
+actions et les fonds d'investissement sont actuellement déposés auprès de Clearstream.
+
+Teneur de comptes (TCC) :
+Le teneur de comptes est l'établissement chargé de la tenue et de la bonne gestion de comptes des
+actifs financiers et des espèces, en opposition avec le dépositaire qui lui, est chargé de la
+conservation des titres. La plupart des Teneurs de comptes ont aussi la fonction de dépositaire.
+
+Le règlement-livraison :
+Le règlement - livraison est une procédure par laquelle des titres sont livrés, habituellement contre
+paiement, pour remplir les obligations contractuelles nées de la négociation d'une opération.
+L'instruction de règlement/livraison est émise par la chambre de compensation, si l'opération a été
+négociée en bourse, par l'investisseur, si elle a été négociée de gré à gré. Le règlement des espèces
+et le paiement des titres ont lieu le plus souvent simultanément ; dans le cas de transactions
+boursières, le délai de règlement/livraison est standard et dépend de la bourse : il est généralement
+de 2 jours ouvrés à compter de la négociation (J+2).
+
+A ce stade les termes de l'échange sont complètement connus c'est pourquoi on ne parlera
+généralement pas d'ordres, mais d'instructions de règlement-livraison. Chacune des 2 parties
+transmet à son dépositaire son instruction de règlement-livraison sous forme d'un message SWIFT.
+
+Exercice
+Le risque de liquidité d’un instrument financier est
+
+a- La difficulté pour un investisseur de trouver une contrepartie à l’achat ou à la vente
+b- Le risque de fluctuation des prix sur le marché lié à l’évolution des taux d’intérêt
+c- Un risque lié au remboursement de la dette par l’émetteur
+
+PARTIE 1 :LES OBLIGATIONS
+
+Chapitre 1 : Caractéristiques générales
+
+Section 1 : Les obligations : définition
+
+Notions Générales :
+D’un point de vue juridique les obligations sont des titres financiers résultant d'un emprunt collectif,
+supérieur à un an, émis par une personne morale de droit public ou privé ou par une collectivité
+publique (Etat, collectivités locales) qui confèrent les mêmes droits à l'ensemble des porteurs en
+vertu de la clause pari passu.
+
+           Attention
+           La clause pari passu est une clause protégeant les investisseurs ou prêteurs, qui s'inscrit
+           dans le temps. Par cette clause, l’émetteur s'engage à donner les mêmes garanties à
+           l’ensemble des porteurs présents et futurs.
+
+Les obligations font partie des quatre types de produits fondamentaux qui entrent, directement ou
+indirectement, dans un patrimoine comme les produits Monétaire, Immobiliers, Actions.
+
+La variété de leur mode de détention ne doit jamais faire oublier que le produit sous-jacent est un
+titre obligataire. Ainsi, la performance du contrat d'assurance vie ou de l'action de SICAV dépendra
+d'abord de celle des produits obligataires sur le marché c’est-à-dire, à la fois, de leurs
+caractéristiques spécifiques et de l'environnement économique du marché.
+Qualifiées de « titres de dette » par l’Autorité des Marchés Financiers, les obligations sont des
+valeurs mobilières qui constituent avec les titres de créances négociables (les TCN) ce qu’il est
+convenu d’appeler des produits de taux.
+
+Section 2 : Cotation et prix d’une obligation
+Lee prix des titres évoluent sur le marché en fonction des aléas macro et micro économique.
+Le consensus du marché représente la moyenne des opinions qui détermine les cours.
+C’est donc l’écart au consensus qui influence les cours.
+Une variation de cours (baisse) non contrôlée représente un risque de marché.
+
+Certains outils de mesure permettent d’évaluer ce risque
+La sensibilité est un indicateur important qui permet de mesurer la variation, à la hausse ou à la
+baisse, du prix d'une obligation, induite par une fluctuation des taux d'intérêt du marché calculée
+fréquemment par rapport à un point de variation (0,01 %).
+La duration d'une obligation à taux fixe, est la durée de vie moyenne de ses flux financiers pondérée
+par leur valeur actualisée. Plus la duration est élevée, plus les risques sont accrus. En principe, la
+duration est la durée nécessaire de conservation d’un titre jusqu’à ce que sa sensibilité devienne
+nulle.
+La notation fournis par les agences est exprimée en lettre. Plus sa note est élevée (maximum AAA),
+moins il présente un risque de défaut. En principe, un titre mal noté délivre un rendement actuariel
+plus élevé qu’un titre bien noté.
+
+Le spread de fourchette indique le risque de liquidité. Lorsque le différentiel de prix est important
+entre l’acheteur et le vendeur alors la liquidité est faible. Il correspond habituellement à des titres
+moins échangés.
+La liquidité correspond au temps nécessaire pour transformer un actif en cash.
+Plus le volume de transactions d'une obligation est important, plus le risque de liquidité se réduit.
+
+Section 3 : Pourquoi s’intéresser à des obligations « en direct » ?
+Avantages théoriques d'une gestion obligataire directe
+Les titres détenus en direct permettent une visibilité très précise des flux financiers.
+En effet, lorsque l’on fait appel à des OPC (Organisme de placement collectif), ceux-ci ont tendance
+à capitaliser l’ensemble de leur revenu ou à restituer annuellement et forfaitairement les revenus. Par
+conséquent, la détention via des OPC ne permet pas d’obtenir une bonne visibilité des flux financiers.
+L’obligation détenue en direct, offre une solution pure et lisible. Elle garantit un détachement de
+coupons réguliers et un remboursement au nominal.
+
+L’accès au marché obligataire est néanmoins difficile :
+
+   ➢ Car le nominal par titre est généralement de 100 000 €.
+
+              Conseil pratique
+              Il convient de prendre en compte que l’achat d’obligation en direct nécessite des capitaux
+              conséquents. On ne peut diversifier son portefeuille avec une vingtaine (confère Théorie de
+              MARKOWITZ). Un capital d’environ 2 000 000 € est donc conseillé.
+              Pour ceux qui souhaiteraient se positionner sur le marché des obligations avec de plus faibles
+              montants, tout en bénéficiant d’une bonne diversification, il conviendra de se tourner vers les
+              OPC obligataires.
+
+     ➢ Car le marché obligataire est négocié de gré à gré :
+Sur ce marché, les transactions se déroulent de façon bilatérale, par exemple deux investisseurs. Les
+prix sont fixés par les parties ;
+C’est un marché privilégié par la plupart des investisseurs institutionnels. En effet, quelle que soit la
+taille de la transaction, les prix proposés de gré à gré sont généralement plus attractifs que sur un
+marché centralisé type Euronext.
+L’accès pour des particuliers est par conséquent limité sauf le cas des rares titres qui cotent sur le
+marché centralisé Euronext.
+
+Risques du marché de gré à gré :
+S'il permet d'assouplir les conditions de réalisation des transactions, le marché de gré à gré n'est pas
+sans risque.
+- Contrairement à un marché centralisé et compensé, où le risque de contrepartie est nul, les
+investisseurs sont exposés au risque de faillite du vendeur ou de l'acheteur.
+ Enfin, contrairement à un marché centralisé, le coût des intervenants est opaque.
+Toutes ces conditions donnent l’avantage aux banques et autres compagnies d'assurance, qui sont
+en position de force quand il s’agit de négocier étant régulièrement « market maker ».
+Un "Market maker" est un acteur des marchés financiers, habituellement broker ou entreprise
+d’investissement dont le rôle principal est d'assurer la liquidité des titres en proposant de façon
+régulière et continue à la fois des prix à l'achat et à la vente.
+
+Section 4 : Les coûts et frais dans la transaction obligataire
+
+   A - Le coût de l’intermédiaire (entreprise d’investissement)
+
+Comme dans le négoce usuel, une marge est réalisée par l’entreprise d’investissement entre le prix
+d’acquisition du titre et le prix de revente à un autre investisseur. On parle de SPREAD.
+Comme l’opération passe par le bilan de l’entreprise d’investissement, cette marge constitue sa
+rémunération.
+Principe : Fourchette assurée par le market maker :
+ Quantité                Prix à l’achat (bid)    Prix à la vente (ask) Quantité
+ 1000                    101.00                  101.15                 1000
+
+Fourchette de cotation montre une marge de 15 bps (basic points).
+
+   B - Les commissions de mouvement.
+
+Le teneur de compte applique lors de la livraison de titres (achat ou vente) une commission de
+mouvement assise sur la taille de l’opération. Ces frais sont détaillés dans l’avis d’opéré (relevé
+d’opération). Ce coût de transaction est justifié par la manipulation des titres, la réconciliation induite
+par les systèmes de règlement-livraison.
+Ils sont habituellement nommés « courtage ».
+
+   C - Les droits de garde
+
+Ces frais sont le frais de stockage des titres. Ils sont la conséquence d’une chaine de structure
+informatique entre le teneur de compte, le dépositaire et le dépositaire central.
+Le dépositaire ou teneur de compte (TCC) sont responsable de la conservation des titres pour le
+compte d’un client. La sécurité informatique nécessite des investissements importants.
+
+Section 5 : Le droit des obligataires
+
+Le droit des détenteurs obligataires se limite essentiellement au :
+   • Droit à l’information : Le régulateur (A.M.F) impose un niveau d’information minimal.
+
+   •   Droit à une rémunération périodique du capital : Détachement du coupon généralement
+       annuel
+
+   •   Droit au remboursement du capital au terme : Remboursement au nominal, généralement in
+       fine (l’emprunt est rarement amortissable)
+
+Section 6 : Les mécanismes de flux
+Quelques définitions :
+
+Valeur nominale :
+La valeur nominale d'une obligation est la valeur comptable qui a été initialement prêtée. Elle peut
+fluctuer en fonction de nombreux facteurs (offre et demande, taux d'intérêt...), mais elle détermine
+les coupons qui seront versés, ainsi que la valeur de remboursement. Autrement dit, elle sert de
+référence pour le calcul du remboursement et des intérêts.
+
+La maturité :
+La maturité mesure le temps nécessaire jusqu'à ce que le montant principal de l'obligation soit
+remboursé. Une obligation à dix ans rapportera un coupon tous les ans pendant dix ans à partir de
+l'émission. A la fin de cette période, le principal de l’obligation est remboursé au porteur et le paiement
+des intérêts cesse.
+
+Revenus et remboursement :
+L'obligation remboursable in fine connait (sauf exceptions nommés CALL EMETTEUR) sa valeur à
+une date précise : celle de son remboursement (hors défaut). C’est, en général, sa valeur nominale.
+Dans le cas des obligations « classiques » à revenu fixe, l’intérêt versé périodiquement (le plus souvent
+annuellement) correspond, on l’a vu, au taux dit "nominal" ou "facial" (ou encore "taux de coupon")
+qui représente un pourcentage donné de la valeur nominale du titre. C'est évidemment un produit
+idéal pour s'assurer des revenus réguliers. La rentabilité attendue (le taux de rendement actuariel)
+peut être calculée simplement au jour de l'entrée dans le placement.
+
+          Cas pratique / Exemple
+          Pour illustrer notre propos, considérons une obligation d’entreprise d’une valeur nominale de
+          100 000 € venant à échéance dans 5 ans, émise et remboursable (amortissable) au pair in fine et
+          assortie d’un taux d’intérêt fixe de 5 %. Cela signifie que le revenu brut d'intérêt (le coupon
+          annuel, si la période de coupon est l'année) représente 5% de la valeur nominale. Cette dernière
+          étant fixée contractuellement, le revenu d'intérêt est lui-même fixe et égal à 5 000 euros. Sous
+          ces hypothèses, le porteur touchera chaque année 5000 € de revenu (5% de la valeur nominale)
+          et recevra 105 000 € (dernier coupon + remboursement) la dernière année soit 105% de sa mise
+          initiale.
+          Les flux représentatifs de cette obligation sont les suivants :
+          Année N : Souscription à la valeur nominale 100 000 €
+          Année N+ 1 : Perception du 1er coupon 5 000 €
+          Année N+2 : Perception du 2ème coupon 5 000 €
+          Année N+3 : Perception du 3ème coupon 5 000 €
+          Année N+4 : Perception du 4ème coupon 5 000 €
+          Année N+5 : Remboursement du titre + dernier coupon 105 000 €
+
+Section 7 : Rémunération d’une obligation
+Détachement d’un coupon :
+Se dit de la date de versement des intérêts payés par l'émetteur d'une obligation à son porteur. Le
+coupon est distribué périodiquement selon la politique de l’entreprise.
+
+Fonctionnement :
+La date de détachement est contractuelle. La cotation du prix de l’obligation est indépendante du
+coupon. On dit que l’obligation cote pied de coupon.
+
+Par ailleurs, Le coupon couru est la fraction du coupon prorata temporis qui revient au propriétaire
+de l’obligation. Si une obligation est vendue, alors le coupon couru est payé par l’acheteur de
+l’obligation EN PLUS de l’obligation pied de coupon.
+
+         Par exemple prenons une obligation de nominal 100 000 € LMZ 5% 31/12/2030. Si un
+         acheteur paye le titre 99 % net de frais le 30 juin 2019 alors le total décaissé sera de :
+         Prix de l’obligation pied de coupon= 99% * nominal= 99 000 €
+         Prix du coupon couru 5% du nominal soit 5 000 € au prorata : (180/365) * 5000 = 2465,
+         7534 €
+         Total décaissé sera de = 99 000 + 2465,7534€ = 101 465,7534 €
+         En réalité le nouvel acquéreur du titre disposera du coupon plein lors de son détachement
+         contractuel et sera donc indemnisé contre le paiement partiel qu’il aura dû payer au
+         vendeur du titre. ET ainsi de suite pour les nouveaux acquéreurs …
+
+Obligations à taux fixes :
+Elles rapportent chaque année le même intérêt.
+Par contre, le nominal variera en fonction des taux d'intérêts des émissions d'obligations faites
+ultérieurement. Si le taux de ces nouvelles obligations augmente, le cours des anciennes baisses. La
+raison en est fort simple : les nouvelles obligations rapportent un intérêt plus élevé, les épargnants
+n'achèteront les anciennes (qui rapportent moins) qu'à condition de les payer moins cher. Si les cours
+baissent, le phénomène inverse se produit.
+Ces obligations sont plutôt destinées aux épargnants qui désirent recevoir un revenu stable de leur
+placement quitte à risquer sur leur capital (qui peut baisser mais aussi augmenter). En période de
+forte inflation, elles sont défavorables.
+
+Obligations à taux variables :
+Elles ont été introduites en France pour prémunir l'émetteur et le porteur des risques que font courir
+les obligations à taux fixe :
+    • Pour l'émetteur : un poids excessif des intérêts à payer en cas de baisse des taux du marché
+    • Pour le porteur : une baisse des cours en cas de baisse des taux du marché
+Le nominal de ces obligations reste inchangé pendant toute la durée de l'emprunt. Par contre, le taux
+d'intérêt varie en fonction des taux des marchés financiers. On distingue 2 grandes catégories
+d'obligations à taux variable :
+    • Obligation indexée sur un taux monétaire
+    • Obligation indexée sur un taux obligataire (TMO, TME)
+        1. Obligations TMO : le taux d'intérêt est révisé chaque année en fonction de la moyenne
+            des rendements des emprunts garantis par l'État émis durant l'année écoulée.
+        2. Obligations TME : le taux d'intérêt est révisé chaque année en fonction de la moyenne
+            arithmétique des rendements des emprunts d'État à long terme.
+
+Le calcul du coupon :
+En pratique, la rémunération des emprunts à taux variable dépend de quatre éléments :
+    • La période de référence
+    • La marge "faciale"
+    • Le taux minimum garanti
+    • L'indice de référence.
+
+La période de référence :
+Le montant du coupon est le plus souvent déterminé en faisant la moyenne arithmétique d'un certain
+nombre de valeurs connues de l'indice au cours d'une période, le plus souvent annuelle.
+Selon la position de la période de référence par rapport à la date de mise en paiement du coupon on
+distingue deux grandes catégories d'emprunts à taux variable :
+
+    •      Emprunts à coupon prédéterminé pour lesquels la période de référence du coupon payable
+           au moment n + 1 est déterminée au temps n. Le coupon qui court de "n" à "n + 1" est donc
+           connu de façon certaine mais les coupons de "n + 2", "n + 3" ... restent indéterminés. La
+           période de référence est donc : {(n - 1) … n}.
+
+ Pé riode de
+ référence
+
+                                                               da tes d e pai emen t
+            -----
+
+-----------------------------------------------
+   n - 1        n           n + l            du coup on
+
+    •      Emprunts à coupon post déterminé, la période de référence se termine la veille du
+           détachement du coupon (en général 2 à 5 semaines avant). Elle est donc {n … (n + 1)}.
+
+           Pé riode de
+           référenc e
+          -----
+
+                                                          da tes d e pai em en t
+---- ------- ------- ------- ------- ------- ------ ---
+          n                                    n + 1           du coup on
+
+Les emprunts à coupon post-déterminé sont considérés comme les vrais emprunts à taux variable
+(ou taux flottant), les autres sont dénommés emprunts à taux révisable.
+
+La marge "faciale" :
+Le coupon distribué peut comprendre, en plus ou en moins du taux de base ou de référence promis,
+une certaine marge exprimée soit en valeur absolue soit en valeur relative. Une marge positive signifie
+simplement que le rendement des titres à taux variable est supérieur, à un moment donné, à celui
+des titres à taux fixe correspondants.
+
+Le taux minimum garanti :
+Il est fréquent que le taux du coupon comporte une valeur minimale garantie (dont le niveau dépend
+du niveau courant des taux, par exemple 3% lorsque le taux à 10 ans est voisin de 5%). On verra plus
+loin que lorsque le taux de base ou de référence (TME, TMM, ou autre) devient inférieur au taux
+minimum garanti, l'emprunt se comporte alors, on y reviendra, comme un emprunt à taux fixe.
+
+Les indices de référence :
+   • Le TMM ou T4M est le taux moyen mensuel du marché monétaire, simple moyenne
+       arithmétique mensuelle des taux moyens pondérés (TMP avant 1999, EONIA depuis)
+       quotidiens du marché interbancaire.1
+   • Le TAM, taux annuel monétaire, est le taux d'intérêt annuel d'un placement mensuel à intérêt
+       capitalisé, calculé à partir du TMM.
+   • Le TAG, taux Annuel Glissant, est un taux moyen capitalisé des EONIA sur une période de 1 à
+       12 mois. Il est calculé par la capitalisation des moyennes mensuelles des EONIA de la période
+       de référence. Il est publié, avec quatre décimales, par la Caisse des Dépôts et Consignations
+       le premier jour ouvré suivant la période de référence.
+   • L’EONIA (Euro OverNight Index Average) a remplacé le TMP en 1999. L’EONIA est la référence
+       du prix de l’argent au jour le jour sur le marché interbancaire de la zone euro depuis le
+       04/01/1999. Il est calculé par une moyenne, pondérée par les volumes, du taux des
+       transactions pratiquées par 20 banques de la zone euro. Il est publié, avec trois décimales, par
+
+       la Fédération Bancaire Européenne à 19 heures chaque jour ouvré. L’EONIA sera remplacé par
+       ESTER (Euro short-term rate) à compter d’octobre 2019.
+    • L’EURIBOR (Euro Interbank Offered Rate) a succédé au PIBOR le 1er janvier 1999. Il constitue,
+       désormais, la référence du prix de l'argent emprunté pour des durées qui n’excèdent pas
+       l’année. Depuis le 1er novembre 2013, il n’est plus calculé que sur 8 maturités, 1 et 2 semaines
+       puis 1,2,3,6,9 et 12 mois, par la Fédération bancaire européenne, contre 15 auparavant. Pour
+       chacune de ces maturités, le calcul est effectué sur la base de la moyenne arithmétique, après
+       élimination des 15 % de valeurs extrêmes, des taux offerts par un échantillon composé des 20
+       banques les plus actives de la zone euro afin de refléter au mieux l’activité du marché
+       monétaire et sa diversité géographique. Il est publié, avec trois décimales, par la Banque
+       Centrale Européenne à 11 heures du lundi au vendredi, sauf certains jours fériés. €ster
+       remplacera l’EONIA à compter du 1 janvier 2022.
+    • Les références aux taux obligataires : TMO, TME, TRO, TRA, TEC, CMS …
+    • Le TMO ou taux moyen obligataire est la moyenne des rendements actuariels à l'émission des
+       emprunts à taux fixes émis durant un mois donné. Le coupon payé dépend des 12 derniers
+       TMO. C'est un taux variable.
+    • Le TME ou taux moyen des emprunts d'Etat à taux fixe d'une durée de vie supérieure à 7 ans
+       est la moyenne arithmétique des taux hebdomadaires d'un panier d'emprunts d'Etat1 . C'est
+       un taux variable.
+    • Le TRO ou taux révisable obligataire : il ne s'agit plus ici de la moyenne d'une série de taux
+       quotidiens ou hebdomadaires comme les TM, mais de la moyenne des 2 derniers TMO connus
+       des trois mois précédant la révision. Les TRO sont des taux révisables tous les trois ans, alors
+       que les TRA (taux révisables annuels) le sont tous les ans.
+    • Le TEC (Taux Echéance Constante), introduit par le Trésor Public en 1996, repris depuis par de
+       nombreux autres émetteurs, a ceci de particulier que c’est un taux d’échéance ou de
+       maturité constantes alors que le TMO, le TME, etc., ne sont que des moyennes sur des
+       échéances qui varient en fonction de la maturité des nouveaux emprunts émis. L’échéance la
+       plus utilisée, pour des raisons techniques, est le 10 ans. L’indexation sur le taux à 10 ans
+       suppose qu’il y ait en permanence ou presque, sur le marché, des obligations qui ont
+       effectivement cette maturité.
+    • Le CMS (constant maturity swap) obéit exactement aux mêmes principes. Le CMS est un index
+       usuel sur les marchés de taux et largement diffusé sur des supports de référence (exemple
+       page ISDAFIX2 sur Reuters), sa simplicité en fait un index de référence pour les cotations de
+       taux fixes. A titre d’exemple, le CMS 20 ans est le taux d’un emprunt en euros, amorti in fine,
+       sur une durée de 20 années.
+Pour assurer un bon fonctionnement du marché secondaire, particulièrement pour les emprunts à
+taux variables (post déterminés), il a été nécessaire d'élaborer une méthode générale d'estimation du
+coupon couru utilisable à une date quelconque entre deux dates de paiement du coupon, ce qui pose
+le problème du calcul d’un taux de rendement actuariel.
+
+Taux « cristallisé » et marge actuarielle
+Pour calculer un taux de rendement actuariel dans le cas de titres à taux variable dont les flux futurs
+qu’ils peuvent rapporter sont par définition inconnus, on utilise la notion de marge actuarielle.
+On fait l’hypothèse que ce type de titre va générer, jusqu’à l’échéance, un coupon périodique
+constant ayant pour valeur celle de l’index (monétaire ou obligataire) au jour du calcul. C’est ce que
+l’on appelle une opération de « cristallisation ». La valeur des coupons étant ainsi arbitrairement fixée,
+il devient possible de calculer un TRA pour les obligations à taux variable, le taux « cristallisé ».
+  Le TME correspond au marché secondaire des obligations d'Etat. C'est un indicateur considéré comme plus satisfaisant que
+le TMO. Il n'y a d'ailleurs plus d'émission référencée sur le TMO depuis le milieu de l'année 87.
+
+La différence entre ce taux et l’index de référence constitue ce que l’on appelle la marge
+actuarielle. Cette marge donne une information précieuse sur les anticipations du marché
+relativement à l’évolution des taux d’intérêt de la « famille » à laquelle appartient l’index de référence
+(monétaires ou obligataires, courts ou longs) :
+    • si la marge est négative, (taux cristallisé inférieur à l’index de référence), cela signifie que le
+        marché anticipe une augmentation des taux d’intérêt. En effet, l’infériorité du taux cristallisé
+        s’explique par un cours de l’obligation à taux variable supérieur au cours qui correspondrait au
+        niveau du taux d’intérêt de référence ; or le cours d’un titre augmente lorsque ce titre est plus
+        demandé qu’offert.
+    • Inversement, une marge actuarielle positive est révélatrice d’une anticipation de baisse des
+        taux ;
+    • Une marge nulle ou négligeable révèle l’incertitude des opérateurs et/ou leur pari en faveur
+        d’un statu quo.
+
+Remarques :
+     • A un moment donné, le marché peut exprimer des anticipations opposées sur l’évolution
+        des taux d’intérêt courts et des taux d’intérêt longs : cela n’a rien de contradictoire car la
+        structure des taux peut se déformer (voir plus tard les courbes de taux)
+     • Au total, les méthodes pour connaître les anticipations des marchés sur les taux sont
+        nombreuses : étude de la structure des taux par terme (appelé FORWARD) relevé des
+        cours par échéance des contrats à terme sur taux d’intérêt, notamment l’EURIBOR 3 mois
+        et, enfin, étude des marges actuarielles sur les obligations à taux variables bien que
+        l’affaiblissement de la liquidité du marché boursier obligataire enlève beaucoup de
+        pertinence à leur interprétation.
+
+             Attention La sensibilité des obligations à taux variables est en principe nulle.
+
+Section 8 : Le rendement actuariel
+Définition d’un TRA (taux de rendement actuariel) :
+Le rendement actuariel correspond à la rentabilité obtenue en conservant un actif financier jusqu'à
+son échéance (durée de vie restant à courir) et en réinvestissant les intérêts au même taux actuariel.
+Pour une obligation, il permet par exemple de mesurer sa performance financière réelle si elle est
+gardée jusqu’à son remboursement et que le rythme de détachement des coupons suit le tableau
+d'amortissement théorique.
+
+         Exemple : Un investisseur achète une obligation un an avant son échéance. Son prix sur le
+         marché est de 96 euros et son prix de remboursement (valeur faciale le plus souvent) s’élève
+         à 100 euros. Il s’agit d’une obligation zéro coupon. Elle ne verse donc pas de coupons. Dans
+         ce cas, le taux de rendement actuariel de l’obligation se calcule de la façon suivante :
+         Rendement actuariel obligation :
+         Le taux de rendement actuariel de l’obligation est donc de 4,1 %.
+
+   •   La calculatrice CASIO GRAPH 75+E permet de calculer le taux de rendement actuariel d'un
+       titre d'au moins deux façons : en utilisant le programme « FINANCE Intérêts composés » ou
+       en utilisant le programme « FINANCE Calcul Obligation » déjà cité.
+
+EXEMPLE SUR LA CALCULATRICE CASIO
+
+Calcul du taux de rendement actuariel, à l’aide du programme Calcul Obligation de la CASIO GRAPH
+75+E, du titre AFD 8,25 % acquis le 25 janvier 2001 au prix pied de coupon de 117,04 % :
+d1 = 01M30D2001Y = Date de règlement (ici, J+3+week-end soit J+5)
+d2 = 01M30D2007Y = Date d’amortissement
+RDV = 100 = Valeur de remboursement à l’échéance
+CPN = 8.25 = Valeur du coupon
+PRC = -117.04 = Prix pied de coupon
+YLD = 4,90 %
+Le taux de rendement actuariel de cette obligation est donc de l’ordre de 4,90 % à la date du 25
+janvier 2001.
+
+La première ligne d'emprunt OATi (OATi 3% juillet 2009) a été émise le 15 septembre 1998 (échéance
+25 juillet 2009, jouissance 25 juillet 1998) pour un montant de 24 milliards de FRF, à un taux de
+rendement réel à l’émission (hors inflation) de 2,98%. Par la suite, le Trésor a émis le premier emprunt
+long indexé (30 ans) de la Zone Euro avec l’OATi 3,40% juillet 2029, ainsi que des emprunts indexés
+sur l’inflation européenne à partir d’octobre 2001 : l’OATeI 3 % juillet 2012. Chaque année, l’AFT réserve
+environ 10 % de ses émissions annuelles, voire davantage certaines années, à ces titres indexés. A
+noter aussi l’existence, depuis mars 2007, d’OATi démembrées, c’est-à-dire de coupons-zéro ou
+OAT de capitalisation, indexées sur l’inflation. Un produit évidemment séduisant !
+
+Ces titres ont une valeur nominale de 1 €. Leur principale caractéristique est d’offrir un coupon réel
+fixe, déterminé lors de l'émission, et figé pour la durée de vie du titre. Tous les flux nominaux associés
+à ce titre (coupon couru, coupon plein, principal à l'échéance) sont payés en appliquant un coefficient
+d'indexation égal à l'évolution de l'inflation entre la date initiale et la date de paiement du flux. Bien
+entendu, un taux de coupon (facial) fixe en terme réel ne signifie pas un taux réel de marché fixe si le
+cours varie. De plus, le taux facial s’applique à un capital éventuellement réévalué.
+
+Ainsi, le coupon (nominal) payé est un coupon annuel post-déterminé calculé comme suit :
+Coupon réel X Nominal du titre X Coefficient d'indexation
+
+Section 9 : La courbe de taux
+La courbe des taux correspond à une représentation graphique des rendements offerts par les
+titres obligataires d’un même émetteur selon leur échéance, de la plus courte à la plus longue. La
+courbe des taux la plus commune, et qui sert de référence à l’ensemble du marché obligataire d’un
+pays donné, est celle des emprunts d’Etat.
+
+Analyse :
+La courbe des taux ; en fonction de son évolution dans le temps, est un indicateur intéressant pour
+tenter d’anticiper les réactions du marché.
+   - Par exemple, l’inversion de la courbe des taux (taux à courts terme plus cher que taux à long
+       terme) est scrutée par les investisseurs car elle a été l’indicateur précurseur des récessions
+       ou de crises financières.
+   - On peut aussi dire que la courbe des taux tend à s’aplatir lorsque l’économie est en fin de
+       cycle et que la banque centrale commence à remonter ses taux d’intérêt pour éviter le risque
+       de surchauffe.
+   - Enfin dans les phases de surchauffe inflationniste, la courbe des taux se pentifie à travers sa
+       partie courte, et la banque centrale envisage alors de monter les taux directeurs pour freiner
+       l’inflation.
+
+Section 10 : Les transactions obligataires
+Principes de cotation (% du nominal) :
+Les obligations sont cotées en pourcentage de leur valeur nominale au pied du coupon c'est-à-
+dire sans tenir compte de la fraction de l'intérêt couru depuis le dernier détachement coupon.
+Par ailleurs, les obligations, contrairement aux actions, ne sont pas cotées en Euros mais en
+pourcentage de la valeur nominale. Les exceptions (cotations en Euros) concernent le plus souvent
+des titres mixtes ou particuliers comme les obligations convertibles en actions, les obligations
+indexées ou participantes. Plus généralement, les obligations n’ayant pas l’indication du « coupon
+couru » sont cotées en Euros et coupon inclus.
+Attention, toutefois, à l’absence de liquidité qui oblige à être très attentif à la date des derniers
+échanges de titres ayant donné lieu à cotation.
+
+Les négociations sur le marché obligataire se traite en nominal et non en quantité de titre.
+
+Base de négociation (réel / réel) :
+La base de négociation réel/réel permet via une convention de base, de fixer le nombre de jours sur
+lequel les parties vont se baser pour calculer la différence d’intérêts entre la date du dernier coupon
+détaché et le coupon couru.
+La convention de base détermine la façon dont les intérêts s'accumulent au fil du temps pour une
+variété d'instruments financiers comme les obligations. Cette convention détermine le nombre de
+jours entre deux paiements de coupons ; soit au calcul du montant transféré sur les dates de
+paiement et également les intérêts courus pour les dates entre les paiements.
+
+Coupon couru (rappel) :
+Une obligation verse régulièrement un coupon, aux porteurs à titre de rémunération. Le coupon couru
+correspond à la quote-part des intérêts acquis depuis le dernier versement du coupon, mais qui n’ont
+pas encore été payés.
+Chaque jour, l’obligation rapporte à son détenteur 1/365e d’intérêt. Ces intérêts s’accumulent
+jusqu’au jour du détachement du coupon. Il peut toutefois arriver que l’obligation soit cédée avant la
+date de versement du coupon. Comme le vendeur ne détiendra plus le titre au moment du paiement
+de ce coupon, c’est l’acquéreur du titre qui le dédommage.
+
+Pour calculer la valeur du coupon couru entre le jour du dernier détachement et une date intercalaire,
+on utilise la formule suivante : coupon couru = (nombre de jours/365) × taux facial.
+Par taux facial, il faut entendre le taux sur la base duquel sont calculés les intérêts au terme d'une
+année complète pour la valeur nominale de l’obligation.
+
+Section 11 : Les risques obligataires
+La sensibilité obligataire :
+La sensibilité est un indicateur important qui permet de mesurer la variation, à la hausse ou à la
+baisse, du prix d'une obligation, induite par une fluctuation des taux d'intérêt du marché calculée
+fréquemment par rapport à un point de variation (0,01 %).
+Les titres à revenu fixe présentent un risque en capital dès lors que les taux d'intérêt fluctuent. On
+comprend l'importance pour les gestionnaires d'anticiper l'évolution des taux d’intérêt : en cas de
+hausses prolongées des taux, les obligations subissent d'importantes moins-values.
+Pour mesurer le degré d'exposition au risque de taux, les financiers définissent le concept de
+sensibilité du prix des titres aux variations des taux d'intérêt. La sensibilité indique comment le prix
+d'une obligation donnée réagira à une variation de taux d'intérêt. Celle-ci peut par exemple se mesurer
+par rapport à la valeur nominale du titre. Dans ce cas, elle ne dépendra pas du niveau de prix initial
+du titre (au moment du placement) et s'interprète de façon uniforme tout au long de la vie du titre.
+Cependant, pour un épargnant, il paraît logique de raisonner, non pas à partir de la valeur nominale,
+mais plutôt à partir du montant investi, c'est-à-dire du prix du titre sur le marché au moment du
+placement.
+- La sensibilité d'une obligation est mesurée par le rapport de la variation relative du prix du titre sur
+la variation absolue du taux d'intérêt. Elle est donc exprimée en %. On remarque qu'elle est toujours
+négative puisque ΔP et Δi sont toujours de signe contraire.
+- En pratique, quand on calcule la sensibilité d'un titre, on raisonne au voisinage immédiat du niveau
+de taux d’intérêt initial en supposant des variations très faibles, de l'ordre de 10 points de base (0,10
+%).
+Ce concept de sensibilité est important dans la mesure où il offre au gestionnaire la possibilité
+d'arbitrer entre différents titres en fonction du degré du risque accepté, mesuré par la valeur de « S
+». Plusieurs facteurs exercent une influence sur la valeur de la sensibilité.
+
+Retenons que
+   • Plus une obligation est longue et plus elle est sensible.
+   • Plus le coupon (taux facial) est faible et plus l’obligation est sensible.
+Par conséquent, une obligation très longue avec un petit coupon est très sensible, Donc pour
+désensibiliser un portefeuille obligataire, le gérant souhaitera réduire la vie moyenne et augmenter les
+taux faciaux.
+
+La duration obligataire :
+La duration est une sorte de délai moyen de recouvrement qui indique au bout de combien de temps
+l'épargnant aura récupéré sa mise initiale, en valeur actuelle, pour un taux d'intérêt donné. Plus cette
+duration est grande (forte maturité, petit coupon, etc.,), plus la sensibilité, en valeur absolue, est
+importante. De fait, on montre qu'il y a une relation très simple entre la sensibilité (S) et la duration
+(D) :
+D = - (1 + i) S avec i = taux d'intérêt du marché.
+Prenons l'exemple de l'emprunt XYZ décembre 1998, 4,25%, amortissable le 17 décembre 2008. A la
+date du 23 juillet 2001, le taux du marché obligataire était de l’ordre de 5,10% à 10 ans : ce sera le taux
+"i" de référence. On suppose comme précédemment que le règlement de l’achat interviendra à J + 3,
+soit le 26 juillet 2001.
+
+         Exemple : la sensibilité par le programme "Calcul Obligation"
+         Si l’on introduit les informations précédentes dans la calculatrice, on en déduit facilement le
+         prix pied de coupon (le cours) du titre XYZ en effectuant les opérations suivantes :
+         d1 = 07M26D2001Y
+         d2 = 12M17D2008Y
+         RDV = 100
+         CPN = 4,25
+         YLD = 5,10
+         PRC = 94,845
+         Si l'on modifie maintenant le taux de rendement sans rien changer d'autre, en l’augmentant
+         par exemple de 10 points de base, soit YLD = 5,20, le prix devient 94,263 soit une baisse de
+         (–0,58 2/ 94,845) x 100 = 0,614 % pour 0,10 % de hausse du taux d'intérêt.
+         La sensibilité du titre est en conséquence de -0,614 / 0,10 = - 6,142 environ, soit 6,14 % de
+         baisse du prix pour 1 pour cent (100 points de base ou 1 point) de hausse du taux
+         d'intérêt.
+
+        La duration est alors, d'après la formule ci-dessus : 6,14 x 1,051 = 6,4531 années soit
+presque 6 ans et demi. Elle est inférieure à la maturité du titre qui est de plus de 7 ans. Dans le cas
+d’un coupon zéro, la duration serait égale à la maturité.
+
+Pour s'en tenir à la gestion d'un portefeuille d'actifs financiers (la duration peut aussi bien être utilisée
+pour structurer un bilan, actif et passif), on peut citer deux utilisations simples de la duration :
+- Elle permet de calculer simplement la durée de placement nécessaire pour obtenir un taux de
+rendement (actuariel) donné, pour un niveau de taux courant également donné.
+- La connaissance de la duration permet de réduire ou à augmenter son exposition au risque de
+taux elle oriente alors les arbitrages entre titres.
+
+Les autres risques :
+   1. Le risque de défaut est exprimé le plus souvent par la notation de crédit. Plus sa note est
+      élevée (maximum AAA), moins il présente un risque de défaut. En principe, un titre mal noté
+      délivre un rendement actuariel plus élevé qu’un titre bien noté. C’est officiellement l’lSDA
+      (International Swap and Derivatives Association) qui déclare le défaut.
+   2. Le risque de liquidité correspond au temps nécessaire pour transformer un actif en cash. Plus
+      le volume de transactions d'une obligation est important, plus le risque de liquidité se réduit.
+   3. Un risque de contrepartie. C’est le risque de non livraison des titres par la cessation de
+      paiement de l’intermédiaire. Ce risque est de j+2. Le cas de Lehman Brothers par exemple…
+   4. Un risque "monétaire" ou inflationniste qui concerne, à long terme, tous les titres de créance.
+      En période d'inflation rapide et surtout variable, l'épargnant risque d'être rémunéré en
+      "monnaie de singe" si l'inflation est nettement plus rapide que ce qu'il a prévu.
+
+Chapitre 2 : Caractéristiques particulières
+
+Section 1 : Les types d’obligations
+
+   A- Les obligations d’Etat
+
+      A. France OAT :
+OAT (obligation assimilable au trésor) : Les valeurs du Trésor sont des valeurs mobilières
+négociables représentant la dette de l'État. Elles sont négociables sur les marchés financiers. On
+dénombre trois types de valeurs du trésor :
+• Les bons à taux fixe et à intérêt précompté (BTF), des titres négociables à court terme.
+
+• Les bons du trésor à taux fixe et à intérêt annuel (BTAN), émis pour une durée de 2 à 5 ans.
+• Les OAT émises pour une durée supérieure à 7 ans, afin de financer les besoins de l’État à long terme.
+Ces obligations sont émises pour une durée maximale de 50 ans. Elles sont réputées “assimilables”.
+Cela signifie que chaque nouvelle tranche émise est rattachée à une tranche antérieure de même
+nature (taux, nominal, échéance).
+Le niveau des taux d'intérêt sur le marché obligataire fait varier le cours (prix de marché) des OAT.
+Lorsque les taux montent, le cours des OAT baisse et inversement.
+Si un acheteur achète puis revend une OAT avant qu’elle ait détaché son coupon annuel, il perçoit un
+“coupon couru”. Comme son nom l’indique, il représente l’intérêt dû au titre du laps de temps qui
+s’est écoulé depuis le versement du dernier coupon.
+
+STRIP OAT : Ce sont des obligations de l’état français qui ont été en quelque sorte démembrées. On
+fait désormais coter l’usufruit et la nue-propriété selon la valeur économique (de marché).
+Une décomposition de tous les flux a été réalisée afin de faire coter toutes les parties des flux.
+Ce dispositif ingénieux permet de reproduire des obligations zéro coupon. On parle alors de la courbe
+des taux zéro coupon qui est considéré comme la courbe de taux la plus pure du marché.
+
+        Exemple :
+        OAT 5% 25/04/2021 décomposée AVEC une date d’observation 17 juillet 2019 :
+        •Le premier flux intervient le 25/04/2020 (coupon)
+        •Le deuxième flux intervient le 24/04/2021 (coupon)
+        •Le troisième flux intervient le 25/04/2021 (le principal)
+
+Nous avons désormais trois nouvelles obligations qui ne donnent plus de coupons car elles
+remboursent 100% à leurs termes respectifs.
+
+Tableau de synthèse
+
+                                         25/04/2020             25/04/2021
+                  Coupon                 5                      5
+                  Principal                                     100
+
+Imaginons que nous faisions coter indépendamment tous les flux séparément des uns des autres :
+Prenons le cas de la courbe de taux suivante
+   • Taux sur 283 jours 1%, fixé par la courbe des taux.
+   • Taux sur 648 jours 2% (soit 1 an plus 283 jours) fixé par la courbe des taux.
+Nous obtiendrions 3 nouveaux titres :
+   • Le premier flux coterait selon la valeur actuelle d’un flux de 100 (100% de 5 soit sa valeur
+      nominale) dans 283 jours à 1% annuel soit :
+      99.23 %= 100/ (𝟏 + 𝟎, 𝟎𝟏)𝟐𝟖𝟑/𝟑𝟔𝟓
+   • Le deuxième flux coterait selon la valeur actuelle d’un flux de 100 (100% de 5 soit sa valeur
+      nominale dans 648 jours à 2% annuel soit :
+      96.545 %= 100 /(𝟏 + 𝟎, 𝟎𝟐)𝟏.𝟕𝟕𝟓𝟑𝟒 étant précisé que 1.77534 est 1+ (283/635)
+   • Le troisième flux coterait (100% de 100 soit sa valeur nominale) comme le deuxième flux car
+      nous avons les mêmes conditions actuarielles.
+
+OATI :
+Ce sont des obligations indexées sur l’inflation.
+L'indice de référence utilisé est l'indice français des prix à la consommation (IPC), hors tabac, publié
+mensuellement par l’INSEE pour les OATi et l’indice harmonisé des prix à la consommation (IPCH) hors
+
+tabac de la zone euro, publié mensuellement par EUROSTAT, pour les OATei. Les références
+quotidiennes d’inflation sont calculées par interpolation linéaire en utilisant deux indices mensuels
+successifs. En pratique, seuls les indices des mois m-2 et m-3 sont connus sur l'intégralité du mois
+m. Le décalage par rapport à l'inflation mesurée par l'indice est donc compris entre 1 et 2 mois. Les
+références quotidiennes d’inflation et le coefficient d’indexation sont calculés et publiés par l’Agence
+France Trésor (AFT) sur son site internet : http:// www.gouv.fr.
+
+Il faut noter que le remboursement du principal à l'échéance bénéficie d'une garantie réelle totale
+puisque le montant remboursé est égal au maximum du nominal et du nominal indexé (d’où une
+possible prime de remboursement). Si par hasard les prix baissaient (nominal indexé inférieur au
+nominal), le montant remboursé serait le nominal.
+Ces obligations peuvent intéresser tous ceux qui désirent protéger le pouvoir d’achat de leurs
+placements, améliorer l’adossement de leur passif, ou diversifier la composition de leur portefeuille.
+Elles s’adressent aussi bien aux investisseurs institutionnels (gestionnaires collectifs, entreprises
+d’assurance, caisses de retraite, etc.,) qu’aux simples particuliers.
+
+Le risque inflationniste :
+Bien que ce risque se soit beaucoup atténué, il n’a pas pour autant disparu. Le graphique qui suit
+(source : BLOOMBERG) illustre l’évolution du taux d’inflation (IPC) en France depuis 1958. On constate
+que sur les 25 dernières années, ce taux oscille entre 0 et un peu moins de 3 %, autour d’une moyenne
+d’environ 2%, très loin des records des années 74-75 ou 80-82. La remontée récente est
+spectaculaire.
+
+On constate que des « poussées d’inflation » sont fortes, comme l’illustre le graphe ci-dessus. Le
+conflit Ukraine-russe n’est pas la seule explication, car le prix de l’énergie avait bien augmenté depuis
+fin 2021, ainsi que les salaires.
+Les économistes considèrent que la forte création monétaire est à l’origine de ses envolées.
+
+     B. Performances comparées d’une OATi et d’une obligation ordinaire
+
+Supposons, pour simplifier, que l’épargnant ait acquis en 1999 un titre obligataire 4% échéance 2009
+et que le taux d’inflation soit de 2% sur toute la période de détention. A l’échéance, son titre ne lui a
+rapporté qu’un taux réel de 2% annuel et le principal s’est déprécié de 22% environ. Le taux de
+rendement actuariel réel est de 0,22% !
+Si cet épargnant avait acquis en 1999 l’OATi 3% juillet 2009, le résultat aurait été celui indiqué sur le
+graphique ci-dessous. Ce graphique reproduit les flux versés par une OAT indexée sur l'inflation de
+
+maturité 2009 et de coupon réel facial de 3 %, sous l’hypothèse que l'inflation reste constante à 2%
+l’an.
+
+Simulation : OAT indexée sur l'inflation de maturité 10 ans
+Coupon réel facial : 3% Inflation annuelle : 2%
+
+On constate, d’une part, que le capital est préservé intégralement de l’inflation (réévalué d’environ
+22%) et, d’autre part, que le coupon réel (facial ou nominal) payé augmente régulièrement.
+L’augmentation du coupon réel payé s’explique par le fait que le taux réel fixe (3 %) est multiplié par
+le principal indexé. Si, du fait de l’indexation, le capital remboursé représente par exemple 115% du
+capital initial (chiffre de 2006 dans cet exemple), le coupon sera lui-même augmenté de 15% (soit
+3,45% pour un taux facial fixe de 3%).
+
+     C. Italie BTP :
+
+BTP représente l'acronyme de Buoni del Tesoro Poliannuali ; expression italienne signifiant le bon du
+Trésor d'Italie.
+C'est une obligation d'État ou titre de créances obligataires émis par le gouvernement italien sur le
+marché obligataire à destination du marché financier. Le titre émis par l'Italie a une maturité/échéance
+de remboursement de la valeur nominale de l'obligation de 5 ans ou 10 ans le plus souvent. Il dispose
+d'un taux d'intérêt fixe et garanti en contrepartie de la rémunération aux souscripteurs sur une période
+semestrielle.
+
+     D. Allemagne BUND :
+
+Euro Bund représente une obligation ou un titre obligataire établi par l'État allemand dans l'objectif de
+se financer sur le marché – levée de l'argent auprès d'investisseurs pour couvrir ses dépenses, budget,
+etc. Il est aussi appelé Bund. Le Bund dispose des caractéristiques techniques suivantes :
+    - Une maturité ou échéance de remboursement de la valeur nominale de durée de 10 ans le plus
+         souvent ;
+    - Un taux d'intérêt fixe ou variable avec une garantie ;
+    - Un coupon est distribué généralement de façon annuelle
+Le Bund à 10 ans émis par les autorités allemandes est considéré comme une valeur financière de
+premier ordre eu égard à la qualité de la signature de l'émetteur – la probabilité de défaut de paiement
+est réputée nulle. Il est considéré comme une référence. En conséquence, le taux d'intérêt du titre
+
+obligataire germanique est souvent faible – les investisseurs cherchent un rendement garanti pour
+protéger leur capital tout en « espérant » se couvrir de l'inflation éventuelle.
+
+     E. États-Unis :
+
+T-Bills :
+Les bons du Trésor américain, ou bons du Trésor, sont des placements à court terme qui, par
+définition, viennent à échéance dans un an ou moins.
+Un bon du Trésor ne paie aucun intérêt, mais est vendu à escompte par rapport à sa valeur nominale.
+Ainsi, l'investisseur paie moins que la pleine valeur à l'avance pour le bon du Trésor et obtient la pleine
+valeur à la date d'échéance.
+La différence entre les deux chiffres est le rendement de l'investissement pour l'investisseur. Par
+exemple, un investisseur qui achète un bon du Trésor de 100 $ à un prix d'escompte de 97 $ recevra
+la valeur nominale de 100 $ à l'échéance. La différence de 3 $ représente la rémunération du titre.
+T-Notes :
+Les bons du Trésor, appelés billets en T, sont semblables aux bons du Trésor, mais il s'agit de
+placements à long terme. Les billets en T sont émis par tranches de 100 $ sur deux, trois, cinq, sept
+et dix ans.
+L'investisseur reçoit un taux d'intérêt fixe deux fois par an jusqu'à la date d'échéance du billet. Les
+bons du Trésor sont vendus lors d'une adjudication publique. L'acheteur peut présenter une offre
+concurrentielle, précisant un rendement ou une offre non concurrentielle, en acceptant d'acheter au
+rendement déterminé par adjudication.
+
+   B- Les obligations bancaires
+
+     F. Action préférentielle :
+
+Les actions de préférence sont en France un type particulier d'actions qui se distinguent des actions
+ordinaires par les prérogatives qui y sont attachées. Leurs créations découlent d'une ordonnance n°
+2004-604 du 24 juin 2004 [archive] qui a été modifiée par l’ordonnance du 31 juillet 2014.
+Ces actions peuvent conférer à leurs détenteurs des droits particuliers à plusieurs niveaux,
+notamment :
+   • En matière de droit de vote : suppression du droit de vote, droit de vote double, voire droit de
+       vote multiple en SAS
+   • En matière de droit au bénéfice (on parle de droit : quote-part supérieure de dividende,
+       dividende prioritaire, superdividende…
+   • L'ordonnance a entendu placer sous un seul et même régime l’ensemble des actions
+       particulières, c’est-à-dire qui dérogent au principe de proportionnalité (une action = une voix
+       = une fraction du dividende).
+
+               Conseil pratique
+               Habituellement traitées par les traders « fixed income » (salle de marché spécialisée
+               dans les obligations à taux fixe) car elles sont considérées comme des obligations
+               perpétuelles à revenus fixes. EN effet, les flux financiers sont équivalents.
+
+     G. Obligations perpétuelles :
+
+La plupart des obligations perpétuelles sont assorties d’un call. Cela signifie que l’émetteur se réserve
+le droit, à un moment déterminé à l’émission, de mettre fin à l’emprunt et de rembourser le détenteur
+de l’obligation à un prix fixé d’avance.
+
+Lorsque c'est le cas, les titres sont rachetés à leur valeur nominale et non à leur valeur de marché. Les
+obligations perpétuelles sont des produits de placement à très long terme et sont très sensibles aux
+variations des taux d’intérêt. Elles combinent une maturité longue avec une forte exposition au
+risque de taux. Cela explique pourquoi leur rémunération est supérieure à celle des autres
+obligations.
+
+Techniquement, une obligation perpétuelle présente certaines différences avec une obligation
+ordinaire :
+   - Si l’émetteur connaît des difficultés financières, il a la possibilité de diminuer les coupons, voire
+       de n’en verser aucun.
+   - L'existence d’un call est un risque pour l’investisseur puisque l’émetteur l’exercera s’il peut se
+       financer à meilleur coût.
+   - Les obligations perpétuelles sont généralement moins liquides que les obligations ordinaires
+       et donc plus risquée.
+
+TSDI (titres subordonnés au remboursement) :
+Les titres super subordonnés comme les TSDI, sont des titres à durée indéterminée, sauf en cas de
+liquidation judiciaire de l'émetteur.
+L'émetteur de titres super subordonnés est, en général, tenu de payer des intérêts, en cas de
+paiement d'un dividende ou de rachat d'actions par la société.
+Les titres super subordonnés constituent des quasi-fonds propres.
+
+Les COCO : (contigent convertible en capital)
+La principale caractéristique de ce type d’emprunt hybride perpétuel est sa capacité à absorber les
+pertes (au gré de l’émetteur ce qui les différencie des obligations convertibles).
+Ceci répond à des exigences du régulateur dans le secteur bancaire par exemple car ses emprunts
+peuvent être comptabilisés comme des fonds propres. Ces emprunts très subordonnés en fonction
+de critères de déclenchement précis sont convertis en actions et ou subissent un remboursement
+partiel du nominal « hair cut » ou les deux.
+En contrepartie, les « CoCos » délivrent une rémunération supérieure à celle des obligations
+perpétuelles classiques : majoritairement entre 6% et 9% contre à peine un peu plus de 1 % pour une
+obligation traditionnelle.
+
+   C- Obligation indexée
+
+Les obligations indexées, connues sous le terme de « produits structurés » ou encore de « fonds à
+formule » sont des titres de créance dont le remboursement est conditionné par des conditions.
+D’un point de vue règlementaire elles peuvent être considérées comme simples ou complexes. Elles
+peuvent être packagées dans un fonds conforme à la directive européenne (UCIT).
+Les conditions de commercialisation sont strictes et une attention particulière doit être porté pour
+ces produits dont le nombre de contentieux est en forte augmentation.
+De manière générale, un produit répondant à plus de trois conditions sera considéré comme
+complexe mais également si l’instrument financier sous-jacent est réputé par nature complexe
+(comme la volatilité ou autre instrument non substituable par des actifs tangibles…)
+
+Au sens strict, ce sont des obligations à taux fixe indexées et non plus à des obligations à taux
+variable.
+La conception de ces produits est généralement la suivante.
+
+La partie créance (funding) :
+C’est une créance à terme tirée sur un émetteur bancaire qui peut être plus ou moins rémunératrice
+en fonction de la qualité de l’émetteur.
+
+Le capital souscrit est pour partie investi dans cette créance qui offrira à terme le capital souscrit.
+C’est la partie « garantie en capital ».
+
+Exemple :
+La valeur actuelle d’une créance zéro coupon de 1 M€ à 1% de TRA sur 8 ans est de 923 483,32 €. Le
+différentiel avec le capital souscrit (76 516.68 €) pourra être investi sur d’autres supports.
+En d’autres termes, le capital à terme sera celui du capital souscrit. L’investisseur renonce à sa
+rémunération en échange d’une promesse conditionnée par la partie indexée.
+
+La partie indexée (formule):
+C’est le coupon qui est calculé sur une formule répondant à une combinaison de produits dérivées.
+La partie indexée investie sur une option d’achat sur le CAC 40 permettra de délivrer un capital
+proportionné à l’évolution de l’indice.
+
+Valorisation des produits indexés :
+La valorisation est extrêmement difficile. Elle répond à une combinaison de facteurs qui ne sont pas
+à la portée des investisseurs non professionnels, raison pour laquelle, l’AMF a imposé ses dernières
+années un mécanisme de double valorisation y compris dans les contrats d’assurance vie afin
+d’essayer de mettre en place des mécanismes d’autocontrôle.
+En effet, la plupart du temps, seul le structureur (le concepteur du produit) est en mesure d’en
+d’approcher la valorisation. Comme il est habituellement un des seuls à pouvoir se porter contrepartie
+en cas de vente par l’investisseur (spread ou fourchette de cotation de +- 1% généralement), le
+régulateur est particulièrement vigilant.
+
+   D- Obligation d’entreprise « Corporate »
+
+Une obligation corporate est une créance émise par une société auprès d’un investisseur afin de
+lever des fonds. Le principe des obligations corporate est le même que celui des obligations d’État.
+Toutes les obligations ont des points communs :
+    - Un montant nominal ou facial correspondant à sa valeur unitaire
+    - Un taux d'intérêt nominal fixant le montant de revenu (coupon) à verser aux détenteurs et la
+       périodicité de ces versements ;
+    - Une date d'échéance ou de maturité ;
+    - Une cotation sur les marchés boursiers où ces obligations peuvent être achetées ou vendues
+       à tout moment, car ils sont négociables.
+
+Obligation convertible :
+Les obligations convertibles donnent le droit d’échanger l’obligation contre un certain nombre
+d’actions de la société (ratio de conversion) à des termes prédéfinis et à une date prédéfinie.
+Généralement, la société qui a émis une obligation convertible possède un droit de rappel (Call
+émetteur), c’est-à-dire qu’elle a la possibilité de rembourser de manière anticipée l’obligation, à un
+prix donné.
+Le détenteur de l’obligation convertible a souvent le droit d’imposer la conversion, qui prévaut alors
+sur le prix de rappel.
+On comprend donc que le rappel anticipé est une façon pour l’entreprise émettrice de l’obligation
+convertible de forcer la conversion.
+
+Depuis quelques années, les obligations convertibles intègrent des dispositifs anti-OPA (Poison
+PUT), permettant de décourager le prédateur financier.
+
+Prêt participatif :
+Sur le principe, un prêt participatif est un moyen de financement intermédiaire entre un prêt à long
+terme et une prise de participation. Le seuil maximum de financement correspond au doublement
+des fonds propres. Aucune garantie, ni sur les actifs de l'entreprise ni sur le patrimoine du dirigeant
+n’est demandée.
+Le remboursement du prêt participatif est subordonné à celui de toutes ses autres créances
+bancaires. Particulièrement risqué pour le prêteur du fait de son statut de dette subordonnée de
+dernier rang, la plupart des fonds de garantie des prêts participatifs sont alimentés par des dotations
+d’État.
+Le taux d’intérêt de ces prêts peut être majoré d’une participation au bénéfice net de
+l’emprunteur ou bien indexé sur une évolution du chiffre d'affaires ou d’un autre ratio d’activité
+de l’entreprise.
+
+             Attention
+             L’octroi du prêt ne confère aucun droit de vote au prêteur qui reste toutefois prioritaire
+             vis-à-vis des actionnaires en matière de remboursement.
+
+Section 2 : La qualité des créances
+Covered bond ou obligations séniors sécurisées :
+Les obligations seniors sécurisées sont généralement considérées comme bénéficiant du plus haut
+niveau de priorité Elles sont des instruments de créance émis par des établissements financiers et
+garantis par des crédits hypothécaires de très bonne qualité ou des prêts au secteur public.
+Elles sont au même niveau que les obligations seniors mais sont en plus garanties par un ou plusieurs
+actifs de la société émettrice.
+Obligations seniors non sécurisées :
+Les obligations seniors non-sécurisées ne garantissent aucun privilège sur les actifs de la société
+émettrice contrairement aux sécurisées. Elles restent cependant prioritaires sur les obligations
+subordonnées.
+En acceptant les Titres, les Porteurs reconnaissent que dans la mesure où les Obligations de premier
+rang sont jugées inexécutables, ou que les Obligations de premier rang sont subordonnées à d'autres
+obligations de la Société, ces droits de subrogation peuvent être compromis.
+Obligations subordonnées :
+En contrepartie de l'indétermination de leur maturité et d'un niveau de risque plus élevé que les
+obligations ordinaires, les obligations subordonnées offrent en général un niveau de rémunération
+plus élevé. Elles sont en principe plus "spéculatives" que les obligations remboursables à date fixe.
+L'émetteur prévoit que le remboursement de l'emprunt, en cas de liquidation, n'interviendra qu'après
+complet désintéressement des créanciers.
+
+Schéma simplifié du rang de remboursement par priorité
+
+        Source S&P 2018
+
+Définir sa stratégie d’investissement en fonction de la notation d’une obligation
+
+Les titres Investment grade correspondent aux obligations émises par les emprunteurs qui reçoivent
+une note allant de AAA à BBB- par les agences de notation, selon l'échelle de Standard & Poor's.
+Les obligations de « première catégorie » sont plus liquides car plus recherchées par les investisseurs
+et notamment les institutionnels qui sont des souscripteurs captifs pour des raisons règlementaires.
+Le code des assurances, ou de la mutualité par exemple mais aussi les « accords de Bâle »
+encouragent les « Zinzins » investisseurs institutionnels à investir prioritairement dans ce type
+d’emprunt pour sécuriser les fonds propres des établissements.
+Un mécanisme de scoring règlementaire détériore certain investissement de leur valeur vénale afin
+de dégrader les fonds propres des établissements encadrés.
+
+Ces dispositifs peuvent expliquer la demande déraisonnable de certain emprunt d’état leur conférant
+de surcroit des taux négatifs, quand ils ne sont pas expliqués, de surcroit par les achats massifs de la
+banque centrale.
+Les obligations « investment grade » s'opposent aux "non-Investment grade", également appelées
+"spéculative grade" ou "High yield" ("haut rendement"), bien plus risquées mais conférant des
+rendements actuariels plus substantiels (notes allant de BB+ à D selon Standard & Poor's).
+Le fort développement des titres high yield ces dernières années par des investisseurs en recherche
+de taux de rendement positifs a propulsé les indices de ce type de support (indices ITRAXX, X-OVER)
+a des sommets.
+
+Le défaut est le principal risque des obligations « high-yield ». L’analyse des données montrent
+généralement une répartition assez nette de la masse des défauts dont nous pouvons tirer deux
+conclusions :
+
+   •   Le risque bancaire est en occurrence faible, mais lorsqu’il se produit, il représente un défaut
+       majeur.
+   •   Tout un secteur d’activité peut se trouver en difficulté (matière première par exemple) et c’est
+       une grande partie des sociétés d’un secteur qui fait défaut.
+
+Le risque de diversification est donc majeur en cas d’investissement high-yield.
+Le développement des CDS (Credit Default Swap) a permis de se protéger contre le risque spécifique
+mais le nombre des intervenants et des émetteurs est trop limité.
+
+L’investisseur achète une assurance sous forme de CDS
+
+L’investisseur est indemnisé en cas de défaut officiel (officiellement déclaré par ISDA)
+
+Exercice
+Les titres subordonnés :
+
+a- Ne sont pas des titres de créances
+b- Ont une rémunération supérieure à celle des obligations classiques émises par le même émetteur
+c- Sont toujours à taux variable
+
+Exercice
+Lorsqu’une personne, domiciliée en France, détient une action américaine cotée à New York en US dollar :
+
+a- Elle ne court pas le risque de marché
+b- Elle court uniquement le risque de change
+c- Elle court les risques de marché, de change, de volatilité…
+
+Exercice
+Le taux de rendement actuariel d’une obligation :
+
+a- est tel que la valeur actuelle du prix payé soit égal à la somme des valeurs actuelles des flux futurs
+reçus
+b- est donné par la division du montant du coupon par le prix payé de l’obligation
+c- est donné par la division du montant du coupon annuel divisé par la valeur nominale de l’obligation
+
+Exercice
+Le rendement actuariel d’une obligation à l’émission :
+
+a- Correspond au taux nominal et permet de calculer le rendement du titre
+b- Est calculé sur les coupons perçus et réinvestis au même taux
+c- Prend en compte les coupons, le prix d’émission et le prix de remboursement de l’obligation
+
+Exercice
+Pour connaitre le prix d’une obligation à taux fixe, il faut :
+
+a- Retrancher le coupon couru du cours de l’obligation
+b- Ajouter le coupon couru au cours de l’obligation et multiplier la somme par la valeur nominale
+c- Multiplier le cours pied de coupon par la valeur nominale
+
+PARTIE 2 : LES ACTIONS
+
+Chapitre 1 Caractéristiques générales
+
+Section 1 : Les actions : définition
+Ce sont des titres de propriété représentant une participation au capital d’une société qui peuvent
+être appréhendés à la fois comme un moyen de financement et comme un véhicule de placement
+pouvant être détenu sous des formes variées par les investisseurs.
+Les actions : un moyen de financement solide.
+Une entreprise peut financer ses investissements de différentes façons : à travers des émissions
+d’actions ou d’emprunts en compte courant, bancaires, obligataires …
+Les actions sont enregistrées dans le capital social et participent aux fonds propres de la société,
+c'est-à-dire à des ressources financières stables (long terme).
+Les fonds propres comportent aussi les bénéfices mis en réserves ainsi que d’autres titres présentant
+des caractéristiques similaires à celles des actions. Le niveau de fonds propres est une garantie pour
+les autres partenaires financiers.
+Voici une représentation simplifiée du bilan de l'entreprise et de ses sources de financement :
+
+            ACTIF                              PASSIF
+            IMMOBILISATION                     CAPITAL SOCIAL
+            STOCK                              RESERVE
+            CREANCES                           DETTES
+
+L'actionnaire est un associé de l'entreprise. Ceci lui confère des droits, mais aussi l'amène à assumer
+des risques. Il n'est pas forcément un créancier de l'entreprise. Sa rémunération est incertaine car elle
+dépendra, en principe, des résultats de l’entreprise et de sa valorisation à terme.
+Les actions cotées sont des titres négociables sur le marché. Contrairement aux parts sociales les
+actions sont des valeurs mobilières susceptibles de cotation et de négociation sur des marchés
+organisés.
+
+Les actions peuvent être détenues directement ou indirectement :
+   - Directement lorsque :
+Les actions sont logées dans un portefeuille-titres, PEA
+   - Indirectement lorsque :
+Les actions sont logées dans l’actif d’un OPC (Organisme de placement collectif ou fonds)
+Les actions sont logées dans un contrat d’assurance-vie
+Les actions sont logées dans l’actif d’une société civile par exemple etc…
+
+Les actions ordinaires et les titres assimilables
+Une action est un titre de propriété négociable émis par une entreprise organisée sous la forme d'une
+société de capitaux, société anonyme ou société en commandite par actions, et représentatif de la
+valeur unitaire du capital social de celle-ci.
+Les actionnaires étant titulaires d'un titre de propriété sur l'entreprise, il en découle pour eux un
+certain nombre de droits.
+
+Section 2 : Le droit des actionnaires
+
+   A - Droit à l'information
+
+Toute société dont les titres sont admis à la négociation sur un marché règlementé doit diffuser
+périodiquement de l’information sur son activité,
+1. Chaque année, les sociétés doivent publier un rapport d’activité annuel et un document
+d’information annuel (liste des informations rendues publiques)
+
+2. Chaque semestre, dans un délai de 2 mois après la fin du premier semestre, un état financier
+intermédiaire résumé ainsi qu’un rapport de gestion intermédiaire.
+
+3. Chaque trimestre, une publication d’un document présentant les opérations et événements
+marquants de la période écoulée.
+
+4. au cas par cas des informations par voie de prospectus ou de notes d’information visés par
+l'AMF doivent également être publiées par exemple dans le cas d’introduction en bourse,
+d’augmentation de capital ou encore d’OPA. Le prospectus doit fournir aux investisseurs potentiels
+toute l’information nécessaire pour prendre une décision éclairée. Il y a les annonces légales
+obligatoires (opérations financières, convocation aux AG) mais aussi des communiqués de presse
+pour tout événement ou opération de nature à avoir une influence sur la situation financière de la
+société.
+
+   B - Droit de participation aux assemblées
+
+Les assemblées générales ordinaires ont pour objet :
+- de nommer les membres du conseil d'administration ou du conseil de surveillance,
+- d'examiner et d'approuver les comptes de l'entreprise,
+- de décider de la répartition du bénéfice, et entre autres de décider du montant du dividende.
+Les assemblées générales extraordinaires ont pour objet de modifier les statuts de l'entreprise ou
+la composition de son capital. Les émissions d'actions nouvelles sont décidées dans le cadre des
+assemblées générales extraordinaires.
+
+   C - Droit de vote
+
+Le plus souvent à une action correspond un droit de vote unique, mais il peut exister des actions à
+droit de vote double.
+
+Les petits porteurs s'unissent de plus en plus pour faire respecter leur point de vue. Plusieurs
+associations se sont ainsi créées pour protéger leurs droits. C’est le cas de l’ADACTE (Association de
+défense des actionnaires d’Eurotunnel), de l’ADAM (Association de défense des actionnaires
+minoritaires), de l’APPAC (Association des petits porteurs actifs), ou de DEMINOR (Cabinet de
+défense des actionnaires minoritaires)
+
+DEFINITION : Capitalisation boursière :
+
+La capitalisation boursière est la valeur de marché de l'ensemble des actions d'une société par
+actions.
+
+        Par exemple : La capitalisation boursière d’Apple est de 3915 Mds $, Nvidia 3427 Mds de
+        dollars Microsoft 3257 Mds de dollars, Tesla 1458 Mds $...
+
+LVHM, première capitalisation française 328 Mds au 27/12/2024.
+
+   D - Le droit au dividende et OST (opérations sur titre)
+
+Le dividende correspond à la rémunération de l’actionnaire. Les actionnaires ne reçoivent
+généralement de dividendes que dans la mesure où l'entreprise a réalisé des bénéfices ou dispose
+de réserves et que l'assemblée générale a décidé d'en distribuer tout ou partie.
+
+La tendance observée est de distribuer des acomptes trimestriels. Cette technique permet de
+réduire l’incertitude et a pour conséquence de réduire la volatilité.
+
+Le taux de distribution
+Il convient de distinguer le BNPA (bénéfice net par action), qui correspond au résultat net rapporté
+au nombre d’actions et le dividende, partie distribuée du bénéfice.
+Le rapport Dividendes/BNPA mesure la fraction du bénéfice net qui va être distribuée sous forme
+de dividende. Ce rapport est couramment dénommé taux de distribution ou encore pay out ratio.
+Le taux de rétention correspond à la fraction du BNPA mise en réserves.
+                 Dividende
+ pay out ratio =
+                   BNPA
+
+Exemple : Une société réalise un BNPA de 10 €. Elle distribue un dividende de 3 €. Son pay-out
+ratio est de 30%. La partie non distribuée du bénéfice, soit 7 euros, s’inscrit dans les réserves. Le
+taux de rétention s’élève à 7/10 = 70% pour cette société.
+
+Le pay out du CAC 40 était de 58.57% en 2018
+Le niveau du dividende
+Le versement du dividende constitue toutefois un signal pour le marché. On peut donc constater
+une grande inertie du dividende par rapport à l’évolution du bénéfice.
+Le cas d’école de l’action APPLE est exceptionnel. APPLE a suspendu son dividende pendant 17 ans,
+et a décidé de reprendre la distribution en 2012.
+A noter que le bénéfice non distribué appartient aussi aux actionnaires puisqu’il figure dans les
+réserves de la société et se trouve implicitement intégré au cours de l’action. Le versement du
+dividende devrait donc théoriquement être neutre pour l’actionnaire par rapport à une mise en
+réserves, fiscalité mise à part. Le versement d’un dividende devrait donc logiquement faire baisser le
+cours de l’action d’un montant approximativement égal au dividende.
+Le rendement du dividende
+Le rendement boursier ou rendement du dividende est le rapport entre le dividende et le cours de
+l'action.
+                              Dividende
+rendement du dividende =
+                                Cours
+
+         Exemple : Une société distribue un dividende de 3 €. Son cours se situe à 50 euros. Le taux
+         de rendement du dividende est de 6% pour cette société.
+
+Le rendement du dividende est très variable d’une société à une autre. Il est plus élevé pour les
+valeurs dites « de rendement ». La plupart des rendements se situent au-dessus de ceux de l’OAT
+10 car la prime de risque est positive.
+
+Mode de paiement du dividende
+Certaines sociétés offrent à leurs actionnaires le choix du paiement du dividende en actions ou en
+en numéraire.
+Exemple : Une société distribue 2 € de dividende par action. Le cours de l’action se situe à 50 €. Un
+actionnaire détenant 100 actions devrait toucher 200 euros de dividendes en espèces. La société
+peut lui proposer ce dividende soit en numéraire, soit sous une forme d’actions nouvelles.
+En effet, l'actionnaire est copropriétaire de l'entreprise et donc de son actif net, c'est-à-dire de la
+différence entre l'actif et les dettes. Il a un accès privilégié aux opérations pouvant conduire à la
+création d'actions nouvelles afin de conserver ses droits patrimoniaux. Une soulte espèce peut
+éventuellement compléter le dispositif.
+
+Cas de liquidation de la société
+Le boni de liquidation est le capital réparti entre les actionnaires après le remboursement de tous
+les créanciers. C’est en général la phase finale de la mort de la société.
+
+Attributions gratuites
+Les actions gratuites sont des actions que la société peut créer par exemple pour incorporer une
+partie de ses réserves au capital social. Cette distribution donne éventuellement lieu à l'émission de
+droits d'attribution négociables sur un compartiment spécifique de la cote.
+
+Emission d’actions à titre onéreux
+En cas d’émission d'actions à titre onéreux, un droit préférentiel de souscription (DPS) peut être
+accordé à l'actionnaire ancien, si l’AGO le décide. L'actionnaire ancien a alors un droit de préemption
+pendant un certain délai qui se matérialise par un droit de souscription négociable pendant la période
+d’émission sur un compartiment spécifique de la bourse.
+Il existe également des émissions d'actions sans DPS, mais simplement avec éventuellement un
+délai de priorité, non matérialisé par un titre négociable. Cette procédure est moins favorable à
+l’actionnaire ancien.
+
+Les rachats d’actions
+• Qu'est-ce qu'un rachat d’actions ?
+L'acte de racheter ses propres actions fait partie des opérations financières courantes, et
+rencontrées fréquemment dans la vie quotidienne des marchés financiers. Il consiste, pour une
+société cotée en Bourse, à racheter une partie de ses titres en circulation sur une place financière
+donnée. C'est donc une intervention d'une entreprise sur son propre capital, qui n'est pas sans
+conséquence sur le flottant (c'est-à-dire la part du capital en circulation sur le marché). Il permet à
+une entreprise d'augmenter son autocontrôle mais donne également des indications aux marchés sur
+sa stratégie industrielle et financière. Dans le langage boursier, on parle également d'OPRA (offre
+publique de rachat d'action).
+
+• Pourquoi l'entreprise choisit de racheter ses actions ?
+Les causes d'une telle action de la part d'une société sont assez clairement identifiées. Trois d'entre
+elles peuvent être mises en avant. La première consiste à annuler ces actions, afin d'augmenter
+mécaniquement le bénéfice par action (BPA) de la société. On parle alors d'une opération, avec un
+BPA «relué», souvent interprété positivement par les marchés. Le BPA est en effet un des principaux
+indicateurs analysés par les investisseurs pour évaluer les performances financières d'une société.
+Plus il est élevé, plus le marché apprécie. Même si, dans ce cas, l'augmentation du BPA est artificielle.
+Par ailleurs, l'annulation d'actions diminue aussi le montant des dividendes à distribuer.
+La deuxième raison est la volonté de la société de développer les outils incitatifs à destination de ses
+salariés. Les propres titres rachetés peuvent être attribués à ses salariés, dans le cadre par exemple
+de plans de participation ou d'achats préférentiels d'actions.
+Enfin, les rachats d'actions dotent l'entreprise d'un nouvel outil utile dans le cadre d'opération de
+croissance externe. Certains rachats d'entreprises se négocient en effet via des échanges de titres
+(OPE).
+
+ • Quelles conséquences pour l’actionnaire ?
+Le plus souvent, l'annonce de ces programmes est bien perçue par les marchés. Tout simplement
+parce que les sociétés proposent souvent aux actionnaires une « prime », c'est-à-dire un prix de
+rachat supérieur au dernier cours de clôture de l'action.
+
+• Quelles conditions sont propices à cette opération ?
+
+Les programmes de rachats d'action sont en général fréquemment lancés à l'issue d'une forte chute
+des marchés financiers. Plus les cours sont bas, plus le rapport coût/bénéfice pour l'entreprise d'un
+tel programme sera optimisé. Les rachats d'actions sont également fréquents lorsque les entreprises
+disposent de fortes liquidités.
+Les rachats d'actions représentent des mouvements financiers assez récents. Ils n'ont été rendus
+possibles qu'en septembre 1998.
+
+           Cas particulier : Apple a dopé son cours de Bourse
+           Apple a annoncé en 2012 un programme géant de rachat d’actions, pour le montant
+           astronomique de 200 milliards de dollars. La firme à la pomme a récidivé en 2018 avec un
+           nouveau plan de rachat d’action pour 100 milliards de dollars. Durant les trois derniers mois,
+           la firme a ainsi dépensé plus de 20 milliards dans ce but, ce qui explique donc en partie la
+           hausse du cours. Depuis, les programmes se succèdent.
+           Ces entreprises font ainsi plaisir à leurs actionnaires, alors qu’elles se trouvent avoir beaucoup
+           de liquidités, grâce à la baisse des impôts voulue par le président Donald Trump. Adoptée en
+           2017, cette réforme du code fiscal a abaissé le taux moyen d’imposition des entreprises de 35
+           à 21 % et leur a permis de rapatrier à moindres frais des liquidités détenues à l’étranger…
+
+Caractéristiques particulières des différentes actions
+
+Section 3 : Caractéristiques particulières des différentes actions
+
+   A - Les actions ordinaires
+
+Les actions ordinaires sont des titres de propriété d’une société. Il s’agit d’investissements
+présentant un certain risque pour l’investisseur dans la mesure où l’investissement dans la société
+est affecté par des tendances de marché et qu’il n’existe aucune garantie de préservation du capital
+initialement investi lors de la revente. Les actions ordinaires donnent le droit à leur propriétaire de
+voter lors des assemblées générales des actionnaires de la société, lui ouvrent droit à dividendes,
+mais l’actionnaire est le dernier créditeur dans l’ordre de priorité en cas de liquidation de l’entreprise.
+
+   B - Les certificats d’investissement
+
+Les CI ont été créés en 1983 pour permettre aux entreprises nationalisées de l'époque de trouver des
+fonds propres dans le public sans pour autant faire perdre à l'Etat le contrôle de la société. Ils résultent
+du démembrement de l'action en deux parties : le Certificat d'Investissement et le Certificat de Droit
+de Vote (CDV). Le certificat d'investissement ne permet donc que d'accéder aux droits pécuniaires
+évoqués plus haut. La détention d'un certificat d'investissement ne permet pas de prendre part à la
+gestion de l'entreprise.
+
+   C - Les actions de préférence
+
+Les ADP sont également des actions sans droit de vote dont l'émission a été autorisée depuis 1978, à
+concurrence de 25% du capital social. L'intérêt de ces titres pour l'émetteur est de permettre de
+constituer des fonds propres sans dilution du droit de vote. Ces titres sont généralement fortement
+décotés par rapport à l'action ordinaire. Ils ont pratiquement disparu de la cote. Pour l'investisseur
+les ADP, comme les CI, peuvent comporter un certain attrait, puisqu'offrant un rendement plus élevé
+que l'action ordinaire.
+
+   D - Les actions de préférence
+
+Le Code de Commerce décrit dans une section "titres en voie d'extinction" les deux catégories de
+titres précédentes. Par contre, à la suite de l'ordonnance du 24 juin 2004 est introduite une nouvelle
+catégorie d'actions avec les actions de préférence qui peuvent être créées par les sociétés de
+capitaux lors de la constitution de la société ou au cours de son existence. Ces actions peuvent être
+créées avec ou sans droit de vote, assorties de droits particuliers de toute nature, à titre temporaire
+ou permanent. Le droit de vote peut être aménagé pour un délai déterminé. Il peut être suspendu
+pour une durée déterminée ou supprimé. Dans les sociétés dont les actions sont admises aux
+négociations sur un marché réglementé, les actions de préférence ne peuvent représenter plus du
+quart du capital social.
+
+   E - La forme des actions
+
+Les actions peuvent revêtir différentes formes
+
+Les actions sont des titres dématérialisés qui peuvent prendre deux formes : au porteur, ou
+nominative. Le choix de la forme peut résulter, selon le cas, de la décision de la société ou de celle de
+l'actionnaire.
+
+Actions nominatives
+Le nom du propriétaire est inscrit directement sur un registre tenu par la société émettrice. Elle
+assure la fonction de tenue de compte sur le registre de mouvement. La société émettrice peut mieux
+fidéliser son actionnariat.
+On distingue ainsi le nominatif pur, où la gestion des actions est assurée directement par la société
+émettrice, et le nominatif administré où la gestion est assurée par un intermédiaire financier appelé
+TCC (teneur de compte-conservateur).
+
+Actions au porteur
+Dans le cas des actions au porteur, la société émettrice ne les a pas enregistrées ; elle ne connaît
+donc pas directement ses actionnaires. Le coût est plus faible pour l’émetteur. C’est la grande
+majorité des actions sur le marché. L’entreprise n’a pas connaissance de ses actionnaires au
+porteur. Elle n’est pas tenue informée des opérations qu’ils font sur leurs actions. Cependant,
+plusieurs règles ou procédures sont à sa disposition.
+
+1. La réglementation prévoit un certain nombre de dispositions en cas de franchissement de certains
+seuils de participation (5%, 10%, 15%, 20%, 1/3, 50%, 2/3, 90% et 95. En cas de non-respect de cette
+obligation, des sanctions financières sont possibles, de même que la suppression des droits de vote
+pendant une certaine durée. La personne tenue à l'information doit en outre déclarer les objectifs
+qu'elle a l'intention de poursuivre au cours des six mois à venir.
+
+2. La société peut également recourir à la procédure TPI (Titres au Porteur Identifiés) et demander
+à Euroclear de lui communiquer, par l’intermédiaire d’une enquête auprès des établissements teneurs
+de comptes, un relevé de ses actionnaires. Cette opération, qui doit être autorisée par l’Assemblée
+Générale extraordinaire des actionnaires, peut prendre du temps et comporte un coût élevé
+proportionnel au nombre d’actionnaires. Des formules de TPI allégées permettent de réduire le coût
+de l’opération, en ne travaillant que sur un échantillon d’intermédiaires. (1/4 des sociétés du CAC 40
+ont recours à ce dispositif).
+Grace à cette procédure, les sociétés cotées en bourse peuvent repérer le nombre de leurs
+actionnaires individuels.
+
+Section 4 : Le rendement et le risque et le risque des actions
+
+   A - Mesure de la performance
+
+   •   Le return de période (Total return)
+
+Le gain total dégagé par une action est déterminé à partir des dividendes perçus et des plus-values
+(ou moins-values) enregistrées au cours de la période considérée. Il faut bien distinguer la
+performance ainsi obtenue du rendement du dividende stricto sensu évoqué plus haut et qui ne
+tient compte que des dividendes rapportés au prix de l’action à un instant « t ».
+
+Pour éviter la confusion, il serait possible d’employer le concept de performance Le return de période
+mesure le rendement total obtenu par un titre, dividendes et plus-values inclus, hors frais et hors
+fiscalité. Le return est calculé par rapport au capital initialement investi. Il s’apparente à un taux de
+rendement interne.
+
+Exemple : Une action X est achetée, fin N-1, au prix de 40,73 euros ce qui représente le capital investi.
+Au cours de l’année N le cours de l’action est passé de 40,73 à 43,65 et il a été perçu un dividende 1
+de 0,55. Le gain total hors frais et hors fiscalité obtenu s’élève à 3,47, avec 2,92 de plus-value et 0,55
+de dividende. Le return de l’année est calculé par rapport au capital investi : il atteint ici 3,47 / 40,73
+= 8,52%.
+
+De façon générale, le return d’un titre sur un période donné et mesuré à une date t est obtenu à
+l’aide de l’expression suivante :
+
+   B - La rentabilité observée du placement en actions
+
+   •   Pour la France
+
+              Evolution du CAC 40 dividendes réinvestis depuis 2012 (CAC GR)
+
+•   Pour les Etats-Unis
+
+          Evolution du DOW JONES dividendes réinvestis depuis 2012 (DJTR index)
+
+   C - Mesure du risque
+
+Il existe différentes méthodes pour évaluer le risque d’un placement financier. La volatilité est une
+des méthodes les plus utilisées. La volatilité historique est l’indicateur le plus ancien, basé sur
+l’évolution des returns au cours du temps. La volatilité implicite (volatilité anticipé) est souvent
+associée au marché des options.
+
+       A. Approche probabiliste
+
+   •    La volatilité historique (approche probabiliste)
+
+On peut mesurer le risque d'un placement en actions à travers sa volatilité historique qui demande
+de mesurer le degré de variabilité de ses returns annuels. Un titre dont les returns sont variables
+sera jugé volatile et considéré comme risqué.
+
+Plus une action est volatile moins son return est prévisible puisqu’il peut s’éloigner fortement de
+sa moyenne. Un produit peu volatil comportera peu de risque puisque son return est pratiquement
+stable, toujours proche de la moyenne et donc plus facile à prévoir. La volatilité peut être un des
+éléments du choix d’un titre, selon le niveau de risque accepté.
+
+Techniquement, la volatilité historique du placement est donnée par un indicateur statistique,
+l'écart-type des returns Rt. La formule de cet indicateur est donnée ci-dessous. Pour ce calcul, on
+utilise la moyenne arithmétique des returns. Puis on détermine dans quelle mesure les returns
+observés période par période s’écartent plus ou moins de cette moyenne.
+
+Si, par exemple, la volatilité 3 mois est plus faible que la volatilité 1 an, cela peut correspondre à une
+période d’accalmie du marché.
+
+   •    La volatilité implicite
+
+La volatilité implicite est obtenue à travers la volatilité anticipée par les opérateurs sur le marché à
+un instant donné. La volatilité implicite est « extraite » des cours observés qui reflètent l’état du
+marché et les anticipations des opérateurs. Le calcul est réalisé non pas à partir de la valeur observée
+du cours de l’action, mais à partir de celui des options négociables ayant ce titre pour support.
+
+La volatilité implicite est extraite du cours de l’option.
+La volatilité implicite est plus « réactive » que la volatilité historique. Elle peut, en outre, donner des
+informations sur l’évolution prévisible du marché puisqu’elle reflète les anticipations des opérateurs.
+Elle sera très utilisée pour mesurer le sentiment de marché des opérateurs.
+
+L’indice VIX est le plus connu des indicateurs de volatilité implicite. Il s’agit de l’indice de volatilité
+implicite de l’indice S&P 500 que le CBOE (Chicago Board Options Exchange) calcule depuis le début
+des années 1990 à partir des options à la monnaie à 30 jours sur l’indice S&P 500. Cet indicateur
+est quelquefois dénommé « l’indice de la peur » car il augmente en période de crise. Il peut atteindre
+des valeurs très élevées en cas de très forte crise, comme en 2008 où il a dépassé le niveau 80.
+
+Des indices de volatilité implicite sont désormais calculés sur de nombreux indices. Ainsi Euronext
+calcule depuis septembre 2007 un indice de volatilité implicite sur le CAC40 (CAC VOLA IDX –
+Mnémo : VCAC).
+
+   •   Repérage des périodes de crise
+
+On a pu noter que le marché et sa volatilité évoluent en sens inverse. La volatilité augmente
+lorsque le marché baisse et peut atteindre des valeurs très élevées en période de crise boursière.
+A l’inverse, la volatilité baisse en période de hausse du marché. La panique est plus puissante que
+l’euphorie….
+Une réduction de la volatilité peut permettre de prévoir une sortie de crise.
+
+                     Evolution de la volatilité 3M de l’EUROSTOXX depuis 2000
+
+Ces évolutions peuvent être repérées aussi bien sur les titres que sur les marchés. Dans ce dernier
+cas, les calculs sont alors effectués sur les indices boursiers dont on peut étudier la volatilité
+historique ou la volatilité implicite.
+
+   D - Le risque observé du placement en actions
+
+Toutes les études qui mettent en évidence la rentabilité du placement en actions mettent également
+l'accent sur le caractère risqué de ce placement.
+
+   •   Le risque au niveau du marché
+
+Les actions apparaissent globalement plus risquées que les obligations. Une façon d’appréhender
+le risque des actions est d’observer l’évolution des grands indices comme celle du CAC 40 depuis sa
+création en 1987.
+
+   •   Le risque systémique et spécifique au niveau des titres
+
+Les spécialistes décomposent le risque total d’un titre, sa volatilité, en deux parties : le risque
+systématique et le risque spécifique.
+1 / Le risque systématique est la part du risque qui est attribuable au marché. Le titre subit les
+variations dans une proportion plus ou moins forte. Le risque doit aussi être appréhendé au niveau
+du secteur, à celui du type d’entreprise et à celui des caractéristiques propres de la société.
+2 / Le risque spécifique est la partie du risque qui peut être expliquée par ces différents facteurs.
+Le tableau suivant, qui donne les volatilités 1 mois, 3 mois, 1 an des actions du CAC 40 calculées en
+février 2015, permet de mettre en évidence de grandes différences de volatilité entre ces actions.
+Sur l’ensemble des trois horizons de calcul :
+
+- certaines valeurs présentent des volatilités généralement très élevées ;
+- d’autres apparaissent beaucoup moins volatiles ;
+- une action peut changer de statut et devenir brusquement volatile : c’est le cas des valeurs du
+secteur financier depuis quelques années ;
+De façon générale, on constate sur le tableau une baisse de la volatilité lorsque l’on va des volatilités
+longues vers les volatilités courtes : les volatilités 3 mois, 6 mois sont plus élevées que la volatilité 1
+an. Ceci pourrait constituer le signe du passage d’une période calme vers une période de turbulences.
+    • L’effet de la durée de détention
+
+La durée de détention conditionne très fortement le risque des placements et en particulier celui des
+actions. Selon l’étude de Laulanié citée plus haut, sur un an, la volatilité des rendements réels des
+actions est de 20% environ. Mais avec la durée du placement plus longue, le risque a tendance à se
+réduire très fortement. La volatilité tombe à 5% environ si l'on conserve les titres au moins 15 ans.
+L'action apparaît ainsi un placement beaucoup sûr à long terme.
+
+ 20%
+
+ 15%
+
+ 10%
+
+    5%
+
+                             Volatilité et durée de détention des placements
+
+La réduction de volatilité avec la durée de détention s’observe également sur les autres actifs mais
+cette réduction est beaucoup plus faible.
+Il apparaît ainsi que les actions doivent être considérées à la fois comme un produit spéculatif,
+susceptible de faire apparaître des gains mais aussi des pertes très importants à court terme, mais
+aussi comme un produit de placement à long terme et dans ce cas il devient beaucoup plus sûr.
+L’horizon de détention apparaît constitué un paramètre essentiel en matière de placement.
+
+Exercice
+Le couple rendement-risque est spécifique ?
+
+a- Aux actions
+b- Aux titres de dette
+c- A chaque instrument financier
+
+Réponse c
+
+Section 5 : Les marchés
+
+   A - Les principaux marchés d’actions
+
+La taille des marchés d’actions peut être mesurée par différents indicateurs : par exemple le nombre
+de valeurs cotées, le nombre de transactions, la valeur de ces transactions ou encore la capitalisation
+boursière. Ce dernier indicateur est le plus souvent utilisé.
+La capitalisation boursière d’une société est obtenue en multipliant son nombre d’actions Ni par son
+cours Ci. La valeur du produit Ni x Ci fournit une appréciation de la valeur attribuée par le marché à
+l’entreprise concernée.
+
+          Exemple : Une entreprise cotée en bourse a émis 100.000.000 d’actions. Le cours de ces
+          actions est à 15 euros. Cette entreprise capitalise 100.000.000 x 15 = 1.500.000.000
+          euros. C’est la valeur que le marché attribue à cette société.
+
+La somme des capitalisations boursières pour l’ensemble des valeurs cotées sur un marché
+particulier donne la capitalisation boursière de la place boursière étudiée.
+
+Si, sur les années récentes, le classement des marchés n’a pas beaucoup évolué en ce qui concerne
+les quatre premiers (New York Stock Exchange, Nasdaq, Tokyo et Londres), il a globalement été
+fortement modifié avec l’augmentation du poids des marchés émergents (Chine, Inde, Brésil, Russie,
+Corée du Sud). Il s’est également modifié à la suite de fusions importantes comme celle réalisée entre
+le NYSE et Euronext ou encore le Nasdaq et l’OMX (Europe du Nord).
+
+Capitalisation boursière mondiale en sept 2024 est estimé à 120 000 Mds $ avec plus de 47000
+titres cotés sur les marchés officiels. La capitalisation boursière est concentrée sur :
+Les Etats-Unis (40%), Chine (9 %), Japon (6%), EURONEXT (4.7%), Paris, Deutshe Bôrse (2.5%)
+Capitalisation française dans le monde est de 2,8% dont 2% pour le CAC 40.
+
+   B - Le marché français des actions
+
+La Bourse de Paris fait partie depuis l’année 2000 d’Euronext qui résulte de la fusion des bourses de
+Paris, d’Amsterdam, de Bruxelles et du Portugal. En 2007 Euronext a fusionné avec le NYSE pour
+former NYSE-Euronext. Entretemps, Euronext avait racheté le LIFFE, le marché à terme de Londres.
+Depuis 2014, après le rachat de NYSE-Euronext par le groupe ICE, Euronext est à nouveau autonome,
+mais n’est plus propriétaire du LIFFE resté dans la sphère d’ICE. Pour augmenter la visibilité des
+entreprises en fonction de leur taille au sein de ses marchés, Euronext a réformé sa cote en 2005.
+Désormais
+
+   -   Le compartiment A pour les capitalisations supérieures à 1 milliard d'euros ;
+   -   Le compartiment B pour les capitalisations comprises entre 150 millions et 1 milliard d'euros ;
+   -   Le compartiment C pour les capitalisations inférieures à 150 millions d'euros.
+
+Deux nouveaux marchés sont également apparus à partir de 1998 : Alternext et le Marché Libre. Le
+Marché Libre a succédé au Hors Côté supprimé en 1998 : c’est un marché géré par Euronext mais non
+réglementé qui permet un accès au marché boursier dans des conditions beaucoup plus simples et
+moins couteuses. Alternext est une plate-forme de transactions créée en 2005 et organisée par
+Euronext à destination des petites et moyennes entreprises et destinée à leur permettre d’accéder
+plus facilement au financement de leurs capitaux propres. Tout au long de leur parcours boursier, les
+sociétés admises aux négociations sont accompagnées par un animateur de marché agréé par
+Euronext.
+
+ (EURONEXT)
+
+Les compartiments actions de NYSE-Euronext-Paris
+Le marché parisien est un marché principalement dirigé par les ordres : pour chaque titre admis à
+la cote, les ordres sont centralisés dans un carnet d’ordres unique afin d’en déterminer le cours. Les
+intermédiaires se bornent à transmettre les ordres de leurs clients : ils ne peuvent assurer la
+contrepartie des ordres. D’autres marchés, dirigés par les prix, sont organisés autour de market
+makers dont la mission est d’assurer une contrepartie en proposant une fourchette de prix (bid : prix
+proposé à l’achat ; ask : prix proposé à la vente).
+
+Une autre particularité du marché parisien est son informatisation totale depuis 1987 avec le système
+CAC (cotation assistée en continu). Selon la nature du titre considéré et son degré de liquidité,
+
+plusieurs modes de cotations sont utilisés : la cotation en continu et la cotation par fixage. Dans le
+cas de la cotation en continu, appliquée sur la plupart des compartiments de la cote, de nombreux
+cours peuvent se succéder pour la même valeur tout au long de la journée boursière, de 9h à 17h 30.
+Dans le cas de la cotation par fixage les cours sont cotés seulement une ou deux fois par jour. Le
+Marché Libre ne connaît ainsi qu’une cotation par fixing à 15h.
+
+   •   La négociation
+
+Depuis 2000, le mode de négociation par défaut est le comptant. Dans ce système, le transfert de
+propriété est immédiat, dès que l'ordre a pu être exécuté. Le règlement et la livraison des titres
+s’effectuent dans un délai de trois jours nécessaire aux opérations de back-office. Ainsi, pour tous
+les compartiments, lorsqu’il passe un ordre, l'acheteur doit disposer des capitaux nécessaires et le
+vendeur doit disposer réellement des titres. Les intervenants ne peuvent pas intervenir à découvert.
+L’opérateur a cependant le choix pour certains titres sélectionnés par le Marché d’opter pour le
+Service à Règlement Différé (SRD). Dans ce cas, l'exécution de l'ordre ne se traduit pas par le
+paiement et la livraison immédiate des titres ; ces derniers ne sont réalisés qu’en fin de mois, le jour
+de liquidation (la 5ème bourse avant la fin du mois). Les opérations en SRD entraînent des frais
+supplémentaires : l’opération se traduit en effet par un emprunt de capitaux ou de titres auprès de
+l’intermédiaire. Il faudra ainsi payer une commission (CRD, Commission de Règlement Différé)
+proportionnelle à la durée de l’opération qui viendra s’additionner aux frais de bourse habituels.
+Le principal intérêt du SRD est de permettre la spéculation à court terme sur les titres. Comme les
+opérations ne sont liquidées qu’en fin de mois, les opérateurs peuvent dénouer leur position avant
+l’échéance : un vendeur peut racheter les actions qu'il a vendues au cours du même mois boursier et
+un acheteur peut revendre les actions qu'il a achetées. Il n'est donc pas nécessaire que le vendeur et
+l'acheteur disposent réellement soit des actions soit des capitaux. Ils peuvent ainsi opérer à
+découvert. Un dépôt de garantie sera cependant exigé, généralement 20% de la somme engagée. Une
+opération en SRD permet de faire apparaître un effet de levier. Un acheteur à découvert va miser sur
+une hausse rapide des cours et un vendeur à découvert, sur une baisse rapide.
+
+   C - L’information sur les marchés
+
+            Les opérateurs peuvent s’informer sur la situation du marché et des valeurs à
+            travers la lecture de la cote officielle publiée sous la responsabilité d'Euronext.
+            Cette cote est reprise et diffusée par différents media. Les cotes les plus
+            complètes sont publiées quotidiennement par Bloomberg, Six Telekurs mais
+            nécessite des budgets importants, La Tribune et par Les Echos fournissent des
+            informations plus limitées. Des sites internet comme Boursorama, Zone bourse,
+            bourier.com etc… diffusent une information importante.
+
+Certaines cotes ne proposent que des informations provenant du marché (cours, volumes de
+transactions, etc…) ; d'autres donnent également des informations de nature comptable (BNPA, Actif
+net par action, …) ou économiques (chiffre d’affaires,) et financières (taux d’endettement,), ainsi que
+des prévisions (résultats et dividendes estimés pour l'année en cours ou l'année suivante).
+
+Dans certains cas, des indicateurs boursiers sont fournis. Parmi les plus connus, on citera :
+
+    - Le PER (Price Earning Ratio = Cours / BNPA), qui donne le nombre d'années de bénéfice
+       capitalisés dans le cours de l'action, et qui fournit un indice de cherté de l'action. Le PER
+       s’obtient en divisant le cours par le BNPA.
+    - Le Rendement boursier (= Dividende / Cours) calculé à partir des dividendes : il donne le
+       rapport entre le niveau du dividende et le cours de l'action. Il donne une idée de la rentabilité
+       d'un investissement sur l'action, mais il ne retient que le dividende comme source de rentabilité.
+       Il faut le distinguer du return vu plus haut.
+    -
+En général, ces indicateurs sont calculés à partir des résultats estimés pour l'année en cours ou
+l'année suivante. Leur utilisation sera développée plus loin dans le chapitre suivant à propos de
+l'évaluation des actions.
+
+Certains sites internet, en particulier celui d’Euronext, mais également différents sites privés
+fournissent de la même façon les cotations, selon le cas en temps réel ou avec un léger différé, de
+même que des informations sur les sociétés. Le carnet d’ordres y est généralement consultable de
+même que les dernières transactions enregistrées.
+
+Le document suivant est la fiche valeur de TOTAL extraite du site Bousorama.com. Elle donne les
+informations suivantes :
+- données caractéristiques de la journée boursière (en haut et à gauche) ;
+- le graphique intraday qui donne l’évolution des cotations au cours de la journée (en haut à droite) ;
+- le carnet d’ordres qui fournit un état de l’offre et de la demande sur le titre (en bas à gauche) ;
+- les dernières transactions réalisées (en bas à droite).
+
+D’autres onglets permettent d’accéder à des graphiques paramétrables et à différents indicateurs
+d’analyse technique ainsi qu’à des actualités et des informations de différentes natures sur la société
+cotée (activité, résultats, secteur, …).
+
+Exemple de fiche valeur : TOTAL (1/11/17 – www.boursorama.com)
+Précisions sur le carnet d’ordre et les ordres de bourse :
+Le carnet d’ordre :
+
+Il permet de visualiser (pour partie) l’état de l’offre et la demande de titres. A gauche, la demande
+(acheteurs), a droit l’offre (vendeurs), la fourchette représente la meilleure offre et demande
+disponible à un moment T.
+
+Ordre au marché :
+L’ordre au marché permet d’acheter ou de vendre une quantité de titres sans condition de prix, donc
+sans aucune maîtrise du cours auquel l’ordre sera exécuté. L’avantage de cet ordre réside dans le fait
+qu’il est prioritaire sur les ordres à cours limité et qu’il privilégie la quantité de titres demandés avec
+une exécution immédiate (en fonction des quantités disponibles sur le marché).
+
+Ordre à cours limite :
+L’ordre à cours limité permet d’acheter ou de vendre une quantité de titres avec une condition de
+prix, donc avec une maîtrise du cours auquel l’ordre sera exécuté. L’avantage de cet ordre réside dans
+le fait qu’il permet de fixer un objectif de cours en fonction de l’évolution du marché. En revanche,
+contrairement à l’ordre au marché, la quantité de titres souhaitée peut être exécutée partiellement.
+
+Ordre a seuil de déclenchement (dit ordre stop) :
+L’ordre à seuil de déclenchement permet d’acheter ou de vendre une quantité de titres à partir d’un
+cours déterminé. Pour un achat, l’exécution s’effectuera à ce cours ou au-dessus de ce cours. Pour
+une vente, l’exécution se fera à ce cours ou en-dessous de ce cours. L’avantage de cet ordre réside
+dans le fait qu’il permet de se protéger contre d’éventuels renversements de tendance. Le seuil une
+fois atteint, l’ordre se transforme en ordre « au marché ». L’ordre à seuil de déclenchement assure
+donc une exécution maximale des titres mais ne permet pas de maîtriser le prix auquel il sera exécuté.
+
+Ordre à plage de déclenchement :
+L’ordre à plage de déclenchement permet d’acheter ou de vendre une quantité de titres à partir d’un
+cours déterminé et une fois que le cours limité fixé au départ est atteint. A l’achat, la limite déterminée
+lors de la saisie de l’ordre fixe le cours maximum à ne pas dépasser et à la vente le cours en deçà
+duquel les titres ne doivent pas être vendus. L’ordre à plage de déclenchement associe donc les
+caractéristiques de l’ordre à cours limité et de l’ordre à seuil de déclenchement.
+
+Section 6 : Les indices boursiers
+
+Un indice boursier a fondamentalement pour objet de repérer la tendance générale d’un marché à
+partir de l'évolution d'un échantillon de valeurs représentatives. Mais les indices n’ont plus aujourd’hui
+
+pour seule vocation l’information ; ils sont devenus des supports de transactions et de façon plus
+générale, des éléments essentiels dans la gestion de portefeuille.
+
+   A - Modes de calcul des indices boursiers
+
+A côté des informations sur les cours et les caractéristiques des différentes valeurs, que l’on peut
+retrouver dans les cotes boursières ou à travers divers systèmes d’information professionnels, les
+opérateurs peuvent prendre connaissance des indices de marché qui permettent de se faire une
+opinion sur l'évolution générale de l'ensemble des cours. Les indices sont calculés de manière à
+repérer l’évolution entre une date donnée, qui constitue la base, et le jour étudié.
+
+Il existe plusieurs procédures de calcul des indices boursiers : il est possible d'utiliser :
+    - La moyenne des cours boursiers
+    - La moyenne des capitalisations boursières
+    - La moyenne des pourcentages de variation des cours.
+
+Calcul selon la moyenne des cours
+
+Dans le cas de la moyenne des cours, l’indice permet d’étudier l'évolution du cours moyen des titres
+qui composent. Les indices les plus anciens, tel le Dow Jones sont calculés selon cette procédure.
+
+   •   Calcul selon la capitalisation boursière
+
+Dans le cas du calcul selon la capitalisation boursière, on étudie l'évolution non plus seulement des
+cours, mais des capitalisations boursières des titres composant l'indice.
+
+L’emploi de cet indicateur permet de tenir compte du poids économique des différentes sociétés.
+Une hausse de cours aura un effet d’autant plus important sur l’indice qu’elle correspond à une action
+à capitalisation boursière élevée. A capitalisation égale, l’effet d’une variation identique sera le même.
+La plupart des indices modernes, tel que le CAC40, sont calculés selon cette méthode
+
+   •   Calcul selon les pourcentages de variation de cours
+
+Dans cette procédure, on calcule la moyenne des pourcentages de variation de cours des différents
+titres qui composent l'indice. Le résultat est alors indépendant aussi bien du niveau du cours que du
+poids des titres.
+On montre que le résultat obtenu donne l'évolution d'un portefeuille dans lequel une somme
+identique aurait été placée sur chacun des titres (voir exemple suivant).
+
+Jusqu’à une date récente, très peu d’indices avaient recours à cette technique. Mais leur utilisation
+à tendance à se développer. Le Value Line, calculé à partir de près de 1.700 valeurs nord-
+américaines, est l’indice le plus connu de cette catégorie. Le nouvel indice CAC 40 Equal Weight en
+fait également partie.
+
+         Exemple : L’indice est calculé à l’aide des moyennes des pourcentages de variations de
+         cours. Les cours de A, B et C ont varié respectivement de +8%, +5% et -4%.
+
+         La moyenne de ces pourcentages donne + 3%. L’indice qui valait 1000 initialement, vaut
+         maintenant 1030. Il a augmenté de 3%.
+
+         Si un investissement de valeur égale, 5.000 euros, a été effectué sur chacun des trois titres,
+         15.000 euros ont globalement été investis. Compte tenu des variations de cours indiquées,
+         la valeur du placement sur A vaut désormais 5.000 x (1+8%) = 5.400 euros. Le placement
+         B vaut 5.250 et le placement C 4.800. Au total, en t, la valeur du placement est maintenant
+         de 15.450 euros, ce qui représente bien 3% de plus qu’au départ.
+
+       calcul de l' indice
+
+                     Action A        Action B         Action C         Moyenne         Valeur Indice
+Cours initial            50             100              300                              1000,0
+Variation cours         8%              5%              -4%              3,00%
+Cours instant t          54             105              288                              1030,0
+
+                                                                       var. indice        3,00%
+
+investissem ent équipondéré
+
+                     Action A        Action B         Action C       Val. placem ent     Variation
+Val investie           5000             5000            5000             15000
+Cours initial            50             100              300
+Variation cours         8%              5%              -4%
+val finale             5400             5250            4800             15450             450
+
+                                                                        variation         3,00%
+Calcul de l’indice à partir des pourcentages de variation de cours
+
+   B - Les principaux indices du marché français
+
+   •   Les indices généraux sur NYSE-Euronext-Paris
+
+CAC 40 : 40 plus fortes capitalisations d’Euronext Paris.
+CAC next 20 : 20 premières capitalisations flottantes après CAC 40
+SBF 80 : 80 plus fortes capitalisations après CAC 40
+SBF 120 : CAC 40 + SBF 80
+SBF 250 : CAC 40 + SBF 80 + 130 valeurs suivantes
+CAC small90 : 90 capitalisations les plus faibles du SBF 250
+CAC allshares : Indice regroupant toutes les valeurs cotées sur EURONEXT PARIS (dont le taux de
+rotation annuelle est > 5%)
+
+    • L’indice CAC 40
+Composition
+L'indice CAC40 est calculé à partir d'un échantillon de 40 valeurs cotées sur le marché français. Ces
+valeurs sont sélectionnées par un Conseil Scientifique qui se réunit quatre fois par an en fonction de
+
+critères de taille (les valeurs appartiennent aux premières capitalisations boursières) mais
+également de liquidité.
+Le tableau suivant reproduit les principales caractéristiques des actions constituant l’indice en février
+2015. Les nombres d’actions sont donnés en millions de titres et les capitalisations en millions d’euros.
+La capitalisation retenue dans le calcul de l’indice pour un titre est la capitalisation totale de ce titre
+pondérée par le facteur de flottant (free float factor) et par le facteur de cappage (capping factor).
+Le poids d’une société dans l’indice est calculé à partir de la capitalisation retenue.
+
+Composition de l’indice CAC40 (1 septembre 2020)
+
+Composition au 31 Décembre 2024
+
+Les valeurs du CAC40 représentent environ 70% de la capitalisation boursière totale à Paris, mais
+surtout la plus grande partie de l'activité sur les actions françaises.
+
+La composition de l’indice est modifiée périodiquement : En 2024 Alsthom a été remplacé par
+Accor et Vivendi par Bureau Véritas. . Sur les quarante valeurs de l’indice, seules 16 figuraient dans sa
+composition initiale le 31 décembre 1987.
+
+L’entrée dans l'indice constitue un élément généralement positif pour une valeur. Des études ont
+montré que cette entrée donnait une légère prime à la valeur le jour de l'introduction. Inversement, la
+sortie de l'indice est souvent sanctionnée par une perte.
+
+Variantes de l’indice CAC 40
+
+Le CAC 40 tel qu’il est généralement publié ne prend pas en compte les dividendes distribués : il
+s’agit de ce que l’on appelle un indice de prix ou encore un indice « nu ». Cet indice sous-évalue
+donc l’évolution réelle de la performance du marché. Le porteur des actions encaisse chaque année
+des dividendes qui ne sont pas intégrés dans le calcul de l’indice. A côté de l’indice nu, Euronext
+publie également un indice de rentabilité totale (CAC40 GR - Isin : QS0011131834) qui tient compte
+
+des dividendes réinvestis. Cet indice se situe évidemment à un niveau beaucoup plus élevé que le
+CAC 40 puisqu’il comprend les dividendes accumulés et réinvestis depuis le 31 décembre 1987. Ainsi,
+le 27 février 2015, alors que le CAC 40 est au niveau 4.951, l’indice CAC 40 GR, avec dividendes
+réinvestis, se situe à 11.416 points, c’est-à-dire 2,3 fois l’indice de prix.
+
+Parmi les autres variantes du CAC 40, on citera :
+- Le CAC 40 Equal Weight (Isin QS0011159777) : même composition que le CAC 40, mais avec une
+   pondération de 2,5% pour chaque valeur. Les pondérations sont réajustées tous les trimestres.
+   Base 1.000 au 31/12/2008.
+- Le CAC 40 Dividend Index (Isin QS0011158118) : mesure la valeur cumulée des dividendes
+   distribués par les sociétés du CAC 40. L’indice est remis à zéro le 3 ème vendredi du mois de
+   décembre de chaque année.
+- Le CAC 40 Leverage (Isin : QS0011095815) : amplifie d’un facteur 2 les évolutions du CAC 40.
+   Base 1.000 le 31/12/2002
+- Le CAC 40 XBear (Isin : QS0011095856) : amplifie d’un facteur -2 les évolutions du CAC 40 Base
+   1.000 le 31/12/2002
+
+   C - Les principaux indices boursiers au niveau mondial
+
+   •    Indices de places boursières
+
+   1.   En ce qui concerne les Etats-Unis, on trouve de nombreux indices.
+
+Le plus ancien est le DOW JONES qui existe sous différentes versions. La version plus connue est le
+DJIA (Dow Jones Industrial Average) calculée depuis 1884 et publiée depuis mai 1896. A cette date le
+DJIA comportait 12 valeurs. Ce nombre est passé à 20 (1916) puis à 30 valeurs industrielles (1928).
+C'est un indice dit pondéré par les cours. De composition traditionnelle, le DJIA a intégré très
+progressivement des valeurs de la nouvelle économie telles que MICROSOFT ou INTEL. La plupart
+des valeurs de l’indice sont cotées sur le NYSE ; quelques-unes le sont sur le Nasdaq.
+A noter que le Dow Jones valait lors de sa première journée de publication 40,94; il a atteint 100
+points en 1906 et 1.000 en 1972. Il se situe actuellement (sept 2020) au-dessus de 28.000 points
+après avoir dépassé 14.000 en 2007 et touché un plus bas à 6.547 points en 2008.
+Les indices STANDARD et POOR’S 100 (S&P100) et STANDARD et POOR’S 500 (S&P500) sont des
+indices de capitalisation portant respectivement sur 100 et sur 500 valeurs. Le S&P500 est l’indice
+américain le plus utilisé. Il se situe actuellement aux environs de 3.400 points (sept 2020). Un autre
+indice très suivi est le NASDAQ 100 qui comporte 100 valeurs cotées sur le NASDAQ (10 400 points).
+Les valorisations sont disponibles gratuitement sur les sites internet(investing.com par exemple)
+
+2. En Europe : on notera plus particulièrement les indices suivants : le FT-SE 100 et le FT-SE All Share
+à Londres, le DAX calculé à partir de 30 valeurs à Francfort. Chaque marché boursier a son indice de
+référence : l’IBEX35 à Madrid, le MIB30 à Milan, l’AEX25 à Amsterdam, le BEL20 à Bruxelles, l’OMX30 à
+Stockholm, le SMI en Suisse.
+3. Dans la zone Asie-Pacifique : le NIKKEI 225 est une moyenne des cours de 225 actions. Passé par
+un maximum de 38.900 points en 1989, il se situe depuis à des niveaux très faibles. Avec sa remontée
+récente, il vaut actuellement 22.500 points environ (oct 2019). Le TOPIX est un indice de
+capitalisation de toutes les valeurs de la 1ère section du marché de Tokyo. Le Hang Seng, est l’indice
+de la bourse de Hong-Kong, le Kospi celui de la bourse de Séoul et l’ASX, celui de la bourse
+australienne.
+
+          II-     Indices de zones géographiques
+
+1. Les Indices de la zone Europe sont des indices qui visent à couvrir tout ou partie de la zone Europe,
+avec entre autres : les indices Eurofirst 80 (valeurs zone euro) et Eurofirst 100 (valeurs zone Euro +
+GB).
+La société STOXX propose des indices européens publiés à partir de février 1998 en collaboration
+avec la Bourse de Francfort : le STOXX 600 (600 valeurs européennes), le STOXX 50 (50 valeurs
+européennes aux plus fortes capitalisations), l’Euro STOXX (300 valeurs environ des pays de la zone
+Euro) et l’Euro STOXX 50 (50 valeurs aux plus fortes capitalisations de cette même zone).
+L’indice Euro STOXX 50 est le plus utilisé des indices européens. Il se situe actuellement aux alentours
+de 3.700 points. Sa composition est donnée dans le tableau de la page suivante.
+
+2. On trouve également des indices de diverses zones géographiques ou ensemble de pays: EAFE
+(Europe, Australie, Far East), Asie, Amérique du Sud, BRIC (Brésil, Russie, Inde, Chine)…
+
+3. Les Indices Monde couvrent l'ensemble des marchés, comme
+- le MSCI All Country World Index (MSCI AC WI) porte sur 44 pays développés et émergents.
+- Le MSCI World Index porte sur environ 1600 sociétés de 23 marchés des pays développés
+- le MSCI Emerging Markets avec des sociétés de 21 pays émergents
+- le DJ Global Titans est composé de 50 grandes valeurs mondiales.
+
+           III-   Autres types d’indices
+A côté des indices de marché et de zones géographiques, on trouve de nombreuses autres catégories
+d’indices :
+- Des indices sectoriels,
+- Des indices de modes de gestion ou de stratégie : tels que les indices value et indices growth.
+- Des indices de tailles d’entreprises (indices small caps ou encore mid caps)
+- Des indices reproduisant des montages complexes assimilables à des produits structurés
+    (indices buy-write par exemple ou encore avec effet de levier ou avec vente à découvert comme
+    les indices Leverage ou short)
+
+La confection et la gestion de ces indices fait l'objet d'une véritable industrie et constitue une partie
+de l'activité de grandes sociétés comme Dow Jones, MSCI ou Standard and Poor’s.
+
+    D - L’utilisation des indices boursiers
+
+        1. Les principales utilisations
+
+Le calcul des indices avait a pour objet initial de repérer la tendance du marché. Mais au cours du
+temps d’autres types d’utilisations sont apparues.
+
+-   Les indices peuvent servir d’index à différents produits financiers. Par exemple, certaines
+    obligations sont indexées sur indice.
+-   Les indices servent également servent de référence aux gérants de portefeuille pour évaluer et
+    orienter leur gestion. De plus en plus de produits de gestion collective se donnent des
+    benchmarks sous formes d’indices.
+-   Les indices sont le matériau de base de la gestion indicielle. Dans la mesure où il a été démontré
+    qu’il est difficile voire impossible de battre l’indice, une solution pour les gérants consiste à
+    dupliquer l’indice. La gestion alors pour objet de reproduire simplement l’évolution de l’indice. La
+    gestion peut être qualifiée de pure ou synthétique, c’est-à-dire obtenue avec des produits
+    substituts. La gestion indicielle donne sur le long terme de bons résultats.
+
+-   Les indices sont devenus des produits sur lequel il est possible de faire directement des
+    transactions. En effet, ils servent de support à un grand nombre de produits dérivés, OPCVM,
+    contrats à terme, options, warrants, certificats et CFD. Le gestionnaire peut ainsi acheter et vendre
+    de l’indice sans même opérer de transactions sur les actions le composant.
+-   Ce phénomène s’est fortement développé depuis quelques années avec les trackers (ETF), qui
+    sont en France des FCP reproduisant l’évolution d’un indice.
+-
+Les trackers
+Les Exchange Traded Funds (ETF) ou encore trackers constituent, en France, un des produits les plus
+récents dans le domaine de la gestion indicielle. Les trackers ont été introduits pour la première fois
+en 1989 au Canada sur le Toronto Stock Exchange, puis aux Etats-Unis sur l’AMEX en 1993, avec le
+SPDR 500 ou « Spider » qui reproduit l’évolution de l’indice S&P500. Ils se sont largement développés
+depuis. Ils ont été introduits en Europe début 2001.
+Définition et caractéristiques
+
+Les trackers sont des produits de gestion collective qui qui reproduisent les évolutions d'un indice
+boursier. Les trackers ont la forme juridique d'un OPCVM, mais ils s'en distinguent dans la mesure où
+ils sont cotés en bourse en continu, comme une action. Ils bénéficient d’un carnet d’ordres comme
+les actions ordinaires. Ils peuvent donc s’acheter et se vendre de façon simple et rapide. Les trackers
+conjuguent les avantages des fonds indiciels et des actions.
+
+Les trackers offrent de nombreux avantages par rapport aux produits indiciels traditionnels.
+
+-   Ils ne subissent pas de frais d’entrée : ils ne supportent que les frais de négociation en bourse, les
+    mêmes que les actions. Les frais de gestion sont plus faibles que ceux d’un OPCVM. Enfin, ils ne
+    sont pas assujettis à la taxe sur les transactions financières.
+-   En France, ils sont éventuellement admissibles au SRD long, c’est-à-dire que l’on peut les acheter
+    à découvert. Par contre on ne peut les vendre à découvert.
+-   Ils versent le plus souvent des dividendes,
+-   Ils sont éventuellement admis au PEA, même, ce qui peut paraitre étonnant, pour certains trackers
+    reproduisant l’évolution d’indices de marchés extra-européens.
+
+Utilisations
+Les trackers sont des produits de gestion indicielle diversifiée. Il en sera à nouveau question dans
+le chapitre sur la gestion de portefeuille dont ils constituent désormais un élément essentiel.
+L'utilisation des trackers permet en effet de constituer de façon aisée un portefeuille diversifié le long
+de différents axes, à la fois sur le plan géographique, sectoriel, par taille d'entreprises ou même en
+fonction de styles de gestion variés. Elle permet également de se couvrir contre des variations
+défavorables de cours (ETF short ou bear)
+Les trackers permettent de reproduire des stratégies souvent difficilement accessibles aux non-
+professionnels comme la vente à découvert ou l’achat avec effet de levier ; certains intègrent même
+dans leur fonctionnement un certain niveau de protection du capital (cas des trackers flexibles).
+
+Les trackers dits leverage proposent un effet de levier +2 par rapport à la performance de l’indice-
+support. Les trackers dits short ou double short présentent au contraire la particularité d’évoluer
+de façon inverse par rapport à leur indice-support avec un effet de levier –2 dans le second cas. Ce
+sont alors évidemment des produits à manipuler avec précaution quand ils sont employés dans un
+but purement spéculatif. A noter qu’un tracker double short peut être un produit de spéculation à la
+baisse, mais aussi un instrument de couverture de portefeuille. Comme il progresse quand le marché
+baisse, ses gains peuvent compenser les pertes du portefeuille. A titre d’exemple, on citera les
+trackers suivants : AMUNDI ETF LEV CAC (Isin FR0010756064 ; Mnemo : CL4) et LYXOR ETF BX4 (Isin
+
+FR0010411884 ; Mnemo : BX4) qui présentent des effets de levier respectivement de +2 et -2 et qui
+sont admissibles au PEA tous les deux.
+
+        Exemple : Le LYXOR ETF BX4 présente la particularité d’évoluer de façon inverse au marché
+        avec un effet de levier –2 : ce tracker varie donc de + 10% si le marché perd - 5%. Par
+        exemple, le CAC40 se situe à 4.000 points et le BX4 cote 17. Quelques jours plus tard, le
+        CAC est au niveau 3.800 : il a baissé de 5%. Au même moment, le BX4 va coter 18,70 : il a
+        progressé de 10%.
+        Un gérant de portefeuille qui détient un portefeuille indiciel de 100.000 euros peut le couvrir
+        contre une baisse du marché en achetant pour 50.000 euros de BX4. La baisse du marché
+        de 5% occasionne une perte de 5.000 euros sur son portefeuille. Comme le BX4 progresse
+        de 10%, il enregistre sur ce produit un gain de 5.000 euros qui compense la perte du
+        portefeuille.
+
+         A l’inverse de la plupart des instruments de couverture, tels que les contrats à terme ou les
+options, le BX4 est admissible au PEA : les gains qu’il dégage dans cette enveloppe ne sont donc pas
+fiscalisés, au contraire de ce qui se produirait avec une couverture par contrats à terme ou par
+options.
+
+Diversité des trackers
+Le nombre de trakers disponibles s’est fortement développé, surtout depuis 2007. En octobre 2014,
+621 trackers étaient cotés sur Euronext dont 445 sur Euronext-Paris. Ils reproduisent environ plusieurs
+centaines d’indices différents.
+Les principaux émetteurs sont Lyxor (60%), iShares (émis par BlackRock) et Amundi : ces trois
+émetteurs couvrent environ 90% du marché. Les deux supports les plus utilisés sont l’Euro Stoxx 50
+et le CAC40.
+On trouve des trackers portant sur divers types de supports indiciels : principalement les actions,
+mais aussi les obligations, les matières premières et l’immobilier. Ils peuvent relever de différentes
+catégories : soit reproduire un indice classique soit reproduire la mise en œuvre d’une stratégie.
+Euronext a adopté récemment une nouvelle classification pour les trackers : ceux-ci vont relever
+d’une des cinq catégories suivantes :
+- Actions : il s’agit de produits répliquant des indices actions de différentes natures ;
+- Obligations : produits répliquant des indices obligataires ;
+- Devises : produits reproduisant la performance monétaire d’une devise ;
+- Matières premières : produits reproduisant la performance de paniers de matières premières ;
+- ETF actifs : produits reproduisant une gestion active (avec effet de levier, vente à découvert ou
+    encore protection partielle du capital)
+
+Il faut citer également des trackers reproduisant l’évolution d’indices de volatilité, par exemple
+l’évolution du VIX. Avec ces produits il est possible de spéculer sur l’évolution de la volatilité, mais
+aussi de contribuer à la couverture de portefeuille. Quand un marché baisse sa volatilité augmente.
+L’achat de trackers sur la volatilité avant une baisse du marché peut permettre, par les gains dégagés
+sur les trackers de compenser les pertes sur le portefeuille.
+Les trackers sont des produits négociés au comptant et non à terme. On ne confondra donc pas
+les ETF avec les warrants ou les CFD qui sont des instruments à terme. Les warrants sont des produits
+« optionnels » beaucoup plus volatils et risqués que les ETF ; les CFD relèvent plutôt de la catégorie
+des contrats à terme et comportent également beaucoup de risques. Les ETF qui se bornent à
+dupliquer un indice sont moins risqués que ces produits. Mis à part le cas des ETF actifs, les trackers
+ne produisent pas d'effet de levier.
+
+Section 7 : L’évaluation des actions
+
+   A - L'évaluation à partir du Price to Book ratio
+
+     A. Définitions
+
+Le Price to Book Ratio (souvent noté P/B ratio) est le rapport entre le cours de l’action et l’Actif
+net comptable par action noté ANC.
+
+          Cours
+P/B =
+        ANC / action
+L’Actif net comptable par action est lui-même égal à l’actif net rapporté au nombre d’actions.
+                  Actif Net
+ANC / action =
+                 Nb actions
+
+Une utilisation sommaire ce ratio permet de dire que plus le P/B ratio est élevé et plus la société doit
+être considérée comme chère et sur évaluée.
+
+Exemple : Une société présente un actif net comptable de 80.000.000 euros. Elle a émis 1.000.000
+d’actions. Son actif net comptable par action est donc évalué à 80 euros. Si l’action est cotée 120
+euros sur le marché, elle est plus chère que sa valeur nette comptable : le P/B ratio s’élève à 120 / 80
+= 1,5. L’action est cotée 50% plus cher que sa valeur nette comptable.
+
+L’utilisation du P/B ratio pour évaluer une entreprise présente une certaine logique : une action est un
+titre de propriété et représente une part du capital d'une société. Être actionnaire c'est être
+copropriétaire d'une entreprise en proportion de la part de capital que l'on possède. Dans ces
+conditions, l'action représente une fraction de la valeur du patrimoine de l'entreprise.
+
+Avec ce raisonnement, on pourrait ainsi penser que le P/B ratio devrait être logiquement égal à 1 :
+      - Un cours en bourse supérieur à la valeur comptable (P/B >1) signifierait que l'action est
+         surévaluée ;
+      - Cours en bourse inférieur à la valeur comptable (P/B<1) voudrait dire que l’action est
+         décotée.
+
+En fait il apparaît qu’en période normale, le P/B ratio des actions est rarement égal à un : il est
+généralement très supérieur à 1 pour la plupart des entreprises et sur la plupart des marchés, même
+en dehors des périodes de bulles spéculatives. A partir de l’étude de l’évolution historique des P/B
+ratios, on peut considérer que pour les valeurs françaises et européennes, la valeur normale du P/B
+ratio se situe plutôt aux alentours de 2, hors période de crise. La crise qui a frappé les marchés depuis
+2008 a ramené pendant plusieurs années les P/B ratios aux environs de 1.
+
+Le fait que le P/B ratio soit supérieur à 1 paraît être une anomalie. Une première justification réside
+dans la difficulté de calculer de façon satisfaisante l’actif net comptable par action. D’autre part, dans
+l’évaluation du P/B ratio, il est nécessaire de faire intervenir la rentabilité des capitaux propres.
+
+     B. Evaluation du P/B ratio
+
+Le problème de l’évaluation de l’actif net comptable
+Le calcul du P/B ratio demande d’évaluer la différence entre l'actif et les dettes. La différence
+constitue l'actif net qui peut donner une première image de la valeur de l'entreprise. Cette valeur est
+
+quelquefois appelée book value ou encore valeur à la casse de l'entreprise, puisque chaque élément
+d'actif est évalué indépendamment des autres.
+Une fois rapportée au nombre d’actions, on obtient l’Actif Net Comptable (ANC) par action.
+
+Cette valeur mathématique doit le plus souvent être retraitée pour donner la véritable valeur de
+l'entreprise. Différents éléments interviennent pour provoquer des écarts entre la valeur
+mathématique de l'entreprise et sa véritable réelle :
+- Certains actifs sont calculés à partir de leur valeur d'acquisition moins les amortissements. Cette
+    valeur résiduelle ne donne pas nécessairement une bonne image de la valeur économique de
+    l’actif. Ce qui compte pour un actif c'est sa capacité à générer des résultats. Il faut noter
+    cependant l’apport des nouvelles normes comptables internationales (IFRS) qui mettent l’accent
+    sur la valeur de remplacement des actifs et non sur leur prix d’acquisition.
+
+- D’autre part, une entreprise n'est pas une simple juxtaposition d'actifs indépendants les uns des
+   autres. La synergie entre les différents actifs est source de valeur. Il n'y a que dans le cas des
+   sociétés de portefeuille ou des sociétés immobilières que cette notion d'actif net peut
+   éventuellement avoir un sens : la valeur de l'entreprise est alors davantage fondée sur la valeur de
+   ses actifs que sur sa capacité à les faire fonctionner ensemble.
+
+- La valeur de l'entreprise existe aussi à travers certains éléments difficilement quantifiables, les
+   actifs intangibles mais n'en procurant pas moins certains avantages : par exemple, la qualité de la
+   gestion ou un forte capacité d’innovation.
+
+Le décalage entre la valeur de marché et la valeur comptable est en définitive tout-à-fait naturel. Le
+goodwill est une mesure de cet écart.
+Evaluation du Price to Book et rentabilité des capitaux propres
+On pourrait trouver une justification supplémentaire à des P/B ratios élevés dans la rentabilité des
+capitaux propres de l’entreprise (ROE1).
+
+Il apparaît, en effet, que le P/B ratio est lié positivement au ROE et donc à la rentabilité de l’entreprise.
+A l’aide de calculs qui ne seront pas exposés ici, il est possible de montrer qu’un ratio de 1 est associé
+à la situation où le ROE est égal au taux de rendement exigé par le marché. Si le taux de rendement
+des capitaux propres anticipé est supérieur au taux de rendement exigé, le Price to Book ratio doit
+logiquement être supérieur à 1.
+Exemple : Pour un taux de distribution de 50%, et un taux de rendement exigé par le marché de 10%,
+un ROE de 15% fait apparaître théoriquement un P/B de 3 qui ne serait pas le signal d’une
+surévaluation et que l’on pourrait considérer comme normal bien que largement supérieur à 1.
+Avec un ROE de 10% et donc égal au taux de rendement exigé, les autres données étant inchangées,
+le Price to Book tombe à 1
+
+Valeurs observées du Price to Book ratio
+Le graphique suivant donne les P/B ratios du CAC 40 de 1997 à 2014. Il fournit également la valeur
+estimée pour 2015. Comme on le voit sur ce graphique, le P/B ratio du marché français a
+pratiquement toujours été supérieur à 1 depuis 1997. Sur la période 2002-2007 que l’on peut
+qualifier de normale, le P/B ratio affiche une valeur d’environ 2.
+
+Des valeurs très élevées ont pu être enregistrées à la fin des années 90 avec la bulle spéculative sur
+les valeurs TMT2. A partir de 2008, on constate les effets de la crise, avec, à la suite des chutes de
+cours, des P/B ratios beaucoup plus faibles que les années précédentes avec des points bas aux
+
+1 ROE= return on equity, égal au rapport entre le bénéfice de l’entreprise et les capitaux propres comptables.
+2 Valeurs TMT = valeurs des secteurs technologie, media, télécommunications
+
+alentours de 1 entre 2008 et 2011. Avec 1,4 pour 2013 et 1,6 pour 2014, et la valeur anticipée à 1,5 pour
+2015 les chiffres se rapprochent de la norme, mais restent encore faibles, malgré la hausse des cours.
+
+                           Evolution des P/B ratios du CAC 40 (sept 2022)
+Des évolutions similaires se manifestent sur les autres marchés internationaux. A noter cependant
+des valeurs beaucoup plus fortes du P/B ratio sur le Nasdaq où il dépasse le plus souvent le niveau 3,
+en particulier lors de la bulle spéculative de la fin des années 90 où se sont affichées des valeurs
+encore plus élevées.
+
+   B - L’évaluation à partir du rendement boursier
+
+     C. Définitions
+
+Le rendement du dividende ou rendement boursier est le rapport entre le dividende distribué et le
+cours de l’action.
+      𝐷𝑡
+𝑅=
+    𝐶𝑜𝑢𝑟𝑠
+
+Exemple : L’action est cotée 50 euros. La société distribue un dividende de 2 euros. Ceci
+correspond à un rendement de 2/50 = 4%
+
+Le dividende joue un rôle central dans certaines méthodes d’évaluation des actions, comme, par
+exemple, dans la méthode actuarielle évoquée dans la section suivante. Ici, on présente une façon
+simple d’appréhender le dividende sans l’intégrer dans un modèle compliqué.
+
+     D. Utilisation du Rendement Boursier
+
+Le rendement du dividende est un des critères à retenir dans l'analyse d'un titre. Il peut paraitre
+logique d’associer la valeur de l’action à celle des dividendes qu’elle distribue. La valeur d’un actif
+dépend des flux de revenus que l’on peut en retirer. Certaines recherches ont d’ailleurs pu montrer
+une bonne corrélation à long terme entre le rendement boursier et la rentabilité du titre.
+
+Le rendement offert par le titre d'une société financièrement saine, distribuant régulièrement une part
+raisonnable de son bénéfice peut être comparée à celui d’un placement obligataire. Une telle action
+pourrait être assimilée, évidemment avec beaucoup de précautions, à une sorte d’obligation
+
+D’autre part, le rendement constitue un parachute à la baisse des cours en cas de crise boursière.
+Une action à rendement élevé aura généralement un cours moins sensible à une baisse du marché :
+toute baisse du cours entraîne une hausse du rendement et provoque des arbitrages en sa faveur.
+C’est pourquoi, les valeurs de rendement sont fortement recherchées en période d'incertitude
+boursière. C'est ce qui a été le cas entre 2002 et 2004 ou encore en 2008. Périodiquement, les media
+financiers publient des listes de valeurs de rendement et plus particulièrement en période de
+difficultés boursières.
+
+     E. Limites du rendement boursier
+
+Par construction, le rendement boursier n'intègre que les dividendes distribués. Une partie importante
+des bénéfices de l'entreprise est mise en réserve et sert à l'autofinancement. Cette partie du bénéfice
+n'est cependant pas perdue pour l'actionnaire qui la retrouve dans des perspectives de plus-values
+à long terme.
+
+On ne peut, d’autre part, utiliser sans précautions le rendement boursier en l’assimilant au rendement
+associé au coupon d’une obligation, alors que le mécanisme est très différent.
+
+Ensuite, le rendement du dividende ne tient pas compte des perspectives de croissance de
+l’entreprise. Certaines valeurs demeurent durablement avec des taux de rendement boursier très
+faibles, alors qu’elles enregistrent des augmentations de cours. Ce sont les perspectives de
+croissance élevées de l’entreprise qui vont justifier ces augmentations.
+
+Enfin, un niveau de dividende élevé associé à un taux de distribution élevé est pénalisant pour la
+croissance soutenable de l’entreprise, puisque moins de capitaux sont conservés pour
+l’investissement. Plus le taux de distribution est fort et moins la société sera en mesure de dégager
+des moyens de financement endogène et de la croissance soutenable.
+
+A noter qu’il convient de tenir compte des dividendes anticipés plutôt que des dividendes déjà
+effectivement distribués. Une société peut afficher ponctuellement un rendement boursier élevé par
+rapport à son dernier dividende à la suite d’une baisse du cours. Le rendement boursier élevé
+correspond alors à des prévisions pessimistes du marché concernant le titre considéré.
+
+     F. Valeurs observées du Rendement boursier du marché
+
+Comme on le voit sur le graphique suivant, les rendements des actions ont fortement fluctué sur la
+période 1997- 2014.
+
+Sur le marché français, le chiffre normal de rendement boursier semble se situer entre 2,5% et 3%,
+valeur obtenue sur la période 2002-2007. Les valeurs aux alentours de 1% pour 1999 comme celles
+de 4 % ou plus pour la période 2008-2012 sont anormales. Ces derniers chiffres étaient dus en grande
+partie à la sous-évaluation du marché. La valeur du rendement 2014 est proche de la norme avec
+2,95%, comme celui pour 2015 (3,17%), nous restons sur des niveaux comparables en 2019 mais les
+rendements chuteront pour 2020 suite à la rétention des dividendes.
+
+Les rendements européens et américains ont suivi approximativement la même évolution, les
+rendements américains se situant toujours au-dessous de ce qui est constaté en Europe, et plus
+
+particulièrement pour le Nasdaq qui affiche le plus souvent des rendements très faibles longtemps
+restés inférieurs à 1%.
+
+    C - L’évaluation à partir du Price Earning Ratio
+
+        G. Définition
+
+Le PER (Price Earning Ratio noté quelquefois P/E) est le rapport entre le cours et le bénéfice par
+action, ou encore le rapport entre la capitalisation boursière de l’entreprise et son bénéfice net.
+
+PER = COURS / BNPA ou encore PER = Capitalisation Boursière / Bénéfice Net
+
+Le PER est un indicateur fréquemment fourni par les publications financières. Il est très utilisé par les
+professionnels. Il montre combien de fois le BNPA est contenu dans le cours. On parle d’ailleurs du
+multiple de capitalisation du bénéfice. Exprimé de façon un peu simpliste, le P/E donne le nombre
+d'années de bénéfice qui permettrait de rembourser l'investissement consenti. C'est une sorte de
+seuil de rentabilité dans le temps.
+
+-   Un PER faible correspond à une action jugée bon marché, puisque son bénéfice la « rembourse »
+    très vite ;
+-   Un PER élevé correspond au contraire à une action chère qui met beaucoup de temps à se
+    rembourser.
+
+Exemple : L’action est cotée 120 euros. La société dégage un bénéfice net par action de 10 euros. Le
+PER de cette société s’élève donc à 120 / 10 = 12.
+La société capitalise 12 fois ses bénéfices. On pourrait considérer qu’il faudrait 12 années de
+bénéfices identiques pour rembourser l’investissement consenti si l’on achetait l’action aujourd’hui.
+Ce calcul est évidemment très simpliste, puisque le bénéfice annuel n’est évidemment pas destiné
+à rester identique pendant 12 ans.
+
+        H. Les limites du PER
+
+L'intérêt du PER est permettre des comparaisons rapides entre diverses actions sur le marché. Mais
+le calcul et l’interprétation du PER ne sont pas exempts de tout problème.
+
+Questions liées à la détermination du bénéfice :
+  - Les amortissements sont effectués sur des bases fiscales et non économiques. Pour éviter ce
+      problème, on propose quelquefois de calculer le PER à partir des cash-flows et non des
+      bénéfices nets.
+
+    -    Le bénéfice net comporte éventuellement des éléments exceptionnels. Le bénéfice à retenir
+         devrait correspondre à un bénéfice potentiellement récurrent.
+    -    Les comparaisons internationales des PER peuvent ne pas voir beaucoup de signification, dans
+         la mesure où les systèmes fiscaux sont différents.
+
+Enfin, il faut tenir compte des pratiques comptables des entreprises qui les conduisent parfois à
+"habiller" leurs comptes pour les rendre plus présentables. Ces pratiques de "comptabilité créative"
+peuvent par exemple amener à provisionner plus largement des pertes futures et donc à faire
+apparaître des rentabilités artificiellement réduites.
+Problèmes quant au mode de calcul du PER :
+    - Pour que l'on puisse calculer un PER il faut que l'entreprise soit en mesure de publier des
+         bénéfices. Quand il y a des pertes, on ne peut déterminer un PER. Or, une entreprise peut très
+
+        bien publier des pertes pendant une certaine période et détenir cependant un potentiel de
+        croissance.
+
+   -    Si le PER est calculé à partir du dernier bénéfice connu, l'intérêt pour la décision est très limité
+        car cela concerne le bénéfice passé ; le calcul doit être réalisé à partir du bénéfice prévu,
+        même susceptible de rectifications.
+
+   -    Le PER devrait être calculé à partir d'un cours moyen sur une fenêtre de temps et non sur un
+        cours ponctuel qui peut être très variable. Il faudrait pondérer les cours de la période retenue
+        par les volumes des transactions.
+
+   -    Le PER est une notion statique qui n'intègre pas les potentialités de l'entreprise ni les
+        anticipations des opérateurs. Si un investisseur est prêt à payer une valeur forte par rapport
+        au bénéfice, c'est probablement parce qu'il anticipe une croissance de ce bénéfice au cours
+        des années futures.
+
+       I. L'utilisation du PER
+
+Le PER est un premier indicateur utilisable pour trier rapidement des valeurs appartenant à un marché
+donné à partir de leur degré de cherté. Il peut aussi être utilisé de façon indirecte dans différentes
+analyses.
+
+Analyses comparatives et calcul du cours théorique
+L'intérêt du PER est de permettre des comparaisons rapides entre les diverses actions présentes sur
+le marché ou au cours du temps pour la même entreprise. Si l'on compare une entreprise à son
+secteur, on partira du principe qu'elle devrait afficher un PER approximativement voisin sauf si elle
+présente des caractéristiques spécifiques Si une entreprise a un PER plus faible que celui de son
+secteur, elle apparaîtra sous-évaluée, sinon elle apparaitra surévaluée.
+
+On peut ainsi calculer le cours théorique à partir de cette comparaison avec le PER sectoriel.
+Exemple : Le PER du secteur est à 15 et celui de la société étudiée est à 13. Compte tenu du PER du
+secteur, la société semble sous-évaluée. Avec un BNPA de 4, le cours théorique devrait s'établir
+« normalement » à 15 x 4 = 60 euros.
+On peut également partir de l'idée qu'une entreprise doit retrouver son PER de long terme. Si une
+entreprise a un PER inférieur à son PER de longue période, on estimera qu'elle est sous-évaluée. On
+peut également calculer un cours théorique à l’aide de cette comparaison.
+
+Exemple : Par exemple, le PER moyen « historique » sur longue période de la société se situe à 12. Le
+PER actuel est à 14. La société semble surévaluée. Si on anticipe un BNPA de 3, le cours théorique
+s'établit à 12 x 3 = 36.
+Utilisation indirecte et taux de croissance implicite du bénéfice
+Le PER peut également être utilisé de façon indirecte : son évaluation permet de calculer, par exemple,
+quel est le supplément de taux de croissance du BNPA implicitement pris en compte par le marché
+pour une action donnée.
+Exemple : Supposons que P/E d’une société se situe à 20, alors que celui du secteur auquel
+appartient cette entreprise se situe à 15. La différence entre ces deux PER pourrait provenir d’une
+perspective de croissance plus rapide de la société étudiée. Il est possible d’évaluer le taux de
+croissance g supplémentaire attendu par le marché.
+Si le BNPA de la société augmente d’un taux de croissance g, son PER devient 20/(1+g). Si cette valeur
+atteint 15, on peut considérer que le cours actuel est correct. Dans ce cas particulier, il faudrait que
+20 = 15 + 15 g ou encore que 5 = 15 g. Il faudrait une croissance additionnelle, au-delà de celle du
+marché, de 33% du bénéfice de la société étudiée pour que le cours soit justifié. La question qui se
+pose alors est de savoir si cette croissance additionnelle est réaliste ou non.
+
+Utilisation indirecte et évaluation de la prime de risque
+L’inverse du PER donne le taux de rendement du bénéfice. Le ratio BNPA/COURS, fournit un taux
+analogue à un taux de rendement incluant non seulement les bénéfices distribués, mais aussi ceux
+mis en réserves. Il intègre donc les plus-values potentielles.
+
+Ce ratio peut être comparé au taux des OAT. La différence entre 1/PER et le taux des OAT fournit une
+évaluation sommaire de la prime de risque. On rappelle que la rime de risque s’évalue par la
+différence entre la rentabilité des actions et celle des obligations.
+
+ 𝟏     𝐁𝐍𝐏𝐀
+    =        = 𝐓𝐱 𝐎𝐀𝐓 + 𝐏𝐫𝐢𝐦𝐞 𝐝𝐞 𝐫𝐢𝐬𝐪𝐮𝐞
+𝐏𝐄𝐑 𝐂𝐨𝐮𝐫𝐬
+D’où :
+Prime de risque = 1/PER - Taux OAT
+
+Exemple : Le PER d’un titre se situe par exemple à 15 et le taux des OAT 10 ans à 0,5 %. L’inverse du
+PER, donc le taux de rentabilité du titre est égal à = 1 / 15 = 6,67 %
+
+Prime de risque du titre = 6,67% - 0,5% = 6 ,17 %
+
+Ce calcul de prime de risque peut être appliqué de la même façon à l’indice lui-même pour
+déterminer la prime de risque du marché des actions.
+
+     J. Valeurs observées du PER
+
+Les P/E ont, comme tous les autres indicateurs, fortement fluctué sur la période 1995-2024.
+En France, la valeur normale du PER se situe aux alentours de 13 : c’est ce qui a été obtenu de 2003
+à 2007. Le PER du marché français avait atteint des niveaux beaucoup plus élevés sur la période
+1999-2001, lors de la bulle sur les valeurs de la nouvelle économie, dépassant même 30 en 1999. A
+l’inverse, le PER se situait en 2008 à un niveau historiquement faible en France, inférieur à 10. Depuis
+2012, on a retrouvé des valeurs approximativement normales, puis plus élevées sur 2015.
+Actuellement le PER intégrant les bénéfices futurs estimés au cours des 12 prochains mois est proche
+de la moyenne historique de 13.
+
+                        Evolution des PER 12 months forward du MSCI France
+
+Sur les marchés européens et américains, les évolutions sont similaires, avec des niveaux plus élevés
+pour le NYSE et surtout Nasdaq, en particulier sur la période 1998-2002 et actuellement.
+
+        K. Variantes du PER
+
+La méthode GARP et le PEG ratio
+Un des problèmes du PER est qu’il n’intègre pas les perspectives de croissance de l’entreprise. Or,
+il paraît logique qu’une valeur bénéficiant de perspectives de croissance élevées soit plus chère
+qu’une autre, à BNPA actuel identique.
+
+La méthode GARP (growth at a raisonnable price ou croissance à un prix raisonnable) ou encore du
+PEG ratio (Price Earning to Growth) permet de traiter simplement le problème. Elle consiste à calculer
+un indicateur égal au rapport PER sur croissance :
+        PER
+PEG =
+         g
+
+Dans cette formule, g est le taux de croissance des bénéfices. Le PEG donne ainsi le prix du point
+de croissance. Une entreprise présentant un PEG élevé valorise fortement sa croissance. Elle est
+donc chère.
+
+Exemple : La société A est caractérisée par un PER de 22,5 ; la société B, de son côté, affiche un PER
+de 10. Elle apparaît a priori « meilleur marché » que A. Mais le taux de croissance anticipé du BNPA de
+la société A est de 15% ; celui de B est de 5% seulement. Le tableau ci-dessous donne le PEG ratio
+de chaque société. Dans la mesure où le ratio GARP est de 22,5/15 = 1,5 pour A et de 10/5 = 2 pour B,
+les conclusions peuvent être modifiées. Il apparaît que B fait payer plus cher son point de croissance.
+En fait c’est A qui semble meilleur marché.
+
+                                    Société      PER       g       PEG
+
+                                          A      22,5      15      1,5
+
+                                          B      10        5        2
+
+Calcul du PER et du PEG ratio
+La prise en compte des dettes de l’entreprise
+Le PER tient compte de la capitalisation boursière, donc de la valeur de marché des capitaux propres,
+mais pas des dettes de l’entreprise. Le cumul de la valeur boursière et des dettes permet d’avoir une
+idée des capitaux qui ont été nécessaires pour faire apparaître le niveau de bénéfice enregistré.
+Le PER « corrigé » est obtenu en rapportant la somme de la capitalisation et des dettes au bénéfice
+total.
+
+Exemple : Les deux sociétés A et B ont la même valeur boursière, le même bénéfice net et donc le
+même PER. Par contre B a moins de dettes que A. Son PER corrigé sera donc plus faible. Compte tenu
+de ces éléments, B est moins chère que A. Le PER classique de A est obtenu en divisant 2000 par
+150. Le PER corrigé des dettes pour de A est obtenu en divisant (2000 + 1000) par 150.
+
+                                                                            PER
+                        Société   CAPI        Dettes    Bénéfice   PER
+                                                                           corrigé
+                           A       2000       1000        150       13,3   20,00
+                           B       2000        500        150       13,3   16,67
+
+                                                 PER et PER corrigé des dettes
+
+    D - L’utilisation multidimensionnelle des indicateurs boursiers
+
+L’emploi d’un seul indicateur ne sera, en général, pas suffisant pour une analyse significative d’une
+entreprise. D’où la nécessité d’une approche multidimensionnelle, c’est-à-dire faisant appel à
+plusieurs indicateurs simultanément.
+L’analyste pourra utiliser simultanément plusieurs indicateurs dans le cadre de tableaux comparatifs
+multi critères tel que celui présenté ci-dessous pour les entreprises du CAC40 (novembre 2014).
+Ce tableau fournit les indicateurs qui viennent d’être évoqués, y compris le PEG (rapport entre le PER
+et le taux de croissance). Il donne également le ROE (Return on Equity) ou encore taux de rentabilité
+des capitaux propres.
+De nombreux autres indicateurs pourraient également être utilisés, par exemple :
+    - Le ROA (Return on Assets = BN/ Actifs)
+    - Capitalisation / Cash-Flow
+    - Capitalisation / EBITDA
+    - Etc…
+
+Pour sélectionner les valeurs qu’il va mettre en portefeuille, le gérant peut, par exemple, se fixer des
+seuils sur chaque indicateur. Il peut décider, par exemple, de ne retenir que les valeurs présentant un
+PER inférieur à 11, dégageant un rendement d’au moins 4%, etc…. Un processus de « screening » va lui
+permettre alors de ne retenir que les valeurs qui respectent ces différentes limites1.
+
+1 Des traitements de données plus complexes peuvent être utilisés. Ils ne seront pas évoqués ici.
+
+                                     Poids dans   CAPITALISATION
+                    Société                                           P/B      Rendement     PER        PEG      CAPI / CA    EV / CA     ROE
+                                      le CAC 40     (Milliards €)
+                        Lvmh           13,25%         309,4 €          4,8%       2,1%       22,1        7,4        3,6         4,0       22,8%
+                      Hermes            9,28%         239,9 €         15,9%       1,1%       53,4        6,6       14,8        16,3       31,5%
+                       L'oreal          8,12%         176,5 €          6,0%       2,0%       27,3        4,9        3,9         4,3       22,5%
+                  TotalEnergies         5,81%         129,5 €          1,1%       5,8%        7,9        3,1        0,7         0,8       14,5%
+               Schneider Electric       5,77%         141,3 €          5,1%       1,4%       35,2        2,3        3,5         4,2       14,7%
+                       Sanofi           5,26%         117,4 €          1,6%       4,0%       29,1        1,5        2,6         3,0        5,8%
+                       Airbus           4,71%         125,2 €          6,5%       1,8%       38,2        3,5        1,7         1,7       19,0%
+                 EssilorLuxottica       4,24%         105,0 €          2,7%       1,7%       45,2     #N/A N/A      3,7         4,5        6,0%
+                    Air Liquide         4,10%          90,0 €          3,6%       1,9%       29,3        2,3        3,2         3,8       12,7%
+                       Safran           3,73%          89,1 €          7,9%       1,0%       53,4        1,0        3,0         3,5       14,9%
+                         Axa            3,26%          75,1 €          1,9%       5,8%       10,4        1,1     #N/A N/A       1,0       18,0%
+                   Bnp Paribas          3,15%          67,1 €          0,5%       7,7%        6,6        0,2        1,3      #N/A N/A      8,7%
+                        Vinci           2,46%          57,3 €          2,0%       4,6%       12,2        2,2     #N/A N/A       1,2       16,6%
+                 Credit Agricole        1,82%          40,5 €          0,6%       7,9%        6,8        1,8        1,5      #N/A N/A      9,3%
+                      Danone            1,79%          43,6 €          2,5%       3,3%       40,9        7,0        1,6         2,0        6,1%
+               Dassault Systemes        1,79%          44,6 €          5,6%       0,7%       39,2        4,5        6,8         7,1       14,2%
+                   Saint Gobain         1,74%          42,6 €          1,8%       2,5%       14,8        2,4        0,9         1,1       12,3%
+                        Engie           1,61%          37,8 €          1,2%       9,2%        7,6     #N/A N/A   #N/A N/A       1,0       16,2%
+                     Stellantis         1,53%          36,3 €       #VALEUR!     13,2%     #N/A N/A   #N/A N/A      0,2         0,1     #VALEUR!
+                       Thales           1,33%          28,0 €          3,9%       2,5%       29,5        1,8        1,3         1,7       19,3%
+                  Pernod Ricard         1,32%          26,4 €          1,7%       4,5%       18,0        5,8        2,3         3,3        9,4%
+                    CapGemini           1,28%          26,9 €          2,5%       2,2%       15,9       43,3        1,2         1,4       16,2%
+                       Kering           1,23%          27,9 €          1,9%       6,2%       13,3     #N/A N/A      1,6         2,4       14,1%
+                    Legrand SA          1,17%          24,6 €          3,6%       2,2%       23,6       14,7        2,7         3,3       15,3%
+                       Orange           1,14%          25,6 €          1,0%       7,5%       12,8        0,7        0,6         1,5        8,4%
+                 Publicis Groupe        1,06%          25,2 €          2,5%       0,2%       17,0        1,9        1,7         1,8       15,3%
+               Stmicroelectronics       1,00%          22,0 €          1,3%       1,3%       10,2        6,5        1,8         1,4       13,9%
+                     Michelin           0,95%          22,3 €          1,3%       4,3%       11,8        2,3        0,8         1,0       10,9%
+                 Veolia Environ.        0,91%          19,8 €          1,6%       4,7%       17,6        1,3     #N/A N/A       0,9        9,0%
+                Societe Generale        0,81%          21,8 €          0,3%       3,3%        6,3        0,1        0,8      #N/A N/A      5,1%
+                  Arcelor Mittal        0,73%          18,1 €          0,4%       2,2%     #N/A N/A      0,1        0,3         0,4       -2,3%
+                      Renault           0,53%          13,8 €          0,4%       4,0%        9,1        1,3        0,3         0,2        4,6%
+                     Bouygues           0,47%          10,8 €          0,9%       6,6%       10,0        1,2        0,2         0,4        8,7%
+           Unibail Rodamco Westfield    0,46%          10,3 €          0,7%       3,4%     #N/A N/A      6,3     #N/A N/A      12,5       -6,4%
+                   Accor Hotels         0,43%          11,2 €          2,5%       2,6%       18,7        1,9        2,0         2,7       13,3%
+                      Vivendi           0,43%           2,6 €          0,2%       9,8%        6,7     #N/A N/A   #N/A N/A       0,8        2,3%
+                     Carrefour          0,41%           9,2 €          0,9%       6,4%       11,3        0,6     #N/A N/A       0,3        7,5%
+                 Eurofins Scient.       0,38%           9,4 €          1,5%       1,0%       24,8        1,3        1,3         2,0        9,2%
+                      Edenred           0,30%           7,5 €       #VALEUR!      3,6%       25,4        0,7        2,5         3,3     #VALEUR!
+                Teleperformance         0,24%           5,0 €          1,2%       4,6%        8,0        0,5        0,5         1,0       15,6%
+                    CAC40             100,00%        2 336,87 €       1,8%       3,4%        13,9                   1,3         2,0      11,3%
+
+NB: P/B = Price to Book ratio – Rdt Div.= Rendement du dividende – PER = Price Earning Ratio – PEG =
+Price Earning to Growth - CAPI/CA = Capitalisation sur chiffre d’affaires – EV/CA = Valeur de
+l’entreprise sur chiffre d’affaires – ROE = Return on Equity ou rendement des capitaux propres.
+Indicateurs boursiers des sociétés du CAC40 (mai 2021)
+
+Chapitre 2 L’analyse des actions
+
+Section 1 L’analyse fondamentale (introduction)
+
+Le but de l'analyse fondamentale est d'évaluer au plus juste la valeur d'une société ou d'un secteur
+d'activité particulier.
+L'évaluation d'une société ne passe pas uniquement par l'analyse de son bilan et de son compte de
+résultat. En plus de cette analyse comptable et financière viendront se greffer d'autres études telles
+que l'analyse stratégique visant à déterminer par exemple le positionnement de la société étudiée
+par rapport à ses concurrentes ou à son secteur d'activité, une étude de la politique des ressources
+humaines dans l'entreprise, etc.
+Des notions économiques seront aussi utilisées pour situer l'entreprise au sein de son environnement
+concurrentiel, pour estimer ses perspectives de croissance en fonction des marchés qu'elle aborde
+ou des investissements qu'elle réalise.
+
+                           Notion fondamentale du CAC 40 Janvier 2025
+
+     L. La méthode des comparables
+
+Le principe de cette méthode est de définir un échantillon de référence auquel la société à valoriser
+sera comparée. Plus cet échantillon est représentatif de l'activité de la société étudiée, plus cette
+méthode sera pertinente.
+Parmi les éléments à prendre en compte figurent l'activité, le type de produits ou de services
+proposés, la taille en termes de ventes, les niveaux de rentabilité, l'exposition géographique ou encore
+le niveau d'endettement.
+Cette méthode n'est applicable que s'il existe une société cotée équivalente sur son marché de
+cotation ou sur des marchés étrangers.
+
+     M. La méthode ANR
+
+L'actif net réévalué (ANR) est une estimation de la valeur des capitaux propres qui consiste à estimer
+séparément les différents actifs et engagements de l'entreprise et à en faire la somme algébrique.
+Alors que la comptabilité donne souvent des valeurs historiques, la réévaluation porte sur des valeurs
+plus pertinentes selon le cas. On parle également de méthode patrimoniale ou de somme des parties.
+Elle est particulièrement adaptée pour les conglomérats pour lesquels les comptes ou les projections
+financières agrégées ne peuvent pas être analysés en tant que tels.
+Notons qu'il existe plusieurs types d'ANR (depuis la valeur de liquidation jusqu'à la valeur d'usage).
+
+      N. La méthode du DCF (Discounted Cash Flow)
+
+Sans trop rentrer dans le détail, cette méthode consiste à considérer que la valeur de l’entreprise
+est égale à la valeur des flux futurs qu’elle va générer. Si le concept est relativement aisé à
+comprendre, sa mise en pratique est plus délicate. En effet, une société n’ayant pas de fin connue,
+les flux seront donc considérés comme infinis. D’autre part, il faudra définir les flux que l’on
+considère, typiquement les dividendes ou les Free Cash Flow. Tout dépend si on cherche à valoriser
+les capitaux propres ou l’EV. De plus, ces flux sont inconnus et aléatoires dans le temps, il faudra
+donc les estimer. Enfin, ces flux devront être actualisés. Il faudra alors déterminer le taux
+d’actualisation, typiquement un taux sans risque plus une prime de risque à estimer.
+
+Formulation ;
+
+CF : Cash Flow
+t : taux d’actualisation
+
+Dans la pratique, les analystes font des prévision à 5 ou 10 ans puis calculent une valeur terminale
+avec un taux de croissance des cash-flow constant jusqu’à l’infini.
+
+Si on considère un taux de croissance des flux constant (g) du début jusqu’à l’infini alors la forme se
+simplifie de la manière suivante :
+
+                                                    𝐹1
+                                             𝑉=
+                                                   𝑡−𝑔
+
+Si cette méthode est souvent considérée comme la meilleure, le nombre important de paramètres
+et les estimations qu’ils nécessitent, implique que le résultat obtenu ne reste qu’une approximation
+à un instant t.
+
+Section 2 : L’analyse technique
+
+L’analyse technique est une approche empirique basée sur l’observation de l’évolution des
+cours et des volumes. Elle fut utilisée en premier par les Japonais au 17 ème siècle puis
+développées aux USA au 20 ème siècle jusqu’à nos jours. Longtemps considérée comme le
+parent pauvre de l’analyse action, elle bénéficie aujourd’hui de l’apport de la finance
+comportementale qui vient étayer cette approche. L’analyse technique se base sur le
+concept que les marchés sont influencés par la psychologie et les émotions des
+intervenants. Autrement exprimé, le prix et la valeur d'un bien étaient deux notions
+distinctes qui peuvent dévier de manière durable.
+
+A. Les principes
+
+L’analyse technique est basée sur trois postulats qui sont les suivants :
+
+Le marché prend tout en compte
+Ce point est certainement le plus important de tous puisqu’il justifie le fait que l’analyse technique
+ne s’intéresse qu’aux seules données de marché et non pas aux données fondamentales comme les
+statistiques économiques ou les résultats des entreprises. En effet si, à chaque instant, le cours
+d’un actif intègre immédiatement toute l’information disponible sur les machés alors il n’est plus
+besoin de s’intéresser aux données fondamentales puisqu’il est quasiment impossible de profiter
+d’un effet d’annonce.
+
+Les cours suivent des tendances
+C’est l’observation des graphiques historiques de cours qui fait dire à l’analyste technique que le
+marché suit des tendances. L’étude d’un graphique boursier permet d’identifier des phases de
+hausses et des phases de baisses sur des périodes allant de quelques minutes à plusieurs années.
+Pour expliquer que ce phénomène n’est pas uniquement dû au hasard, l’analyse technique s’appuie
+sur l’analyse psychologique des foules dont elle prétend être une application sur les marchés. Un
+marché, comme une foule, peut donc être pris soit dans une dynamique d’optimisme (voire
+d'euphorie) soit dans une dynamique de pessimisme (voire de désespoir) soit en phase
+d’hésitation. Ceci se reflète sur un graphique par des périodes de hausse, de baisse ou de
+stagnation des cours, périodes qu’on nommera respectivement trend haussier, trend baissier
+et range.
+
+L’histoire se répète
+L’avenir est déterminé par le passé sur les marchés et les mêmes « erreurs » se répètent toujours
+(formation de bulles spéculatives et krachs). Là encore, cette idée découle de l’analyse
+psychologique d’une foule. Les sociologues qui se sont intéressés aux foules ont affirmé que celles-
+ci avaient des comportements propres n’ayant pas de lien avec une simple somme de
+comportements individuels. Une foule est mue par certains principes qui parviennent à transcender
+la psychologie de chaque individu la composant. Le tout aura plus d’influence sur la partie que
+chaque partie n’en aura sur le tout du fait du phénomène d’imitation existant au sein de tout
+groupe. La décision d’un individu au sein d’une foule est fondée sur l’idée qu’il se fait de la décision
+que vont prendre les autres individus composant cette foule et non sur sa perception normale de la
+réalité.
+
+B. L’analyse
+
+           1. L’analyse graphique
+
+Elle part de l’observation des cours et des volumes de transaction. Ces deux informations
+détermineront la force de la tendance.
+
+Seront ensuite identifié des zone de résistance / support, niveaux qui précédemment ont
+fait l’objet d’une pause de la tendance ou d’un retournement. Ces zones sont également
+appelées zones de congestion. Ce sont des zones psychologiques ou les acheteurs et
+vendeurs s'affrontent. Ce sont sur ces niveaux que les probabilités d'une baisse ou d'une
+hausse de l'actif sont les plus fortes.
+
+Des figures de retournement (triple top, triple bottom, figure de tète épaule…) ou de
+continuation (triangle…) viendront compléter l’analyse précédente.
+
+Toutes ce figures sont issues de l’observation empirique du comportement des cours dans
+ces conditions.
+
+            2. Les indicateurs techniques
+
+Depuis le début du 20ème siècle et encore d’avantage depuis l’apport de l’ordinateur, des
+indicateurs techniques (mathématiques) sont venus complétés l’analyse. Les plus simple
+comme les moyennes mobiles sur 20, 50 ou 100 jours par exemple aux plus compliqués
+comme le fameux RSI (Relative Strenght Index) conçu par J Welles Wilder.
+
+Avec :
+H : moyenne mobile exponentielle des hausses au cours des n derniers jours ;
+B : valeur absolue de la moyenne mobile exponentielle des baisses au cours des n derniers
+jours. (Bien que l'on parle de baisses, B est positif).
+
+Exemple :
+
+Tendance de long terme (mensuelle) débutée en 2017 a été rompue en 2023 avec un
+nouveau teste des plus haut en 2024 qui a échoué. Le titre est rentré dans une tendance
+baissière si sera invalidée si le cours dépasse la zone des 900 euros. Le RSI a montré une
+divergence (cours faisant un plus haut alors que le RSI n’y parvient pas) depuis 2022, ce qui
+suggérait une pause dans un premier temps. Celle-ci est confirmée. Il n’y a actuellement
+aucun signe de sur achat ou survente qui pourraient indiquer un changement de tendance.

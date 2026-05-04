@@ -1,0 +1,2176 @@
+
+                                                 Introduction
+
+Le contexte
+
+La gestion d’actifs française représente 4 355 milliards d’euros sous gestion, soit un quart du
+marché de la gestion d’Europe continentale. Source de plus de 85 000 emplois, dont 26 000
+propres aux sociétés de gestion, elle joue un rôle essentiel dans le financement de l’économie
+et de l’épargne française.
+
+Quelques chiffres de l’association Française de Gestion pour 2022 :
+
+   •   700 sociétés de gestion dont 450 SGP entrepreneuriale.
+   •   4 groupes français parmi les 25 plus gros mondiaux.
+   •   3 dépositaires français parmi les 10 plus gros mondiaux.
+   •   La France 1er gérant d’actifs en EUROPE.
+   •   11 000 fonds d’investissement en France.
+   •   30% OPCVM UCITS.
+   •   70% FIA (fonds d’investissement alternatif).
+   •   4 600 Mds € sous gestion.
+   •   600 Mds € géré pour les non-résidents.
+   •   85 000 emplois dont 26 000 pour les SGP.
+
+Quelques chiffres de l’Autorité des Marchés Financiers 2023 :
+
+                          Partie I – LES PLACEMENTS COLLECTIFS
+
+Introduction :
+
+La mise sur le marché d’un OPCVM est soumise à l’agrément de l’Autorité de Marchés
+Financiers (AMF).
+
+De même, les sociétés de gestion en charge des OPCI sont agréées par l’AMF. Dans le cadre
+de son rôle de régulateur et de contrôle, L’autorité des Marchés Financiers assure le suivi tout
+au long de la vie des fonds collectifs et de la régularité des professionnels producteurs. Les
+actifs dans lesquels est investi l’épargne des investisseurs sont conservés chez un «
+dépositaire » et sont protégés en cas de faillite de la société de gestion. La ségrégation de la
+gestion et de la conservation des titres offre une protection de haut niveau, mise en valeur
+notamment par l’échec du dispositif américain avec le contentieux
+« MADOFF ».
+
+                                   Chapitre I - Les intervenants
+       Section 1 - Société de gestion
+
+En France, les sociétés de gestion sont placées sous la tutelle de l'Autorité des marchés
+financiers.
+
+L’AMF agrée et suit l’évolution des sociétés de gestion de portefeuille. Ce sont des
+prestataires en services d’investissement (PSI) qui exercent à titre principal une activité de
+gestion sous mandat ou qui exercent une activité de gestion collective.
+
+   •   La gestion de portefeuille pour le compte de tiers (ou gestion sous mandat) consiste
+       à gérer des portefeuilles individuels d’instruments financiers pour le compte de clients,
+       qu’il s’agisse par exemple de clients particuliers ou d’investisseurs institutionnels. Un
+       mandat de gestion est conclu entre la société de gestion et son client.
+
+   •   La gestion collective ou gestion de placements collectifs (en particulier OPCVM ou
+       FIA) consiste schématiquement à gérer des portefeuilles collectifs. Un placement
+       collectif est constitué des sommes mises en commun par des investisseurs et gérées
+       pour leur compte par un gestionnaire de portefeuille. Ce dernier utilise ces sommes
+       pour acquérir des instruments financiers, par exemple des actions ou des obligations
+       en fonction de ses objectifs. Des parts ou des actions représentant une quote-part de
+       l’avoir du placement collectif sont émises, en contrepartie des sommes versées dans
+       le placement collectif.
+
+Les sociétés de gestion sont responsables de la valorisation des OPCVM qu’elles gèrent.
+Pour ce faire les moyens sont permanents, adaptés, et conformes aux prescriptions
+règlementaires et recommandations. Lorsque des divergences existent entre le valorisateur
+et la société de gestion, Des échanges sur les méthodes sont discutés mais la société
+tranche.
+Le responsable de la conformité et du contrôle interne (RCCI) est désigné dans la société de
+gestion. Il est l’interlocuteur inévitable en cas de difficultés d’interprétation d’un texte
+règlementaire ou dans le montage présentant des doutes sur l’approche juridique ou
+déontologique. Il vient compléter le correspondant TRACFIN en charge de la lutte anti-
+blanchiment.
+
+       Section 2 - Rappel sur la notion de dépositaire
+
+Les dépositaires :
+Le dépositaire assure la conservation des instruments financiers déposés par ses clients
+(Entreprise d’investissement, prestataire en service d’investissement, banque). Le
+dépositaire gère les OST (opération sur titre), centralisation des paiements des coupons,
+dividendes etc…
+Il contrôle, dans le cas de la gestion collective (OPC), les ratios règlementaires et
+statutaires à postériori. Il signale tout dépassement au régulateur. Il est lui-même adhérant
+au dépositaire central.
+
+Dépositaire central :
+Un dépositaire central est un « super dépositaire » qui centralise la conservation globale des
+dépositaires, en rapport avec les émetteurs d’instruments financiers.
+Il contrôle les « dépositaires ordinaires », notamment sur le nombre d’instruments en
+circulation.
+
+Un dépositaire central qui a une double fonction
+   1. Il fait le lien entre les sociétés émettrices de titres financiers qui y déposent leurs titres,
+      que ceux-ci soient admis ou négociés sur des marchés réglementés ou des systèmes
+      multilatéraux de négociation ou non, et les intermédiaires financiers qui conservent
+      ces titres pour le compte des investisseurs ou leur propre compte. C’est la fonction
+      de dépositaire central stricto sensu.
+
+   2. Il permet aux intermédiaires financiers de réaliser les opérations de livraison des titres
+      financiers contre paiement à la suite des négociations ou des cessions réalisées sur
+      ces titres. C’est la fonction de gestionnaire de système de règlement-livraison.
+
+Euroclear France est le dépositaire central de titres financiers français. Créée en 1949 sous
+le nom de Sicovam SA, l’infrastructure a été rachetée en 2001 par le groupe Euroclear qui
+rassemble les dépositaires centraux anglais, belge, finlandais, hollandais et suédois, ainsi que
+le dépositaire central international, Euroclear Bank
+Clearstream est un leader européen des services post-négociation. La filiale en propriété
+exclusive de Deutsche Börse assure que la trésorerie et les titres sont livrés rapidement et
+efficacement entre les parties à la transaction. Plus de 300.000 obligations domestiques et
+commerce international, les actions et les fonds d'investissement sont actuellement déposés
+auprès de Clearstream.
+
+Teneur de comptes conservateur (TCC) :
+Le teneur de comptes est l'établissement chargé de la tenue et de la bonne gestion de
+comptes des actifs financiers et des espèces, en opposition avec le dépositaire qui lui, est
+chargé de la conservation des titres. La plupart des Teneurs de comptes ont aussi la fonction
+de dépositaire.
+
+       Section 3 - Les valorisateurs
+
+Filiales des dépositaires, les valorisateurs sont mandatés par les sociétés de gestion pour
+faire l’inventaire et les premiers travaux de valorisation des portefeuilles. Les méthodes de
+valorisation sont déterminées en début d’entrée en relation avec un nouveau fonds, afin de
+définir une permanence des méthodes.
+
+Les valorisateurs sont donc force de proposition pour l’évaluation de la valeur liquidative d’un
+OPC.
+
+       Section 4 - Les commissaires aux comptes
+
+Chaque OPCVM ou FIA dispose d’un CAC indépendant de la société de gestion. Il effectue
+des travaux de fin d’année pour attester de l’inventaire des fonds et des méthodes de
+valorisation employées.
+
+       Section 5 - L’autorité des marchés financiers
+
+Les sociétés de gestion informent régulièrement l’AMF lors de modification dans la vie de la
+société. Par exemple lors de la modification d’actionnaires, de changement du siège social,
+mais aussi lors de la modification de moyen matériel affectant les travaux de la société, lors
+de recrutement etc…
+
+           Chapitre II - Les Organisme de Placement Collectif (OPC)
+       Section 1 - Définition – Organisation
+
+Les OPC, sont des instruments financiers, valeurs mobilières, créés par des sociétés de
+gestion, qui mutualisent la collecte de fonds auprès des investisseurs, épargnants afin de
+constituer des portefeuilles diversifiés. Conformes, pour la plupart d’entre eux, à la directive
+Européenne 2009/65/CE (on parle de fonds UCITS), ce qui leur donne certaines obligations
+protectrices pour les souscripteurs.
+Les autres fonds sont, normalement, conformes à la directive AIFM 2011/61/CE on parle de FIA
+(fonds d’investissement alternatifs). En dehors de ces deux formats, les précautions
+d’investissement sont indispensables car il n’y a pas de surveillance du régulateur.
+
+Avantages des OPC :
+
+   •   Mise de fonds diversifiée malgré une valorisation des avoirs qui peut être modeste.
+   •   Capitalisation possible des fonds sans avoir à gérer des flux intermédiaires.
+   •   Délégation à des professionnels.
+   •   Accès possible à certain marché difficile en direct (obligation, marché chinois etc…).
+   •   Transparence relativement importante.
+   •   Neutralité fiscale.
+
+Inconvénient des OPC :
+
+   •   Frais de délégation.
+   •   Souscription à court inconnu (or ETF).
+
+Comptabilité d’un fonds :
+
+Les OPC disposent d’une comptabilité qui leur est propre :
+
+A l’actif figurent les instruments détenus par l’OPC. Cela peut être des valeurs mobilières
+comme des obligations en direct par exemple ou des actions, mais aussi d’autres OPC et
+liquidités (EUR, USD etc).
+
+Au passif figurent les souscriptions et les prêts courts et long terme le cas échéant.
+
+La valeur liquidative du fonds représente la valeur d’inventaire divisée par le nombre de
+parts détenues par les souscripteurs. La valeur liquidative est le plus souvent journalière mais
+elle peut être hebdomadaire ou encore mensuelle. Elle constitue la valeur de la part du fonds.
+Elle s’achète ou se vend toujours à cours inconnues, c’est-à-dire que le souscripteur passe
+un ordre sur la base de la dernière valeur liquidative connue (avant le cut-off) sans connaitre
+la valeur liquidative exécutable. Dans le cas contraire il s’agirait d’un ABUS DE MARCHE
+interdit par la loi.
+
+Les ratios à respecter par les OPC :
+
+                       A - Les ratios règlementaires
+
+Une OPC conforme à la directive européenne OPCVM 2009/65/CE (dit UCITS) devra
+respecter des critères de gestion légaux. Les principaux ratios réglementaires portent sur :
+   • Les actifs éligibles.
+   • Les opérations spécifiques.
+   • La dispersion du portefeuille.
+   • La dispersion par entité.
+   • L’emprise.
+   • L’influence notable.
+   • Les engagements.
+
+Les FIA (fonds d’investissement alternatif, conforme à la directive AIFM 2011/63/CE)
+peuvent disposer de ratios règlementaires dérogatoires ce qui en fait sa particularité.
+
+                       B - Les Ratios statutaires (ou conventionnels)
+
+Ce sont les ratios qui sont mentionnés dans le prospectus du fonds et qui sont donc
+conventionnels. Le gérant s’engage à les respecter car ils ont contractuels. Ils peuvent porter
+sur :
+
+   •   L’investissement mini et maximum par classe d’actifs.
+   •   La répartition sectorielle et ou géographique.
+   •   Le niveau des engagements etc…
+
+La bonne compréhension du souscripteur est donc capitale à ce niveau car les ratios
+conventionnels définissent la personnalité du fonds et par conséquent ses risques
+particuliers.
+
+Les contrôles quotidiens des ratios se font à deux niveaux :
+
+   • Un contrôle à priori est réalisé par la société de gestion,
+   • Un contrôle à posteriori est exercé par le dépositaire,
+En cas de manquement, un dispositif réglementaire peut mener à la sanction par le régulateur
+(AMF).
+
+       Section 2 - Les différentes formes juridiques d’OPCVM
+
+   •   SICAV (société d’investissement à capital variable)
+
+D'un point de vue juridique, les SICAV ont une personnalité morale. LA SICAV peut donc ester
+en justice par exemple engager une action contre un émetteur.
+
+De statuts similaire à celui des sociétés anonymes, le conseil d’administration désigne la
+société de gestion délégataire de la gestion des fonds. Les souscripteurs sont des
+actionnaires qui bénéficient de droits de vote lors de l’assemblée générale annuelle.
+
+Par conséquent, une SICAV peut changer de société de gestion pour gérer ses fonds,
+contrairement à un FCP.
+
+La création d’une SICAV est adaptée pour des familles fortunées soucieuses de disposer d’un
+pouvoir dans l’administration des fonds.
+
+Certaines SICAV proposent différents compartiments qui seront gérés de manière
+différente. Par exemple, l'argent de l'un des compartiments sera investi dans des actions
+européennes risquées tandis que l'argent d'un autre compartiment sera investi en obligations
+réputées plus sûres. Ce système de compartiments évite la création de trop nombreuses
+sociétés et la lourdeur administrative qui l'accompagnerait. Certains compartiments peuvent
+être commercialisés en tant que tel, ce qui permet de limiter les charges administratives tout
+en développant des thématiques d’investissement.
+
+   •   FCP (Fonds commun d’investissement)
+
+Le FCP se distingue de la SICAV par son statut juridique. C’est une Indivision forcée de valeurs
+mobilières non dotée de la personnalité juridique et qui émet des parts sociales. Autrement
+dit un FCP est une copropriété de valeurs mobilières qui émet des parts. Chaque porteur de
+parts dispose d'un droit de copropriété sur les actifs du fonds, droit proportionnel au nombre
+de parts possédées.
+
+Les FCP sont soumis à des réglementations différentes de celles des SICAV (capital minimum
+plus faible, pas d'obligation de publier ses résultats…).
+
+Définition de l’AMF :
+
+Le FCP (fonds commun de placement) est une copropriété de valeurs mobilières qui émet
+des parts. Le porteur de parts ne dispose d'aucun des droits conférés à un actionnaire, mais
+la société de gestion qui gère le fonds agit au nom des porteurs et dans leur intérêt exclusif.
+
+                         La particularité des ETF (Exchange Traded Fund)
+
+Qu’est-ce qu’un ETF ?
+
+Un ETF (Exchange Traded Fund), également appelé tracker, est un fonds indiciel qui cherche
+à suivre le plus fidèlement possible l’évolution d’un indice boursier, à la hausse comme à la
+baisse. Les ETF sont des fonds d’investissement émis par des sociétés de gestion et agréés.
+
+Ils ont pour particularité, contrairement aux autres fonds, d’être cotés en continu c’est-à-
+dire qu’ils peuvent être achetés ou vendus tout au long de la journée. Comme pour les
+actions, vous passez votre ordre de bourse auprès de votre intermédiaire financier et
+maîtrisez le prix de l’ordre. Comme pour les placements collectifs, la société de gestion et le
+dépositaire vérifient les achats et ventes des titres du fonds.
+
+Les ETF sont des OPCVM (FCP ou SICAV) qui ont la particularité de disposer d’une cotation
+en continue contrairement aux autres OPC traditionnels qui font l’objet d’une valeur
+liquidative.
+
+Pour rappel : La valeur liquidative est une évaluation périodique de la valeur d’actif divisé par
+le nombre de parts ou d’actions constituant le fonds collectif. Cette valeur peut être
+journalière, hebdomadaire, mensuelle…
+
+Doté d’un mode de cotation en continu, l’ETF a littéralement bouleversé la gestion collective
+en permettant aux investisseurs d’élaborer une gestion tactique des souscriptions.
+Comme pour une action cotée, l’ETF se négocie avec les règles habituelles des ordres de
+bourse permettant d’élaborer des stratégies de trading comparables aux autres actifs en
+direct.
+
+Avantages majeurs des ETF :
+
+   •   Possibilité de trading.
+   •   Frais de gestion faible.
+   •   Stratégie de « delta one » c’est-à-dire de réplication d’indice. C’est la raison pour
+       laquelle les ETF sont surnommés « également « TRACKER ». Néanmoins dans ce cas
+       l’utilisation de contrats à terme est moins chère.
+
+Inconvénients majeurs des ETF :
+
+   •   Ce sont des automates qui gèrent les portefeuilles, donc rarement des gestion actives.
+   •   Plus cher que des contrats à terme lorsqu’il s’agit de répliquer un indice.
+   •   Risque important de liquidité.
+
+   •   Risque de dissolution intempestive.
+   •   Transfère le choix de l’allocation d’actifs sur l’investisseur.
+
+       Section 3 - Classification AMF des OPCVM
+
+La classification AMF des OPCVM est définie par l’instruction 2005-04 du 25 janvier 2005
+prise en application des articles 413-22 à 413-40 du règlement général de l’AMF. L'AMF définit
+une classification des OPCVM à vocation générale, des OPCVM réservés à certains
+investisseurs et des OPCVM d'épargne salariale. Ce classement est représentatif du risque
+encouru par les porteurs, de l’exposition réelle de l’OPCVM à certains marchés.
+
+Cette classification ne s'applique pas aux OPCVM de capital investissement, ni aux FCIMT.
+
+Les OPCVM à vocation générale et ceux réservés à une certaine catégorie d'investisseurs
+peuvent être classés dans l'une des 11 classes suivantes :
+
+           •   OPCVM « Actions françaises »
+
+L’OPCVM doit être en permanence investi ou exposé à hauteur de 60 % au moins sur le
+marché des actions françaises. L’exposition au risque de change ou de marché étranger
+doit rester accessoire.
+
+Le degré d’exposition minimum de l’OPCVM est mentionné dans la rubrique « stratégie
+d’investissement » du prospectus du fonds.
+
+           •   OPCVM « Actions de pays de la zone euro »
+
+L’OPCVM doit être en permanence investi ou exposé à hauteur de 60 % au moins sur un ou
+plusieurs marchés des actions émises dans un ou plusieurs pays de la zone euro, dont
+éventuellement le marché français.
+
+L’exposition au risque de change ou des marchés autres que ceux de la zone euro doit rester
+accessoire.
+
+Le degré d’exposition minimum de l’OPCVM est mentionné dans la rubrique « stratégie
+d’investissement » du prospectus du fonds.
+
+           •   OPCVM « Actions des pays de la Communauté européenne »
+
+L’OPCVM doit être en permanence investi ou exposé à hauteur de 60 % au moins sur un ou
+plusieurs marchés des actions émises dans un ou plusieurs pays de la Communauté
+européenne, dont éventuellement, les marchés de la zone euro.
+
+L’exposition au risque de change pour des devises autres que celles de la zone euro ou de la
+Communauté européenne doit rester accessoire. L’exposition aux risques de marché autres
+que ceux de la Communauté européenne doit rester accessoire.
+
+Le degré d’exposition minimum de l’OPCVM est mentionné dans la rubrique « stratégie
+d’investissement » du prospectus du fonds.
+
+           •   OPCVM « Actions internationales »
+
+L’OPCVM doit être en permanence investi ou exposé à hauteur de 60 % au moins sur un
+marché d’actions étranger ou sur des marchés d’actions de plusieurs pays, dont
+éventuellement le marché français.
+
+Le degré d’exposition minimum de l’OPCVM est mentionné dans la rubrique « stratégie
+d’investissement » du prospectus du fonds.
+
+           •   OPCVM « Obligations et autres titres de créance libellés en euro »
+
+L’OPCVM doit être en permanence investi ou exposé sur un ou plusieurs marchés de taux de
+la zone euro. L’exposition au risque action n’excède pas 10 % de l’actif net.
+
+L’exposition au risque de change ou de marchés autres que ceux de la zone euro doit rester
+accessoire.
+
+Le degré d’exposition minimum de l’OPCVM est mentionné dans la rubrique « stratégie
+d’investissement » du prospectus du fonds.
+
+           •   OPCVM « Obligations et autres titres de créance internationaux »
+
+L’OPCVM doit être en permanence investi ou exposé sur les marchés de taux de pays non
+membres, ou éventuellement membres, de la zone euro.
+
+L’exposition au risque action n’excède pas 10 % de l’actif net.
+
+Le degré d’exposition minimum de l’OPCVM est mentionné dans la rubrique « stratégie
+d’investissement » du prospectus du fonds.
+
+           •   OPCVM « Monétaires court terme »
+
+Cette nouvelle classification a été créée à la suite des recommandations publiées par CESR
+en date du 19 mai 2010 sur la définition commune européenne des OPCVM monétaires.
+
+Elle remplace la classification « monétaires euro » et « monétaires à vocation internationale »
+et impose des critères de sensibilité au risque de taux (MMP : Maturité Moyenne Pondérée)
+de maturité maximum des titres, de liquidité du portefeuille (DVMP : Durée de Vie Moyenne
+Pondérée), et de niveau de risque de crédit.
+
+Les risques de liquidité et de crédit sont limités : la DVMP du portefeuille doit être inférieure
+ou égale à 120 jours.
+
+Les titres éligibles au portefeuille des OPCVM « monétaires court terme » ont une durée de
+vie maximum inférieure ou égale à 397 jours. Le risque de taux est limité : la MMP du
+portefeuille doit être inférieure ou égale à 60 jours.
+
+La valeur liquidative de l’OPCVM « monétaires court terme » est quotidienne, et permet
+les souscriptions et les rachats quotidiennement. Elle peut être constante ou variable.
+
+           •   OPCVM « monétaire »
+
+Cette nouvelle classification a été créée à la suite des recommandations publiées par CESR
+en date du 19 mai 2010 sur la définition commune européenne des OPCVM monétaires.
+
+Elle remplace la classification « monétaires euro » et « monétaires à vocation internationale »
+
+Les risques de liquidité et de crédit sont limités : la DVMP (Durée de Vie Moyenne
+Pondérée) du portefeuille doit être inférieure ou égale à 12 mois.
+
+Les titres éligibles au portefeuille des OPCVM monétaires ont une durée de vie maximum
+inférieure ou égale à 2 ans
+
+Le risque de taux est limité : la MMP (Maturité Moyenne Pondérée) du portefeuille doit être
+inférieure ou égale à 6 mois.
+
+           •   OPCVM « OPCVM de fonds alternatifs »
+
+Ces OPCVM sont investis à plus de 10% en parts ou actions de fonds d'investissement de
+droit étranger, d'OPCVM contractuels où à règles d'investissement allégées, en parts ou
+actions d'OPCVM relevant de l'article L214-35 du Code monétaire et financier dans sa
+rédaction antérieure au 2 août 2003 et en parts de FCIMT. Un avertissement spécifique
+à cette gestion est inséré.
+
+           •   OPCVM « Fonds à formule » Des précisions sont apportées dans la partie
+               produits structurés
+
+L’objectif de gestion de ces fonds est d’atteindre, à l’expiration d’une période déterminée, un
+montant déterminé par application mécanique d’une formule de calcul prédéfinie, reposant
+sur des indicateurs de marchés financiers ou des instruments financiers, ainsi que de
+distribuer, le cas échéant, des revenus, déterminés de la même façon. Son objectif de gestion
+est garanti par un établissement de crédit dont le siège est établi dans un État membre de
+l’OCDE.
+
+La garantie peut être accordée à l’OPCVM ou à ses porteurs ou actionnaires. Un
+avertissement spécifique à cette gestion est inséré systématiquement.
+
+La description détaillée de la formule utilisée est mentionnée dans la rubrique « stratégie
+d’investissement » du prospectus du fonds.
+
+           •   OPCVM « Diversifiés »
+
+Cette catégorie rassemble tous les OPCVM qui ne relèvent pas d'une autre catégorie. Il doit
+être fait mention, dans l’objectif de gestion, de la gestion mise en œuvre et notamment :
+
+   1. Gestion totalement discrétionnaire ;
+   2. Gestion de type profilée ;
+   3. Gestion monétaire dynamique.
+
+Dans la mesure ou le profil d’investissement ne correspond à aucune autre classification, ce
+point doit faire l’objet d’une justification dans la rubrique « stratégie d’investissement » du
+prospectus simplifié et de la note détaillée de l’OPCVM.
+
+L’existence éventuelle d’un risque de change pour le résident français est mentionnée dans
+la rubrique « stratégie d’investissement » du prospectus de l’OPCVM.
+
+Les instruments financiers utilisés selon la finalité du fonds :
+   • Actions :
+   • Obligations.
+   • Devises.
+   • Matières premières (à noter que certaines règles particulières encadrent ce type
+      d’investissement)
+   • Contrats financiers divers : futures, options, swap, cds etc…
+
+Quelques particularités :
+
+    • Les fonds datés
+Les OPC datés correspondent à des fonds qui disposent d’une échéance liquidative. Le fonds
+constitué a pour objectif de porter des titres obligataires jusqu’à leurs échéances afin de
+fixer un taux actuariel, une marge, des coupons, permettant à l’investisseur d’avoir une
+approche temporelle.
+Les fonds datés obligataires servent les investisseurs ne disposant pas des capitaux
+nécessaires à la conception d’un portefeuille en direct. Ils sont souvent dénommés avec une
+date, par exemple 2025 etc.
+
+Conclusions sur les OPC
+Les fonds permettent d’investir sur un marché quelquesoit les moyens financiers de
+l’épargnant. Éligibles au contrat d’assurance vie, et représentatifs d’unités de compte, ils
+permettent de diversifier les contrats d’assurance vie ou les portefeuilles titres.
+Le choix des fonds (unité de compte) dans un contrat d’assurance vie est déterminant pour
+évaluer la qualité du contrat.
+
+       Section 4 - Les différents types de gestion des OPC
+
+                       A - La gestion active
+
+Ce type de gestion est caractérisée par la mobilisation active de ressources, le plus souvent
+humaines de la société de gestion en vue d’orienter la gestion des fonds dans le cadre d’une
+stratégie opportune, réfléchie, qui évolue en fonction de critère objectifs ou subjectifs.
+
+C’est en quelque sorte le pilote dans un avion qui oriente le voyage.
+
+La gestion active est particulièrement représentative en cas de gestion flexible qui consiste
+à allouer l’allocation d’actifs financiers de manière tactique ou stratégique.
+
+La valeur ajoutée d’une gestion active est mesurée par l’ALPHA.
+
+Qu'est-ce que l'alpha en finance ?
+
+L'alpha est une mesure permettant de calculer la performance d'un portefeuille
+d’investissement par rapport à une valeur de référence, habituellement un indice boursier.
+En d’autres termes, c’est le degré avec lequel un investisseur a réussi à « devancer » le marché
+sur une période de temps. L'alpha peut être positif ou négatif, en fonction de sa proximité
+vis-à-vis du marché.
+
+L'alpha n'est pas seulement utilisé comme une mesure du portefeuille par rapport au marché
+sous-jacent. En effet, il sert également à indiquer la performance d’un gestionnaire de fonds
+(qui met en œuvre les stratégies et gère les activités de trading) et sa capacité à apporter
+de la valeur.
+
+Le calcul de base de l'alpha soustrait simplement le rendement total d'un investissement
+des rendements de la valeur de référence, sur la même période.
+
+Cependant, il est courant d’utiliser le modèle d'évaluation des actifs financiers (CAPM -
+capital assets pricing model en anglais), pour obtenir un aperçu plus détaillé de la
+performance d’un portefeuille.
+
+La pertinence des choix de gestion de certain investisseurs professionnels comme Warren
+BUFFET ou même Georges SORROS, Ray DALIO, Jim SIMMONS, Ken GRIFFIN… Edouard
+CARMIGNAC, n’est plus à démontrer.
+
+Néanmoins le débat sur l’intérêt de gestion active anime fortement le marché. Débats
+fortement orientés par des intérêts économiques bien évidement…
+
+                       B - La gestion passive
+
+La gestion passive est une technique de gestion de portefeuille. Sa stratégie d'investissement
+trouve ses racines dans la recherche académique. Sa méthode résulte de l’observation des
+marchés. Elle est utilisée depuis le début des années 1970.
+
+Les progrès informatiques des années 1950 ont permis aux économistes de recueillir,
+d’enregistrer et d’analyser les nombreuses données des marchés boursiers. En 1964, William
+Sharpe a développé le Modèle d'Évaluation des Actifs Financiers. Ce modèle constitue l’épine
+dorsale de la théorie moderne des prix des marchés financiers. En 1965, Paul Samuelson
+suggérait que la meilleure estimation de la valeur intrinsèque d’un titre est le prix fixé par le
+marché lui-même à chaque minute de la journée. Cette année-là, Eugene Fama établissait
+son hypothèse de l'efficience des marchés financiers, qui stipule que, puisque les marchés
+sont efficients, toute information nouvelle est précisément et immédiatement reflétée dans
+le prix de chaque titre. En 1968, Michael Jensen réalisait la première grande étude de
+performance en observant 115 fonds d’actions américaines sur la période allant de 1945 à
+1964. Sa conclusion : aucun gérant de fonds n’a été capable de prévoir le prix des actions,
+suffisamment bien pour permettre au fonds de battre les marchés pour d’autres raisons que
+le pur hasard. Depuis, beaucoup d’autres études sont arrivées à la même conclusion. La
+gestion passive prend en considération ces résultats et les intègre à sa technique de gestion.
+De nombreuses institutions, ainsi que des grandes fortunes utilisent cette technique de
+gestion pour gérer leurs fonds.
+
+La gestion passive est souvent associée à la gestion indicielle. La confusion entre ces deux
+techniques de gestion est grande. La gestion passive n’essaie pas de battre les marchés en
+sélectionnant les titres ou les fonds qui pourraient surperformer, elle ne change pas
+l’exposition aux marchés suivant l’évolution de ces derniers (que l’on appelle « market
+timing »). C’est une gestion sans prévision. La gestion passive utilise généralement des fonds
+passifs et est une alternative aux fonds indiciels (ou ETFs). une fois investi, le gérant passif
+attend que les marchés produisent les rendements attendus et reste investi même en cas
+de crise. Les frais de gestion de la gestion passive sont moins élevés que ceux d’une gestion
+dite active.
+
+Discours de Robert OPHELE, président de l’AMF le 30 aout 2018 :
+
+« On connait l'essor spectaculaire de la gestion passive ; celui-ci est très documenté aux
+Etats-Unis et moins en Europe, sans doute parce que cette évolution est moins avancée en
+Europe qu'aux Etats-Unis, mais, comme souvent il nous faut être très attentifs aux évolutions
+aux Etats-Unis qui peuvent annoncer des évolutions similaires en Europe.
+
+S'agissant des actions, il y a eu un arbitrage massif et continu des fonds à gestion active
+vers les fonds à gestion passive aux Etats-Unis. On a ainsi enregistré, selon Morningstar,
+environ 1,3 trillion de dollars de flux négatifs sur la gestion active et un montant à peu près
+équivalent de flux positifs sur la gestion passive au cours des 12 dernières années pour les
+actions américaines. Pour ces dernières, les flux auraient été négatifs de 180 milliards sur un
+an à fin juillet sur la gestion active, mais avec un flux positif de 170 milliards sur la gestion
+
+passive. Cela porterait la part des actifs gérés par ces fonds passifs à 47 % du total des
+fonds US Equity gérés par des fonds et environ 15 % du total de la capitalisation boursière
+des actions US. Les chiffres sont moins spectaculaires pour les produits de taux ou les
+matières premières mais ils restent significatifs.
+
+En Europe, l'essor est beaucoup plus lent avec, au sein de la gestion des actions
+européennes par des fonds, 30 % relevant d'une gestion passive représentant moins de 4
+% de la capitalisation boursière. Mais tout laisse à penser qu'une évolution similaire à celle
+observée aux Etats-Unis est désormais en cours en Europe : désinvestissements dans la
+gestion active et investissements dans la gestion passive. La progression rapide des ETF en
+Europe avec une valorisation qui est désormais de l'ordre de 650 milliards d'euros, dont 70
+% correspondent à des ETF sur actions, en est une manifestation. On peut également penser
+que l'interdiction des rétrocessions introduite par MIFID2 dans la gestion sous mandat
+alimentera cette évolution.
+
+Les facteurs expliquant la croissance de la gestion passive sont bien connus. Au-delà des
+avantages propres à la cotation et à la négociation en bourse des ETF, ce sont les
+performances souvent décevantes de la gestion active, nette des frais, qui renforcent
+l'attractivité de la gestion passive. Plus précisément, d'après les calculs de S&P (SPIVA
+Scorecard utilisant notamment les données de Lipper-Reuters), 63 % des fonds
+benchmarkés sur le S&P 500 US ont eu, en 2017, une performance nette de frais inférieure à
+leur indice de référence (cette proportion passant à 84 % sur 5 ans). Les résultats sont moins
+défavorables en Europe, mais restent décevants pour la gestion active : 47 % font moins bien
+que le S&P 350 sur un an (73 % sur cinq ans). Ces performances relatives sont naturellement
+une incitation à recourir aux ETF ou à des fonds indexés à faibles frais.
+
+Le développement de la gestion passive semble, cependant, n'avoir eu jusqu'ici que des
+incidences limitées sur le fonctionnement du marché. A l'évidence, cela a renforcé la
+corrélation observée entre le cours des titres composant un indice et cet indice et l'essor
+des ETF a probablement contribué à accroître la volatilité intra-journalière mais, compte
+tenu des emprises réduites, on ne peut considérer que la gestion passive ait détérioré le
+mécanisme de formation des prix sur les valeurs individuelles. La détermination du niveau
+minimal de gestion active qui assure une formation pertinente des prix est complexe, un
+papier relativement ancien de Bhattacharya et Galpin (2005) avait mis en évidence un niveau
+de 11 % des transactions pour le marché actions américains pour le " stock picking " qui n'est
+cependant qu'un sous-ensemble de la gestion active : je ne suis pas certain qu'on en soit
+très loin sur certains segments.
+
+J'observe également un mécanisme pervers qui peut s'enclencher entre une réduction de la
+recherche sur les émetteurs et le développement de la gestion passive, mécanisme qui peut
+être alimenté par d'autres facteurs – je pense notamment aux effets de MIFID2 sur la
+recherche. A l'inverse, de façon plus positive, le développement de la gestion passive conduit
+certains asset managers à accorder une importance plus forte aux questions de gouvernance
+des sociétés faisant partie de l'indice retenu (puisque je vais conserver les titres tant qu'ils
+seront dans l'indice, autant que la société soit bien gérée).
+
+Le développement de la gestion passive pose, par ailleurs, de nouvelles questions. Par
+exemple, qui est le gérant effectif : le gestionnaire du fonds ou le fournisseur d'indices ?
+Au niveau de l'industrie de la gestion d'actifs, cet essor se traduit inexorablement par une
+réduction du nombre des gérants et des analystes ainsi que par une concentration des actifs
+sur les très grands acteurs de taille mondiale, seuls à même de proposer des produits indexés
+à très faibles commissions. Cela ne signifie pas, au contraire la disparition des sociétés
+entrepreneuriales ou des gestionnaires de niches spécialistes de l'alpha, mais cela pose à
+l'évidence une question presque existentielle pour les gestionnaires de taille moyenne.
+
+Par ailleurs, la frontière entre la gestion active et la gestion passive, au-delà de la
+déclaration des gérants, reste incertaine. La montée en puissance de la gestion passive a
+ainsi suscité un débat nourri sur la légitimité des frais prélevés dans le cadre de la gestion
+active et ce d'autant plus que certains fonds qui s'affichent comme étant actifs pourraient
+ne pas l'être et prélèveraient ainsi des commissions indues. Dans le même temps, la
+réglementation est devenue plus exigeante sur la transparence des frais et l'AMF, comme
+d'autres superviseurs, porte une attention particulière à la problématique des frais.
+
+C'est dans ce contexte que Better Finance alerte depuis 2014 les autorités de supervision
+sur le cas de fonds " pseudo-actifs " qui justifieraient auprès de leurs investisseurs de
+commissions élevées en raison du caractère actif de leur gestion alors même que cette
+gestion serait purement passive. En début d'année, suite aux interventions de la Financial
+Conduct Authority (FCA), 64 fonds " pseudo-actifs ", des " closet tracker funds ", ont d'ailleurs
+décidé d'indemniser leurs investisseurs au titre de commissions illégitimes – 34 millions £
+ont ainsi été reversés.
+
+Par rapport au superviseur britannique, l'approche des autres superviseurs européens peut
+apparaître bien frileuse. Ce n'est pas le cas pour l'AMF, elle est simplement moins visible.
+L'AMF a publié, début juillet, une contribution à ce débat ; je la mentionne d'autant plus
+volontiers ici que Serge Darolles nous a été d'une aide précieuse dans cette réflexion.
+
+Les conclusions de notre étude sont assez prudentes ; aucune méthode statistique ou
+économétrique ne permet de détecter de façon certaine le caractère passif d'un fonds qui
+se déclare comme pratiquant la gestion active ; quel indicateur retenir ? avec quelle
+fréquence et sur quelle durée d'observation ? La méthode souvent pratiquée de l'" active
+share " est séduisante mais ne peut être appliquée qu'à un périmètre réduit de fonds lorsque
+l'étude est menée sur des fonds européens. Il n'existe en effet en Europe aucune obligation
+règlementaire de transparence vis-à-vis du marché quant à la composition du portefeuille
+des fonds. En fait, nous pensons que le superviseur doit d'abord identifier via une batterie de
+méthodes des fonds potentiellement pseudo-actifs, puis vérifier par un dialogue avec leurs
+gestionnaires et des contrôles sur place le mode effectif de gestion. Dans cette démarche,
+le souci est celui de la bonne information de l'investisseur : il faut vendre un fonds pour ce
+qu'il est et le niveau des frais relève de la liberté contractuelle mais cela doit se faire en toute
+transparence et dans l'intérêt du client. Nous sommes déterminés à poursuivre notre action
+dans ce domaine.
+
+La bonne information des investisseurs nécessite également que, comme l'exige clairement
+la réglementation européenne, lorsque le fonds a une politique d'investissement qui se réfère
+à " une valeur de référence " - un benchmark -, la performance passée du fonds figurant dans
+le DICI soit accompagnée de la performance passée de cette valeur de référence. Cela vaut
+naturellement pour les fonds indiciels et permet d'illustrer la tracking error, mais cela vaut
+également pour les fonds en gestion active. Cette exigence est respectée en France,
+j'observe que ce n'est pas systématiquement le cas dans d'autres pays européens pour des
+fonds qui bénéficient cependant du passeport ».
+
+                       C - La gestion alternative
+
+La gestion alternative est un mode de gestion de portefeuille appliqué par certains fonds
+d'investissement dits « fonds spéculatifs », « fonds alternatifs », « fonds d'arbitrage », « fonds
+de couverture », ou hedge funds.
+
+Habituellement, cette dénomination conserve des fonds qui ont pour objectif de produire de
+la performance décorrélée des marchés principaux. Cette technique permet de désolidariser
+la performance aux tendances de marché habituelle et par conséquent de mieux diversifier
+son patrimoine global.
+
+Ce type de gestion est souvent demandée par une clientèle institutionnelle.
+
+L'investissement minimal va de quelques dizaines d’euros parfois, à plusieurs centaines de
+milliers plus souvent, suivant les fonds. De plus, n'étant par essence pas aussi réglementés
+que les fonds de placement classiques, ils ne peuvent être distribués au grand public et sont
+réservés à la catégorie des investisseurs institutionnels ou aux grandes fortunes.
+
+La définition d'un hedge fund reste confuse puisque chaque source possède ses propres
+critères (SEC, FSA, Dodd-Frank Act). Cependant, pour les différencier des OPCVM, les hedge
+funds font appel à l'emprunt pour composer leurs portefeuilles, ce qui les contraint donc à
+dépasser des seuils de rentabilité minimale.
+
+D'un point de vue juridique, la gestion alternative vise toute gestion qui n'est pas dédiée à
+l'investissement en actions ou obligations cotées ouverte au public. En effet depuis la
+directive AIFM, la gestion alternative comprend les hedge funds, mais aussi les fonds
+immobiliers, de dette ou de private equity.
+
+Les techniques utilisées par les fonds alternatifs peuvent être particulièrement complexes
+lorsqu’elles utilisent des instruments financiers complexes.
+Voici un tableau récapitulatif des différentes stratégies classées selon Hedge Fund Research
+(HFR).
+
+Les fonds thématiques :
+
+Ces fonds qu’il soient gérés de manières actives ou passives sont caractérisés par une
+thématique    d’investissement   centrale  permettant    de    personnaliser   l’univers
+d’investissement.
+
+Pourquoi investir dans des fonds thématiques ?
+
+L'investissement thématique vise à identifier des sociétés susceptibles de surperformer à
+terme grâce à leur focalisation sur les forces structurelles qui transforment notre monde les
+« mégatendances ».
+
+Un potentiel de rentabilité à long terme selon PICTET AM.
+
+« Adopter une approche thématique peut dynamiser un portefeuille d'investissement. Selon
+le cabinet de conseil McKinsey1, les investisseurs recherchant des opportunités dans les pans
+de l’économie voués à profiter d’investissements conséquents pourraient enregistrer des
+rendements supérieurs à la moyenne du marché. "Pictet Asset Management (Pictet AM)
+analyse les mégatendances telles que l'évolution démographique, l'innovation technologique
+et le développement durable pour déterminer où ces opportunités sont susceptibles de se
+
+présenter", explique Bruno Hellemans, responsable des ventes au sein de Pictet AM. "Nos
+fonds se concentrent sur des thèmes situés à la croisée de plusieurs mégatendances,
+comme la robotique, le numérique et la sécurité. Identifier ces forces structurelles qui
+transforment le monde nous aide à détecter les sociétés appelées à surperformer. Dans une
+période caractérisée par des taux d’intérêt bas et des valorisations élevées sur les marchés
+actions, les investisseurs recherchent de nouvelles solutions pour maximiser leurs
+rendements. Et l'investissement thématique en est une." Il convient toutefois de souligner
+que ce type d’investissement repose sur des tendances de long terme. Une approche de
+long terme – sept ans au minimum – s’impose donc lorsqu’on envisage un investissement
+dans des fonds thématiques. Enfin, la performance passée ne constitue pas une garantie des
+résultats futurs. »
+
+Il est à différencier des labels comme ESG, ou ISR qui constitue une philosophie
+d’investissement :
+
+Critères ESG selon l’AMF :
+
+Les critères ESG (pour Environnementaux, Sociaux et de Gouvernance) permettent d’évaluer
+la prise en compte du développement durable et des enjeux de long terme dans la stratégie
+des acteurs économiques (entreprises, collectivités, etc.). Ces critères peuvent par exemple
+être :
+
+   •   les émissions de CO2, la consommation d’électricité, le recyclage des déchets pour le
+       pilier E,
+   •   la qualité du dialogue social, l’emploi des personnes handicapées, la formation des
+       salariés pour le pilier S,
+   •   la transparence de la rémunération des dirigeants, la lutte contre la corruption, la
+       féminisation des conseils d’administration pour le pilier G.
+
+Critères ISR (selon le ministère e l’économie et des finances) :
+
+Qu’est-ce que l’Investissement Socialement Responsable ?
+
+Le terme d'Investissement Socialement Responsable (ISR), adapté d’un concept anglo-saxon,
+rassemble toutes les démarches qui consistent à intégrer des critères extra-financiers c’est
+à dire concernant l’environnement, les questions sociales, éthiques et la gouvernance dans
+les décisions de placements et la gestion de portefeuilles.
+
+L'ISR peut prendre 3 formes principales :
+
+   •   Les fonds socialement responsables ou de développement durable : ils intègrent
+       des critères sociaux et environnementaux d’évaluation d’une entreprise cotée qui sont
+       croisés avec des critères financiers pour sélectionner dans un portefeuille les
+       entreprises les plus performantes d’un point de vue développement durable.
+   •   Les fonds d’exclusion (également dénommés "placements éthiques") : plus répandus
+       dans les pays anglo-saxons, ils excluent, pour des raisons morales ou religieuses,
+
+       certains secteurs comme l’armement, le jeu, le tabac…voire des activités considérées
+       par leurs détenteurs comme dangereuses pour l’environnement : OGM, nucléaire.
+   •   L’engagement actionnarial ou activisme actionnarial : il consiste, pour les
+       investisseurs, à exiger des entreprises une politique de responsabilité sociale plus
+       forte, soit en les interpellant directement, soit par l’exercice des droits de vote en
+       assemblées générales. Il suppose, ce qui est plus fréquent aux Etats-Unis qu’en Europe
+       que des résolutions environnementales ou sociales figurent à l’ordre du jour des
+       assemblées générales ; cela peut se produire si les actionnaires ont eu la possibilité
+       d’en déposer, ou si l’entreprise le propose à l’approbation ce qui est encore rarissime.
+       De telles résolutions peuvent par exemple viser à obliger l’entreprise à adopter une
+       politique de lutte contre les émissions de gaz à effet de serre ou prohiber l’installation
+       dans un pays litigieux comme la Birmanie.
+
+Ces différentes approches sont parfois improprement qualifiées de placements éthiques,
+une catégorie de placements qui, outre les fonds d'exclusion comprend aussi d'autres types
+de produits financiers : les fonds de partage et les produits financiers solidaires. Les
+premiers consistent à rétrocéder une part des bénéfices générés par le fonds à des
+associations caritatives ou des ONG, les seconds sont des produits d’épargne destinés à
+financer des projets d’économie solidaire.
+
+ETF et stratégie à levier
+
+Certains ETF disposent de stratégies axées sur des effets de leviers à la hausse ou la baisse
+qui font d’eux de véritables produits structurés, ou du moins produits dérivés. Dans le cas de
+leviers on parlera de LETF (leverage ETF).
+
+Exemple du BX4 : https://www.lyxoretf.fr/fr/instit/produits/etf-actions/lyxor-cac-40-daily-
+2x-inverse-ucits-etf-acc/fr0010411884/eur
+
+Ce fonds a pour vocation à donner un effet de levier sur l’inverse de la performance du CAC.
+En l’espèce le fonds à raison de deux fois l’inverse du CAC 40. C’est-à-dire que lorsque le
+CAC 40 baisse de 1%, le BX4 réalise une performance de 2%.
+
+Plus précisément :
+
+Le Lyxor CAC 40 Daily (-2x) Inverse UCITS ETF - Acc est un ETF conforme à la directive
+OPCVM qui cherche à reproduire la performance de l'indice de référence CAC 40 Double
+Short Gross Return. L’indice CAC 40 Double Short Gross Return offre une exposition inverse,
+réajustée quotidiennement, à la hausse ou à la baisse à l’évolution de l’indice CAC40 Gross
+Total Return, avec un effet de levier x2. Ainsi, en cas de baisse sur un jour de bourse de
+l’indice CAC40 Gross Total Return, la valeur liquidative du FCP augmentera doublement sur
+le même jour de bourse et, en cas de hausse de l’indice CAC40 Gross Total Return sur un
+jour de bourse, la valeur liquidative du FCP baissera doublement sur le même jour de bourse
+et les porteurs ne bénéficieront pas de la hausse de l’indice CAC40 Gross Total Return. Les
+ETF Lyxor sont des fonds d'investissement cotés en bourse qui procurent une exposition
+fidèle et bon marché à un indice de référence.
+
+                                       Chapitre III - Les F.C.P.R
+
+Les FCPR (Fonds commun de placement à risques) prennent plusieurs formes :
+Tableau de synthèse :
+
+         LIBELLE            Part de titres non cotés mini                  Vocation du non coté
+          FCPR                             50%                                      Risque
+           FCPI                            70 %                                   Innovation
+            FIP                            70 %                                   Proximité
+
+Les FCPI et les FIP sont deux catégories spécifiques de FCPR. Ces fonds sont soumis à
+l’agrément de l’AMF et doivent être proposés par des sociétés de gestion également agréées
+par l’AMF.
+Le capital investissement peut s’avérer très risqué. En contrepartie de cette prise de risque,
+vous pouvez potentiellement obtenir des performances avantageuses et bénéficier de
+réductions fiscales.
+
+Les différents types de capital investissement :
+Le capital risque : pour financer la création de l’entreprise (notamment les sociétés
+innovantes) ou les premiers développements d’une entreprise récente (moins de 5 ans).Le
+capital développement : pour soutenir et accélérer la croissance de l’entreprise. Le capital
+transmission ou leveraged by out (LBO) : pour financer l'acquisition de l'entreprise avec
+effet de levier. Cette acquisition se fait par le biais d'un emprunt via la constitution d'une
+société holding de reprise. Le capital retournement : pour financer l’acquisition d’une
+entreprise en difficulté afin de lui fournir les ressources nécessaires pour mettre en place un
+plan de redressement.
+
+        Investir dans les FCPR ?
+
+       Dans un compte-titres, un PEA et un PEA PME-ETI via des unités de compte dans un
+       contrat d’assurance-vie ou de capitalisation.
+       Le règlement d’un fonds de capital investissement peut prévoir une ou plusieurs
+       périodes de souscription ayant une durée déterminée. En dehors de ces périodes, ce
+       n’est pas possible.
+
+Il est impossible de racheter vos parts de FCPR pendant la durée de vie du fonds (qui peut
+aller jusqu’à 10 ans, voire plus), même au-delà du délai « fiscal » de 5 ans (durée minimale
+prévue pour bénéficier des avantages fiscaux). Vous devez donc attendre la dissolution du
+fonds, qui a lieu après une phase de « désinvestissement » (revente des actions des sociétés)
+qui peut prendre plusieurs années.
+
+          Les bonnes pratiques avant d’investir
+          •    Assurez-vous que cet investissement correspond aux objectifs (pas
+           uniquement fiscal) et à l’aversion au risque.
+          •    Lisez attentivement le DICI (document d’information clé pour l’investisseur).
+          •    Comparez.
+
+Le capital investissement sous forme de holding
+
+Le placement en capital investissement peut également se faire sous forme de holding, qui
+va investir son portefeuille en titres de PME non cotées. Si la holding permet de bénéficier
+des mêmes avantages fiscaux, les risques sont encore plus élevés que pour un
+investissement via un FCPR. En cas d’offre au public, un prospectus visé par l’AMF doit
+obligatoirement être remis aux investisseurs.
+
+Le capital investissement, un placement risqué…
+
+Risque de perte en capital
+En investissant dans des FCPR, vous pouvez perdre tout ou partie de votre capital. En effet,
+les perspectives de développement des sociétés dans lesquelles le fonds investit sont
+incertaines.
+
+Risque d’illiquidité
+
+Les fonds de capital investissement investissent dans des titres de sociétés non cotées non
+liquides. N’étant pas négociables sur un marché secondaire organisé leur cession nécessite
+plusieurs mois.
+
+Risque lié à la valorisation des titres en portefeuille
+
+La valorisation des titres non cotés est basée sur la valeur actuelle de ces titres. Ainsi, cette
+valorisation reste une estimation.
+
+       Section 1 - FCPR
+
+        Attention, pour les modalités fiscales se reporter au cours de fiscalité. Pour les
+        obligations déclaratives il convient de rester vigilant
+
+                                                  Exercice
+Les FCPR investissent :
+
+a- Essentiellement dans des sociétés non cotées.
+b- Sont peu liquides.
+c- Bénéficient d’avantages fiscaux.
+
+       Section 2 - FCPI
+
+Les Fonds Communs de Placement dans l'Innovation (FCPI), définis à l’article L.214-30 du
+Code monétaire et financier, appartiennent à la catégorie des Fonds Communs de Placement
+à Risques (FCPR). Ces fonds sont destinés à investir dans le capital de PME en vue de réaliser
+une plus-value à terme. La gestion de ces fonds est confiée à une société de gestion agréée
+qui sera en charge de prendre les décisions concernant les investissements.
+
+Composition
+
+Les FCPI sont éligibles à la réduction IR sous réserve du respect de quotes-parts
+d'investissements particuliers de leur actif.
+
+Depuis le 1er janvier 2016 et pour être éligible à la réduction IR, le FCPI doit répondre à
+certaines conditions quant à la composition de son actif (qui doit être constitué à minima de
+70 % de titres de PME).
+
+Principe et titres éligibles
+
+Le quota de 70 % doit être constitué de titres financiers, parts de société à responsabilité
+limitée et avances en compte courant. Les titres doivent, comme pour les FCPR, remplir
+plusieurs conditions :
+   • Ne pas être admis aux négociations sur un marché réglementé ou organisé français ou
+      étranger sauf les sociétés dont les titres sont négociés sur Enternext,
+   • Être émis par des sociétés ayant leur siège dans un État membre de l'Union
+      européenne ou dans un autre État partie à l'accord sur l'Espace économique européen
+      (EEE) ayant conclu avec la France une convention d'assistance administrative en vue
+      de lutter contre la fraude et l'évasion fiscales.
+Les sociétés doivent principalement remplir certaines conditions :
+   • Être soumise à l'IS dans les conditions de droit commun ou en serait passible dans les
+      mêmes conditions si l'activité était exercée en France,
+   • Répondre à la définition européenne des petites et moyennes entreprises (PME), c'est
+      à dire qui emploient moins de 250 personnes avec un chiffre d'affaires annuel
+      n'excédant pas 50 millions d'euros (soit le total du bilan annuel n'excédant pas 43
+      millions d'euros),
+   • Remplir au moins une des 3 conditions suivantes :
+          o N'exercer son activité sur aucun marché,
+          o Exercer son activité depuis moins de 10 ans après sa première vente.
+             L'existence d'une première vente commerciale est caractérisée par le
+             dépassement d'un seuil de chiffre d’affaires fixé à 250 000 €. Le chiffre
+             d'affaires à prendre en compte s’entend de celui constaté à la clôture de
+             l’exercice de la société.
+          o "Avoir un besoin d'investissement initial en faveur du financement des risques
+             qui, sur la base d'un plan d'entreprise établi en vue d'intégrer un nouveau
+             marché géographique ou de produits, est supérieur à 50 % de son chiffre
+             d'affaires annuel moyen des cinq années précédentes "CMF, art L.214-30, I, d.
+   • Compter au moins 2 salariés,
+
+   •   Être innovante, c'est à dire :
+          o Avoir réalisé, au cours de l'exercice précédent, des dépenses de recherche,
+              "représentant au moins 10 % des charges d'exploitation de l'un au moins des
+              trois exercices précédant celui au cours duquel intervient la souscription."
+          o "être capable de démontrer qu'elle développe ou développera dans un
+              avenir prévisible des produits, services ou procédés neufs ou
+              substantiellement améliorés par rapport à l'état de la technique dans le
+              secteur considéré et qui présentent un risque d'échec technologique ou
+              industriel. Cette appréciation est effectuée pour une période de trois ans
+              par un organisme chargé de soutenir l'innovation et désigné par décret." Au
+              1er janvier 2016, l'organisme désigné est Bpifrance.
+          o L'appréciation du caractère innovant est effectuée lors du premier
+              investissement du FCPI.
+   •   Le capital de la société ne doit être détenu majoritairement, directement ou
+       indirectement, par une ou plusieurs personnes morales ayant des liens de dépendance
+       avec une autre personne morale.
+
+Les sociétés éligibles à la réduction d'impôt ne doivent pas avoir reçu, au total, plus de
+15 millions d'euros :
+          o De souscriptions,
+          o Des "aides dont elle a bénéficié au titre du financement des risques sous la
+              forme d'investissement en fonds propres ou quasi-fonds propres, de prêts, de
+              garanties ou d'une combinaison de ces instruments".
+
+Modalités de souscription
+
+   • Période d'investissement
+La souscription de ce type de fonds ne peut pas s’effectuer à tout moment. C’est le
+règlement qui va fixer les périodes de souscription.
+
+    • Durée de l'investissement
+La durée d’investissement de ces fonds est limitée. Le plus souvent la durée est fixée à 8
+ans avec la possibilité de proroger deux fois pour une période d’un an. Les sommes investies
+doivent être restituées aux porteurs de parts au plus tard à la fin de la durée de vie fixée dans
+le règlement.
+Seules les souscriptions de nouvelles parts peuvent bénéficier de la réduction d'impôt,
+l'acquisition de parts existantes n'ouvrent pas droit à la réduction.
+
+Engagement de conservation
+
+Le souscripteur doit s'engager à conserver ses parts pendant 5 ans au moins (de date à
+date), à compter de la souscription.
+
+Remarque :
+
+La période de blocage ne peut excéder 10 ans. Au terme de ce délai, les porteurs de parts
+peuvent exiger la liquidation du fonds si leurs demandes de remboursement n'ont pas été
+satisfaites dans un délai d'un an.
+Lorsque le bulletin de souscription est signé, le souscripteur s’engage à conserver ses
+parts et de réinvestir les produits distribués durant cette période d'indisponibilité.
+
+   •   Nature de la souscription
+
+La souscription peut s'effectuer en numéraire ou en titres en nature (cotés ou non) évalués
+dans les conditions fixées par le règlement du fonds. La souscription des parts peut être
+libérée en totalité ou en partie le jour de la souscription.
+
+   •   Modalités de rachat et de remboursement
+
+Le règlement fixe les conditions et les modalités de rachat ou de remboursement, avant la
+fin de la durée fixe éventuellement, soit en numéraire, soit en en titres de sociétés dans
+lesquelles le fonds détient une participation.
+
+   •   Sortie
+
+Il peut s’avérer difficile de céder les parts de FCPI, même si ces dernières sont librement
+négociables. En effet, seules les nouvelles souscriptions permettent d’obtenir des réductions
+d’impôt, par conséquent, trouver un nouveau porteur de parts peut s’avérer être complexe.
+(Risque de liquidité).
+
+   •   Le règlement du FCPI
+
+Comme tout fonds commun de placement, le FCPI doit établir un règlement. Ce règlement
+doit préciser la durée du fonds, le montant minimum de l'actif initial, les modalités de
+distribution des avoirs, les droits attachés aux différentes catégories de parts, l'orientation
+de la gestion, les règles observées par la société de gestion etc.
+
+   •   L'information du FCPI
+
+Le prospectus complet du fonds (y compris le règlement) doit être mis à disposition du
+souscripteur. Il permet de fournir des informations précises sur la gestion, la mise en œuvre,
+les modalités de fonctionnement du fonds, les risques liés à l'investissement et enfin, de
+permettre la comparaison entre différents FCPI. Le porteur des parts est prévenu, grâce à la
+notice d’information, de l'ensemble des frais imputables (frais récurrents de gestion et de
+fonctionnement, les frais de constitution du fonds, etc.). Le montant détaillé des frais et
+commissions, directs et indirects, supportés par le porteur de parts doit lui être communiqué
+chaque année, dans des conditions définies par décret. Le décret a vocation à encadrer les
+frais et commissions relatifs à la commercialisation, au placement et à la gestion de fonds
+éligibles aux réductions d’impôt sur le revenu et d’ISF.
+
+À noter : Pour les souscriptions de parts dont l'agrément de constitution a été délivré à
+compter du 1er janvier 2018, le montant des frais et commissions directs ou indirects imputés
+au titre d'un même versement est soumis à un plafond fixé par arrêté (idem FCPR).
+
+De plus, des documents réguliers (composition de l'actif net, rapport annuel) établis par la
+société de gestion sont tenus à la disposition des investisseurs. Ils fournissent aux porteurs
+de parts des éléments d'ordre comptable. Les FCPI doivent adresser chaque année à l'AMF,
+avant le 30 avril de l'année suivante, un état récapitulatif, arrêté au 31 décembre de l'année,
+des sociétés financées, des titres détenus ainsi que des montants investis durant l'année. La
+commercialisation des FCPI par les conseillers en investissements doit répondre aux règles
+de bonne conduite applicables à ces intermédiaires dans le cadre de leur activité de conseil.
+
+Régime fiscal - PV, IR, Exonération IFI
+
+         Attention, pour les modalités fiscales se reporter au cours de fiscalité
+         Pour les obligations déclaratives il convient de rester vigilant
+
+       Section 3 - FIP (Synthèse)
+
+Les FIP (Fonds d’Investissement de Proximité) sont des fonds communs de placement à
+risque, investissant dans des petites et moyennes entreprises régionales en développement,
+non cotées et réparties sur trois régions limitrophes. Il faut savoir que 10 % de l’actif d’un FIP
+doivent être consacrés à des PME de moins de 5 ans.
+Pour bénéficier de l’appellation FIP, les fonds d’investissement doivent être composés d'au
+moins 70 % de titres de PME régionales non cotées, dont 40 % à l’occasion d’une
+augmentation de capital et au moins 40 % de jeunes entreprises de moins de 8 ans. Le reste
+de la composition du portefeuille comprend des valeurs librement choisies par le
+gestionnaire du fonds (actions, obligations, Sicav, FCP,…). Ensuite, pour qu’une entreprise soit
+éligible au sein d’un FIP, elle doit respecter les critères suivants :
+
+   •   PME au sens de l’UE (<250 salariés et CA< 50 M€ ou total bilan < 43 M€),
+   •   Non cotée (sauf Enternext),
+   •   Le siège doit se situer dans un état de l’UE ou EEE (avec conditions),
+   •   Soumise IS ou équivalent,
+   •   Souscription max 15 millions d’Euros ou d’aides composant un financement,
+   •   Ne pas avoir procédé au cours de l’année de remboursement d’apports,
+   •   Ne pas être constituée de façon prépondérante de métaux précieux, œuvres d’art,
+       chevaux de course…
+
+Quelques particularités :
+
+FIP Corse
+
+Créé par la loi de finances pour 2007, le FIP Corse est un fonds dont l’actif est constitué d’au
+moins 70% de titres de PME exerçant leur activité exclusivement en Corse.
+
+La réduction d’impôt est de 30% depuis, il entre également dans le plafond des niches
+fiscales.
+
+FIP Outre-Mer
+Ce fonds est investi à hauteur d’au moins 70% en titres de PME exerçant leur activité dans
+les DOM-COM. Créé en 2011, le dispositif « Outre-Mer » a tout d'abord été réservé aux
+contribuables domiciliés fiscalement dans les DOM (Guadeloupe, Martinique, Guyane,
+Réunion et Mayotte) et les COM (St Barthélémy, St Martin, St Pierre et Miquelon, Nouvelle
+Calédonie, Polynésie Française et Wallis et Futuna) avec une réduction d’impôt équivalente
+à 42% des versements.
+Depuis le 1er janvier 2017, l'investissement dans un FIP Outre-Mer donne les mêmes
+avantages à tous (résidents de la Métropole ou d'un territoire français d'outre-mer) avec un
+taux de réduction de 38% (identique au FIP Corse) puis de 25 % jusqu’au 31 décembre 2023.
+Ce dispositif fiscal s’est considérablement réduit en 2024. La réduction d’impôt est de 30%
+depuis, il entre également dans le plafond des niches fiscales.
+
+                                         Chapitre IV - Les OPCI
+       Section 1 - Qu’est-ce qu’un OPCI ?
+
+Le cadre juridique des OPCI est inspiré de celui des OPCVM. Les OPCI pourront soit être des
+fonds de placement immobilier (FPI) soit des sociétés de placement à prépondérance
+immobilière à capital variable (SPPICAV). Les premiers se verront appliquer la fiscalité
+foncière tandis que les secondes seront soumises à la fiscalité des revenus de capitaux
+mobiliers. Si les OPCI investissent majoritairement dans des actifs immobiliers, l'objectif est
+néanmoins de leur conférer une liquidité importante de par un ratio de liquidités de 10 % au
+minimum, alors que les SCPI doivent être investies au moins à 95 % en actifs immobiliers.
+Quelle que soit la forme choisie, les échanges de parts ou d'actions ne seraient plus soumis
+aux droits d'enregistrement de 5 %, actuellement appliqués lors de la vente ou de l'achat de
+parts de SCPI.
+Un OPCI est un placement collectif non coté en bourse. Créé et géré par une société de
+gestion, il réunit l’épargne d’un grand nombre d’investisseurs pour le placer dans l’immobilier
+locatif.
+A la différence d’une SCPI qui est entièrement composée d’actifs immobiliers, un OPCI est à
+la fois composé d’actifs immobiliers et d’actifs financiers. Il comprend 60 % minimum
+d’actifs immobiliers (immeubles, parts ou actions de sociétés immobilières), 5 % minimum
+de liquidités, le reste étant investi dans des actifs financiers (actions, obligations, etc.).
+L'objet des OPCI est l'investissement immobilier locatif, réalisé directement ou
+indirectement, et toutes les opérations se rattachant à la location et à terme à la revente des
+actifs immobiliers. En aucun cas l'activité de marchand de biens ne peut être exercée.
+
+La loi dite "MACRON" a modifié et étendu l'objet social de l'OPCI. Il lui est désormais
+possible d'acquérir "des meubles meublants, des biens d'équipement ou tous biens
+meubles affectés aux immeubles détenus et nécessaires au fonctionnement, à l'usage
+ou à l'exploitation de ces derniers".
+
+L'acquisition de meubles par l'OPCI :
+   • doit être réalisée à titre accessoire ;
+   • peut intervenir, directement ou indirectement, par le biais de l'investissement de l'OPCI
+      dans une entité détentrice des meubles ;
+   • doit faire l'objet d'une location, ces meubles ne pouvant être acquis exclusivement en
+      vue de leur revente ;
+   • n'ouvre pas la possibilité pour le gestionnaire de l'OPCI d'exploiter l'immeuble, cette
+      activité devant être dévolue à un professionnel.
+
+       Section 2 - Composition de l'actif
+
+Au moins à 60 % composé d'actifs immobiliers, dont 51 % pour les SPPICAV (Société de
+Placement à Prépondérance Immobilière à Capital Variable), doit être composé par des actifs
+immobiliers physiques (immobilier en direct), et par des parts de sociétés de personnes de
+location immobilière non cotées.
+
+L'OPCI doit détenir au moins 5 immeubles construits différents, loués ou offerts à la
+location, et représentant ensemble au moins 20 % des actifs immobiliers.
+
+A hauteur de 10 % de liquidités.
+
+Les OPCI peuvent aussi comporter à leur actif des instruments financiers qui doivent :
+    • Demeurer liquides,
+    • Et offrir une grande sécurité tel des dépôts à terme, des bons du trésor, des titres
+        négociables, des obligations ou encore des parts ou actions d'OPCI.
+Des règles de dispersion et de plafonnement des risques ont été prévues, notamment une
+limitation à 5 % des parts d'OPCI ou d'instruments financiers émis par un tel organisme dans
+l'actif de l'OPCI.
+L'actif de l'OPCI ne peut en principe pas être investi à plus de 10 % dans une même catégorie
+d'instruments financiers. La part de l'actif de l'OPCI investi en dépôts à terme auprès d'un
+même établissement de crédit est également limitée en principe à 10 % de l'actif. Les règles
+de dispersion, de plafonnement des risques et les différents quotas devront être respectés
+dans les 3 ans de l'agrément de l'OPCI.
+
+Emprunts
+
+L'OPCI peut contracter des emprunts jusqu'à 40 % de la valeur de ses actifs immobiliers
+physiques et parts de sociétés de personnes de location immobilière non cotées détenus en
+direct.
+Il peut également consentir des garanties sur des actifs dans le cadre de son activité.
+
+Capital
+
+Le montant du capital est égal à tout moment à la valeur de l'actif net de la société de
+placement à prépondérance immobilière à capital variable, déduction faite des sommes
+distribuables.
+
+       Section 3 - Distribution
+
+Les sommes distribuables par une SPPICAV sont constituées du résultat d'exploitation de la
+société, et des plus-values réalisées sur les actifs immobiliers physiques, et les parts de
+sociétés de personnes location immobilière non cotées.
+La société doit distribuer au moins 85 % de son résultat d'exploitation, après abattement
+sur le résultat de 1,50 % de la valeur d'acquisition des immeubles acquis ou construits en vue
+de la location à l'actif de la société.
+Le taux minimum de distribution des plus-values réalisées sur les actifs immobiliers
+physiques et les parts de société de location immobilière non cotées est lui de 50 % La
+société doit distribuer l'intégralité des produits distribués par certaines sociétés de capitaux
+non cotées, dont l'activité est la location immobilière.
+
+Les sommes distribuables par un FPI (Fonds de placement Immobilier) sont constituées du
+résultat d'exploitation de la société, et des plus-values réalisées sur les actifs, et sont
+distribuées au taux minimum de 85 %.
+
+       Section 4 - Liquidité
+
+Les parts peuvent être souscrites ou rachetées à cours inconnu et à tout moment à la
+demande des porteurs. La valeur retenue pour les opérations et la première valeur liquidative
+établie après la date limite de centralisation des demandes.
+
+Si la société de gestion doit indiquer au sein du prospectus de l'OPCI la date limite des
+demandes de souscription et de rachat des parts, la date d'établissement de la valeur
+liquidative et sa date de publication, le délai entre la date de centralisation des demandes et
+la date de livraison ou règlement est d'un maximum de 6 mois.
+
+Néanmoins, pour être éligible à un contrat d'assurance-vie, le délai maximum n'est que de
+2 mois.
+
+En cas de force majeure ou lorsqu'un porteur de part détenant entre 20 % et 99 % des parts
+demande le rachat de plus de 2 % du nombre total de parts, la suspension des rachats peut
+être déclenchée.
+
+       Attention :
+
+       Pour les OPCI à règles de fonctionnement allégées (RFA), les rachats sont interdits
+       pendant 3 ans, la société définissant les règles de sortie applicables aux années
+       suivant cette période d'interdiction.
+
+       Section 5 - Valeur liquidative
+
+Une valeur liquidative doit être publiée au moins tous les 6 mois, avec un maximum de 2
+fois par mois.
+Si le délai entre deux valeurs liquidatives excède 3 mois, une valeur estimative doit être
+publiée.
+
+       Section 6 - Régime fiscal
+         Attention, pour les modalités fiscales se reporter au cours de fiscalité
+
+         Pour les obligations déclaratives il convient de rester vigilant car un dispositif
+         précis, non développer ici est impératif.
+
+    SPPICAV
+Fiscalité de la société
+Exonération d'IS, d'IFA et de contribution additionnelle sur l'IS.
+
+Fiscalité de l'actionnaire personne physique
+Les cessions de SPPICAV sont soumises au régime des plus-values de cession des valeurs
+mobilières des particuliers.
+Depuis le 1er janvier 2018, les plus-values mobilières sont imposées :
+   • au prélèvement forfaitaire unique (PFU) au taux de 12,8 %, ainsi qu'aux prélèvements
+       sociaux au taux de 17,2 %.
+   • ou, sur option globale, au barème progressif de l'impôt sur le revenu (la CSG acquittée
+       sera déductible à concurrence de 6,8 %), ainsi qu'aux prélèvements sociaux au taux de
+       17,2 %.
+Le sursis d'imposition en cas d'échange dont dispose l'article 150-0 B du CGI leur est
+applicable.
+
+Remarque sur la conservation dans les PEA :
+La loi de finances pour 2012 prévoit qu'à compter du 21 octobre 2011, les titres de SPPICAV ne
+sont plus éligibles au PEA au titre de nouvelles acquisitions.
+Cependant, les titres qui figurent à cette date dans un PEA pourront y demeurer et continuer
+à bénéficier du régime d'exonération qui lui est attaché.
+
+Fiscalité de l'actionnaire entreprise
+Les revenus sont en principe inclus dans le résultat ordinaire de l'entreprise ou la société
+soumise à l'impôt sur le revenu ou de la société à IR
+L'administration fiscale est cependant susceptible d'admettre un traitement extra
+comptable permettant d'assujettir les revenus à la catégorie des revenus de capitaux
+mobiliers.
+
+Les titres de SPPICAV sont expressément exclus du régime des plus-values à long terme.
+Le dispositif relatif aux écarts d'évaluation constatés à la clôture de l'exercice sur les titres
+OPCVM ne concerne pas les OPCI.
+
+    FPI
+Le FPI ne possédant pas de personnalité morale, ce sont les détenteurs de parts de FPI qui
+seront imposés comme s'il n'existait pas de structure entre les investissements et eux.
+
+Fiscalité des particuliers
+Revenus
+Les revenus des actifs immobiliers seront déclarés comme des revenus fonciers. Ils sont
+déterminés par la société de gestion dans les règles de droit commun. Cependant les frais
+de gestion et de souscription et de transaction supportés par le propriétaire des parts ne
+sont pas déductibles.
+Sauf exception on ne peut pas bénéficier de certains régimes spéciaux (Robien, Malraux
+etc…) au travers de FPI.
+Les revenus fonciers de FPI ne sont pas un obstacle au régime micro foncier, sous réserve
+que le FPI ne détienne pas un immeuble relevant d'un régime spécial de taxation.
+Les revenus de capitaux mobiliers perçus du fait des droits dans les bénéfices du FPI sont
+imposés selon leur nature, distributions de sociétés IS, ou revenus de créance.
+
+Plus-values en cas de cession d'un immeuble par le FPI
+Les plus-values de cessions d'immeubles réalisées par le FPI sont soumises au régime
+d'imposition des plus-values immobilières des particuliers.
+Pour les cessions de titres réalisées par les FPI, les abattements pour une durée de détention
+sont applicables sont applicables ainsi que l'exonération pour expropriation, remembrement,
+cession de moins de 15 000 € cession de logements destinés aux logements sociaux ou
+cession d'un droit de surélévation.
+
+        Attention
+
+        On ne peut pas appliquer le forfait de 7,50 % pour frais d'acquisition, ni le forfait de
+        15 % pour travaux en cas de détention de l'immeuble bâti depuis plus de 5 ans.
+
+Les plus-values sont imposables entre les mains du porteur de parts à hauteur de la quote-
+part lui revenant. La déclaration et le paiement sont effectués par le dépositaire dans les 10
+jours de la distribution. Les porteurs n'ont aucune formalité à accomplir, ils perçoivent des
+sommes nettes de l'imposition de la plus-value. Les plus-values mobilières sont en principe
+imposées à leur date de distribution.
+En cas de détention de plus de 10 % des parts du fonds par une personne physique ou son
+groupe familial directement ou indirectement, les plus-values sont imposables en totalité
+dès leur réalisation au nom des porteurs, selon le régime de droit commun des plus-values
+mobilières des particuliers. Cette mesure répond à l'objectif d'éviter la création de FPI
+familiaux.
+
+Plus-value en cas de cession des titres de FPI par un particulier
+Les cessions de titres de FPI relèvent du régime des plus-values immobilières des particuliers
+à la condition que le fonds respecte la prépondérance immobilière. Ces cessions ne peuvent
+pas bénéficier des exonérations mais peuvent bénéficier des abattements pour durée de
+détention. Les modalités de l'imposition sont celles prévues pour les cessions de droits
+sociaux de sociétés à prépondérance immobilière. L'établissement payeur s'acquittera de la
+déclaration et du paiement de l'impôt dû au titre des plus-values. Le contribuable sera donc
+dispensé de ces actes.
+Fiscalité des entreprises porteuses de parts
+
+Produits et gains réalisés par le fonds
+Les entreprises soumises à l'IR verront les distributions, produits et gains, en principe incluses
+dans leur résultat ordinaire.
+Il pourrait cependant, grâce à une mesure de tempérament de l'administration, être procédé
+à un couponnage, qui permettrait d'imposer les revenus selon leur nature.
+Les entreprises soumises à l'IS verraient les distributions de produits et gains incluses dans
+leur résultat imposable à l'IS. Les entreprises pourront imputer des crédits d'impôt sur leur
+résultat imposable, voire sur leur IR ou IS.
+
+Cession de parts de FPI
+Les entreprises soumises à l'IR relèvent du régime de droit commun des plus-values
+professionnelles.
+Une distinction est réalisée entre les plus-values à court terme et les plus-values à long terme
+dans les autres cas. Les premières sont comprises dans le résultat ordinaire, soumis au
+barème progressif de l'IR, alors que les secondes sont imposées séparément au taux de
+12,8 % et aux prélèvements sociaux au taux de 17,2 %, soit à un taux global de 30 % à compter
+des plus-values réalisées en 2017.
+Les entreprises soumises à l'IS verront les plus-values imposées au taux de droit commun de
+l'IS. Le régime des plus-values à long terme n'est pas ouvert aux titres de FPI. Les FPI, comme
+les SPPICAV, ne sont pas soumis aux règles d'écarts d'évaluation constatés à la clôture de
+l'exercice, existant au sujet des OPCVM.
+En cas d'échange de titres de FPI, les sursis d'imposition existants seront applicables.
+
+Droits d'enregistrement
+Les souscriptions et cessions d'OPCI sont en principe exonérées de droits d'enregistrement
+et de la taxe de publicité foncière.
+
+Les seules exceptions sont :
+   • Celles concernant l'acquéreur de parts de OPCI dont il détient ou détiendra lui-même
+      et son groupe familial à la suite de l'acquisition plus de 10 % des parts directement ou
+      indirectement par l'intermédiaire d'une ou plusieurs sociétés dont lui et son groupe
+      familial détiennent plus de 50 % des droits financiers ou des droits de vote.
+   • Celles concernant un acquéreur de parts de l'OPCI quand il s'agit d'une personne
+      morale ou un fonds qui détient déjà ou détiendra suite à l'acquisition plus de 20 % des
+      parts ou actions de l'OPCI.
+
+Cette mesure peut dissuader les institutionnels et être un frein à l'entrée des OPCI dans le
+cadre de l'assurance-vie.
+Les rachats de parts d'OPCI sont exonérés de droits d'enregistrement et de la taxe de
+publicité foncière, sauf pour les deux exceptions vues ci-dessus.
+
+Comment investir dans un OPCI ?
+Les fonds sont généralement souscrits dans le cadre
+    • D’un contrat d’assurance-vie ou de capitalisation investi en unités de compte.
+    • D’un portefeuille titres.
+Si vous souhaitez vendre vos parts, les OPCI sont tenus de vous les racheter.
+Bien qu’étant un placement à moyen-long terme, l’OPCI est plus liquide qu’une SCPI.
+
+       Section 7 - Les bonnes pratiques pour investir en OPCI
+
+Avant d’investir en OPCI, assurez-vous que cela correspond à vos objectifs et à vos moyens
+financiers. Les OPCI sont un placement à moyen/long terme : n’investissez que des sommes
+dont vous n’aurez pas besoin dans l’immédiat.
+ Il s’agit d’un placement risqué : ni le capital, ni le rendement ne sont garantis. En achetant
+des parts d’OPCI, vous vous exposez à la fois aux risques du marché immobilier et du marché
+financier : la valeur de ce placement peut donc varier à la hausse comme à la baisse, en
+fonction de l’évolution de ces deux marchés. A cela s’ajoutent les risques liés à l’endettement
+et au crédit, si l’OPCI a recours à l’emprunt, les taux d’intérêt pouvant évoluer.
+
+                            Partie II - LES CONTRATS FINANCIERS
+Les instruments à terme sont des contrats ayant trait à une transaction prévue à une
+échéance future sur un support donné.
+
+Dans la mesure où la valeur des instruments à terme dépend de celle de leur support, on les
+qualifie également de produits dérivés.
+
+L'utilisation des instruments à terme est souvent présentée comme très risquée. Il s'agit
+pourtant de produits initialement mis au point pour réduire le risque dans le cadre
+d'opérations de couverture. A ce titre, l'utilisation des produits dérivés constitue désormais
+un aspect incontournable de la gestion de portefeuille. Ils méritent d’autant plus d’être
+étudiés qu’ils jouent également un rôle essentiel dans certains modes de gestion, par
+exemple la gestion alternative ou la gestion structurée.
+
+        Attention
+        Contrairement aux valeurs mobilières, le solde des contrats financiers peut être
+        débiteur.
+        Autrement dit, il est possible de vendre préalablement des contrats non achetés et
+        qui feront l’objet d’achat ultérieur pour solder la position.
+
+                                Chapitre I - Les contrats à terme
+
+Un contrat à terme est un contrat ferme passé entre deux opérateurs par lequel ils
+s’engagent à s’échanger à un prix donné et à une échéance donnée une quantité donnée
+d’un certain support.
+
+Le support du contrat à terme (on dit encore "sous-jacent" ou "physique") peut être une
+matière première, un produit financier, une monnaie, ou un indice. Par exemple, si l'on achète
+du dollar à terme, le dollar est le sous-jacent du contrat. Il existe de nombreux supports
+possibles. On trouve, en particulier, des contrats à terme sur indices boursiers.
+
+Dans le cadre d’un contrat à terme ferme, les rôles du vendeur et de l’acheteur sont
+parfaitement symétriques :
+-      Le vendeur s’engage à livrer une quantité donnée d’un support donné à un prix et à
+   une date déterminée à l’avance (l’échéance du contrat).
+-      L’acheteur s’engage à acquérir cette même quantité dans les conditions prévues.
+
+L'intérêt des contrats à terme est double, aussi bien pour le vendeur que pour l'acheteur.
+- Le vendeur comme l’acheteur s’assurent d’un prix certain à terme quelles que soient les
+    variations du prix au comptant (prix spot) du support sur le marché. Bien entendu, ils
+    pourraient obtenir cette sécurité en effectuant immédiatement la transaction très peu
+    coûteuse.
+
+- L’opération n'est dénouée qu’à l’échéance : l’acheteur n’a pas à payer et de disposer des
+  capitaux dès l’initiation de l’opération. Le vendeur n’est pas non plus tenu de disposer du
+  produit. Ils peuvent intervenir à découvert. Toutefois les opérateurs sur contrats à terme
+  doivent effectuer un dépôt de garantie qui ne représente généralement qu’une petite
+  partie du montant « notionnel » de la transaction.
+
+- Les contrats sont négociables (on peut les acheter ou revendre à tous moments),
+  compensés bénéficiant d’une grande liquidité sur une plage horaire large. (8h-22h
+  pour le CAC 40).
+
+                               Chapitre II - Les contrats d’option
+
+Une option est un droit (et non l’obligation) pour son acquéreur, d'acheter ou de vendre,
+selon le type d'option, un actif donné, à un prix et à une échéance fixe. En contrepartie,
+l'acquéreur de l'option paye une prime au vendeur de l'option.
+
+Une option, est caractérisée par cinq éléments :
+
+Le type d'option : options d'achat (call) ou options de vente (put).
+   - L'acheteur du call paye une prime immédiatement au vendeur de l'option et il a alors
+      le droit mais non l'obligation d'acheter l'actif considéré au prix convenu à une
+      échéance fixée ; le vendeur du call reçoit la prime immédiatement et peut être mis en
+      demeure de fournir l'actif considéré au prix convenu et à l'échéance prévue.
+   - L'acheteur du put paye une prime immédiatement au vendeur de l'option et il a le droit
+      mais non l'obligation de vendre le support considéré au prix convenu à une échéance
+      fixée ; le vendeur du put reçoit une prime immédiatement et peut être mis en demeure
+      d'acheter le support au prix convenu et à l'échéance prévue.
+
+Le support de l'option peut être une matière première, un produit financier, une monnaie.
+Comme pour les contrats à terme, on appelle "sous-jacent" ou encore "physique", le support
+de l'option. Par exemple, si l'on prend une option d’achat sur le dollar, le dollar est le sous-
+jacent ou encore le physique du contrat.
+
+L'échéance considérée peut être plus ou moins éloignée. Sur les marchés organisés, elle
+correspond à un calendrier établi par les autorités du marché. En ce qui concerne le mode
+d'exercice de l'option, on oppose les options à l'américaine exerçables à tout moment et les
+options à l'européenne exerçables le jour de l'échéance uniquement. Il ne faut pas confondre
+le caractère exerçable de l'option et son caractère négociable. Une option à l'européenne,
+exerçable uniquement à l'échéance n'en est pas moins négociable à tout moment.
+Le prix d’exercice de l'option peut être choisi :
+     - À la monnaie, c'est-à-dire au niveau du prix actuel de l'actif.
+     - Dans la monnaie, c'est-à-dire, pour un call, à un prix inférieur au prix actuel de l'actif.
+     - En dehors de la monnaie, c'est-à-dire à un prix supérieur au prix actuel de l'actif.
+
+Le montant de la prime est négocié sur le marché. Ce montant est fixé par le jeu de l'offre
+et de la demande. Plusieurs facteurs conditionnent sa valeur. On citera, entre autres :
+     - Le prix du support : plus il est élevé, plus la prime du call est forte et plus la prime du
+        put est faible.
+     - Le niveau du prix d’exercice : la prime du call augmente avec le prix d'exercice, alors
+        que la prime du put décroît ;
+     - L’éloignement de l’échéance : plus elle est lointaine et plus la prime est forte.
+     - Le niveau de la volatilité du cours du support : une volatilité plus forte fait augmenter
+        les primes du call et du put. Ce dernier point est important car il est déterminant dans
+        le pricing des options simples et exotiques que nous étudierons ultérieurement.
+        Comme la volatilité future est inconnue, c’est un des éléments qui va différencier les
+        « market maker » via leurs anticipations et au final le prix proposé par chacun d’entre
+        eux.
+
+                 Chapitre III - Mécanisme des instruments à terme
+
+Le mécanisme des instruments à terme sera illustré à partir d’une opération spéculative (dite
+directionnelle).
+
+       Section 1 - Position directionnelle avec des contrats à terme
+
+Le spéculateur veut profiter des différences de cours qui apparaissent au cours du temps,
+en acceptant de prendre des risques :
+ - S’il anticipe une hausse des cours, il achète des contrats à terme.
+ - S’il anticipe une baisse, il vend des contrats à terme.
+
+Exemple de fonctionnement d’un contrat à terme
+
+Actif sous jacent :          CAC FUTURE DEC 2023
+Valeur du point:                            10,00 €
+Caution par contrat :                    3 210,00 €
+                                                                                DEPOSIT         MARGIN CALL              REFUND CALL
+                                                                                CAUTION        APPEL DE MARGE       RESTITUTION DE MARGE
+                                Nbr de contrat        Niveau de l'indice
+Ouverture de la position              10                            7000,00 -    32 100,00 €
+Cours de compensation J               10                            7010,00                                                     1 000,00 €
+Cours de compensation J+1             10                            7030,00                                                     2 000,00 €
+Cours de compensation J+3             10                            7050,00                                                     2 000,00 €
+Cours de compensation J+4             10                            7040,00                            1 000,00 €
+Cours de compensation J+5             10                            7020,00                            2 000,00 €
+Cours de compensation J+6             10                            7100,00                                                     8 000,00 €
+Cours de compensation J+7             10                            7150,00                                                     5 000,00 €
+Cours de compensation J+8             10                            7250,00                                                    10 000,00 €
+Cours de compensation J+9             10                            7100,00                           15 000,00 €
+Cours de compensation J+10            10                            7089,00                            1 100,00 €
+Cours de compensation J+11            10                            7056,00                            3 300,00 €
+Cours de compensation J+12            10                            7158,00                                                    10 200,00 €
+Cours de compensation J+13            10                            7160,00                                                       200,00 €
+Cours de compensation J+14            10                            7180,00                                                     2 000,00 €
+Cours de compensation J+15            10                            7200,00                                                     2 000,00 €
+Fermeture de la position              10                            7100,00      32 100,00 €          10 000,00 €
+
+Solde des comptes                                                                      -   €          32 400,00 €              42 400,00 €
+Solde final                                                                                                                    10 000,00 €
+
+Avec :
+Déposit : Caution
+Margin call : Appel de marge
+Margin refund : Restitution de marge
+Point d’indice 10€.
+
+          Section 2 - Position directionnelle avec des contrats options
+
+L’investisseur peut également profiter des différences de cours qui apparaissent au cours
+du temps en achetant des options :
+ -     S’il anticipe une hausse des cours, et/ou volatilité il achète des calls (options d’achat).
+ -     S’il anticipe une baisse des cours et/ou de la volatilité, il achète des puts (options de
+     vente).
+
+A l’échéance, dans le cas d’un achat de call,
+
+-       Si le cours de l’actif-support est au-dessus du prix d’exercice, l’opérateur va exercer
+     le call et réaliser un gain égal à la différence entre le prix de l’actif et le prix d’exercice,
+     moins la prime ;
+-       Si le cours de l’actif-support est inférieur ou égal au prix d’exercice, l’opérateur va
+     abandonner le call et perdre la prime.
+-       La perte maximum est égale au montant de la prime.
+A l’échéance, dans le cas d’un achat de put,
+-       Si le cours de l’actif-support est au-dessous du prix d’exercice, l’opérateur va exercer
+     le call et faire un gain égal à la différence entre le prix d’exercice et le prix de l’actif moins
+     la prime.
+-       Si le cours de l’actif-support est supérieur ou égal au prix d’exercice, l’opérateur va
+     abandonner le call et perdre la prime.
+-       La perte maximum est à nouveau égale au montant de la prime.
+
+Voici les gains/ pertes potentielles des 4 stratégies simples :
+
+L’acheteur d’option n’est pas soumis à un dépôt de garantie, mais il doit payer
+immédiatement une prime au vendeur de l’option. A nouveau un phénomène d’effet de levier
+va apparaître.
+
+        Spéculation à la hausse : l’opérateur qui anticipe une hausse des cours achète en
+        janvier un call échéance mars qui lui donne le droit, mais non l’obligation d’acheter
+       l’actif à 100 en mars. Il n’a pas à débourser cette somme mais il verse immédiatement
+       une prime de 5 au vendeur de l’option.
+           - Si, à l'échéance, le cours de l’actif est à 120, l’acheteur du call exerce l’option et
+               réalise un bénéfice de 120 – 100 – 5 = 15.
+
+             L'opérateur aura obtenu ce gain en n'investissant que le montant de la prime,
+             soit 5. Son taux de plus-value est de 15/5= 300 %, alors que le sous-jacent n'a
+             varié que de 20%.
+           - Si, à l'échéance, le cours de l’actif est inférieur ou égal au prix d’exercice, par
+             exemple à 80, l’acheteur du call abandonne l’option et perd la prime, soit 5.
+           - Quelle que soit la baisse enregistrée par l’actif-support, la perte reste toujours
+             plafonnée au montant de la prime.
+
+       Spéculation à la baisse : l’opérateur qui anticipe une baisse des cours achète en
+       janvier un put échéance mars qui lui donne le droit, mais non l’obligation de vendre
+       l’actif à 100 en mars. Il n’a pas à disposer de l’actif, mais il verse une prime de 4 au
+       vendeur de l’option.
+
+           - Si, à l'échéance, le cours de l’actif est inférieur au prix d’exercice, par exemple à
+             80, l’acheteur du put exerce l’option et réalise un bénéfice de 100 – 80 – 4 =
+             16.
+             L'opérateur aura obtenu ce gain en n'investissant que le montant de la prime,
+             soit 4. Son taux de plus-value est de 16/4= 400 %, alors que le sous-jacent n'a
+             varié que de 20.
+           - Si, à l'échéance, le cours de l’actif est supérieur ou égal au prix d’exercice, par
+             exemple à 120, l’acheteur du put abandonne l’option et perd la prime, soit 4.
+           - Quelle que soit la hausse enregistrée par l’actif-support, la perte reste toujours
+             plafonnée au montant de la prime.
+
+Les opérations spéculatives réalisées à l’aide d’achats d’option sont moins risquées que
+celles utilisant des contrats à terme : si les anticipations ne se concrétisent pas, la perte est
+plafonnée au montant de la prime. Le risque est donc limité pour les acheteurs d’options
+qui connaissent dès le début de l’opération leur perte maximum. Les opérations de vente
+d’options sont par contre très risquées : la perte sur ces opérations n’est pas plafonnée.
+
+       Section 3 - Couverture à l’aide de contrats à terme
+
+L'opérateur en couverture veut se protéger contre des variations indésirables du cours
+d’un indice boursier.
+La technique de couverture consiste à prendre à terme une position symétrique telle que :
+le gain sur le contrat à terme compense les pertes éventuelles sur la position physique.
+Celui qui redoute une baisse des prix va donc vendre à terme.
+
+Si le marché baisse, le portefeuille perd de la valeur. Par contre, les contrats à terme vendus
+dégagent un résultat positif : ils sont rachetés moins chers. Si la couverture a été calculée
+correctement, le gain sur la vente des contrats à terme va compenser la perte sur le
+portefeuille.
+
+La couverture de portefeuille est généralement effectuée à l’aide de contrats à terme sur
+indices boursiers : cette procédure permet de couvrir le risque systématique du portefeuille
+
+ou encore risque de marché. Il faut donc que le risque spécifique ait déjà été éliminé par une
+bonne diversification, dans le cas contraire il faut calculer le « risque de base » ajusté du
+béta, on parle de macro-couverture.
+Application à la couverture de portefeuilles d’actions.
+
+Le principe général de la couverture veut que le détenteur de l’actif vende des contrats à
+terme pour le protéger. Le titulaire d'un portefeuille d'actions veut le protéger contre la baisse
+éventuelle du marché. Il doit donc vendre des contrats sur indice boursier pour assurer
+cette protection.
+
+Pour calculer le niveau de couverture satisfaisant :
+La détermination du nombre N de contrats à vendre demande de prendre en compte :
+   - La valeur du portefeuille, VP,
+   - La sensibilité du portefeuille aux variations du CAC 40, (mesurée par le bêta du
+      portefeuille),
+   - La valeur contrat CAC 40 à terme Vt, (le contrat à terme est valorisé 10 € par point
+      d’indice).
+                                                                                   𝜷𝜷×𝑽𝑽𝑽𝑽
+   Le nombre de contrats à vendre, est donné par la formule : 𝑵𝑵 = 𝟏𝟏𝟏𝟏×𝑽𝑽𝑽𝑽
+
+        Exemple : Un gérant veut couvrir à l'horizon décembre, un portefeuille valorisé
+        10 000 000 euros.
+       La sensibilité (Béta) du portefeuille au CAC 40 est de 1.1
+   -   Valeur actuelle de l’indice : 5 500.
+   -   Valeur d'un contrat à terme : 55 000 (10€ le point d’indice).
+   -   Bêta du portefeuille : 1.1 variations de l’indice.
+   -   Base à couvrir = 11 000 000 € (10 000 000 *1,1).
+         -   Nombre de contrats à vendre = (1,1) X 10 000 000 / (5500 X 10).
+         -   NOMBRE DE CONTRAT A VENDRE = 200.
+
+   Si le CAC perd 10%,
+
+   -   Le contrat vendu 55.000 ne vaudra maintenant plus que 50 000.
+   -   Le bénéfice sur la vente des 200 contrats est de 200 * (55 000 – 50 000) =
+       1 000 000 €.
+   -   La perte sur le portefeuille est de 1 000.000 € soit 1 000 000 €.
+   -   La perte sur le portefeuille a été totalement compensée par le gain sur le contrat
+       à terme.
+
+En cas de hausse du marché, la vente des contrats à terme engendrerait une perte qui
+compenserait le gain réalisé sur le portefeuille.
+Par conséquent le portefeuille est couvert contre les variations de prix.
+
+       Section 4 - Couverture à l’aide de contrats d’options
+
+  L'opérateur en couverture veut se protéger contre des variations indésirables des prix.
+  Comme dans les contrats à terme, il prend à terme une position telle que le gain sur l'option
+  compense les pertes sur la valeur du portefeuille et inversement. Généralement, la
+  couverture sera assurée par des achats de puts.
+  Mais, contrairement au cas des contrats à terme, l'opérateur en couverture ne renonce pas
+  à la possibilité de profiter d'une variation de prix favorable sur le portefeuille. Cependant, le
+  gain qu'il fera alors sera moins élevé, puisqu'il sera diminué de la prime. Le mécanisme de
+  l'option s'apparente à celui de l'assurance qui couvre des dommages, s'ils surviennent.
+
+  Application à la couverture de portefeuilles d’actions
+
+- Base à couvrir (idem qu’avec les contrats à terme) 11 000 000 €.
+- Par convention 1 option couvre 10 contrats à terme CAC 40 à 5500 décembre 2019
+  (Eléments de marché).
+- Il faudra donc 20 options PUT CAC 40 5500 décembre 2019.
+- Le coût de l’option est de 1 953 € (8 octobre 2019). La couverture coûte 39 060 € (0.39%
+  du ptf).
+
+                               Résultat de la couverture par achat de Puts
+
+  La couverture permet ainsi de protéger le portefeuille contre une baisse des cours en
+  décembre. Et contrairement à ce que l’on avait avec les contrats à terme, la couverture
+  n’empêche pas de bénéficier d'une évolution favorable des cours.
+
+                           Partie III - LES PRODUITS STRUCTURÉS
+
+Un produit structuré est un titre de créance conçu sur mesure pour répondre à des objectifs
+d’investissements spécifiques. Il peut prendre différentes formes juridiques comme un
+EMTN, BMTN, obligation ou certificat.
+Il est émis par une banque pour un ou plusieurs investisseurs. Son mode de construction
+permet d’optimiser / déformer le couple rendement risque d’un actif classique. Il est
+transposable à tous types de sous-jacents. Les plus utilisés sont les actions et les indices
+mais il est possible d’élaborer des structurés sur les taux, matière premières, devises, les
+fonds, l’immobilier, la volatilité…L’horizon d’investissement est prédéfini, c’est la maturité du
+produit mais il est aussi possible de prévoir des rappels anticipés automatiques à des dates
+connues ou au gré de l’émetteur. Les produits structurés sont donc des titres de créances
+qui peuvent revêtir des formes très diverses, au gré de l’investisseur et des conditions de
+marché. Ces produits comprennent deux éléments : une composante obligataire et une
+composante performance.
+
+Les produits de première génération étaient structurés de la manière suivante :
+
+                                                                                 Gain potentiel
+
+                                  Composante
+                                « Performance »
+          Capital
+                                                                         Remboursement du capital
+       initialement
+                                                                            initialement investi
+          Investi          Composante obligataire
+
+                       Lancement                                                    Maturité
+
+Les conditions de marché actuelles ne permettent plus ce type de profil rendement/risque
+car les taux d’intérêt sont trop bas pour permettre de dégager une poche suffisante pour
+construire la composante performance tout en assurant un capital garanti à 100%.
+
+Ces produits, désormais démocratisés offrent une panoplie de possibilités avec différents
+niveaux de risque comme l’illustre le graphique ci-dessous.
+
+                                                                                             Gain
+      Rendement                                                                            potentiel
+       potentiel                                                                           supérieur
+                                                                 Rendement                avec levier
+                                                                  optimisé,
+                                                                à travers des
+                                                                 coupons ou
+                                                                     gains
+                                                                conditionnels
+                                       Participation               liés à la
+
+          Investissement
+          100% Minimum
+              garanti
+                                                                                                          Risque
+
+                                        Produit à                 Produit à                Produit à
+         Produit à capital
+                                         capital                   capital               levier capital
+           garanti 100%
+                                      partiellement             protégé sous              non garanti
+
+Les risques associés à ces produits sont de différentes natures. On peut distinguer :
+
+   - Le risque de contrepartie
+     C’est le risque de défaut de l’émetteur ou du garant de la formule.
+
+   - Le risque de liquidité
+     C’est le risque de ne pas pouvoir revendre un placement à tout moment à un cours
+     convenable.
+
+   - Le risque de marché
+     C’est le risque de perte qui peut résulter des fluctuations du cours du sous-jacent.
+
+   - Le risque de crédit pour les produits de type obligataire (CLN)
+     C’est le risque d’un évènement de crédit sur la société sous-jacente.
+
+   - Le risque lié à la Volatilité
+     C’est le risque que la volatilité varie pendant la durée de vie du produit.
+
+   - Le risque de perte en capital
+     C’est un risque au terme et en cas de revente avant l’échéance.
+
+                           Chapitre I - La composante obligataire
+
+Comme cela a déjà été mentionné, un produit structuré comprend 2 composantes, une
+composante obligataire et une composante performance. Celui qui investit dans un produit
+structuré va donc prêter à une banque qui en contrepartie ne va pas lui proposer le
+rendement d’une obligation classique mais un autre type de rendement sous conditions. La
+composante obligataire, un zéro coupon, va donc dépendre :
+
+   - Des taux d’intérêts du moment.
+   - De la solvabilité de l’émetteur (le funding).
+   - De la maturité.
+
+Le prix du zéro coupon va donc varier en fonction de ces trois éléments, eux même fonction
+des contions de marché, tout au moins pour les deux premiers.
+
+Voici un exemple qui illustre ce mécanisme :
+
+   Maturité         Taux swap          Spread de Funding de l’émetteur (sur le                  Valeur de
+                       p.a.                       taux swap) p.a.                            l’obligation ZC*
+
+        2              3,60%                              0,20%                                   92,81%
+
+        5              3,25%                              0,30%                                   84,00%
+
+       10              3,10%                               0,45%                                  70,55%
+
+Plus la valeur de l’obligation zéro coupon est faible, plus la composante performance sera
+importante et pourra ainsi offrir de multiples possibilités de profils rendement/risque à
+l’investisseur. N’oublions pas en effet que l’investisseur va prêter 100 initialement. Le montant
+à investir dans la composante performance sera donc de 100 – prix du zéro coupon.
+
+                        Chapitre II - La composante performance
+Elle est investie dans des options. Il ne peut y avoir de produit structuré sans option. On
+distingue 2 générations options. Les options de première génération ou options « vanilles »
+sont les put et les call classiques qui ont été présentées dans le chapitre des instruments
+dérivés. Une seconde famille d’options, de seconde génération, est apparue dans les années
+
+90. Ce sont les options « exotiques ». Les sont aujourd’hui présentes dans quasiment tous
+les produits structurés et souvent même combinées entre elles.
+
+Elles permettent un mode de fonctionnement différent dans le mode de déclenchement ou
+le calcul du strike par exemple. Leur objectif est d’affiner les stratégies de gain / perte et de
+réduite le cout de la prime.
+
+Voici quelques exemples d’options exotiques :
+
+   - Call Asiatique
+
+           o L'acheteur reçoit à l'échéance le prix moyen du sous-jacent (et non le prix à
+             l’échéance comme pour un call vanille).
+           o La volatilité considérée et la maturité théorique sont réduites => Coûte moins
+             cher qu’un Call Vanille.
+
+   - Option à barrière :
+
+           o L’option peut être activée ou désactivée si une barrière prédéfinie est franchie.
+           o L'option est activée ("Knock-In") ou désactivée ("Knock-Out") si le sous-jacent
+             se constate au-dessus ("Up") ou au-dessous ("Down") de la barrière.
+           o La barrière peut être Européenne (observation à maturité) ou Américaine
+             (observation continue).
+
+   Ce type d’option est omniprésent dans les produits actuels.
+
+   - Option Worst-off
+
+           o Le sous-jacent est composé de plusieurs actifs.
+           o L’option WO prend en compte uniquement l’actif le moins performant dans le
+             panier.
+
+Ces options ainsi que d’autres permettent de structurer différents types de produits. On
+distingue parmi eux deux grandes catégories : Les produits de participation (avec ou sans
+effet de levier), et les produits de rendement. Ces derniers sont particulièrement recherchés
+actuellement dans un contexte de taux très bas. L’objectifs de l’investisseur est d’obtenir un
+rendement déterminé bien supérieur au taux du marché obligataire en prenant un risque
+maitrisé (protection partielle du capital) sur un actif non obligataire. En contrepartie du
+rendement déterminé, l’investisseur abandonnera la plus-value potentielle qui aurait pu
+découler d’un investissement en direct sur cette classe d’actif.
+
+                        Chapitre III - Les produits de participation
+Ce sont des produits qui vont modifier le couple rendement risque de l’actif classique en
+offrant à l’investisseur une garantie partielle ou totale en capital ainsi qu’un pourcentage de
+participation à la hausse de l’actif. Par exemple, si on considère l’action Total, on pourrait
+obtenir dans certaines conditions de marché un produit structuré offrant à l’investisseur une
+
+garantie de 100% du capital et une participation à la hausse de 60% pour une échéance à 3
+ans. Ainsi, au terme des trois ans, si l’action total a baissé, l’investisseur récupère son capital
+investi, si l’action total a monté, il récupère son capital majoré de 60% de la hausse. Ce type
+de produit était très courant quand les taux d’intérêts étaient élevés. Aujourd’hui, ils ne sont
+plus concevables sous cette forme. Si ce type de produit peut sembler séduisant, surtout
+lorsque l’indexation approche 100%, il ne faut pas oublier que le cours est hors dividendes.
+En effet, quand les dividendes sont versés, théoriquement, le cours baisse du montant
+équivalent au dividende. Ainsi le détenteur du structuré ne bénéficiera que de la hausse du
+cours alors que l’investisseur en direct bénéficiera en plus des dividendes.
+
+Exemple chiffré :
+
+Exemple Produit : Obligation zéro-coupon + Participation sur Eurostoxx (SX5E index).
+         1. Une obligation ZC de maturité 10 ans.
+               Prix de l’obligation ZC = 70%.
+               Cout structuration, communication, distribution : 10%
+               100% - 70% -10% = 20% de montant restant à utiliser pour répliquer un
+                  call à 10 ans sur l’indice SX5E.
+         2. Détermination du prix de l’option.
+               Prime d’une option d’achat ATM à 10 ans = 20% du nominal.
+               La participation à la hausse de l’indice SX5E est : 20% / 20% = 100%.
+         3. En combinant les 2 composantes, nous avons un produit :
+               Maturité 10 ans.
+               100% capital garanti à maturité.
+               Une participation à la hausse de 100% de l’indice SX5E.
+
+                                                                             100% de Participation à la
+                                                                                 hausse du SX5E
+
+                                 Disponible 30%
+          Capital
+                                                                                 Remboursement du
+       initialement
+                                   Composante                                         capital
+          Investi
+                                    obligataire                                        100%
+           100%
+                                       70%
+
+                        Lancement                                                      Maturité
+
+Etant donné la faiblesse des taux actuels, ce type de structuré impose une garantie partielle
+du capital (et non total comme précédemment). Un structuré permettant une meilleure
+indexation imposerait que l’on accepte que dans certaines conditions, l’investisseur
+encourrait le risque de perte en capital. Par exemple, pour une durée de 5 ans, dans les
+conditions actuelles, pour obtenir une indexation de 120% (120% de la hausse), l’investisseur
+
+aura une protection de son capital jusqu’à 30% de baisse mais au-delà subira 100% des
+pertes. Ainsi, si au terme l’indice a baissé de 40%, l’investisseur ne sera remboursé que 60%
+de son investissement initial.
+
+                         Chapitre IV - Les produits de rendement
+Ces produits cherchent à répondre au besoin qu’à l’investisseur d’un rendement régulier.
+Ainsi, en contrepartie de la non-participation à la hausse du sous-jacent, l’investisseur
+recevra un rendement fixe et bénéficiera d’une protection partielle du capital.
+
+Exemple :
+
+     ACTION TOTAL 2021
+     Référencement : AXA THEMA, UAF LIFE, NORTIA (AEP, Spirica, Swisslife et Generali)
+
+     Émetteur :                                            Natixis
+
+     Sous-Jacent(s) :                                      TOTAL
+
+     Durée :                                               Entre 18 mois et 8 ans
+
+     Date de constatation initiale :                       Moyenne 24/03 et 24/06
+
+     Fréquence de rappel anticipé :                        Mensuelle après 18 mois
+
+     Seuil de remboursement anticipé :                     100% du niveau initial
+
+     Protection du capital :                               Jusqu’à -50% à maturité
+
+     Gain potentiel :                                      7,00% par an
+
+Régulièrement ces produits sont assortis d’un autocall qui fait que le produit s’arrête dès
+qu’une constatation favorable est détectée.
+
+Le produit phare dans cette catégorie est actuellement le Phoenix Mémoire. A travers ce
+produit, plutôt que recevoir un pourcentage de la hausse, l’investisseur reçoit un coupon fixé
+au départ si le cours est supérieur au cours initial retenu. Ce coupon est distribué au terme.
+On y ajoute souvent un effet mémoire, c’est-à-dire que l’année ou le cours est inférieur au
+cours initial, le coupon n’est pas comptabilité mais le sera si lors d’une prochaine
+
+constatation, le cours est à nouveau supérieur au cours initial. Enfin, il n’est pas rare j’aouter
+également un autocall, option qui arrête le produit dès qu’une constatation est positive.
+
+Exemple :
+
+     CREDIT AGRICOLE MENSUEL OXYGENE 2021
+     Référencement : UAF LIFE - NORTIA (SPIRICA, SWISSLIFE, GENERALI) - AXA THEMA
+     - CARDIF
+
+     Émetteur :                                              BNP Paribas
+
+     Sous-Jacent(s) :                                        Crédit Agricole
+
+     Durée :                                                 Entre 1 et 5 ans
+
+     Date de constatation initiale :                         Moyenne : 30/04 ; 31/05 ; 30/06
+
+     Fréquence de rappel anticipé :                          Mensuelle après 1 an
+
+     Seuil de remboursement anticipé :                       100% du niveau initial
+
+                                                             Jusqu’à -20% à maturité + effet
+     Protection des coupons :
+                                                             mémoire
+
+     Protection du capital :                                 Jusqu’à -40% à maturité
+
+     Gain potentiel :                                        6,50% par an
+
+                                 Chapitre V - Points de vigilance
+Si la compréhension de la formule des possibles rendements d’un produit structuré est
+relativement facile à comprendre, il n’en demeure pas moins que certains points de vigilance
+sont nécessaires. Ils concernent essentiellement le montant des dividendes futurs. En effet,
+comme déjà mentionné, la formule de rentabilité finale se base sur le cours du sous-jacent.
+Celui-ci est par définition hors dividende (sauf indice dividende réinvestis, ce qui est très
+rare). A chaque fois qu’un dividende est détaché, le cours est censé baisser d’un montant
+équivalent à celui du dividende. Il sera donc nécessaire que la hausse du cours le
+
+« compense » avant de pouvoir espérer être dans une situation favorable vis-à-vis du
+structuré.
+
+Il y a donc une attention particulière à porter au sous-jacent choisi au regard du dividende
+qu’il va distribuer. Pour les actions, le niveau de dividende est relativement facile à obtenir.
+Pour les indices, cela peut être plus compliqué surtout quand il s’agit d’indices propriétaires.
+Ceux-ci sont de plus en plus fréquemment utilisés comme par exemple celui-là : Euronext
+Water and Ocean Europe 40 EW D 5%. Comment connaitre le niveau de dividende distribué
+par cet indice ? On sait qu’il comprend 40 valeurs, Equaly Weighted (pondérations égales),
+et qu’il distribue arbitrairement 5%. En fait, l’indice va être amputé de 5% tous les ans. Pour
+plus       de      renseignement,         il     faut      se     rendre     sur       Euronext :
+https://live.euronext.com/fr/product/indices/NL0013908858-XPAR/market-information. On
+y apprend que l’indice est un indice « total return », c’est-à-dire dividendes réinvestis mais
+qu’il est amputé de 5% / an. Ainsi, si le niveau de dividende est inférieur à 5%, l’indice baisse
+tous les ans, toutes choses égales par ailleurs. Dans ce cas, la fiche de reporting d’euronext
+nous indique que le taux de dividende est de 2.15%.
+
+Un autre point de vigilance réside dans le niveau de volatilité implicite « pricé » dans le
+produit. En effet, la volatilité est un des paramètres qui va déterminer le prix des options. Il
+faut donc s’assurer que l’émetteur ne vous vende pas des options à un prix trop élevé via le
+structuré. Cet élément est difficile à évaluer sans outils de calcul (de pricing) perfectionnés.
+Un des moyens pour évaluer le pricing est de mettre en concurrence les différents acteurs,
+
+ce qui révèle souvent des écarts de pricing important du au funding d’une part et à l’intérêt
+de l’intermédiaire par rapport à la demande.
+
+                Chapitre VI - Les intervenants et la réglementation
+
+Ce marché s’est aujourd’hui fortement démocratisé. Il est accessible à partir de 200 000€
+en général pour un pricing individuel. Il est également accessible via les contrats d’assurance
+vie.
+
+On va distinguer :
+
+   - Les émetteurs : Ce sont les banques qui sont actives sur ce marché. En France, les
+     principaux acteurs sont SG, BNP, Natixis, CA, Barclays Capital, Crédit Suisse, Goldman,
+     Citigroup, Morgan Stanley, JP Morgan, RBS…
+
+   - Les structureurs : Comme leur nom l’indique, ils se sont spécialisés dans la conception
+     de ce type de produit. Ils travaillent avec tous les émetteurs via des appels d’offre. Les
+     plus connus en France sont Equitim, Marigny Capital et Tradition, Exane…
+
+   - Les Distributeurs : ce sont tous les acteurs qui vont proposer ces produits à leurs
+     clients ; CGP, Platte Formes, Familly Office ; Banques Privées ; Réseaux Assureur et
+     Bancaire…
+
+   - Les Clients : Particuliers, Asset Managers, Institutionnels, Trésoriers d’entreprise…
+
+Du point de vue règlementaire, les produits sont soit soumis à la procédure d’Appel Publique
+à l’Épargne, soit à celle d’un placement privé. Cela impose des délais plus ou moins long de
+mise en place et donc un coût de structuration plus ou moins important. Voici les principales
+différences :
+
+                                          Produit avec APE
+                                                                                   Placement Privé
+                                      (Appel Public à l’Epargne)
+
+                                                                             Limité à un cercle restreint
+                                      Pour les produits diffusés
+ Pour qui ?                                                                  d’investisseurs (<150) ou à
+                                     largement auprès du Public
+                                                                             des investisseurs qualifiés
+
+                                        La plupart des assureurs                En compte-titres ou
+ Pourquoi ?                         l’impose pour une distribution            assurance vie France ou
+                                            en assurance vie                           Lux
+
+                                      Formules très contraintes :
+ Type de profil / produit                                                         Aucune contrainte
+                                         3 étapes maximum
+
+ Délai de mise en œuvre                       2/3 semaines                               1 heure
+
+ Période de
+                                             Jusqu’à 3 mois                       En général, aucune
+ commercialisation
+
+Enfin, le lancement d’un produit structuré s’accompagne d’un certain nombre de documents.
+La « Term Sheet » est le principal. Elle va résumer les principaux éléments et surtout la
+formule mathématique des différents scénarii de sortie au terme. A cela va s’ajouter le DIC
+ou KID en anglais, le document d’information investisseur standardisé dont la méthode de
+scoring de risque sur l’échelle de 1 à 7 est souvent peu appropriée pour les structurés. Les
+« Final terms » viendront compléter la term sheet. Il précisera le niveau du « strike », niveau
+de lancement initial constaté qui servira de référence pour les constatations ultérieure, ainsi
+que le coupon ou l’indexation finale obtenue. La brochure, description complète du produit
+et risques, est obligatoire pour les APE, elle se limite à une fiche de présentation synthétique
+pour les placements privés. Enfin, une annexe financière sera rédigée par les assureurs pour
+les produits commercialisés en assurance vie et un marché cible sera défini par le
+concepteur du produit.
+
+                                                  Conclusion
+
+Les produits structurés sont désormais une classe d’actifs à part entière. Ils permettent de
+répondre à des problématiques spécifiques tout en adaptant le couple rendement risque du
+produit à celui du client. Leur flexibilité de conception les rend particulièrement intéressant
+de ce point de vue. Ils sont en apparence simples à comprendre dans leur présentation
+mais leur conception peut s’avérer relativement complexe avec notamment l’utilisation
+combinée d’options exotiques. Cette complexité qui peut rendre difficile la vérification du
+pricing permet en revanche aux produits structurés de pouvoir s’adapter à l’évolution des
+contraintes règlementaires ainsi que des conditions de marché. Cette flexibilité est
+clairement un atout qui leur permettra de perdurer et de répondre au plus près aux attentes
+des investisseurs.
+
+                                        Corrigés des exercices
+
+                                        Exercice 1
+Les produits suivants sont des instruments financiers. Lesquels ?
+a - Les actions
+b- Les titres de dette
+c- Les effets de commerce
+d- Un lingot d’or
+e- Les bons de capitalisation
+f- Les parts ou actions d’OPC
+
+                                         Exercice 2
+Que peut-on dire sur les contrats financiers ?
+a- Ils permettent de gérer les risques liés à la volatilité des cours
+b- Ils n’ont pas d’effet de levier
+c- Ils sont interdits aux particuliers
+
+                                       Exercice 3
+Le couple rendement-risque est spécifique ?
+a- Aux actions
+b- Aux titres de dette
+c- A chaque instrument financier
+
+                                          Exercice 4
+Le risque de liquidité d’un instrument financier est
+a- La difficulté pour un investisseur de trouver une contrepartie à l’achat ou à la vente
+b- Le risque de fluctuation des prix sur le marché lié à l’évolution des taux d’intérêt
+c- Un risque lié au remboursement de la dette par l’émetteur
+
+                                                 Exercice 5
+Les titres subordonnés :
+a- Ne sont pas des titres de créances
+b- Ont une rémunération supérieure à celle des obligations classiques émises par le
+même émetteur
+c- Sont toujours à taux variable
+
+                                         Exercice 6
+Lorsqu’une personne, domiciliée en France, détient une action américaine cotée à New York
+en US dollar :
+a- Elle ne court pas le risque de marché
+b- Elle court uniquement le risque de change
+c- Elle court les risques de marché, de change, de volatilité…
+
+                                          Exercice 7
+Le taux de rendement actuariel d’une obligation :
+a- est tel que la valeur actuelle du prix payé soit égal à la somme des valeurs actuelles
+des flux futurs reçus
+b- est donné par la division du montant du coupon par le prix payé de l’obligation
+c- est donné par la division du montant du coupon annuel divisé par la valeur nominale de
+l’obligation
+
+                                        Exercice 8
+Le rendement actuariel d’une obligation à l’émission :
+a- Correspond au taux nominal et permet de calculer le rendement du titre
+b- Est calculé sur les coupons perçus et réinvestis au même taux
+c- Prend en compte les coupons, le prix d’émission et la prix de remboursement de
+l’obligation
+
+                                          Exercice 9
+Pour connaitre le prix d’une obligation à taux fixe, il faut :
+a- Retrancher le coupon couru du cours de l’obligation
+b- Ajouter le coupon couru au cours de l’obligation et multiplier la somme par la valeur
+nominale
+c- Multiplier le cours pied de coupon par la valeur nominale
+
+                                         Exercice 10
+Les contrats financiers peuvent faire l’objet d’un solde débiteur :
+a- Vrai
+b- Faux
+
+                                                 Exercice 11
+Les OPC nécessitent :
+a- Un dépositaire, un commissaire aux comptes, un valorisateur
+b- Un teneur de compte
+c- Une société de gestion
+
+                                                 Exercice 12
+Les FCPR investissent :
+a- Essentiellement dans des sociétés non cotées
+b- Sont peu liquides
+c- Bénéficient d’avantages fiscaux
+
+                                          Exercice 13
+L’investissement dans les options présente les risques suivants :
+a- Risque de pertes illimités lorsque l’on achète des options
+b- Risque de pertes limités lorsque l’on achète des options
+c- Risque de pertes limités lorsque l’on vend des options
+d- Risque de pertes illimités lorsque l’on vend des options
+
+                                          Exercice 14
+Le funding constitue la partie obligataire dans les produits structurés
+a- Vrai
+b- Faux
+
+                                         Exercice 15
+Un autocall est un produit structuré qui est rappelé (racheté) automatiquement en cas de
+dépassement d’un seuil
+a- Vrai
+b- Faux
