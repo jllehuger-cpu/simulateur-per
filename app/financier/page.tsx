@@ -19,6 +19,14 @@ const simulateurs = [
     badge: 'Immobilier',
     accent: 'from-emerald-500 to-teal-600',
   },
+  {
+    href: '/financier/bourse',
+    icon: '📊',
+    title: 'Performances historiques',
+    description: 'Comparez 28 indices (actions, obligations, matières premières, immobilier) sur la période de votre choix.',
+    badge: 'Marchés',
+    accent: 'from-violet-500 to-purple-600',
+  },
 ];
 
 export default function FinancierPage() {
