@@ -52,11 +52,16 @@ interface PerApiInput {
    HELPERS DISPLAY
 ───────────────────────────────────────────────────────────── */
 function getRateLabel(rate: number): string { return `${Math.round(rate * 100)}%`; }
+
+function fmtInt(v: number): string {
+  return Math.round(Math.abs(v)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
 function formatEuro(value: number): string {
-  return value.toLocaleString('fr-FR', { maximumFractionDigits: 0 }) + ' €';
+  return fmtInt(value) + ' €';
 }
 function formatEuroDec(value: number): string {
-  return value.toLocaleString('fr-FR', { maximumFractionDigits: 2 }) + ' €';
+  const [int, dec] = Math.abs(value).toFixed(2).split('.');
+  return int.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ',' + dec + ' €';
 }
 
 /* ─────────────────────────────────────────────────────────────

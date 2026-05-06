@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useMemo } from 'react';
 
+const n = (v: number): string => Math.round(Math.abs(v)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
 const calculerPartsDepuisListe = (situation: string, enfants: any[]): number => {
   let parts = situation === 'marie_pacs' ? 2 : 1;
   const eligibles = enfants.filter(enf => {
@@ -195,7 +197,7 @@ export default function IRPage() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div className="glass-card" style={{ padding: '1.5rem', border: resultats.gain <= 0 ? '1px solid rgba(16,185,129,0.4)' : '1px solid var(--border-glass)', background: resultats.gain <= 0 ? 'rgba(16,185,129,0.07)' : undefined }}>
                   <span style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Option A · Rattachement</span>
-                  <p style={{ margin: '0.5rem 0 0', fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>{resultats.impotA.toLocaleString()} €</p>
+                  <p style={{ margin: '0.5rem 0 0', fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>{n(resultats.impotA)} €</p>
                   <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
                     <span className="badge badge-blue">{resultats.partsA} parts</span>
                     <span className="badge badge-blue">TMI {resultats.tmiA}%</span>
@@ -204,7 +206,7 @@ export default function IRPage() {
 
                 <div className="glass-card" style={{ padding: '1.5rem', border: resultats.gain > 0 ? '1px solid rgba(59,130,246,0.5)' : '1px solid var(--border-glass)', background: resultats.gain > 0 ? 'rgba(59,130,246,0.08)' : undefined }}>
                   <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#93C5FD', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Option B · Pension + détachement</span>
-                  <p style={{ margin: '0.5rem 0 0', fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 700, color: '#93C5FD', letterSpacing: '-0.03em' }}>{resultats.impotB.toLocaleString()} €</p>
+                  <p style={{ margin: '0.5rem 0 0', fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 700, color: '#93C5FD', letterSpacing: '-0.03em' }}>{n(resultats.impotB)} €</p>
                   <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
                     <span className="badge badge-blue">{resultats.partsB} parts</span>
                     <span className="badge badge-blue">TMI {resultats.tmiB}%</span>
@@ -217,9 +219,9 @@ export default function IRPage() {
                 <h3 style={{ margin: '0 0 1.25rem', fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Décomposition du Net Imposable</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {[
-                    { label: 'Revenus bruts (Salaires)', value: `${resultats.totalBrut.toLocaleString()} €`, color: 'var(--text-primary)' },
-                    { label: 'Abattement Forfaitaire (10%)', value: `− ${resultats.abattement.toLocaleString()} €`, color: 'var(--accent-emerald)' },
-                    { label: 'Charges déductibles (6DD, 6GU…)', value: `− ${resultats.totalCharges.toLocaleString()} €`, color: 'var(--accent-emerald)' },
+                    { label: 'Revenus bruts (Salaires)', value: `${n(resultats.totalBrut)} €`, color: 'var(--text-primary)' },
+                    { label: 'Abattement Forfaitaire (10%)', value: `− ${n(resultats.abattement)} €`, color: 'var(--accent-emerald)' },
+                    { label: 'Charges déductibles (6DD, 6GU…)', value: `− ${n(resultats.totalCharges)} €`, color: 'var(--accent-emerald)' },
                   ].map((row, idx) => (
                     <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border-subtle)' }}>
                       <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{row.label}</span>
@@ -228,7 +230,7 @@ export default function IRPage() {
                   ))}
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.25rem' }}>
                     <span style={{ fontSize: '0.875rem', fontWeight: 700, textTransform: 'uppercase', color: '#93C5FD' }}>Revenu Net Imposable Global</span>
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 700, color: '#93C5FD' }}>{resultats.revenuNetGlobal.toLocaleString()} €</span>
+                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 700, color: '#93C5FD' }}>{n(resultats.revenuNetGlobal)} €</span>
                   </div>
                 </div>
               </div>
@@ -238,7 +240,7 @@ export default function IRPage() {
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1.5rem' }}>
                   <div style={{ flex: 1 }}>
                     <h3 style={{ margin: '0 0 0.5rem', fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
-                      {resultats.gain > 0 ? `Optimisation : +${resultats.gain.toLocaleString()} €` : 'Le rattachement est gagnant'}
+                      {resultats.gain > 0 ? `Optimisation : +${n(resultats.gain)} €` : 'Le rattachement est gagnant'}
                     </h3>
                     <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                       {resultats.gain > 0 ? "Détachez un enfant majeur et versez-lui une pension pour maximiser vos économies." : "Conservez tous vos enfants au foyer pour bénéficier du maximum de parts."}

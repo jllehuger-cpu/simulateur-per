@@ -42,8 +42,8 @@ interface SuccessionAVResult {
    HELPERS
 ───────────────────────────────────────────────────────────── */
 const uid = () => Math.random().toString(36).slice(2, 8);
-const fmt    = (v: number) => v.toLocaleString('fr-FR', { maximumFractionDigits: 0 }) + ' €';
-const fmtDec = (v: number) => v.toLocaleString('fr-FR', { maximumFractionDigits: 2 }) + ' €';
+const fmt    = (v: number): string => Math.round(Math.abs(v)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' €';
+const fmtDec = (v: number): string => { const [i, d] = Math.abs(v).toFixed(2).split('.'); return i.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ',' + d + ' €'; };
 
 const LIEN_LABELS: Record<LienParente, string> = {
   conjoint_pacs: 'Conjoint / PACS',

@@ -44,13 +44,14 @@ interface AVResult {
 /* ─────────────────────────────────────────────────────────────
    HELPERS
 ───────────────────────────────────────────────────────────── */
-function fmt(v: number) {
-  return v.toLocaleString('fr-FR', { maximumFractionDigits: 0 }) + ' €';
+function fmt(v: number): string {
+  return Math.round(Math.abs(v)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' €';
 }
-function fmtDec(v: number) {
-  return v.toLocaleString('fr-FR', { maximumFractionDigits: 2 }) + ' €';
+function fmtDec(v: number): string {
+  const [int, dec] = Math.abs(v).toFixed(2).split('.');
+  return int.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ',' + dec + ' €';
 }
-function fmtPct(v: number) {
+function fmtPct(v: number): string {
   return (v * 100).toFixed(1) + ' %';
 }
 
