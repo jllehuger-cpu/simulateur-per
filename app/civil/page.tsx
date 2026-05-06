@@ -2,36 +2,93 @@
 
 import Link from 'next/link';
 
+const simulateurs = [
+  {
+    href: '/civil/demembrement',
+    icon: '⚖️',
+    title: 'Démembrement',
+    description: "Comparez l'usufruit fiscal (Art. 669 CGI) et l'usufruit économique selon les tables INSEE.",
+    badge: 'Transmission',
+    gradient: 'linear-gradient(135deg, #6366F1, #8B5CF6)',
+  },
+  {
+    href: '/civil/donation',
+    icon: '🎁',
+    title: 'Donation',
+    description: 'Simulez les droits de mutation, les abattements et la progressivité du barème.',
+    badge: 'Fiscal',
+    gradient: 'linear-gradient(135deg, #10B981, #0D9488)',
+  },
+];
+
 export default function CivilHomePage() {
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl font-black text-slate-900 mb-2">PÔLE CIVIL</h1>
-        <p className="text-slate-500">Sélectionnez l'outil d'ingénierie patrimoniale souhaité</p>
+    <div style={{ maxWidth: 900, margin: '0 auto', padding: '3rem 1.25rem' }}>
+      <div style={{ marginBottom: '3rem' }}>
+        <p style={{
+          fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.1em',
+          textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.75rem',
+        }}>
+          Audit Patrimoine · Axe civil
+        </p>
+        <h1 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          fontWeight: 600,
+          color: 'var(--text-primary)',
+          letterSpacing: '-0.02em',
+          lineHeight: 1.1,
+          margin: 0,
+        }}>
+          Aspect civil
+        </h1>
+        <p style={{ marginTop: '0.75rem', color: 'var(--text-secondary)', fontSize: '1rem', maxWidth: 520 }}>
+          Organisation, transmission et protection patrimoniale. Sélectionnez un outil.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Carte Démembrement */}
-        <Link href="/civil/demembrement" className="group p-8 bg-white rounded-3xl border-2 border-slate-100 hover:border-blue-500 transition-all shadow-sm">
-          <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
-            <span className="text-2xl group-hover:scale-110 transition-transform">⚖️</span>
-          </div>
-          <h2 className="text-xl font-bold text-slate-900">Démembrement</h2>
-          <p className="text-slate-500 text-sm mt-2 leading-relaxed">
-            Comparez l'usufruit fiscal (Art. 669 CGI) et l'usufruit économique selon les tables INSEE.
-          </p>
-        </Link>
-
-        {/* Carte Donation */}
-        <Link href="/civil/donation" className="group p-8 bg-white rounded-3xl border-2 border-slate-100 hover:border-blue-500 transition-all shadow-sm">
-          <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors">
-            <span className="text-2xl group-hover:scale-110 transition-transform">🎁</span>
-          </div>
-          <h2 className="text-xl font-bold text-slate-900">Donation</h2>
-          <p className="text-slate-500 text-sm mt-2 leading-relaxed">
-            Simulez les droits de mutation, les abattements et la progressivité du barème.
-          </p>
-        </Link>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
+        {simulateurs.map(s => (
+          <Link key={s.href} href={s.href} style={{ textDecoration: 'none' }}>
+            <div
+              className="glass-card"
+              style={{ padding: 0, overflow: 'hidden', transition: 'transform 0.2s, border-color 0.2s', cursor: 'pointer' }}
+              onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-2px)'}
+              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)'}
+            >
+              <div style={{
+                height: 80,
+                background: s.gradient,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 32,
+              }}>
+                {s.icon}
+              </div>
+              <div style={{ padding: '1.25rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                  <h2 style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.2rem',
+                    fontWeight: 600,
+                    color: 'var(--text-primary)',
+                    margin: 0,
+                  }}>
+                    {s.title}
+                  </h2>
+                  <span className="badge badge-blue" style={{ flexShrink: 0, marginLeft: 8 }}>{s.badge}</span>
+                </div>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  {s.description}
+                </p>
+                <div style={{ marginTop: '1rem', fontSize: '0.85rem', fontWeight: 500, color: 'var(--accent-blue)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                  Accéder <span style={{ transition: 'transform 0.2s' }}>→</span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

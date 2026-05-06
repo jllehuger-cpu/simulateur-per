@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 
-// Table d'espérance de vie INSEE 2019
 const TABLE_INSEE: Record<'H' | 'F', Record<number, number>> = {
   'H': { 0:79.45, 10:69.85, 20:59.98, 30:50.33, 40:40.78, 50:31.59, 60:23.19, 61:22.41, 62:21.64, 63:20.89, 64:20.14, 65:19.39, 66:18.65, 67:17.91, 68:17.17, 69:16.45, 70:15.73, 75:12.24, 80:9.02, 85:6.28, 90:4.23, 95:2.92, 100:2.61 },
   'F': { 0:85.40, 10:75.76, 20:65.83, 30:55.97, 40:46.20, 50:36.68, 60:27.63, 61:26.75, 62:25.88, 63:25.01, 64:24.14, 65:23.28, 66:22.42, 67:21.57, 68:20.72, 69:19.87, 70:19.02, 75:14.93, 80:11.10, 85:7.76, 90:5.16, 95:3.40, 100:2.34 }
@@ -15,31 +14,21 @@ const getEsperance = (age: number, sexe: 'H' | 'F') => {
   return TABLE_INSEE[sexe][findAge as keyof typeof TABLE_INSEE['H']] || 2;
 };
 
-// Application du barème progressif des droits de donation
 const calculerDroitsLigneDirecte = (baseTaxable: number, tranchesFiscales: any[]) => {
-  // Si le JSON n'est pas encore chargé, on renvoie 0 pour éviter le crash
   if (!tranchesFiscales || tranchesFiscales.length === 0) return 0;
-  
   let droits = 0;
   let reste = baseTaxable;
   let tranchePrecedente = 0;
-
   for (const t of tranchesFiscales) {
-      // Déterminer la limite de la tranche (gérer le "null" de la fin)
-      const limiteActuelle = t.limite === null ? Infinity : t.limite;
-      
-      // Calculer l'assiette dans cette tranche
-      const assietteDansTranche = Math.min(Math.max(0, reste), limiteActuelle - tranchePrecedente);
-      
-      if (assietteDansTranche > 0) {
-          droits += assietteDansTranche * t.taux;
-          reste -= assietteDansTranche;
-      }
-      
-      tranchePrecedente = limiteActuelle;
-      if (reste <= 0) break; // On a fini de taxer
+    const limiteActuelle = t.limite === null ? Infinity : t.limite;
+    const assietteDansTranche = Math.min(Math.max(0, reste), limiteActuelle - tranchePrecedente);
+    if (assietteDansTranche > 0) {
+      droits += assietteDansTranche * t.taux;
+      reste -= assietteDansTranche;
+    }
+    tranchePrecedente = limiteActuelle;
+    if (reste <= 0) break;
   }
-  
   return droits;
 };
 
@@ -47,25 +36,20 @@ export default function DemembrementPage() {
   const [methode, setMethode] = useState<'fiscal' | 'economique'>('fiscal');
   const [typeDossier, setTypeDossier] = useState<'solo' | 'couple'>('couple');
   const [prixPP, setPrixPP] = useState<number>(500000);
-  const [repartitionH, setRepartitionH] = useState<number>(50); 
+  const [repartitionH, setRepartitionH] = useState<number>(50);
   const [nbEnfants, setNbEnfants] = useState<number>(2);
-
   const [ageH, setAgeH] = useState<number>(68);
   const [ageF, setAgeF] = useState<number>(65);
   const [ageSolo, setAgeSolo] = useState<number>(65);
   const [sexeSolo, setSexeSolo] = useState<'H' | 'F'>('F');
-
   const [rendement, setRendement] = useState<number>(4);
   const [tauxActualisation, setTauxActualisation] = useState<number>(3);
-
-  // Bloc de récupération des données fiscales
   const [baremes, setBaremes] = useState<any>(null);
 
   useEffect(() => {
-    fetch('/baremes.json')
-      .then(res => res.json())
-      .then(data => setBaremes(data));
+    fetch('/baremes.json').then(res => res.json()).then(data => setBaremes(data));
   }, []);
+
   const calculs = useMemo(() => {
     const i = tauxActualisation / 100;
     const getFiscalPctU = (a: number) => {
@@ -84,7 +68,6 @@ export default function DemembrementPage() {
       const u = (valPP * pct) / 100;
       return { u, np: valPP - u, pct };
     };
-
     if (typeDossier === 'solo') {
       const res = processPerson(prixPP, ageSolo, sexeSolo);
       return { h: res, f: { u: 0, np: 0, pct: 0 }, total: { u: res.u, np: res.np, pp: prixPP } };
@@ -97,205 +80,208 @@ export default function DemembrementPage() {
     }
   }, [methode, typeDossier, prixPP, repartitionH, ageH, ageF, ageSolo, sexeSolo, rendement, tauxActualisation, baremes]);
 
-  // 1. On récupère l'abattement enfant depuis le JSON
   const montantAbattement = baremes?.abattements?.enfant || 100000;
-  
-  // 2. On calcule l'abattement total (2 par enfant si couple, 1 si solo)
   const multiplicateurAbattement = typeDossier === 'couple' ? 2 : 1;
   const abattementTotal = montantAbattement * multiplicateurAbattement * nbEnfants;
-
   const resteTaxableTotal = Math.max(0, calculs.total.np - abattementTotal);
   const partTaxableParEnfant = resteTaxableTotal / nbEnfants;
-
-  // 3. On appelle la fonction avec les DEUX arguments : la part et les tranches
-  const droitsParEnfant = baremes 
-    ? calculerDroitsLigneDirecte(partTaxableParEnfant, baremes.baremes.ligne_directe) 
+  const droitsParEnfant = baremes
+    ? calculerDroitsLigneDirecte(partTaxableParEnfant, baremes.baremes.ligne_directe)
     : 0;
+
+  const btnToggle = (active: boolean) => ({
+    padding: '0.4rem 1.2rem',
+    borderRadius: 8,
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.2s',
+    background: active ? 'rgba(59,130,246,0.25)' : 'transparent',
+    color: active ? '#fff' : 'var(--text-muted)',
+    outline: active ? '1px solid rgba(59,130,246,0.4)' : '1px solid transparent',
+  } as React.CSSProperties);
+
   return (
-    <main className="min-h-screen bg-slate-50 p-4 md:p-8 text-slate-900">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* BARRE DE NAVIGATION ET TOGGLES */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-          <Link href="/civil" className="text-blue-600 font-medium">← Accueil</Link>
-          <div className="flex gap-4">
-            <div className="bg-slate-200 p-1 rounded-xl flex shadow-inner">
-              <button onClick={() => setMethode('fiscal')} className={`px-6 py-2 rounded-lg text-xs font-black transition-all ${methode === 'fiscal' ? 'bg-white text-slate-900 shadow' : 'text-slate-500'}`}>FISCAL</button>
-              <button onClick={() => setMethode('economique')} className={`px-6 py-2 rounded-lg text-xs font-black transition-all ${methode === 'economique' ? 'bg-blue-600 text-white shadow' : 'text-slate-500'}`}>ÉCONOMIQUE</button>
-            </div>
-            <div className="bg-white p-1 rounded-xl shadow-sm border border-slate-200 flex gap-2">
-              <button onClick={() => setTypeDossier('solo')} className={`px-4 py-2 rounded-lg text-xs font-bold ${typeDossier === 'solo' ? 'bg-slate-800 text-white' : 'text-slate-500'}`}>INDIVIDUEL</button>
-              <button onClick={() => setTypeDossier('couple')} className={`px-4 py-2 rounded-lg text-xs font-bold ${typeDossier === 'couple' ? 'bg-blue-600 text-white' : 'text-slate-500'}`}>COUPLE</button>
-            </div>
+    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
+
+      {/* BARRE TOGGLES */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+        <Link href="/civil" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textDecoration: 'none' }}>← Pôle civil</Link>
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 4, background: 'var(--bg-surface)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: 4 }}>
+            <button onClick={() => setMethode('fiscal')} style={btnToggle(methode === 'fiscal')}>FISCAL</button>
+            <button onClick={() => setMethode('economique')} style={btnToggle(methode === 'economique')}>ÉCONOMIQUE</button>
+          </div>
+          <div style={{ display: 'flex', gap: 4, background: 'var(--bg-surface)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: 4 }}>
+            <button onClick={() => setTypeDossier('solo')} style={btnToggle(typeDossier === 'solo')}>INDIVIDUEL</button>
+            <button onClick={() => setTypeDossier('couple')} style={btnToggle(typeDossier === 'couple')}>COUPLE</button>
           </div>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          {/* COLONNE GAUCHE : PARAMÈTRES */}
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-            <h2 className="text-lg font-bold border-b pb-2">Patrimoine & Famille</h2>
-            
-            <div>
-              <label className="block text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-tighter">Valeur Pleine Propriété (€)</label>
-              <input type="number" value={prixPP} onChange={e => setPrixPP(Number(e.target.value))} className="w-full p-3 bg-slate-50 border rounded-xl font-bold text-xl outline-none focus:border-blue-500" />
-            </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1.5rem' }}>
 
-            <div>
-              <label className="block text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-tighter">Nombre d'enfants</label>
-              <input type="number" value={nbEnfants} onChange={e => setNbEnfants(Number(e.target.value))} className="w-full p-3 bg-slate-50 border rounded-xl font-bold text-lg outline-none" min="1" />
-            </div>
+        {/* COLONNE PARAMÈTRES */}
+        <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <h2 style={{ margin: 0, fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Patrimoine & Famille</h2>
 
-            {typeDossier === 'couple' && (
-              <div className="pt-2">
-                <label className="block text-[10px] font-bold text-slate-400 mb-3 uppercase tracking-wider">Répartition (H: {repartitionH}% / F: {100 - repartitionH}%)</label>
-                <input type="range" min="0" max="100" value={repartitionH} onChange={e => setRepartitionH(Number(e.target.value))} className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600" />
-              </div>
-            )}
-
-            {methode === 'economique' && (
-              <div className="grid grid-cols-2 gap-4 p-4 bg-blue-50 rounded-xl border border-blue-100">
-                <div>
-                  <label className="block text-[10px] font-bold text-blue-600 uppercase">Rendement %</label>
-                  <input type="number" step="0.1" value={rendement} onChange={e => setRendement(Number(e.target.value))} className="w-full p-2 bg-white border rounded-lg text-sm" />
-                </div>
-                <div>
-                  <label className="block text-[10px] font-bold text-blue-600 uppercase">Actualisation %</label>
-                  <input type="number" step="0.1" value={tauxActualisation} onChange={e => setTauxActualisation(Number(e.target.value))} className="w-full p-2 bg-white border rounded-lg text-sm" />
-                </div>
-              </div>
-            )}
-
-            <h2 className="text-lg font-bold border-b pb-2 pt-2 text-slate-700 uppercase text-xs tracking-widest">Âges & Espérance de vie</h2>
-            {typeDossier === 'couple' ? (
-              <div className="space-y-4">
-                <div className="p-4 bg-blue-50/50 rounded-xl border border-blue-100">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="block text-[10px] font-bold text-blue-600 uppercase tracking-tighter">Monsieur : {ageH} ans</label>
-                    <span className="text-[10px] font-bold text-blue-400 italic">Exp. : {getEsperance(ageH, 'H')} ans</span>
-                  </div>
-                  <input type="range" min="0" max="100" value={ageH} onChange={e => setAgeH(Number(e.target.value))} className="w-full accent-blue-600" />
-                </div>
-                <div className="p-4 bg-pink-50/50 rounded-xl border border-pink-100">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="block text-[10px] font-bold text-pink-600 uppercase tracking-tighter">Madame : {ageF} ans</label>
-                    <span className="text-[10px] font-bold text-pink-400 italic">Exp. : {getEsperance(ageF, 'F')} ans</span>
-                  </div>
-                  <input type="range" min="0" max="100" value={ageF} onChange={e => setAgeF(Number(e.target.value))} className="w-full accent-pink-600" />
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <div className="flex gap-2">
-                  <button onClick={() => setSexeSolo('H')} className={`flex-1 p-2 rounded border text-xs font-bold ${sexeSolo === 'H' ? 'bg-slate-800 text-white' : 'bg-white text-slate-400'}`}>HOMME</button>
-                  <button onClick={() => setSexeSolo('F')} className={`flex-1 p-2 rounded border text-xs font-bold ${sexeSolo === 'F' ? 'bg-slate-800 text-white' : 'bg-white text-slate-400'}`}>FEMME</button>
-                </div>
-                <input type="range" min="0" max="100" value={ageSolo} onChange={e => setAgeSolo(Number(e.target.value))} className="w-full accent-slate-800" />
-                <div className="flex justify-between px-2">
-                  <p className="font-bold text-slate-800">{ageSolo} ans</p>
-                  <p className="text-[10px] text-slate-400 italic">Espérance : {getEsperance(ageSolo, sexeSolo)} ans</p>
-                </div>
-              </div>
-            )}
+          <div>
+            <label className="field-label">Valeur Pleine Propriété (€)</label>
+            <input type="number" value={prixPP} onChange={e => setPrixPP(Number(e.target.value))} className="glass-input" style={{ fontWeight: 700, fontSize: '1.2rem' }} />
           </div>
 
-          {/* COLONNE DROITE : RÉSULTATS */}
-          <div className="lg:col-span-2 space-y-6">
-            
-            {/* TABLEAU RÉCAPITULATIF */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden text-sm">
-              <table className="w-full text-left">
-                <thead className="bg-slate-50 border-b border-slate-200 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
-                  <tr>
-                    <th className="p-4">Origine</th>
-                    <th className="p-4 text-center">Nue-Propriété (Transmis)</th>
-                    <th className="p-4 text-center">Usufruit (Retenu)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {typeDossier === 'couple' ? (
-                    <>
-                      <tr>
-                        <td className="p-4 font-bold text-blue-600">Monsieur</td>
-                        <td className="p-4 text-center font-bold text-lg">{Math.round(calculs.h.np).toLocaleString()} €</td>
-                        <td className="p-4 text-center text-slate-500">{Math.round(calculs.h.u).toLocaleString()} € ({Math.round(calculs.h.pct)}%)</td>
-                      </tr>
-                      <tr>
-                        <td className="p-4 font-bold text-pink-600">Madame</td>
-                        <td className="p-4 text-center font-bold text-lg">{Math.round(calculs.f.np).toLocaleString()} €</td>
-                        <td className="p-4 text-center text-slate-500">{Math.round(calculs.f.u).toLocaleString()} € ({Math.round(calculs.f.pct)}%)</td>
-                      </tr>
-                    </>
-                  ) : (
-                    <tr>
-                      <td className="p-4 font-bold uppercase text-[10px]">Titulaire Unique</td>
-                      <td className="p-4 text-center font-bold text-lg">{Math.round(calculs.h.np).toLocaleString()} €</td>
-                      <td className="p-4 text-center text-slate-500">{Math.round(calculs.h.u).toLocaleString()} € ({Math.round(calculs.h.pct)}%)</td>
+          <div>
+            <label className="field-label">Nombre d'enfants</label>
+            <input type="number" value={nbEnfants} onChange={e => setNbEnfants(Number(e.target.value))} className="glass-input" min="1" />
+          </div>
+
+          {typeDossier === 'couple' && (
+            <div>
+              <label className="field-label">Répartition (H: {repartitionH}% / F: {100 - repartitionH}%)</label>
+              <input type="range" min="0" max="100" value={repartitionH} onChange={e => setRepartitionH(Number(e.target.value))} className="glass-range" />
+            </div>
+          )}
+
+          {methode === 'economique' && (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', background: 'rgba(59,130,246,0.07)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: 12, padding: '1rem' }}>
+              <div>
+                <label className="field-label" style={{ color: '#93C5FD' }}>Rendement %</label>
+                <input type="number" step="0.1" value={rendement} onChange={e => setRendement(Number(e.target.value))} className="glass-input" />
+              </div>
+              <div>
+                <label className="field-label" style={{ color: '#93C5FD' }}>Actualisation %</label>
+                <input type="number" step="0.1" value={tauxActualisation} onChange={e => setTauxActualisation(Number(e.target.value))} className="glass-input" />
+              </div>
+            </div>
+          )}
+
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)', margin: '0.25rem 0' }} />
+          <h2 style={{ margin: 0, fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Âges & Espérance de vie</h2>
+
+          {typeDossier === 'couple' ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div style={{ background: 'rgba(59,130,246,0.07)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: 12, padding: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#93C5FD', textTransform: 'uppercase' }}>Monsieur : {ageH} ans</label>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Exp. {getEsperance(ageH, 'H')} ans</span>
+                </div>
+                <input type="range" min="0" max="100" value={ageH} onChange={e => setAgeH(Number(e.target.value))} className="glass-range" />
+              </div>
+              <div style={{ background: 'rgba(236,72,153,0.07)', border: '1px solid rgba(236,72,153,0.2)', borderRadius: 12, padding: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#F9A8D4', textTransform: 'uppercase' }}>Madame : {ageF} ans</label>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Exp. {getEsperance(ageF, 'F')} ans</span>
+                </div>
+                <input type="range" min="0" max="100" value={ageF} onChange={e => setAgeF(Number(e.target.value))} className="glass-range" style={{ '--thumb-color': '#EC4899' } as any} />
+              </div>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button onClick={() => setSexeSolo('H')} style={{ ...btnToggle(sexeSolo === 'H'), flex: 1 }}>HOMME</button>
+                <button onClick={() => setSexeSolo('F')} style={{ ...btnToggle(sexeSolo === 'F'), flex: 1 }}>FEMME</button>
+              </div>
+              <input type="range" min="0" max="100" value={ageSolo} onChange={e => setAgeSolo(Number(e.target.value))} className="glass-range" />
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{ageSolo} ans</span>
+                <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Espérance : {getEsperance(ageSolo, sexeSolo)} ans</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* COLONNE RÉSULTATS */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+
+          {/* TABLEAU RÉCAPITULATIF */}
+          <div className="glass-card" style={{ overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+              <thead>
+                <tr style={{ background: 'var(--bg-surface-md)', borderBottom: '1px solid var(--border-subtle)' }}>
+                  <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Origine</th>
+                  <th style={{ padding: '0.75rem 1rem', textAlign: 'center', fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Nue-Propriété (Transmis)</th>
+                  <th style={{ padding: '0.75rem 1rem', textAlign: 'center', fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Usufruit (Retenu)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {typeDossier === 'couple' ? (
+                  <>
+                    <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                      <td style={{ padding: '0.75rem 1rem', fontWeight: 700, color: '#93C5FD' }}>Monsieur</td>
+                      <td style={{ padding: '0.75rem 1rem', textAlign: 'center', fontWeight: 700, color: 'var(--text-primary)', fontSize: '1.1rem' }}>{Math.round(calculs.h.np).toLocaleString()} €</td>
+                      <td style={{ padding: '0.75rem 1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>{Math.round(calculs.h.u).toLocaleString()} € ({Math.round(calculs.h.pct)}%)</td>
                     </tr>
-                  )}
-                </tbody>
-                <tfoot className={`font-bold text-white ${methode === 'fiscal' ? 'bg-slate-900 shadow-xl' : 'bg-blue-900 shadow-xl'}`}>
-                  <tr>
-                    <td className="p-4 uppercase tracking-tighter">Total à transmettre (NP)</td>
-                    <td className="p-4 text-center text-2xl font-black text-emerald-400">{Math.round(calculs.total.np).toLocaleString()} €</td>
-                    <td className="p-4 text-center text-slate-400 font-normal">{Math.round(calculs.total.u).toLocaleString()} €</td>
+                    <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                      <td style={{ padding: '0.75rem 1rem', fontWeight: 700, color: '#F9A8D4' }}>Madame</td>
+                      <td style={{ padding: '0.75rem 1rem', textAlign: 'center', fontWeight: 700, color: 'var(--text-primary)', fontSize: '1.1rem' }}>{Math.round(calculs.f.np).toLocaleString()} €</td>
+                      <td style={{ padding: '0.75rem 1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>{Math.round(calculs.f.u).toLocaleString()} € ({Math.round(calculs.f.pct)}%)</td>
+                    </tr>
+                  </>
+                ) : (
+                  <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                    <td style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Titulaire Unique</td>
+                    <td style={{ padding: '0.75rem 1rem', textAlign: 'center', fontWeight: 700, color: 'var(--text-primary)', fontSize: '1.1rem' }}>{Math.round(calculs.h.np).toLocaleString()} €</td>
+                    <td style={{ padding: '0.75rem 1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>{Math.round(calculs.h.u).toLocaleString()} € ({Math.round(calculs.h.pct)}%)</td>
                   </tr>
-                </tfoot>
-              </table>
+                )}
+              </tbody>
+              <tfoot>
+                <tr style={{ background: methode === 'fiscal' ? 'rgba(99,102,241,0.2)' : 'rgba(59,130,246,0.2)', borderTop: '1px solid var(--border-glass)' }}>
+                  <td style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Total NP à transmettre</td>
+                  <td style={{ padding: '0.75rem 1rem', textAlign: 'center', fontWeight: 900, fontSize: '1.4rem', color: 'var(--accent-emerald)' }}>{Math.round(calculs.total.np).toLocaleString()} €</td>
+                  <td style={{ padding: '0.75rem 1rem', textAlign: 'center', color: 'var(--text-muted)' }}>{Math.round(calculs.total.u).toLocaleString()} €</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          {/* SYNTHÈSE FISCALE */}
+          <div className="glass-card" style={{ padding: '1.5rem', border: resteTaxableTotal === 0 ? '1px solid rgba(16,185,129,0.3)' : '1px solid rgba(245,158,11,0.3)', background: resteTaxableTotal === 0 ? 'rgba(16,185,129,0.05)' : 'rgba(245,158,11,0.05)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h3 style={{ margin: 0, fontWeight: 700, color: 'var(--text-primary)', fontSize: '1rem' }}>Simulation des Droits de Mutation</h3>
+              <span style={{ fontSize: '0.65rem', fontWeight: 700, background: 'var(--bg-surface-md)', border: '1px solid var(--border-glass)', padding: '0.25rem 0.6rem', borderRadius: 999, color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Art. 779-I et 777 du CGI</span>
             </div>
 
-            {/* SYNTHÈSE FISCALE */}
-            <div className={`p-6 rounded-2xl border-2 transition-all ${resteTaxableTotal === 0 ? 'bg-emerald-50 border-emerald-200' : 'bg-orange-50 border-orange-200'}`}>
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="font-bold text-slate-800 text-lg">Simulation des Droits de Mutation</h3>
-                <span className="text-[10px] font-black bg-white px-3 py-1.5 rounded-full border shadow-sm tracking-widest text-slate-600 uppercase">Art. 779-I et 777 du CGI</span>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-500 italic">Abattement (100k€ x {typeDossier === 'couple' ? '2 parents' : '1 parent'} x {nbEnfants} {nbEnfants > 1 ? 'enfants' : 'enfant'})</span>
-                    <span className="font-bold text-slate-900">-{abattementTotal.toLocaleString()} €</span>
-                  </div>
-                  
-                  <div className="flex justify-between text-xs border-t pt-2">
-                    <span className="text-slate-500 font-medium">Assiette taxable totale</span>
-                    <span className="font-bold text-slate-900 underline">{Math.round(resteTaxableTotal).toLocaleString()} €</span>
-                  </div>
-
-                  <div className="p-3 bg-white/60 rounded-lg border border-white/80">
-                    <div className="flex justify-between items-center">
-                      <span className="text-[10px] text-slate-400 uppercase font-bold">Part taxable par enfant :</span>
-                      <span className="font-bold text-slate-800">{Math.round(partTaxableParEnfant).toLocaleString()} €</span>
-                    </div>
-                    <p className="text-[9px] text-slate-400 mt-1 italic tracking-tight">Abattement de {(abattementTotal/nbEnfants).toLocaleString()}€ déjà déduit par enfant.</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Abattement ({typeDossier === 'couple' ? '2 parents' : '1 parent'} × {nbEnfants} enfant{nbEnfants > 1 ? 's' : ''})</span>
+                  <span style={{ fontWeight: 700, color: 'var(--accent-emerald)' }}>−{abattementTotal.toLocaleString()} €</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', borderTop: '1px solid var(--border-subtle)', paddingTop: '0.5rem' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>Assiette taxable totale</span>
+                  <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{Math.round(resteTaxableTotal).toLocaleString()} €</span>
+                </div>
+                <div style={{ background: 'var(--bg-surface-md)', border: '1px solid var(--border-glass)', borderRadius: 10, padding: '0.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                    <span style={{ color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Part taxable / enfant</span>
+                    <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{Math.round(partTaxableParEnfant).toLocaleString()} €</span>
                   </div>
                 </div>
+              </div>
 
-                <div className="bg-white p-5 rounded-xl flex flex-col justify-center items-center shadow-sm border border-slate-100">
-                  <span className="text-[10px] font-black text-slate-400 uppercase mb-1">Droits à payer par enfant</span>
-                  <span className={`text-4xl font-black ${droitsParEnfant === 0 ? 'text-emerald-600' : 'text-orange-600'}`}>
-                    {droitsParEnfant === 0 ? "0 €" : `${Math.round(droitsParEnfant).toLocaleString()} €`}
-                  </span>
-                  {droitsParEnfant > 0 ? (
-                    <div className="mt-2 text-center">
-                      <p className="text-[10px] text-slate-500 font-medium uppercase tracking-tighter">Barème progressif appliqué</p>
-                      <p className="text-[10px] text-slate-400 italic">Soit {Math.round(droitsParEnfant * nbEnfants).toLocaleString()} € au total pour la famille.</p>
-                    </div>
-                  ) : (
-                    <p className="text-[10px] text-emerald-600 mt-2 font-bold uppercase tracking-widest italic">Transmission en franchise de droits</p>
-                  )}
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-glass)', borderRadius: 12, padding: '1.25rem' }}>
+                <span style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>Droits à payer / enfant</span>
+                <span style={{ fontSize: '2.5rem', fontWeight: 900, color: droitsParEnfant === 0 ? 'var(--accent-emerald)' : 'var(--accent-amber)', fontFamily: 'var(--font-display)' }}>
+                  {droitsParEnfant === 0 ? '0 €' : `${Math.round(droitsParEnfant).toLocaleString()} €`}
+                </span>
+                {droitsParEnfant > 0 ? (
+                  <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '0.5rem', textAlign: 'center' }}>
+                    Soit {Math.round(droitsParEnfant * nbEnfants).toLocaleString()} € au total
+                  </p>
+                ) : (
+                  <p style={{ fontSize: '0.72rem', color: 'var(--accent-emerald)', marginTop: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Franchise de droits</p>
+                )}
               </div>
             </div>
+          </div>
 
-            {/* NOTE MÉTHODOLOGIQUE */}
-            <div className="p-4 bg-white rounded-xl border border-dashed border-slate-300 text-[11px] text-slate-500 leading-relaxed italic">
-              {methode === 'fiscal' 
-                ? "L'évaluation fiscale (Art. 669 CGI) est obligatoire pour le calcul des droits. Elle suit un barème fixe par tranches d'âge de 10 ans." 
-                : "L'évaluation économique utilise l'espérance de vie réelle (INSEE 2019) pour estimer la valeur de marché réelle du patrimoine démembré."
-              }
-            </div>
+          {/* NOTE */}
+          <div style={{ padding: '0.75rem 1rem', border: '1px dashed var(--border-glass)', borderRadius: 10, fontSize: '0.78rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.6 }}>
+            {methode === 'fiscal'
+              ? "L'évaluation fiscale (Art. 669 CGI) est obligatoire pour le calcul des droits. Elle suit un barème fixe par tranches d'âge de 10 ans."
+              : "L'évaluation économique utilise l'espérance de vie réelle (INSEE 2019) pour estimer la valeur de marché réelle du patrimoine démembré."}
           </div>
         </div>
       </div>

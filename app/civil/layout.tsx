@@ -15,17 +15,33 @@ export default function CivilLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <nav className="bg-white border-b border-slate-200 sticky top-[60px] z-40">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex items-center h-12 gap-2">
+    <div>
+      <nav style={{
+        background: 'rgba(8,11,20,0.72)',
+        backdropFilter: 'blur(20px) saturate(160%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(160%)',
+        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        position: 'sticky',
+        top: 60,
+        zIndex: 40,
+      }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', height: 44, gap: '0.25rem' }}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-all ${
-                  isActive(link.href) ? 'bg-slate-900 text-white shadow-md' : 'text-slate-500 hover:bg-slate-100'
-                }`}
+                style={{
+                  padding: '0.3rem 0.85rem',
+                  borderRadius: 8,
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  color: isActive(link.href) ? '#fff' : 'var(--text-secondary)',
+                  background: isActive(link.href) ? 'rgba(59,130,246,0.18)' : 'transparent',
+                  border: isActive(link.href) ? '1px solid rgba(59,130,246,0.35)' : '1px solid transparent',
+                  transition: 'all 0.2s',
+                }}
               >
                 {link.name}
               </Link>
@@ -33,7 +49,7 @@ export default function CivilLayout({ children }: { children: React.ReactNode })
           </div>
         </div>
       </nav>
-      <div className="py-6">{children}</div>
+      <div style={{ padding: '1.5rem 0' }}>{children}</div>
     </div>
   );
 }

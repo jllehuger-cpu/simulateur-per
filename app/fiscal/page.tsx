@@ -1,65 +1,101 @@
 import Link from 'next/link';
 
+const simulateurs = [
+  {
+    href: '/fiscal/per',
+    icon: '💰',
+    title: 'Simulateur PER',
+    description: "Estimez l'économie d'impôt et l'effet de seuil sur votre TMI.",
+    badge: 'Retraite',
+    gradient: 'linear-gradient(135deg, #3B82F6, #4F46E5)',
+  },
+  {
+    href: '/fiscal/ir',
+    icon: '🧮',
+    title: 'Simulateur IR',
+    description: 'Calculez votre impôt sur le revenu, quotient familial et tranche marginale d\'imposition.',
+    badge: 'IR',
+    gradient: 'linear-gradient(135deg, #8B5CF6, #7C3AED)',
+  },
+  {
+    href: '/fiscal/declaration-revenus',
+    icon: '📋',
+    title: 'Aide à la Déclaration',
+    description: 'Optimisez vos frais réels et vérifiez vos réductions d\'impôts.',
+    badge: 'Déclaration',
+    gradient: 'linear-gradient(135deg, #10B981, #0D9488)',
+  },
+];
+
 export default function FiscalPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <main className="mx-auto max-w-4xl px-4 py-12">
-        <h1 className="text-3xl font-bold text-slate-900">Aspect fiscal</h1>
-        <p className="mt-4 max-w-2xl text-slate-600">
-          Outils et ressources pour visualiser l&apos;impact fiscal de vos choix (PER, défiscalisation,
-          etc.).
+    <div style={{ maxWidth: 900, margin: '0 auto', padding: '3rem 1.25rem' }}>
+      <div style={{ marginBottom: '3rem' }}>
+        <p style={{
+          fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.1em',
+          textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.75rem',
+        }}>
+          Audit Patrimoine · Axe fiscal
         </p>
-        <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
-          <li>
-            <Link
-              href="/fiscal/per"
-              className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md"
+        <h1 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          fontWeight: 600,
+          color: 'var(--text-primary)',
+          letterSpacing: '-0.02em',
+          lineHeight: 1.1,
+          margin: 0,
+        }}>
+          Aspect fiscal
+        </h1>
+        <p style={{ marginTop: '0.75rem', color: 'var(--text-secondary)', fontSize: '1rem', maxWidth: 520 }}>
+          Optimisation légale, dispositifs déductibles et impacts sur le revenu imposable. Sélectionnez un simulateur.
+        </p>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
+        {simulateurs.map(s => (
+          <Link key={s.href} href={s.href} style={{ textDecoration: 'none' }}>
+            <div
+              className="glass-card"
+              style={{ padding: 0, overflow: 'hidden', transition: 'transform 0.2s, border-color 0.2s', cursor: 'pointer' }}
+              onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-2px)'}
+              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)'}
             >
-              <h2 className="text-lg font-semibold text-slate-900 group-hover:text-blue-700">
-                Simulateur PER
-              </h2>
-              <p className="mt-2 text-sm text-slate-600">
-                Estimez l&apos;économie d&apos;impôt et l&apos;effet de seuil sur votre TMI.
-              </p>
-              <span className="mt-3 inline-block text-sm font-medium text-blue-600">
-                Ouvrir le simulateur →
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/fiscal/declaration-revenus"
-              className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md"
-            >
-              <h2 className="text-lg font-semibold text-slate-900 group-hover:text-blue-700">
-                Aide à la Déclaration
-              </h2>
-              <p className="mt-2 text-sm text-slate-600">
-                Optimisez vos frais réels et vérifiez vos réductions d&apos;impôts.
-              </p>
-              <span className="mt-3 inline-block text-sm font-medium text-blue-600">
-                Accéder à l&apos;assistant →
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/fiscal/ir"
-              className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md"
-            >
-              <h2 className="text-lg font-semibold text-slate-900 group-hover:text-blue-700">
-                Simulateur IR
-              </h2>
-              <p className="mt-2 text-sm text-slate-600">
-                Calculez votre impôt sur le revenu, quotient familial et tranche marginale d&apos;imposition.
-              </p>
-              <span className="mt-3 inline-block text-sm font-medium text-blue-600">
-                Ouvrir le simulateur →
-              </span>
-            </Link>
-          </li>
-        </ul>
-      </main>
+              <div style={{
+                height: 80,
+                background: s.gradient,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 32,
+              }}>
+                {s.icon}
+              </div>
+              <div style={{ padding: '1.25rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                  <h2 style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.2rem',
+                    fontWeight: 600,
+                    color: 'var(--text-primary)',
+                    margin: 0,
+                  }}>
+                    {s.title}
+                  </h2>
+                  <span className="badge badge-blue" style={{ flexShrink: 0, marginLeft: 8 }}>{s.badge}</span>
+                </div>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  {s.description}
+                </p>
+                <div style={{ marginTop: '1rem', fontSize: '0.85rem', fontWeight: 500, color: 'var(--accent-blue)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                  Accéder <span style={{ transition: 'transform 0.2s' }}>→</span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

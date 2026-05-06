@@ -8,7 +8,6 @@ export default function DonationPage() {
   const [lienParente, setLienParente] = useState<string>('ligne_directe');
   const [baremes, setBaremes] = useState<any>(null);
 
-  // Chargement des données fiscales
   useEffect(() => {
     fetch('/baremes.json')
       .then(res => res.json())
@@ -18,25 +17,17 @@ export default function DonationPage() {
 
   const calculs = useMemo(() => {
     if (!baremes) return null;
-
-    // 1. Détermination de l'abattement selon le lien
     const cleAbattement = lienParente === 'ligne_directe' ? 'enfant' : lienParente;
     const abattement = baremes.abattements[cleAbattement] || 0;
-    
-    // 2. Assiette taxable
     const assietteTaxable = Math.max(0, prixPP - abattement);
-
-    // 3. Calcul par tranches
     const tranchesFiscales = baremes.baremes[lienParente] || [];
     let droitsTotaux = 0;
     let reste = assietteTaxable;
     let tranchePrecedente = 0;
     const detailTranches = [];
-
     for (const t of tranchesFiscales) {
       const limiteActuelle = t.limite === null ? Infinity : t.limite;
       const assietteDansTranche = Math.min(Math.max(0, reste), limiteActuelle - tranchePrecedente);
-      
       if (assietteDansTranche > 0) {
         const montantTranche = assietteDansTranche * t.taux;
         droitsTotaux += montantTranche;
@@ -51,34 +42,27 @@ export default function DonationPage() {
       tranchePrecedente = limiteActuelle;
       if (reste <= 0) break;
     }
-
-    return {
-      abattement,
-      assietteTaxable,
-      droitsTotaux,
-      detailTranches
-    };
+    return { abattement, assietteTaxable, droitsTotaux, detailTranches };
   }, [prixPP, lienParente, baremes]);
 
-  if (!baremes || !calculs) return <div className="p-10 text-center font-bold text-slate-400 uppercase tracking-widest">Initialisation...</div>;
+  if (!baremes || !calculs) return (
+    <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+      Initialisation…
+    </div>
+  );
 
   return (
-    <main className="max-w-6xl mx-auto p-4 md:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* COLONNE GAUCHE : CONFIGURATION */}
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-            <h2 className="text-lg font-bold mb-6 text-slate-800 tracking-tight">Configuration</h2>
-            
-            <div className="space-y-6">
+    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1.5rem', alignItems: 'start' }}>
+
+        {/* COLONNE GAUCHE */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
+            <h2 style={{ margin: '0 0 1.5rem', fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Configuration</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div>
-                <label className="block text-[10px] font-black text-slate-400 uppercase mb-2">Lien de parenté</label>
-                <select 
-                  value={lienParente} 
-                  onChange={(e) => setLienParente(e.target.value)}
-                  className="w-full p-3 bg-slate-50 border-2 border-slate-100 rounded-xl font-bold text-sm outline-none focus:border-slate-900 transition-all"
-                >
+                <label className="field-label">Lien de parenté</label>
+                <select value={lienParente} onChange={e => setLienParente(e.target.value)} className="glass-select">
                   <option value="ligne_directe">Ligne directe (Enfant)</option>
                   <option value="conjoint">Époux / Partenaire PACS</option>
                   <option value="frere_soeur">Frère / Sœur</option>
@@ -86,89 +70,74 @@ export default function DonationPage() {
                   <option value="tiers">Tiers (Non parent)</option>
                 </select>
               </div>
-
               <div>
-                <label className="block text-[10px] font-black text-slate-400 uppercase mb-2">Montant du don (€)</label>
-                <input 
-                  type="number" 
-                  value={prixPP} 
-                  onChange={e => setPrixPP(Number(e.target.value))} 
-                  className="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl font-bold text-2xl outline-none focus:border-slate-900 transition-all" 
-                />
+                <label className="field-label">Montant du don (€)</label>
+                <input type="number" value={prixPP} onChange={e => setPrixPP(Number(e.target.value))} className="glass-input" style={{ fontWeight: 700, fontSize: '1.4rem' }} />
               </div>
             </div>
           </div>
 
-          {/* LE PONT VERS L'AUDIT EXPERT */}
-          <div className="p-6 bg-blue-50 border-2 border-blue-100 rounded-3xl group hover:border-blue-300 transition-all shadow-sm">
-            <h3 className="text-sm font-bold text-blue-900 mb-2 flex items-center gap-2">
-              💡 Analyse avancée
-            </h3>
-            <p className="text-[10px] text-blue-700 leading-relaxed mb-4">
-              Vous avez déjà effectué des donations par le passé ? Calculez votre reliquat d'abattement et simulez un démembrement.
+          {/* LIEN AUDIT EXPERT */}
+          <div style={{ padding: '1.25rem', background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.25)', borderRadius: 14 }}>
+            <h3 style={{ margin: '0 0 0.5rem', fontSize: '0.85rem', fontWeight: 700, color: '#93C5FD' }}>💡 Analyse avancée</h3>
+            <p style={{ margin: '0 0 1rem', fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              Donations passées ? Calculez votre reliquat d'abattement et simulez un démembrement.
             </p>
-            <Link 
-              href="/civil/donation/audit" 
-              className="inline-flex items-center justify-center w-full py-3 bg-blue-600 text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200"
-            >
+            <Link href="/civil/donation/audit" className="btn-primary" style={{ width: '100%', fontSize: '0.75rem' }}>
               Lancer l'audit expert
             </Link>
           </div>
         </div>
 
-        {/* COLONNE DROITE : RÉSULTATS */}
-        <div className="lg:col-span-2 space-y-6">
-          
-          {/* BANDEAU RÉSULTAT FLASH */}
-          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* COLONNE DROITE */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+
+          {/* RÉSULTAT FLASH */}
+          <div className="glass-card-hi" style={{ padding: '1.5rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
             <div>
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Abattement appliqué</span>
-              <p className="text-3xl font-black text-emerald-500">{calculs.abattement.toLocaleString()} €</p>
+              <span style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Abattement appliqué</span>
+              <p style={{ margin: '0.25rem 0 0', fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700, color: 'var(--accent-emerald)' }}>{calculs.abattement.toLocaleString()} €</p>
             </div>
-            <div className="text-center md:text-right">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Droits de donation</span>
-              <p className="text-5xl font-black text-slate-900">{Math.round(calculs.droitsTotaux).toLocaleString()} €</p>
+            <div style={{ textAlign: 'right' }}>
+              <span style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Droits de donation</span>
+              <p style={{ margin: '0.25rem 0 0', fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>{Math.round(calculs.droitsTotaux).toLocaleString()} €</p>
             </div>
           </div>
 
           {/* TABLEAU DÉTAILLÉ */}
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-              <h3 className="font-bold text-slate-800 text-sm">Décomposition du barème progressif</h3>
-              <span className="text-[10px] font-bold bg-white border border-slate-200 px-3 py-1 rounded-full text-slate-500 uppercase">
-                Assiette taxable : {Math.round(calculs.assietteTaxable).toLocaleString()} €
+          <div className="glass-card" style={{ overflow: 'hidden' }}>
+            <div style={{ padding: '1rem 1.25rem', borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-surface-md)' }}>
+              <h3 style={{ margin: 0, fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)' }}>Décomposition du barème progressif</h3>
+              <span style={{ fontSize: '0.7rem', fontWeight: 600, background: 'var(--bg-surface)', border: '1px solid var(--border-glass)', padding: '0.2rem 0.6rem', borderRadius: 999, color: 'var(--text-muted)' }}>
+                Assiette : {Math.round(calculs.assietteTaxable).toLocaleString()} €
               </span>
             </div>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead className="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100">
-                  <tr>
-                    <th className="px-6 py-4">Tranche</th>
-                    <th className="px-6 py-4 text-center">Part taxée</th>
-                    <th className="px-6 py-4 text-center">Taux</th>
-                    <th className="px-6 py-4 text-right">Impôt</th>
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                <thead>
+                  <tr style={{ background: 'var(--bg-surface-md)', borderBottom: '1px solid var(--border-subtle)' }}>
+                    <th style={{ padding: '0.7rem 1.25rem', textAlign: 'left', fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Tranche</th>
+                    <th style={{ padding: '0.7rem 1.25rem', textAlign: 'center', fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Part taxée</th>
+                    <th style={{ padding: '0.7rem 1.25rem', textAlign: 'center', fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Taux</th>
+                    <th style={{ padding: '0.7rem 1.25rem', textAlign: 'right', fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Impôt</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody>
                   {calculs.detailTranches.map((tranche, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="px-6 py-4 text-sm font-medium text-slate-600">{tranche.label}</td>
-                      <td className="px-6 py-4 text-center text-sm font-bold">{Math.round(tranche.assiette).toLocaleString()} €</td>
-                      <td className="px-6 py-4 text-center">
-                        <span className="px-2 py-1 bg-slate-100 rounded text-[10px] font-black text-slate-600">{tranche.taux}%</span>
+                    <tr key={idx} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                      <td style={{ padding: '0.7rem 1.25rem', color: 'var(--text-secondary)' }}>{tranche.label}</td>
+                      <td style={{ padding: '0.7rem 1.25rem', textAlign: 'center', fontWeight: 700, color: 'var(--text-primary)' }}>{Math.round(tranche.assiette).toLocaleString()} €</td>
+                      <td style={{ padding: '0.7rem 1.25rem', textAlign: 'center' }}>
+                        <span className="badge badge-amber">{tranche.taux}%</span>
                       </td>
-                      <td className="px-6 py-4 text-right text-sm font-black text-slate-900">{Math.round(tranche.impot).toLocaleString()} €</td>
+                      <td style={{ padding: '0.7rem 1.25rem', textAlign: 'right', fontWeight: 700, color: 'var(--text-primary)' }}>{Math.round(tranche.impot).toLocaleString()} €</td>
                     </tr>
                   ))}
                   {calculs.detailTranches.length === 0 && (
                     <tr>
-                      <td colSpan={4} className="px-6 py-16 text-center">
-                        <div className="inline-block p-4 rounded-full bg-emerald-50 mb-3">
-                            <span className="text-emerald-500 font-black text-xl">✓</span>
-                        </div>
-                        <p className="text-emerald-600 font-bold text-sm uppercase tracking-widest">Exonération Totale</p>
-                        <p className="text-slate-400 text-[10px] italic mt-1">Le montant est couvert par l'abattement légal.</p>
+                      <td colSpan={4} style={{ padding: '3rem', textAlign: 'center' }}>
+                        <p style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>✓ Exonération totale</p>
+                        <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginTop: '0.25rem' }}>Le montant est couvert par l'abattement légal.</p>
                       </td>
                     </tr>
                   )}
@@ -176,7 +145,6 @@ export default function DonationPage() {
               </table>
             </div>
           </div>
-
         </div>
       </div>
     </main>

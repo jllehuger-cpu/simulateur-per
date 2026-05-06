@@ -1,18 +1,12 @@
 'use client';
 
-import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
-/** Plafond abattement forfaitaire frais pro (ordre de grandeur IR, revenus récents) — à ajuster si tu suis une année précise. */
 const PLAFOND_ABATTEMENT_10_PCT = 14_171;
 
 type CvBand = '3' | '4' | '5' | '6plus';
 
-/** Barème kilométrique type administration (tranches continues) — valeurs indicatives type 5 CV ; 3/4/6+ en approximation pédagogique. */
-const BAREME_KM: Record<
-  CvBand,
-  { d1: number; r1: number; r2: number; fix2: number; r3: number; fix3: number }
-> = {
+const BAREME_KM: Record<CvBand, { d1: number; r1: number; r2: number; fix2: number; r3: number; fix3: number }> = {
   '3': { d1: 5000, r1: 0.529, r2: 0.316, fix2: 1065, r3: 0.37, fix3: 915 },
   '4': { d1: 5000, r1: 0.568, r2: 0.339, fix2: 1140, r3: 0.397, fix3: 983 },
   '5': { d1: 5000, r1: 0.606, r2: 0.34, fix2: 1322, r3: 0.395, fix3: 1282 },
@@ -56,220 +50,109 @@ export default function DeclarationRevenusPage() {
   const ecart = Math.abs(forfait10 - fraisReelsTotal);
 
   return (
-    <>
-      <div className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-3 px-4 py-3">
-          <Link
-            href="/fiscal"
-            className="text-sm font-medium text-blue-600 hover:underline"
-          >
-            ← Retour à l&apos;espace fiscal
-          </Link>
-          <Link
-            href="/"
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-          >
-            Accueil
-          </Link>
-        </div>
-      </div>
+    <div style={{ maxWidth: 680, margin: '0 auto', padding: '2rem 1.25rem 3rem' }}>
+      <p className="section-title">Aspect fiscal · Déclaration de revenus</p>
+      <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '-0.02em', margin: '0 0 2rem' }}>
+        Aide à la préparation
+      </h1>
 
-      <div className="mx-auto max-w-2xl px-4 py-4">
-        <h1 className="text-xl font-semibold text-slate-900">
-          Déclaration de revenus — aide à la préparation
-        </h1>
-      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
 
-      <main className="min-h-screen bg-gray-50 px-4 py-12">
-        <div className="mx-auto max-w-2xl space-y-6 rounded-2xl bg-white p-8 shadow-xl">
-          <h2 className="text-center text-2xl font-bold text-gray-800">
-            Frais réels vs forfait 10&nbsp;%
-          </h2>
-
-          <div className="space-y-6">
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-              <h3 className="mb-4 text-sm font-bold text-slate-900">
-                Données (pédagogique)
-              </h3>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div className="md:col-span-2">
-                  <label className="mb-2 block text-sm font-medium text-gray-700">
-                    Salaires nets à déclarer (assiette de l&apos;abattement forfaitaire) (€)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    step={100}
-                    value={salaires === '' ? '' : salaires}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setSalaires(v === '' ? '' : Number(v));
-                    }}
-                    className="w-full rounded-lg border border-gray-300 p-3 text-base text-black outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-700">
-                    Autres frais réels (hors véhicule) (€)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    step={50}
-                    value={autresFraisReels === '' ? '' : autresFraisReels}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setAutresFraisReels(v === '' ? '' : Number(v));
-                    }}
-                    className="w-full rounded-lg border border-gray-300 p-3 text-base text-black outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-700">
-                    Kilomètres professionnels (aller-retours cumulés / an)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    step={100}
-                    value={km === '' ? '' : km}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setKm(v === '' ? '' : Number(v));
-                    }}
-                    className="w-full rounded-lg border border-gray-300 p-3 text-base text-black outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <label className="mb-2 block text-sm font-medium text-gray-700">
-                    Puissance fiscale (barème kilométrique simplifié)
-                  </label>
-                  <select
-                    value={cv}
-                    onChange={(e) => setCv(e.target.value as CvBand)}
-                    className="w-full rounded-lg border border-gray-300 bg-white p-3 text-base text-black"
-                  >
-                    <option value="3">3 CV</option>
-                    <option value="4">4 CV</option>
-                    <option value="5">5 CV</option>
-                    <option value="6plus">6 CV et +</option>
-                  </select>
-                  <p className="mt-2 text-xs text-slate-600">
-                    Indemnité kilométrique estimée (tranches type barème administratif)&nbsp;:{' '}
-                    <span className="font-semibold">{formatEuro(partKm)}</span>
-                  </p>
-                </div>
-              </div>
+        {/* SAISIE */}
+        <div className="glass-card" style={{ padding: '1.5rem' }}>
+          <h2 style={{ margin: '0 0 1.25rem', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Données</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div style={{ gridColumn: '1 / -1' }}>
+              <label className="field-label">Salaires nets à déclarer (€)</label>
+              <input type="number" min={0} step={100} value={salaires === '' ? '' : salaires}
+                onChange={e => setSalaires(e.target.value === '' ? '' : Number(e.target.value))}
+                className="glass-input" />
             </div>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="rounded-xl border border-blue-100 bg-blue-50 p-4">
-                <h3 className="text-sm font-bold text-blue-900">Forfait 10&nbsp;%</h3>
-                <p className="mt-2 text-2xl font-bold text-blue-900">
-                  {formatEuro(forfait10)}
-                </p>
-                <p className="mt-1 text-xs text-blue-800/90">
-                  min(10&nbsp;% des salaires, plafond {formatEuro(PLAFOND_ABATTEMENT_10_PCT)})
-                </p>
-              </div>
-              <div className="rounded-xl border border-indigo-100 bg-indigo-50 p-4">
-                <h3 className="text-sm font-bold text-indigo-900">Frais réels (estimés)</h3>
-                <p className="mt-2 text-2xl font-bold text-indigo-900">
-                  {formatEuro(fraisReelsTotal)}
-                </p>
-                <p className="mt-1 text-xs text-indigo-800/90">
-                  autres frais + indemnité km ({typeof km === 'number' ? km.toLocaleString('fr-FR') : 0}{' '}
-                  km, {cv} CV)
-                </p>
-              </div>
+            <div>
+              <label className="field-label">Autres frais réels — hors véhicule (€)</label>
+              <input type="number" min={0} step={50} value={autresFraisReels === '' ? '' : autresFraisReels}
+                onChange={e => setAutresFraisReels(e.target.value === '' ? '' : Number(e.target.value))}
+                className="glass-input" />
             </div>
-
-            <div
-              className={`rounded-xl border p-4 ${
-                meilleur === 'forfait'
-                  ? 'border-amber-200 bg-amber-50'
-                  : 'border-emerald-200 bg-emerald-50'
-              }`}
-            >
-              <h3
-                className={`text-sm font-bold ${
-                  meilleur === 'forfait' ? 'text-amber-900' : 'text-emerald-900'
-                }`}
-              >
-                Comparaison
-              </h3>
-              <p
-                className={`mt-2 text-sm ${
-                  meilleur === 'forfait' ? 'text-amber-900' : 'text-emerald-900'
-                }`}
-              >
-                {meilleur === 'forfait' ? (
-                  <>
-                    Le <strong>forfait 10&nbsp;%</strong> est plus favorable d&apos;environ{' '}
-                    <strong>{formatEuro(ecart)}</strong> par rapport à vos frais réels déclarés
-                    (hors cas particuliers).
-                  </>
-                ) : (
-                  <>
-                    Les <strong>frais réels</strong> (avec barème km) sont plus favorables d&apos;environ{' '}
-                    <strong>{formatEuro(ecart)}</strong> par rapport au forfait.
-                  </>
-                )}
-              </p>
-              <p className="mt-2 text-xs text-slate-600">
-                En pratique, vous retenez la déduction la plus avantageuse si vous optez pour les frais réels
-                (et que vous pouvez les justifier). Ceci ne remplace pas le calcul officiel de l&apos;impôt.
+            <div>
+              <label className="field-label">Kilomètres professionnels / an</label>
+              <input type="number" min={0} step={100} value={km === '' ? '' : km}
+                onChange={e => setKm(e.target.value === '' ? '' : Number(e.target.value))}
+                className="glass-input" />
+            </div>
+            <div style={{ gridColumn: '1 / -1' }}>
+              <label className="field-label">Puissance fiscale (barème kilométrique)</label>
+              <select value={cv} onChange={e => setCv(e.target.value as CvBand)} className="glass-select">
+                <option value="3">3 CV</option>
+                <option value="4">4 CV</option>
+                <option value="5">5 CV</option>
+                <option value="6plus">6 CV et +</option>
+              </select>
+              <p style={{ marginTop: '0.4rem', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                Indemnité kilométrique estimée : <span style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>{formatEuro(partKm)}</span>
               </p>
             </div>
-
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-              <h3 className="mb-3 text-sm font-bold text-slate-900">
-                Réductions / crédits d&apos;impôt courants — checklist
-              </h3>
-              <ul className="space-y-3 text-sm text-slate-800">
-                <li className="flex gap-3 rounded-lg border border-white bg-white/80 p-3">
-                  <input
-                    type="checkbox"
-                    className="mt-1 h-4 w-4 accent-blue-600"
-                    readOnly
-                    tabIndex={-1}
-                    aria-hidden
-                  />
-                  <span>
-                    <strong>Garde d&apos;enfants de moins de 6 ans</strong> (crèche, assistante maternelle
-                    agréée, garde à domicile déclarée)&nbsp;: pensez aux cases et plafonds (crédit d&apos;impôt /
-                    avance selon situation).
-                  </span>
-                </li>
-                <li className="flex gap-3 rounded-lg border border-white bg-white/80 p-3">
-                  <input
-                    type="checkbox"
-                    className="mt-1 h-4 w-4 accent-blue-600"
-                    readOnly
-                    tabIndex={-1}
-                    aria-hidden
-                  />
-                  <span>
-                    <strong>Emploi à domicile</strong> (ménage, jardinage, garde à domicile dans le cadre
-                    services à la personne)&nbsp;: crédit d&apos;impôt dans des limites — conservez les
-                    attestations fiscales.
-                  </span>
-                </li>
-              </ul>
-              <p className="mt-3 text-xs text-slate-500">
-                Les cases cochées ici sont des <strong>rappels visuels</strong> (non enregistrés). Pour une vraie
-                checklist interactive, remplace les <code className="rounded bg-slate-100 px-1">readOnly</code> par
-                un <code className="rounded bg-slate-100 px-1">useState</code> par ligne.
-              </p>
-            </div>
-
-            <p className="text-center text-xs italic text-gray-400">
-              * Outil pédagogique simplifié. Plafonds, barème kilométrique exact et règles détaillées&nbsp;: voir
-              impots.gouv.fr et le formulaire de l&apos;année concernée.
-            </p>
           </div>
         </div>
-      </main>
-    </>
+
+        {/* COMPARAISON */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ padding: '1.25rem', background: 'rgba(59,130,246,0.08)', border: `2px solid ${meilleur === 'forfait' ? 'rgba(59,130,246,0.5)' : 'rgba(59,130,246,0.15)'}`, borderRadius: 14, transition: 'border-color 0.3s' }}>
+            <h3 style={{ margin: '0 0 0.5rem', fontSize: '0.85rem', fontWeight: 700, color: '#93C5FD' }}>Forfait 10 %</h3>
+            <p style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>{formatEuro(forfait10)}</p>
+            <p style={{ margin: '0.4rem 0 0', fontSize: '0.72rem', color: 'var(--text-muted)' }}>min(10 % des salaires, plafond {formatEuro(PLAFOND_ABATTEMENT_10_PCT)})</p>
+            {meilleur === 'forfait' && <span className="badge badge-green" style={{ marginTop: '0.75rem' }}>✓ Plus avantageux</span>}
+          </div>
+          <div style={{ padding: '1.25rem', background: 'rgba(99,102,241,0.08)', border: `2px solid ${meilleur === 'reels' ? 'rgba(99,102,241,0.5)' : 'rgba(99,102,241,0.15)'}`, borderRadius: 14, transition: 'border-color 0.3s' }}>
+            <h3 style={{ margin: '0 0 0.5rem', fontSize: '0.85rem', fontWeight: 700, color: '#A5B4FC' }}>Frais réels (estimés)</h3>
+            <p style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>{formatEuro(fraisReelsTotal)}</p>
+            <p style={{ margin: '0.4rem 0 0', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+              autres frais + indemnité km ({typeof km === 'number' ? km.toLocaleString('fr-FR') : 0} km, {cv} CV)
+            </p>
+            {meilleur === 'reels' && <span className="badge badge-green" style={{ marginTop: '0.75rem' }}>✓ Plus avantageux</span>}
+          </div>
+        </div>
+
+        {/* VERDICT */}
+        <div style={{ padding: '1.25rem', background: meilleur === 'forfait' ? 'rgba(245,158,11,0.08)' : 'rgba(16,185,129,0.08)', border: `1px solid ${meilleur === 'forfait' ? 'rgba(245,158,11,0.3)' : 'rgba(16,185,129,0.3)'}`, borderRadius: 14 }}>
+          <h3 style={{ margin: '0 0 0.5rem', fontSize: '0.9rem', fontWeight: 700, color: meilleur === 'forfait' ? 'var(--accent-amber)' : 'var(--accent-emerald)' }}>Comparaison</h3>
+          <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            {meilleur === 'forfait' ? (
+              <>Le <strong>forfait 10 %</strong> est plus favorable d'environ <strong style={{ color: 'var(--text-primary)' }}>{formatEuro(ecart)}</strong> par rapport à vos frais réels déclarés.</>
+            ) : (
+              <>Les <strong>frais réels</strong> (avec barème km) sont plus favorables d'environ <strong style={{ color: 'var(--text-primary)' }}>{formatEuro(ecart)}</strong> par rapport au forfait.</>
+            )}
+          </p>
+          <p style={{ margin: '0.75rem 0 0', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            Vous retenez la déduction la plus avantageuse si vous optez pour les frais réels (et que vous pouvez les justifier). Ceci ne remplace pas le calcul officiel de l'impôt.
+          </p>
+        </div>
+
+        {/* CHECKLIST */}
+        <div className="glass-card" style={{ padding: '1.5rem' }}>
+          <h3 style={{ margin: '0 0 1rem', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Réductions / crédits d'impôt courants</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {[
+              { title: "Garde d'enfants de moins de 6 ans", desc: "Crèche, assistante maternelle agréée, garde à domicile déclarée — pensez aux cases et plafonds." },
+              { title: "Emploi à domicile", desc: "Ménage, jardinage, garde dans le cadre des services à la personne — conservez les attestations fiscales." },
+            ].map((item, idx) => (
+              <div key={idx} style={{ display: 'flex', gap: '0.75rem', padding: '0.75rem', background: 'var(--bg-surface-md)', border: '1px solid var(--border-glass)', borderRadius: 10 }}>
+                <input type="checkbox" style={{ marginTop: 2, accentColor: 'var(--accent-blue)', flexShrink: 0 }} readOnly tabIndex={-1} aria-hidden />
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                  <strong style={{ color: 'var(--text-primary)' }}>{item.title}</strong> — {item.desc}
+                </span>
+              </div>
+            ))}
+          </div>
+          <p style={{ margin: '0.75rem 0 0', fontSize: '0.72rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+            Les cases cochées ici sont des rappels visuels (non enregistrés). Pour une vraie checklist interactive, remplace les <code style={{ background: 'var(--bg-surface-md)', padding: '0.1rem 0.3rem', borderRadius: 4 }}>readOnly</code> par un <code style={{ background: 'var(--bg-surface-md)', padding: '0.1rem 0.3rem', borderRadius: 4 }}>useState</code> par ligne.
+          </p>
+        </div>
+
+        <p style={{ textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+          * Outil pédagogique simplifié. Plafonds et barème kilométrique exact : voir impots.gouv.fr
+        </p>
+      </div>
+    </div>
   );
 }
