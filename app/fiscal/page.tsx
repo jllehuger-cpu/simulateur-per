@@ -35,6 +35,14 @@ const simulateurs = [
     badge: 'Épargne',
     gradient: 'linear-gradient(135deg, #0EA5E9, #0284C7)',
   },
+  {
+    href: '/fiscal/succession-av',
+    icon: '⚖️',
+    title: 'Succession assurance-vie',
+    description: 'Simulez les droits 990i et 757B selon la date de versement des primes et le lien de parenté.',
+    badge: '990i · 757B',
+    gradient: 'linear-gradient(135deg, #F59E0B, #B45309)',
+  },
 ];
 
 export default function FiscalPage() {
