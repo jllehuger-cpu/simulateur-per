@@ -114,9 +114,6 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
-        Informations à caractère général — ne constituent pas un conseil personnalisé.
-      </footer>
     </div>
   );
 }

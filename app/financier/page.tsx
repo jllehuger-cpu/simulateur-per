@@ -9,7 +9,7 @@ const simulateurs = [
     title: 'Capitalisation',
     description: 'Capital final, intérêts composés, comparaison de scénarios optimiste / réaliste / pessimiste.',
     badge: 'Épargne',
-    accent: 'from-blue-500 to-indigo-600',
+    gradient: 'linear-gradient(135deg, #3B82F6, #4F46E5)',
   },
   {
     href: '/financier/emprunt',
@@ -17,7 +17,7 @@ const simulateurs = [
     title: 'Emprunt immobilier',
     description: 'Mensualité, coût total du crédit, tableau d\'amortissement et impact du taux.',
     badge: 'Immobilier',
-    accent: 'from-emerald-500 to-teal-600',
+    gradient: 'linear-gradient(135deg, #10B981, #0D9488)',
   },
   {
     href: '/financier/bourse',
@@ -25,7 +25,7 @@ const simulateurs = [
     title: 'Performances historiques',
     description: 'Comparez 28 indices (actions, obligations, matières premières, immobilier) sur la période de votre choix.',
     badge: 'Marchés',
-    accent: 'from-violet-500 to-purple-600',
+    gradient: 'linear-gradient(135deg, #8B5CF6, #7C3AED)',
   },
 ];
 
@@ -78,12 +78,14 @@ export default function FinancierPage() {
                 {/* Bandeau couleur */}
                 <div style={{
                   height: 80,
-                  background: `linear-gradient(135deg, ${s.accent.replace('from-', '').replace(' to-', ', ')})`,
+                  background: s.gradient,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: 32,
-                }} />
+                }}>
+                  {s.icon}
+                </div>
 
                 <div style={{ padding: '1.25rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
