@@ -1,25 +1,55 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 /* ─────────────────────────────────────────────────────────────
-   TYPES & CONSTANTES
+   TYPES
 ───────────────────────────────────────────────────────────── */
-type TaxBracket = { lower: number; upper: number; rate: number; label: string };
 type MaritalStatus = 'celibataire' | 'marie_pacse';
 
-const TAX_BRACKETS_2026: TaxBracket[] = [
-  { lower: 0,      upper: 11600,              rate: 0,    label: '0%'  },
-  { lower: 11600,  upper: 29579,              rate: 0.11, label: '11%' },
-  { lower: 29579,  upper: 84577,              rate: 0.30, label: '30%' },
-  { lower: 84577,  upper: 181917,             rate: 0.41, label: '41%' },
-  { lower: 181917, upper: Number.POSITIVE_INFINITY, rate: 0.45, label: '45%' },
-];
+interface TranchePart {
+  rate: number;
+  label: string;
+  eurosVerses: number;
+  economie: number;
+}
 
-const BAREME_MARGINAL_SNAP: number[] = [0, 0.11, 0.3, 0.41, 0.45];
+interface PerResult {
+  dedTot: number;
+  rbApres: number;
+  rfrApres: number;
+  impotIRAvant: number;
+  impotIRApres: number;
+  economieIR: number;
+  cehrAvant: number;
+  cehrApres: number;
+  economieCEHR: number;
+  economieTotale: number;
+  coutReel: number;
+  impotsIRCEHRAvant: number;
+  impotsIRCEHRApres: number;
+  tmiAvant: number;
+  tmiApres: number;
+  tmiReelleAvant: number;
+  tmiReelleApres: number;
+  tmiBaisse: boolean;
+  qfPlafonnementActif: boolean;
+  repartitionParTranche: TranchePart[];
+  revenusAu30Plus: { rate: number; label: string; euros: number }[];
+  deductionAu30Plus: number;
+}
+
+interface PerApiInput {
+  statut: MaritalStatus;
+  revenuFiscalReference: number;
+  revenuBrutGlobal: number;
+  partsFiscales: number;
+  plafondDeductibilitePer: number;
+  versement: number;
+}
 
 /* ─────────────────────────────────────────────────────────────
-   FONCTIONS DE CALCUL (inchangées)
+   HELPERS DISPLAY
 ───────────────────────────────────────────────────────────── */
 function getRateLabel(rate: number): string { return `${Math.round(rate * 100)}%`; }
 function formatEuro(value: number): string {
@@ -27,110 +57,6 @@ function formatEuro(value: number): string {
 }
 function formatEuroDec(value: number): string {
   return value.toLocaleString('fr-FR', { maximumFractionDigits: 2 }) + ' €';
-}
-
-function computeIncomeTaxForIncomePerPart(incomePerPart: number): number {
-  const income = Math.max(0, incomePerPart);
-  return TAX_BRACKETS_2026.reduce((sum, bracket) => {
-    const slice = Math.max(0, Math.min(income, bracket.upper) - bracket.lower);
-    return sum + slice * bracket.rate;
-  }, 0);
-}
-
-function computeIncomeTaxForIncome(incomeGlobal: number, parts: number): number {
-  const ps = Math.max(1, parts);
-  const rpp = Math.max(0, incomeGlobal) / ps;
-  return computeIncomeTaxForIncomePerPart(rpp) * ps;
-}
-
-function getBasePartsForStatus(statut: MaritalStatus): number {
-  return statut === 'marie_pacse' ? 2 : 1;
-}
-
-function computeIncomeTaxWithQFPlafonnement(params: {
-  incomeGlobal: number; parts: number; baseParts: number; capPerDemiPart: number;
-}) {
-  const income = Math.max(0, params.incomeGlobal);
-  const partsSecurisees = Math.max(1, params.parts);
-  const baseParts = Math.max(1, params.baseParts);
-  const impotsQFNonPlafonne = computeIncomeTaxForIncome(income, partsSecurisees);
-  const impotsBaseParts = computeIncomeTaxForIncome(income, baseParts);
-  const advantageBrut = Math.max(0, impotsBaseParts - impotsQFNonPlafonne);
-  const demiPartsSup = partsSecurisees > baseParts ? (partsSecurisees - baseParts) / 0.5 : 0;
-  const advantageCap = Math.max(0, demiPartsSup * params.capPerDemiPart);
-  const impotsAvecPlafonnement = Math.max(0, impotsBaseParts - advantageCap);
-  const impotsFinal = Math.max(impotsQFNonPlafonne, impotsAvecPlafonnement);
-  const plafonnementActif = impotsAvecPlafonnement > impotsQFNonPlafonne + 0.01;
-  return { impotsFinal, impotsQFNonPlafonne, impotsBaseParts, impotsAvecPlafonnement, advantageBrut, advantageCap, plafonnementActif };
-}
-
-function snapToBaremeMarginal(raw: number): number {
-  let best = BAREME_MARGINAL_SNAP[0];
-  let bestD = Math.abs(raw - best);
-  for (let i = 1; i < BAREME_MARGINAL_SNAP.length; i++) {
-    const r = BAREME_MARGINAL_SNAP[i];
-    const d = Math.abs(raw - r);
-    if (d < bestD) { best = r; bestD = d; }
-  }
-  return best;
-}
-
-function labelForBaremeRate(rate: number): string {
-  return TAX_BRACKETS_2026.find((b) => b.rate === rate)?.label ?? `${Math.round(rate * 100)}%`;
-}
-
-function computeMarginalIRDecimal(params: { incomeGlobal: number; parts: number; baseParts: number; capPerDemiPart: number }): number {
-  const g = Math.max(0, Math.floor(params.incomeGlobal));
-  if (g < 1) return 0;
-  const taxAt = (x: number) => computeIncomeTaxWithQFPlafonnement({ incomeGlobal: Math.max(0, x), parts: params.parts, baseParts: params.baseParts, capPerDemiPart: params.capPerDemiPart }).impotsFinal;
-  return Math.max(0, taxAt(g) - taxAt(g - 1));
-}
-
-function computeDeductionRepartitionIRDifferentiel(params: {
-  incomeGlobal: number; deductionTotale: number; parts: number; baseParts: number; capPerDemiPart: number;
-}): Array<{ rate: number; label: string; eurosVerses: number; economie: number }> {
-  const rb = Math.floor(Math.max(0, params.incomeGlobal));
-  const dedTot = Math.min(Math.max(0, Math.floor(params.deductionTotale)), rb);
-  const taxAt = (g: number) => computeIncomeTaxWithQFPlafonnement({ incomeGlobal: Math.max(0, g), parts: params.parts, baseParts: params.baseParts, capPerDemiPart: params.capPerDemiPart }).impotsFinal;
-  const bySnap = new Map<number, { eurosVerses: number; economie: number }>();
-  for (let k = 1; k <= dedTot; k++) {
-    const delta = taxAt(rb - k + 1) - taxAt(rb - k);
-    const snapR = snapToBaremeMarginal(delta);
-    const cur = bySnap.get(snapR) ?? { eurosVerses: 0, economie: 0 };
-    cur.eurosVerses += 1; cur.economie += delta;
-    bySnap.set(snapR, cur);
-  }
-  return Array.from(bySnap.entries()).sort((a, b) => b[0] - a[0]).map(([rate, v]) => ({ rate, label: labelForBaremeRate(rate), eurosVerses: v.eurosVerses, economie: v.economie }));
-}
-
-function computeRevenusParTrancheIRDifferentiel(params: {
-  incomeGlobal: number; deductionTotale: number; parts: number; baseParts: number; capPerDemiPart: number;
-}): { parTranche: Array<{ rate: number; label: string; euros: number }>; deductionAuDessusDe30: number } {
-  const rbInt = Math.floor(Math.max(0, params.incomeGlobal));
-  const dedTot = Math.min(Math.max(0, params.deductionTotale), rbInt);
-  const taxAt = (g: number) => computeIncomeTaxWithQFPlafonnement({ incomeGlobal: g, parts: params.parts, baseParts: params.baseParts, capPerDemiPart: params.capPerDemiPart }).impotsFinal;
-  const countByRate = new Map<number, number>();
-  let deductionAuDessusDe30 = 0;
-  let tPrev = taxAt(0);
-  for (let k = 1; k <= rbInt; k++) {
-    const tCurr = taxAt(k);
-    const m = snapToBaremeMarginal(tCurr - tPrev);
-    countByRate.set(m, (countByRate.get(m) ?? 0) + 1);
-    if (k > rbInt - dedTot && m >= 0.3) deductionAuDessusDe30 += 1;
-    tPrev = tCurr;
-  }
-  const parTranche = [0.45, 0.41, 0.3].map((rate) => ({ rate, label: labelForBaremeRate(rate), euros: countByRate.get(rate) ?? 0 })).filter((r) => r.euros > 0);
-  return { parTranche, deductionAuDessusDe30 };
-}
-
-function computeCehr(rfr: number, statut: MaritalStatus): number {
-  const r = Math.max(0, rfr);
-  const isCouple = statut === 'marie_pacse';
-  const low = isCouple ? 500000 : 250000;
-  const high = isCouple ? 1000000 : 500000;
-  if (r <= low) return 0;
-  if (r <= high) return (r - low) * 0.03;
-  return (high - low) * 0.03 + (r - high) * 0.04;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -187,76 +113,111 @@ export function SimulateurPer() {
   const [age, setAge] = useState<number | ''>(35);
   const [versement, setVersement] = useState<number>(1000);
 
-  const minPartsFiscales = statut === 'marie_pacse' ? 2 : 1;
-  const plafondSecurise = Math.max(0, typeof plafondDeductibilitePer2026 === 'number' ? plafondDeductibilitePer2026 : 0);
-  const versementStep = plafondSecurise <= 5000 ? 50 : 100;
+  const [result, setResult]   = useState<PerResult | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError]     = useState<string | null>(null);
 
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const abortRef    = useRef<AbortController | null>(null);
+
+  const minPartsFiscales = statut === 'marie_pacse' ? 2 : 1;
+  const plafondSecurise  = Math.max(0, typeof plafondDeductibilitePer2026 === 'number' ? plafondDeductibilitePer2026 : 0);
+  const versementStep    = plafondSecurise <= 5000 ? 50 : 100;
+
+  /* ── Clamp parts fiscales lors du changement de statut ── */
   useEffect(() => {
     if (typeof partsFiscales !== 'number') return;
     const clamped = Math.max(minPartsFiscales, partsFiscales);
     if (clamped !== partsFiscales) setPartsFiscales(clamped);
   }, [minPartsFiscales, partsFiscales]);
 
+  /* ── Clamp versement si le plafond baisse ── */
   useEffect(() => { setVersement((v) => Math.min(v, plafondSecurise)); }, [plafondSecurise]);
 
-  /* ── Calculs ── */
-  const computed = useMemo(() => {
-    const rfr = Math.max(0, typeof revenuFiscalReference === 'number' ? revenuFiscalReference : 0);
-    const rb  = Math.max(0, typeof revenuBrutGlobal === 'number' ? revenuBrutGlobal : 0);
-    const ps  = Math.max(minPartsFiscales, typeof partsFiscales === 'number' ? partsFiscales : 0);
-    const plafond = Math.max(0, plafondSecurise);
-    const dedTot = Math.min(versement, rb, plafond);
-    const baseParts = getBasePartsForStatus(statut);
-    const capPerDemiPart = 1750;
+  /* ── Appel API avec debounce 300 ms ── */
+  const fetchResults = useCallback(async (body: PerApiInput, signal: AbortSignal) => {
+    const res = await fetch('/api/calculate/per', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      signal,
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error ?? 'Erreur serveur');
+    }
+    return res.json() as Promise<PerResult>;
+  }, []);
 
-    const taxAvant = computeIncomeTaxWithQFPlafonnement({ incomeGlobal: rb, parts: ps, baseParts, capPerDemiPart });
-    const taxApres = computeIncomeTaxWithQFPlafonnement({ incomeGlobal: rb - dedTot, parts: ps, baseParts, capPerDemiPart });
+  useEffect(() => {
+    /* Attendre que tous les champs numériques soient renseignés */
+    if (
+      typeof revenuFiscalReference !== 'number' ||
+      typeof revenuBrutGlobal      !== 'number' ||
+      typeof partsFiscales         !== 'number'
+    ) return;
 
-    const impotIRAvant = taxAvant.impotsFinal;
-    const impotIRApres = taxApres.impotsFinal;
-    const economieIRReelle = impotIRAvant - impotIRApres;
+    /* Annuler la requête précédente et repartir sur 300 ms */
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (abortRef.current)    abortRef.current.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
 
-    const tmiMargDecimalAvant = computeMarginalIRDecimal({ incomeGlobal: rb, parts: ps, baseParts, capPerDemiPart });
-    const rbApres = Math.max(0, rb - dedTot);
-    const tmiMargDecimalApres = computeMarginalIRDecimal({ incomeGlobal: rbApres, parts: ps, baseParts, capPerDemiPart });
+    setLoading(true);
+    setError(null);
 
-    const tAvant = snapToBaremeMarginal(tmiMargDecimalAvant);
-    const tApres = snapToBaremeMarginal(tmiMargDecimalApres);
-    const baisse = tApres < tAvant;
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const data = await fetchResults(
+          {
+            statut,
+            revenuFiscalReference,
+            revenuBrutGlobal,
+            partsFiscales,
+            plafondDeductibilitePer: plafondSecurise,
+            versement,
+          },
+          controller.signal,
+        );
+        setResult(data);
+      } catch (e) {
+        if ((e as Error).name !== 'AbortError') {
+          setError((e as Error).message ?? 'Erreur inconnue');
+        }
+      } finally {
+        setLoading(false);
+      }
+    }, 300);
 
-    const repart = computeDeductionRepartitionIRDifferentiel({ incomeGlobal: rb, deductionTotale: dedTot, parts: ps, baseParts, capPerDemiPart });
-
-    const cehrAv = computeCehr(rfr, statut);
-    const rfrApres = Math.max(0, rfr - dedTot);
-    const cehrAp = computeCehr(rfrApres, statut);
-    const ecoCEHR = cehrAv - cehrAp;
-    const ecoTotale = economieIRReelle + ecoCEHR;
-    const cr = versement - ecoTotale;
-
-    const { parTranche: revenusAu30Plus, deductionAuDessusDe30: deductionAu30Plus } =
-      computeRevenusParTrancheIRDifferentiel({ incomeGlobal: rb, deductionTotale: dedTot, parts: ps, baseParts, capPerDemiPart });
-
-    return {
-      rfr, rb, ps, plafond, dedTot, baseParts,
-      tAvant, tApres, baisse,
-      tmiReelle: tmiMargDecimalAvant * 100,
-      tmiReelleApresPct: tmiMargDecimalApres * 100,
-      rbApres,
-      repart,
-      impotIRAvant, impotIRApres, economieIRReelle,
-      qfCapAvant: taxAvant.advantageCap,
-      qfCapApres: taxApres.advantageCap,
-      qfPlafonnementActifAvant: taxAvant.plafonnementActif,
-      cehrAv, cehrAp, ecoCEHR, ecoTotale, cr,
-      revenusAu30Plus, deductionAu30Plus,
-      impotsIRTotalAvant: impotIRAvant + cehrAv,
-      impotsIRTotalApres: impotIRApres + cehrAp,
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      controller.abort();
     };
-  }, [revenuFiscalReference, revenuBrutGlobal, partsFiscales, statut, plafondSecurise, versement, minPartsFiscales]);
+  }, [statut, revenuFiscalReference, partsFiscales, revenuBrutGlobal, plafondSecurise, versement, fetchResults]);
 
-  const { tAvant, tApres, baisse, tmiReelle, tmiReelleApresPct, rbApres, repart, impotIRAvant, impotIRApres, economieIRReelle, qfPlafonnementActifAvant, cehrAv, cehrAp, ecoCEHR, ecoTotale, cr, revenusAu30Plus, deductionAu30Plus, impotsIRTotalAvant, impotsIRTotalApres, dedTot } = computed;
+  /* ── Raccourcis d'affichage (valeurs nulles jusqu'au premier résultat) ── */
+  const tAvant               = result?.tmiAvant           ?? 0;
+  const tApres               = result?.tmiApres           ?? 0;
+  const baisse               = result?.tmiBaisse          ?? false;
+  const tmiReelle            = result?.tmiReelleAvant     ?? 0;
+  const tmiReelleApresPct    = result?.tmiReelleApres     ?? 0;
+  const rbApres              = result?.rbApres            ?? 0;
+  const repart               = result?.repartitionParTranche ?? [];
+  const impotIRAvant         = result?.impotIRAvant       ?? 0;
+  const impotIRApres         = result?.impotIRApres       ?? 0;
+  const economieIRReelle     = result?.economieIR         ?? 0;
+  const qfPlafonnementActif  = result?.qfPlafonnementActif ?? false;
+  const cehrAv               = result?.cehrAvant          ?? 0;
+  const cehrAp               = result?.cehrApres          ?? 0;
+  const ecoCEHR              = result?.economieCEHR       ?? 0;
+  const ecoTotale            = result?.economieTotale     ?? 0;
+  const cr                   = result?.coutReel           ?? 0;
+  const revenusAu30Plus      = result?.revenusAu30Plus    ?? [];
+  const deductionAu30Plus    = result?.deductionAu30Plus  ?? 0;
+  const impotsIRTotalAvant   = result?.impotsIRCEHRAvant  ?? 0;
+  const impotsIRTotalApres   = result?.impotsIRCEHRApres  ?? 0;
+  const dedTot               = result?.dedTot             ?? 0;
 
-  /* ── Pourcentage de la barre de versement ── */
   const sliderPct = plafondSecurise > 0 ? (versement / plafondSecurise) * 100 : 0;
 
   return (
@@ -274,7 +235,23 @@ export function SimulateurPer() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        {/* ── Bannière erreur ── */}
+        {error && (
+          <div style={{ marginBottom: '1rem', padding: '0.75rem 1rem', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.35)', borderRadius: 10, color: '#FCA5A5', fontSize: '0.82rem' }}>
+            {error}
+          </div>
+        )}
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', position: 'relative' }}>
+
+          {/* ── Overlay loading ── */}
+          {loading && (
+            <div style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-end', pointerEvents: 'none' }}>
+              <span style={{ marginTop: '0.25rem', marginRight: '0.25rem', fontSize: '0.7rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                calcul…
+              </span>
+            </div>
+          )}
 
           {/* ── Configuration fiscale ── */}
           <GlassCard className="animate-fade-up delay-1">
@@ -283,11 +260,7 @@ export function SimulateurPer() {
 
               <div>
                 <FieldLabel>Statut</FieldLabel>
-                <select
-                  value={statut}
-                  onChange={(e) => setStatut(e.target.value as MaritalStatus)}
-                  className="glass-select"
-                >
+                <select value={statut} onChange={(e) => setStatut(e.target.value as MaritalStatus)} className="glass-select">
                   <option value="celibataire">Célibataire</option>
                   <option value="marie_pacse">Marié · Pacsé</option>
                 </select>
@@ -299,8 +272,7 @@ export function SimulateurPer() {
                   type="number" min={0} max={120} step={1}
                   value={age === '' ? '' : age}
                   onChange={(e) => setAge(e.target.value === '' ? '' : Number(e.target.value))}
-                  className="glass-input"
-                  placeholder="35"
+                  className="glass-input" placeholder="35"
                 />
               </div>
 
@@ -314,8 +286,7 @@ export function SimulateurPer() {
                     if (raw === '') { setPartsFiscales(''); return; }
                     setPartsFiscales(Math.max(minPartsFiscales, Number(raw)));
                   }}
-                  className="glass-input"
-                  placeholder={String(minPartsFiscales)}
+                  className="glass-input" placeholder={String(minPartsFiscales)}
                 />
               </div>
 
@@ -325,8 +296,7 @@ export function SimulateurPer() {
                   type="number" min={0} step={100}
                   value={revenuFiscalReference === '' ? '' : revenuFiscalReference}
                   onChange={(e) => setRevenuFiscalReference(e.target.value === '' ? '' : Number(e.target.value))}
-                  className="glass-input"
-                  placeholder="60 000"
+                  className="glass-input" placeholder="60 000"
                 />
               </div>
 
@@ -336,8 +306,7 @@ export function SimulateurPer() {
                   type="number" min={0} step={100}
                   value={revenuBrutGlobal === '' ? '' : revenuBrutGlobal}
                   onChange={(e) => setRevenuBrutGlobal(e.target.value === '' ? '' : Number(e.target.value))}
-                  className="glass-input"
-                  placeholder="60 000"
+                  className="glass-input" placeholder="60 000"
                 />
               </div>
 
@@ -347,8 +316,7 @@ export function SimulateurPer() {
                   type="number" min={0} step={100}
                   value={plafondDeductibilitePer2026 === '' ? '' : plafondDeductibilitePer2026}
                   onChange={(e) => setPlafondDeductibilitePer2026(e.target.value === '' ? '' : Number(e.target.value))}
-                  className="glass-input"
-                  placeholder="20 000"
+                  className="glass-input" placeholder="20 000"
                 />
               </div>
 
@@ -364,7 +332,6 @@ export function SimulateurPer() {
             </div>
 
             <div style={{ position: 'relative', marginBottom: '0.5rem' }}>
-              {/* Track coloré */}
               <div style={{
                 position: 'absolute', top: '50%', left: 0, transform: 'translateY(-50%)',
                 height: 6, width: `${sliderPct}%`, borderRadius: 3,
@@ -393,7 +360,7 @@ export function SimulateurPer() {
             )}
 
             {/* TMI badge */}
-            <div style={{ marginTop: '1rem', padding: '0.75rem 1rem', background: 'rgba(255,255,255,0.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.07)' }}>
+            <div style={{ marginTop: '1rem', padding: '0.75rem 1rem', background: 'rgba(255,255,255,0.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.07)', opacity: loading ? 0.6 : 1, transition: 'opacity 0.15s' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
                 <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>TMI marginale réelle (IR différentiel)</span>
                 <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
@@ -406,15 +373,14 @@ export function SimulateurPer() {
               </div>
               <p style={{ marginTop: '0.5rem', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
                 IR différentiel : {tmiReelle.toFixed(2)} % avant · {tmiReelleApresPct.toFixed(2)} % après versement
-                {qfPlafonnementActifAvant && <span style={{ color: '#FCD34D', marginLeft: '0.5rem' }}>· Plafonnement QF actif</span>}
+                {qfPlafonnementActif && <span style={{ color: '#FCD34D', marginLeft: '0.5rem' }}>· Plafonnement QF actif</span>}
               </p>
             </div>
           </GlassCard>
 
           {/* ── Résultats principaux ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem' }} className="animate-fade-up delay-3">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem', opacity: loading ? 0.6 : 1, transition: 'opacity 0.15s' }} className="animate-fade-up delay-3">
 
-            {/* IR */}
             <GlassCard>
               <SectionTitle>Impôt sur le revenu</SectionTitle>
               <Row label="Avant PER" value={formatEuro(impotIRAvant)} />
@@ -426,7 +392,6 @@ export function SimulateurPer() {
               <Row label="Total (IR+CEHR) après" value={formatEuro(impotsIRTotalApres)} />
             </GlassCard>
 
-            {/* CEHR */}
             <GlassCard>
               <SectionTitle>CEHR estimée</SectionTitle>
               <Row label="Avant PER" value={formatEuro(cehrAv)} />
@@ -440,14 +405,14 @@ export function SimulateurPer() {
           {/* ── Synthèse ── */}
           <GlassCard
             className="animate-fade-up delay-4"
-            style={{ background: 'rgba(59,130,246,0.07)', borderColor: 'rgba(59,130,246,0.25)' }}
+            style={{ background: 'rgba(59,130,246,0.07)', borderColor: 'rgba(59,130,246,0.25)', opacity: loading ? 0.6 : 1, transition: 'opacity 0.15s' }}
           >
             <SectionTitle>Synthèse</SectionTitle>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', textAlign: 'center' }}>
               {[
-                { label: 'Versement', value: formatEuro(versement), color: 'var(--text-primary)' },
-                { label: 'Économie totale', value: formatEuroDec(ecoTotale), color: 'var(--accent-emerald)' },
-                { label: 'Coût réel', value: formatEuroDec(cr), color: 'var(--accent-gold)' },
+                { label: 'Versement',     value: formatEuro(versement),       color: 'var(--text-primary)' },
+                { label: 'Économie totale', value: formatEuroDec(ecoTotale),   color: 'var(--accent-emerald)' },
+                { label: 'Coût réel',     value: formatEuroDec(cr),           color: 'var(--accent-gold)' },
               ].map((item) => (
                 <div key={item.label} style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.04)', borderRadius: 10 }}>
                   <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>{item.label}</p>
@@ -458,7 +423,7 @@ export function SimulateurPer() {
           </GlassCard>
 
           {/* ── Répartition par tranche ── */}
-          <GlassCard className="animate-fade-up delay-5" style={{ borderColor: 'rgba(99,102,241,0.25)' }}>
+          <GlassCard className="animate-fade-up delay-5" style={{ borderColor: 'rgba(99,102,241,0.25)', opacity: loading ? 0.6 : 1, transition: 'opacity 0.15s' }}>
             <SectionTitle>Répartition du versement par tranche (IR différentiel)</SectionTitle>
             <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '1rem', lineHeight: 1.6 }}>
               Chaque euro déduit est retiré du sommet de l'assiette : gain IR = impôt(R) − impôt(R − 1 €), regroupé par taux du barème le plus proche.
@@ -491,7 +456,7 @@ export function SimulateurPer() {
 
           {/* ── Tranches 30%+ ── */}
           {revenusAu30Plus.length > 0 && (
-            <GlassCard className="animate-fade-up delay-5" style={{ borderColor: 'rgba(16,185,129,0.25)' }}>
+            <GlassCard className="animate-fade-up delay-5" style={{ borderColor: 'rgba(16,185,129,0.25)', opacity: loading ? 0.6 : 1, transition: 'opacity 0.15s' }}>
               <SectionTitle>Revenus imposés à 30 % et plus</SectionTitle>
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '1rem', lineHeight: 1.6 }}>
                 La déduction PER est la plus efficace dans ces tranches. Sur votre versement, <strong style={{ color: 'var(--text-secondary)' }}>{formatEuro(deductionAu30Plus)}</strong> seraient déduits à 30 % ou plus.
