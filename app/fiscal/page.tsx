@@ -27,6 +27,14 @@ const simulateurs = [
     badge: 'Déclaration',
     gradient: 'linear-gradient(135deg, #10B981, #0D9488)',
   },
+  {
+    href: '/fiscal/assurance-vie',
+    icon: '🛡️',
+    title: 'Simulateur Assurance-vie',
+    description: 'Comparez PFU et barème IR sur vos rachats partiels ou totaux selon l\'ancienneté du contrat.',
+    badge: 'Épargne',
+    gradient: 'linear-gradient(135deg, #0EA5E9, #0284C7)',
+  },
 ];
 
 export default function FiscalPage() {
