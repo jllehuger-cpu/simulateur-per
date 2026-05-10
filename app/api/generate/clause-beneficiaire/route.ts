@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 
-const client = new Anthropic();
+const client = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+});
 
 const SYSTEM_PROMPT = `Tu es un expert en droit des assurances et droit patrimonial français. Tu rédiges des clauses bénéficiaires d'assurance vie précises, juridiquement correctes et personnalisées.
 
@@ -102,7 +104,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as WizardInput;
 
     const response = await client.messages.create({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-sonnet-4-20250514',
       max_tokens: 2048,
       system: SYSTEM_PROMPT,
       messages: [{ role: 'user', content: buildUserPrompt(body) }],
