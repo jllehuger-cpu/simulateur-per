@@ -96,12 +96,18 @@ function buildPrompt(body: WizardInput): string {
 }
 
 export async function POST(request: NextRequest) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    return Response.json(
+      { error: 'ANTHROPIC_API_KEY manquante — configurez-la dans les variables d\'environnement Vercel.' },
+      { status: 500 },
+    );
+  }
+
   try {
     const body = await request.json() as WizardInput;
 
-    const client = new Anthropic({
-      apiKey: process.env.ANTHROPIC_API_KEY,
-    });
+    const client = new Anthropic({ apiKey });
 
     const response = await client.messages.create({
       model: 'claude-sonnet-4-20250514',
