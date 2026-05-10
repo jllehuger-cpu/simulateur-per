@@ -1,9 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
 
 const SYSTEM_PROMPT = `Tu es un expert en droit des assurances et droit patrimonial français. Tu rédiges des clauses bénéficiaires d'assurance vie précises, juridiquement correctes et personnalisées.
 
@@ -68,7 +64,7 @@ const LABELS_QUOTITE: Record<string, string> = {
   enfants_100: 'Enfants 100 % par parts égales',
 };
 
-function buildUserPrompt(body: WizardInput): string {
+function buildPrompt(body: WizardInput): string {
   const lines: string[] = [
     "Situation de l'assuré :",
     `- Situation matrimoniale : ${LABELS_SITUATION[body.situationMatrimoniale] ?? body.situationMatrimoniale}`,
@@ -99,28 +95,31 @@ function buildUserPrompt(body: WizardInput): string {
   return lines.join('\n');
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const body = await req.json() as WizardInput;
+    const body = await request.json() as WizardInput;
+
+    const client = new Anthropic({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+    });
 
     const response = await client.messages.create({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 2048,
       system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: buildUserPrompt(body) }],
+      messages: [{ role: 'user', content: buildPrompt(body) }],
     });
 
-    const textBlock = response.content.find(b => b.type === 'text');
-    if (!textBlock || textBlock.type !== 'text') {
-      throw new Error('Réponse invalide du modèle.');
-    }
+    const text = response.content[0].type === 'text'
+      ? response.content[0].text
+      : '';
 
-    const jsonMatch = textBlock.text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error('Format JSON invalide dans la réponse du modèle.');
+    const clean = text.replace(/```json|```/g, '').trim();
+    const result = JSON.parse(clean);
 
-    return NextResponse.json(JSON.parse(jsonMatch[0]));
+    return Response.json(result);
   } catch (e) {
-    return NextResponse.json(
+    return Response.json(
       { error: e instanceof Error ? e.message : 'Erreur inconnue.' },
       { status: 500 },
     );
