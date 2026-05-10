@@ -1,6 +1,15 @@
 import { NextRequest } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 
+export async function GET() {
+  const key = process.env.ANTHROPIC_API_KEY;
+  return Response.json({
+    present: !!key,
+    length: key?.length ?? 0,
+    prefix: key ? key.slice(0, 10) + '…' : null,
+  });
+}
+
 const SYSTEM_PROMPT = `Tu es un expert en droit des assurances et droit patrimonial français. Tu rédiges des clauses bénéficiaires d'assurance vie précises, juridiquement correctes et personnalisées.
 
 Les 3 variantes doivent être progressivement plus détaillées :
