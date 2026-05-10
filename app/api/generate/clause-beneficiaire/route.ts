@@ -3,10 +3,15 @@ import Anthropic from '@anthropic-ai/sdk';
 
 export async function GET() {
   const key = process.env.ANTHROPIC_API_KEY;
+  const envKeys = Object.keys(process.env).filter(k =>
+    ['NODE_ENV', 'VERCEL', 'VERCEL_ENV', 'VERCEL_REGION', 'ANTHROPIC_API_KEY'].includes(k)
+  );
   return Response.json({
     present: !!key,
     length: key?.length ?? 0,
     prefix: key ? key.slice(0, 10) + '…' : null,
+    knownEnvKeys: envKeys,
+    totalEnvCount: Object.keys(process.env).length,
   });
 }
 
