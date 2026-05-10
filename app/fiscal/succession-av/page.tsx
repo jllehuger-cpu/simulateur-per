@@ -103,6 +103,35 @@ function RemoveBtn({ onClick }: { onClick: () => void }) {
   );
 }
 
+function NumericInput({ value, onChange, placeholder, className, style }: {
+  value: number | '';
+  onChange: (v: number | '') => void;
+  placeholder?: string;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const [focused, setFocused] = useState(false);
+  const display = focused
+    ? (value === '' ? '' : String(value))
+    : (value === '' ? '' : new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 }).format(value));
+  return (
+    <input
+      type="text"
+      inputMode="numeric"
+      value={display}
+      onChange={e => {
+        const raw = e.target.value.replace(/[^\d]/g, '');
+        onChange(raw === '' ? '' : Number(raw));
+      }}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+      placeholder={placeholder}
+      className={className}
+      style={style}
+    />
+  );
+}
+
 /* ─────────────────────────────────────────────────────────────
    PAGE PRINCIPALE
 ───────────────────────────────────────────────────────────── */
@@ -151,6 +180,10 @@ export default function SuccessionAVPage() {
     setContrats(prev => prev.map(c =>
       c.id !== id ? c : { ...c, [field]: value === '' ? '' : Number(value) }
     ));
+  };
+
+  const updateContratNum = (id: string, field: 'capitalDeces' | 'primesAvant70' | 'primesApres70', value: number | '') => {
+    setContrats(prev => prev.map(c => c.id !== id ? c : { ...c, [field]: value }));
   };
 
   /* ─── Handlers bénéficiaires ────────────────────────────── */
@@ -316,23 +349,23 @@ export default function SuccessionAVPage() {
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '0.75rem' }}>
                     <div>
                       <FieldLabel>Capital décès (€)</FieldLabel>
-                      <input type="number" min={0} step={1000}
-                        value={c.capitalDeces === '' ? '' : c.capitalDeces}
-                        onChange={e => updateContrat(c.id, 'capitalDeces', e.target.value)}
+                      <NumericInput
+                        value={c.capitalDeces}
+                        onChange={v => updateContratNum(c.id, 'capitalDeces', v)}
                         className="glass-input" placeholder="500 000" />
                     </div>
                     <div>
                       <FieldLabel>Primes avant 70 ans (€)</FieldLabel>
-                      <input type="number" min={0} step={1000}
-                        value={c.primesAvant70 === '' ? '' : c.primesAvant70}
-                        onChange={e => updateContrat(c.id, 'primesAvant70', e.target.value)}
+                      <NumericInput
+                        value={c.primesAvant70}
+                        onChange={v => updateContratNum(c.id, 'primesAvant70', v)}
                         className="glass-input" placeholder="300 000" />
                     </div>
                     <div>
                       <FieldLabel>Primes après 70 ans (€)</FieldLabel>
-                      <input type="number" min={0} step={1000}
-                        value={c.primesApres70 === '' ? '' : c.primesApres70}
-                        onChange={e => updateContrat(c.id, 'primesApres70', e.target.value)}
+                      <NumericInput
+                        value={c.primesApres70}
+                        onChange={v => updateContratNum(c.id, 'primesApres70', v)}
                         className="glass-input" placeholder="80 000" />
                     </div>
                   </div>
