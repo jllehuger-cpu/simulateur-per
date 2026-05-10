@@ -43,6 +43,14 @@ const simulateurs = [
     badge: '990i · 757B',
     gradient: 'linear-gradient(135deg, #F59E0B, #B45309)',
   },
+  {
+    href: '/fiscal/clause-beneficiaire',
+    icon: '📝',
+    title: 'Clause bénéficiaire',
+    description: 'Générez une clause personnalisée et juridiquement robuste en 5 étapes grâce à l\'IA.',
+    badge: 'Aide à la rédaction',
+    gradient: 'linear-gradient(135deg, #6366F1, #4338CA)',
+  },
 ];
 
 export default function FiscalPage() {
