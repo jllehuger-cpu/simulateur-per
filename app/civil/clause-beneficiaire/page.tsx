@@ -13,6 +13,7 @@ interface WizardState {
   objectifs: string[];
   typeClause: string;
   quotiteOption: string;
+  quotiteConjointPct: number; // slider : part du conjoint en % (0-100)
   clauseRepresentation: string;
   mentionHeritiers: string;
 }
@@ -43,6 +44,7 @@ const INITIAL_STATE: WizardState = {
   objectifs: [],
   typeClause: '',
   quotiteOption: '',
+  quotiteConjointPct: 50,
   clauseRepresentation: 'oui',
   mentionHeritiers: 'oui',
 };
@@ -445,7 +447,18 @@ function Step3({ state, setState }: { state: WizardState; setState: React.Dispat
   );
 }
 
+/* Premier bénéficiaire calculé côté frontend (même règle que le moteur) */
+function premierBeneficiaireFE(state: WizardState): 'conjoint' | 'enfants' | 'conjoint_enfants' {
+  const aConjoint = state.objectifs.includes('proteger_conjoint');
+  const aEnfants  = state.objectifs.includes('transmettre_enfants');
+  if (aConjoint && !aEnfants) return 'conjoint';
+  if (!aConjoint && aEnfants) return 'enfants';
+  return 'conjoint_enfants';
+}
+
 function Step4({ state, setState }: { state: WizardState; setState: React.Dispatch<React.SetStateAction<WizardState>> }) {
+  const mode = premierBeneficiaireFE(state);
+
   return (
     <div>
       <h2 style={h2Style}>Personnalisation</h2>
@@ -454,16 +467,45 @@ function Step4({ state, setState }: { state: WizardState; setState: React.Dispat
       {state.typeClause === 'quotites' && (
         <div style={{ marginBottom: '1.75rem' }}>
           <label style={labelStyle}>Répartition souhaitée</label>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {QUOTITE_OPTIONS.map(opt => (
-              <ChoiceCard
-                key={opt.value}
-                selected={state.quotiteOption === opt.value}
-                onClick={() => setState(s => ({ ...s, quotiteOption: opt.value }))}
-                label={opt.label}
+
+          {/* Enfants uniquement → 100 % auto */}
+          {mode === 'enfants' && (
+            <div style={{ padding: '0.875rem 1rem', borderRadius: 8, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)' }}>
+              <p style={{ margin: 0, fontSize: '0.825rem', color: '#6EE7B7' }}>
+                Objectif «&nbsp;Transmettre aux enfants&nbsp;» → <strong>100 % aux enfants</strong> par parts égales.
+              </p>
+            </div>
+          )}
+
+          {/* Conjoint uniquement → 100 % auto */}
+          {mode === 'conjoint' && (
+            <div style={{ padding: '0.875rem 1rem', borderRadius: 8, background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.25)' }}>
+              <p style={{ margin: 0, fontSize: '0.825rem', color: '#A5B4FC' }}>
+                Objectif «&nbsp;Protéger le conjoint&nbsp;» → <strong>100 % au conjoint</strong>.
+              </p>
+            </div>
+          )}
+
+          {/* Conjoint + enfants → slider */}
+          {mode === 'conjoint_enfants' && (
+            <div style={{ padding: '1rem', borderRadius: 8, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Conjoint</span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Enfants</span>
+              </div>
+              <input
+                type="range" min={0} max={100} step={5}
+                value={state.quotiteConjointPct}
+                onChange={e => setState(s => ({ ...s, quotiteConjointPct: Number(e.target.value) }))}
+                style={{ width: '100%', accentColor: '#F59E0B', cursor: 'pointer' }}
               />
-            ))}
-          </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.5rem' }}>
+                <span style={{ fontSize: '1rem', fontWeight: 700, color: '#F59E0B' }}>{state.quotiteConjointPct}&nbsp;%</span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', alignSelf: 'center' }}>+</span>
+                <span style={{ fontSize: '1rem', fontWeight: 700, color: '#F59E0B' }}>{100 - state.quotiteConjointPct}&nbsp;%</span>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -708,6 +750,14 @@ export default function ClauseBeneficiairePage() {
     setLoading(true);
     setError(null);
     setResult(null);
+    // Diagnostic — visible dans la console du navigateur (F12)
+    console.log('[clause-beneficiaire] envoi vers API :', {
+      objectifs:          wizardState.objectifs,
+      typeClause:         wizardState.typeClause,
+      situationMatri:     wizardState.situationMatrimoniale,
+      quotiteConjointPct: wizardState.quotiteConjointPct,
+      premierBenef:       premierBeneficiaireFE(wizardState),
+    });
     try {
       const res = await fetch('/api/calculate/clause-beneficiaire', {
         method: 'POST',

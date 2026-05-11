@@ -10,9 +10,12 @@ interface WizardInput {
   objectifs: string[];
   typeClause: string;
   quotiteOption: string;
+  quotiteConjointPct: number; // slider conjoint % (0-100) — utilisé quand quotites + conjoint+enfants
   clauseRepresentation: string;
   mentionHeritiers: string;
 }
+
+/* ─── Helpers ─── */
 
 function getSituationLabel(sit: string): string {
   const labels: Record<string, string> = {
@@ -26,14 +29,21 @@ function hasObj(input: WizardInput, obj: string): boolean {
   return input.objectifs.includes(obj);
 }
 
-// "Transmettre aux enfants" sans "Protéger le conjoint" → enfants en premier bénéficiaire
-function prioritizeEnfants(input: WizardInput): boolean {
-  return hasObj(input, 'transmettre_enfants') && !hasObj(input, 'proteger_conjoint');
-}
-
-// "Protéger un enfant handicapé" → clause spécifique
 function useHandicapClause(input: WizardInput): boolean {
   return hasObj(input, 'proteger_handicap');
+}
+
+/**
+ * Premier bénéficiaire déterminé UNIQUEMENT par les objectifs.
+ * Règle stricte — prime sur la situation familiale.
+ */
+function premierBeneficiaire(input: WizardInput): 'conjoint' | 'enfants' | 'conjoint_enfants' {
+  const aConjoint = hasObj(input, 'proteger_conjoint');
+  const aEnfants  = hasObj(input, 'transmettre_enfants');
+  if (aConjoint && !aEnfants) return 'conjoint';
+  if (!aConjoint && aEnfants) return 'enfants';
+  if (aConjoint && aEnfants)  return 'conjoint_enfants';
+  return 'conjoint_enfants'; // fallback : ni l'un ni l'autre → structure classique
 }
 
 function applyAdaptations(text: string, input: WizardInput): string {
@@ -57,116 +67,185 @@ function applyAdaptations(text: string, input: WizardInput): string {
   return out;
 }
 
+/* ─── Blocs réutilisables ─── */
+
+function clauseEnfantsOnly(input: WizardInput) {
+  return {
+    simple: applyAdaptations(
+      "Mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.",
+      input,
+    ),
+    intermediaire: applyAdaptations(
+      "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux.",
+      input,
+    ),
+    complete: applyAdaptations(
+      "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres, à défaut mes héritiers légaux.",
+      input,
+    ),
+  };
+}
+
+function clauseConjointOnly(input: WizardInput) {
+  const sitLabel = getSituationLabel(input.situationMatrimoniale);
+  const conj = sitLabel ? `Mon conjoint ${sitLabel}` : 'Mon conjoint';
+  return {
+    simple: applyAdaptations(`${conj} pour la totalité, à défaut mes héritiers.`, input),
+    intermediaire: applyAdaptations(`${conj} pour la totalité en pleine propriété, à défaut mes héritiers légaux.`, input),
+    complete: applyAdaptations(
+      `${conj} au jour de mon décès pour la totalité du capital en pleine propriété, à défaut mes héritiers légaux tels que définis par le Code civil.`,
+      input,
+    ),
+  };
+}
+
+/* ─── Générateurs de clauses ─── */
+
 function generateStandard(input: WizardInput) {
-  // Objectif "Protéger un enfant handicapé" → clause nominative spécifique
+  // Clause handicap : priorité absolue
   if (useHandicapClause(input)) {
-    const simple =
-      "Mon enfant [prénom] en premier lieu, à défaut mes autres enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.";
-    const intermediaire =
-      "Mon enfant [prénom] en premier lieu, désigné(e) nominativement, à défaut mes autres enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux.";
-    const complete =
-      "Mon enfant [prénom], né(e) le [date] à [lieu], en premier lieu, à défaut mes autres enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres bénéficiaires de même rang, à défaut mes héritiers légaux.";
     return {
-      simple: applyAdaptations(simple, input),
-      intermediaire: applyAdaptations(intermediaire, input),
-      complete: applyAdaptations(complete, input),
+      simple: applyAdaptations(
+        "Mon enfant [prénom] en premier lieu, à défaut mes autres enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.",
+        input,
+      ),
+      intermediaire: applyAdaptations(
+        "Mon enfant [prénom] en premier lieu, désigné(e) nominativement, à défaut mes autres enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux.",
+        input,
+      ),
+      complete: applyAdaptations(
+        "Mon enfant [prénom], né(e) le [date] à [lieu], en premier lieu, à défaut mes autres enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres bénéficiaires de même rang, à défaut mes héritiers légaux.",
+        input,
+      ),
     };
   }
 
-  // Objectif "Transmettre aux enfants" uniquement (sans "Protéger le conjoint") → enfants en premier
-  if (prioritizeEnfants(input)) {
-    const simple =
-      "Mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.";
-    const intermediaire =
-      "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux.";
-    const complete =
-      "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres, à défaut mes héritiers légaux.";
-    return {
-      simple: applyAdaptations(simple, input),
-      intermediaire: applyAdaptations(intermediaire, input),
-      complete: applyAdaptations(complete, input),
-    };
-  }
+  const mode = premierBeneficiaire(input);
+  if (mode === 'enfants') return clauseEnfantsOnly(input);
+  if (mode === 'conjoint') return clauseConjointOnly(input);
 
-  // Défaut : conjoint en premier (objectifs "Protéger le conjoint" ou les deux, ou aucun)
+  // conjoint_enfants (défaut)
   const sitLabel = getSituationLabel(input.situationMatrimoniale);
   const conjointLabel = sitLabel ? `Mon conjoint ${sitLabel}` : 'Mon conjoint';
-
-  const simple =
-    'Mon conjoint, à défaut mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.';
-  const intermediaire =
-    `${conjointLabel}, à défaut mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers légaux.`;
-  const complete =
-    'Mon conjoint au jour de mon décès, à défaut mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux tels que définis par le Code civil.';
-
   return {
-    simple: applyAdaptations(simple, input),
-    intermediaire: applyAdaptations(intermediaire, input),
-    complete: applyAdaptations(complete, input),
+    simple: applyAdaptations(
+      'Mon conjoint, à défaut mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.',
+      input,
+    ),
+    intermediaire: applyAdaptations(
+      `${conjointLabel}, à défaut mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers légaux.`,
+      input,
+    ),
+    complete: applyAdaptations(
+      'Mon conjoint au jour de mon décès, à défaut mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux tels que définis par le Code civil.',
+      input,
+    ),
   };
 }
 
 function generateDemembre(input: WizardInput) {
-  const simple =
-    'Mon conjoint en usufruit, mes enfants nés ou à naître en nue-propriété, par parts égales entre eux, à défaut mes héritiers.';
+  const mode = premierBeneficiaire(input);
 
-  const intermediaire =
-    "Mon conjoint en usufruit — le capital lui sera remis à charge de quasi-usufruit (art. 587 c. civ.) —, mes enfants nés ou à naître, vivants ou représentés, en nue-propriété par parts égales entre eux, à défaut mes héritiers.";
+  // Démembrement sans conjoint → enfants en pleine propriété
+  if (mode === 'enfants') return clauseEnfantsOnly(input);
+  // Conjoint uniquement → pleine propriété conjoint (pas de démembrement)
+  if (mode === 'conjoint') return clauseConjointOnly(input);
 
-  const complete =
-    "Mon conjoint au jour de mon décès en usufruit — le capital lui sera remis à charge de quasi-usufruit conformément à l'article 587 du Code civil, avec obligation de restitution aux nus-propriétaires —, mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, en nue-propriété par parts égales entre eux. À défaut de conjoint survivant, le capital sera attribué en pleine propriété à mes enfants par parts égales, vivants ou représentés, à défaut mes héritiers légaux.";
-
+  // conjoint + enfants → clause démembrée classique
   return {
-    simple: applyAdaptations(simple, input),
-    intermediaire: applyAdaptations(intermediaire, input),
-    complete: applyAdaptations(complete, input),
+    simple: applyAdaptations(
+      'Mon conjoint en usufruit, mes enfants nés ou à naître en nue-propriété, par parts égales entre eux, à défaut mes héritiers.',
+      input,
+    ),
+    intermediaire: applyAdaptations(
+      "Mon conjoint en usufruit — le capital lui sera remis à charge de quasi-usufruit (art. 587 c. civ.) —, mes enfants nés ou à naître, vivants ou représentés, en nue-propriété par parts égales entre eux, à défaut mes héritiers.",
+      input,
+    ),
+    complete: applyAdaptations(
+      "Mon conjoint au jour de mon décès en usufruit — le capital lui sera remis à charge de quasi-usufruit conformément à l'article 587 du Code civil, avec obligation de restitution aux nus-propriétaires —, mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, en nue-propriété par parts égales entre eux. À défaut de conjoint survivant, le capital sera attribué en pleine propriété à mes enfants par parts égales, vivants ou représentés, à défaut mes héritiers légaux.",
+      input,
+    ),
   };
 }
 
 function generateQuotites(input: WizardInput) {
-  const parts: Record<string, { conjoint: string; enfants: string }> = {
-    conjoint_100: { conjoint: '100 %', enfants: '' },
-    conjoint_50_enfants_50: { conjoint: '50 %', enfants: '50 %' },
-    conjoint_tiers_enfants_2tiers: { conjoint: '1/3', enfants: '2/3' },
-    enfants_100: { conjoint: '', enfants: '100 %' },
-  };
+  const mode = premierBeneficiaire(input);
 
-  const p = parts[input.quotiteOption] ?? { conjoint: '[X] %', enfants: '[Y] %' };
-  const X = p.conjoint || '[X] %';
-  const Y = p.enfants || '[Y] %';
+  if (mode === 'enfants') {
+    return {
+      simple: applyAdaptations(
+        "Mes enfants nés ou à naître, vivants ou représentés, pour 100 % par parts égales entre eux, à défaut mes héritiers.",
+        input,
+      ),
+      intermediaire: applyAdaptations(
+        "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, pour 100 % par parts égales entre eux, à défaut mes héritiers légaux.",
+        input,
+      ),
+      complete: applyAdaptations(
+        "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, pour 100 % du capital par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres, à défaut mes héritiers légaux.",
+        input,
+      ),
+    };
+  }
 
-  const simple =
-    `Mon conjoint pour ${X}, mes enfants nés ou à naître, vivants ou représentés, pour ${Y} par parts égales entre eux, à défaut mes héritiers.`;
+  if (mode === 'conjoint') {
+    return {
+      simple: applyAdaptations("Mon conjoint pour 100 %, à défaut mes héritiers.", input),
+      intermediaire: applyAdaptations("Mon conjoint pour 100 % en pleine propriété, à défaut mes héritiers légaux.", input),
+      complete: applyAdaptations(
+        "Mon conjoint au jour de mon décès pour 100 % du capital en pleine propriété, à défaut mes héritiers légaux tels que définis par le Code civil.",
+        input,
+      ),
+    };
+  }
 
-  const intermediaire =
-    `Mon conjoint pour ${X} en pleine propriété, mes enfants nés ou à naître, vivants ou représentés, pour ${Y} par parts égales entre eux, à défaut mes héritiers légaux.`;
-
-  const complete =
-    `Mon conjoint au jour de mon décès pour ${X} du capital en pleine propriété, mes enfants nés ou à naître, vivants ou représentés par leurs descendants, pour ${Y} du capital par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres bénéficiaires de même rang, à défaut mes héritiers légaux.`;
+  // conjoint + enfants : utiliser le slider (quotiteConjointPct)
+  const pct = (typeof input.quotiteConjointPct === 'number' && input.quotiteConjointPct >= 0 && input.quotiteConjointPct <= 100)
+    ? input.quotiteConjointPct
+    : 50;
+  const X = `${pct} %`;
+  const Y = `${100 - pct} %`;
 
   return {
-    simple: applyAdaptations(simple, input),
-    intermediaire: applyAdaptations(intermediaire, input),
-    complete: applyAdaptations(complete, input),
+    simple: applyAdaptations(
+      `Mon conjoint pour ${X}, mes enfants nés ou à naître, vivants ou représentés, pour ${Y} par parts égales entre eux, à défaut mes héritiers.`,
+      input,
+    ),
+    intermediaire: applyAdaptations(
+      `Mon conjoint pour ${X} en pleine propriété, mes enfants nés ou à naître, vivants ou représentés, pour ${Y} par parts égales entre eux, à défaut mes héritiers légaux.`,
+      input,
+    ),
+    complete: applyAdaptations(
+      `Mon conjoint au jour de mon décès pour ${X} du capital en pleine propriété, mes enfants nés ou à naître, vivants ou représentés par leurs descendants, pour ${Y} du capital par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres bénéficiaires de même rang, à défaut mes héritiers légaux.`,
+      input,
+    ),
   };
 }
 
 function generateConditionAge(input: WizardInput) {
-  const simple =
-    "Mon conjoint pour la totalité si au jour de mon décès il/elle a moins de 70 ans, pour les 3/4 entre 70 et 80 ans, pour la moitié entre 80 et 90 ans, pour le 1/4 au-delà de 90 ans. La fraction restante reviendra à mes enfants vivants ou représentés par parts égales, à défaut mes héritiers.";
+  const mode = premierBeneficiaire(input);
 
-  const intermediaire =
-    "Mon conjoint pour la totalité si au jour de mon décès il/elle a moins de soixante-dix ans, pour les trois quarts entre soixante-dix et quatre-vingts ans, pour la moitié entre quatre-vingts et quatre-vingt-dix ans, pour le quart au-delà de quatre-vingt-dix ans. La fraction restante reviendra à mes enfants vivants ou représentés par parts égales, à défaut mes héritiers légaux.";
-
-  const complete =
-    "Mon conjoint au jour de mon décès pour la totalité du capital s'il/elle a moins de soixante-dix ans, pour les trois quarts entre soixante-dix et quatre-vingts ans, pour la moitié entre quatre-vingts et quatre-vingt-dix ans, pour le quart au-delà de quatre-vingt-dix ans. La fraction non attribuée au conjoint sera versée à mes enfants nés ou à naître, vivants ou représentés par leurs descendants, par parts égales entre eux. En cas de prédécès du conjoint, le capital sera intégralement attribué à mes enfants par parts égales entre eux, à défaut mes héritiers légaux.";
+  // Condition d'âge sans conjoint → enfants en pleine propriété
+  if (mode === 'enfants') return clauseEnfantsOnly(input);
+  if (mode === 'conjoint') return clauseConjointOnly(input);
 
   return {
-    simple: applyAdaptations(simple, input),
-    intermediaire: applyAdaptations(intermediaire, input),
-    complete: applyAdaptations(complete, input),
+    simple: applyAdaptations(
+      "Mon conjoint pour la totalité si au jour de mon décès il/elle a moins de 70 ans, pour les 3/4 entre 70 et 80 ans, pour la moitié entre 80 et 90 ans, pour le 1/4 au-delà de 90 ans. La fraction restante reviendra à mes enfants vivants ou représentés par parts égales, à défaut mes héritiers.",
+      input,
+    ),
+    intermediaire: applyAdaptations(
+      "Mon conjoint pour la totalité si au jour de mon décès il/elle a moins de soixante-dix ans, pour les trois quarts entre soixante-dix et quatre-vingts ans, pour la moitié entre quatre-vingts et quatre-vingt-dix ans, pour le quart au-delà de quatre-vingt-dix ans. La fraction restante reviendra à mes enfants vivants ou représentés par parts égales, à défaut mes héritiers légaux.",
+      input,
+    ),
+    complete: applyAdaptations(
+      "Mon conjoint au jour de mon décès pour la totalité du capital s'il/elle a moins de soixante-dix ans, pour les trois quarts entre soixante-dix et quatre-vingts ans, pour la moitié entre quatre-vingts et quatre-vingt-dix ans, pour le quart au-delà de quatre-vingt-dix ans. La fraction non attribuée au conjoint sera versée à mes enfants nés ou à naître, vivants ou représentés par leurs descendants, par parts égales entre eux. En cas de prédécès du conjoint, le capital sera intégralement attribué à mes enfants par parts égales entre eux, à défaut mes héritiers légaux.",
+      input,
+    ),
   };
 }
+
+/* ─── Points de vigilance ─── */
 
 function computePointsVigilance(input: WizardInput): string[] {
   const points: string[] = [];
@@ -186,8 +265,6 @@ function computePointsVigilance(input: WizardInput): string[] {
   if (input.situationMatrimoniale === 'celibataire' && input.nombreEnfants === 0) {
     points.push("Personne seule sans enfants : désignez votre bénéficiaire avec précision (nom, prénom, date et lieu de naissance, adresse).");
   }
-
-  // Objectifs
   if (hasObj(input, 'optimisation_fiscale')) {
     points.push("Optimisation fiscale — art. 990 I CGI : abattement de 152 500 € par bénéficiaire pour les primes versées avant 70 ans. Art. 757 B CGI : au-delà de 70 ans, seules les primes excédant 30 500 € sont soumises aux droits de succession.");
     if (input.typeClause === 'demembre') {
@@ -209,52 +286,51 @@ function computePointsVigilance(input: WizardInput): string[] {
 
 function computeConseilNotaire(input: WizardInput): { needed: boolean; raison: string } {
   if (input.typeClause === 'demembre') {
-    return {
-      needed: true,
-      raison: "La clause démembrée génère un quasi-usufruit sur le capital : sa rédaction précise est essentielle pour protéger les droits des nus-propriétaires.",
-    };
+    return { needed: true, raison: "La clause démembrée génère un quasi-usufruit sur le capital : sa rédaction précise est essentielle pour protéger les droits des nus-propriétaires." };
   }
-  if (input.enfantHandicape) {
-    return {
-      needed: true,
-      raison: "La présence d'un enfant handicapé nécessite une structuration spécifique (tutelle, mandataire judiciaire, association habilitée).",
-    };
+  if (input.enfantHandicape || hasObj(input, 'proteger_handicap')) {
+    return { needed: true, raison: "La présence d'un enfant handicapé nécessite une structuration spécifique (tutelle, mandataire judiciaire, association habilitée)." };
   }
   if (input.enfantsNonCommuns) {
-    return {
-      needed: true,
-      raison: "La situation de famille recomposée peut engendrer des conflits entre héritiers de différents lits si la clause n'est pas rédigée avec précision.",
-    };
+    return { needed: true, raison: "La situation de famille recomposée peut engendrer des conflits entre héritiers de différents lits si la clause n'est pas rédigée avec précision." };
   }
   if (input.typeClause === 'condition_age') {
-    return {
-      needed: true,
-      raison: "La clause à condition d'âge est complexe et doit être rédigée avec soin pour être juridiquement opposable à l'assureur.",
-    };
+    return { needed: true, raison: "La clause à condition d'âge est complexe et doit être rédigée avec soin pour être juridiquement opposable à l'assureur." };
   }
   return { needed: false, raison: '' };
 }
 
+/* ─── Handler ─── */
+
 export async function POST(request: NextRequest) {
   const body = await request.json() as WizardInput;
 
+  // Diagnostic — logs visibles dans la console Next.js (dev) et Vercel (prod > Functions)
+  const mode = premierBeneficiaire(body);
+  console.log('[clause-beneficiaire] input reçu :', JSON.stringify({
+    objectifs:            body.objectifs,
+    typeClause:           body.typeClause,
+    situationMatrimoniale: body.situationMatrimoniale,
+    premierBeneficiaire:  mode,
+    quotiteConjointPct:   body.quotiteConjointPct,
+  }));
+
   let variants: { simple: string; intermediaire: string; complete: string };
   switch (body.typeClause) {
-    case 'demembre':      variants = generateDemembre(body);      break;
-    case 'quotites':      variants = generateQuotites(body);      break;
-    case 'condition_age': variants = generateConditionAge(body);  break;
+    case 'demembre':      variants = generateDemembre(body);     break;
+    case 'quotites':      variants = generateQuotites(body);     break;
+    case 'condition_age': variants = generateConditionAge(body); break;
     default:              variants = generateStandard(body);
   }
 
-  const points = computePointsVigilance(body);
   const { needed, raison } = computeConseilNotaire(body);
 
   return Response.json({
-    variante_simple: variants.simple,
+    variante_simple:        variants.simple,
     variante_intermediaire: variants.intermediaire,
-    variante_complete: variants.complete,
-    points_vigilance: points,
-    conseil_notaire: needed,
+    variante_complete:      variants.complete,
+    points_vigilance:       computePointsVigilance(body),
+    conseil_notaire:        needed,
     raison_conseil_notaire: raison,
   });
 }
