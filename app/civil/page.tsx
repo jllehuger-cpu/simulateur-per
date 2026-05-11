@@ -20,6 +20,14 @@ const simulateurs = [
     gradient: 'linear-gradient(135deg, #10B981, #0D9488)',
   },
   {
+    href: '/civil/personnes-protegees',
+    icon: '🛡️',
+    title: 'Personnes protégées',
+    description: 'Mineurs · Curatelle · Tutelle · MPF — Régimes, actes autorisés et assurance-vie.',
+    badge: 'Protection',
+    gradient: 'linear-gradient(135deg, #F59E0B, #B45309)',
+  },
+  {
     href: '/civil/clause-beneficiaire',
     icon: '📝',
     title: 'Clause bénéficiaire',
