@@ -22,6 +22,20 @@ function getSituationLabel(sit: string): string {
   return labels[sit] ?? '';
 }
 
+function hasObj(input: WizardInput, obj: string): boolean {
+  return input.objectifs.includes(obj);
+}
+
+// "Transmettre aux enfants" sans "Protéger le conjoint" → enfants en premier bénéficiaire
+function prioritizeEnfants(input: WizardInput): boolean {
+  return hasObj(input, 'transmettre_enfants') && !hasObj(input, 'proteger_conjoint');
+}
+
+// "Protéger un enfant handicapé" → clause spécifique
+function useHandicapClause(input: WizardInput): boolean {
+  return hasObj(input, 'proteger_handicap');
+}
+
 function applyAdaptations(text: string, input: WizardInput): string {
   let out = text;
 
@@ -44,15 +58,44 @@ function applyAdaptations(text: string, input: WizardInput): string {
 }
 
 function generateStandard(input: WizardInput) {
+  // Objectif "Protéger un enfant handicapé" → clause nominative spécifique
+  if (useHandicapClause(input)) {
+    const simple =
+      "Mon enfant [prénom] en premier lieu, à défaut mes autres enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.";
+    const intermediaire =
+      "Mon enfant [prénom] en premier lieu, désigné(e) nominativement, à défaut mes autres enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux.";
+    const complete =
+      "Mon enfant [prénom], né(e) le [date] à [lieu], en premier lieu, à défaut mes autres enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres bénéficiaires de même rang, à défaut mes héritiers légaux.";
+    return {
+      simple: applyAdaptations(simple, input),
+      intermediaire: applyAdaptations(intermediaire, input),
+      complete: applyAdaptations(complete, input),
+    };
+  }
+
+  // Objectif "Transmettre aux enfants" uniquement (sans "Protéger le conjoint") → enfants en premier
+  if (prioritizeEnfants(input)) {
+    const simple =
+      "Mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.";
+    const intermediaire =
+      "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux.";
+    const complete =
+      "Mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux. En cas de prédécès de l'un d'eux, sa part accroît celle des autres, à défaut mes héritiers légaux.";
+    return {
+      simple: applyAdaptations(simple, input),
+      intermediaire: applyAdaptations(intermediaire, input),
+      complete: applyAdaptations(complete, input),
+    };
+  }
+
+  // Défaut : conjoint en premier (objectifs "Protéger le conjoint" ou les deux, ou aucun)
   const sitLabel = getSituationLabel(input.situationMatrimoniale);
   const conjointLabel = sitLabel ? `Mon conjoint ${sitLabel}` : 'Mon conjoint';
 
   const simple =
     'Mon conjoint, à défaut mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers.';
-
   const intermediaire =
     `${conjointLabel}, à défaut mes enfants nés ou à naître, vivants ou représentés, par parts égales entre eux, à défaut mes héritiers légaux.`;
-
   const complete =
     'Mon conjoint au jour de mon décès, à défaut mes enfants nés ou à naître, vivants ou représentés par leurs descendants en ligne directe, par parts égales entre eux, à défaut mes héritiers légaux tels que définis par le Code civil.';
 
@@ -131,8 +174,8 @@ function computePointsVigilance(input: WizardInput): string[] {
   if (input.enfantsMineurs) {
     points.push("Enfants mineurs : le tuteur légal gérera le capital jusqu'à la majorité. Une clause de représentation est indispensable.");
   }
-  if (input.enfantHandicape) {
-    points.push("Enfant handicapé : une structure spécialisée (MJPM, association habilitée) peut être désignée bénéficiaire. Consultez un notaire.");
+  if (input.enfantHandicape || hasObj(input, 'proteger_handicap')) {
+    points.push("Enfant handicapé : ⚠️ envisagez une clause avec un trust ou une association agréée pour éviter la perte des aides sociales. Une structure spécialisée (MJPM, association habilitée) peut être désignée bénéficiaire.");
   }
   if (input.enfantsNonCommuns) {
     points.push('Famille recomposée : précisez "mes enfants issus de mon union avec [...]" pour éviter toute ambiguïté entre les enfants de lits différents.');
@@ -142,6 +185,20 @@ function computePointsVigilance(input: WizardInput): string[] {
   }
   if (input.situationMatrimoniale === 'celibataire' && input.nombreEnfants === 0) {
     points.push("Personne seule sans enfants : désignez votre bénéficiaire avec précision (nom, prénom, date et lieu de naissance, adresse).");
+  }
+
+  // Objectifs
+  if (hasObj(input, 'optimisation_fiscale')) {
+    points.push("Optimisation fiscale — art. 990 I CGI : abattement de 152 500 € par bénéficiaire pour les primes versées avant 70 ans. Art. 757 B CGI : au-delà de 70 ans, seules les primes excédant 30 500 € sont soumises aux droits de succession.");
+    if (input.typeClause === 'demembre') {
+      points.push("Clause démembrée et fiscalité : les droits 990 I sont calculés sur la valeur en pleine propriété du capital, puis répartis entre usufruitier et nu-propriétaire selon le barème de l'art. 669 CGI.");
+    }
+  }
+  if (hasObj(input, 'eviter_conflits')) {
+    points.push("Prévention des conflits : une clause avec quotités précises et des désignations nominatives est préférable à une clause générale pour éviter toute ambiguïté entre héritiers.");
+  }
+  if (useHandicapClause(input)) {
+    points.push("Remplacez [prénom], [date] et [lieu] par les informations exactes de l'enfant concerné avant de transmettre cette clause à votre assureur.");
   }
 
   points.push("La clause peut être modifiée à tout moment tant que le bénéficiaire n'a pas accepté.");

@@ -120,11 +120,11 @@ function computeAlerts(state: WizardState): Alert[] {
     });
   }
 
-  if (state.enfantHandicape) {
+  if (state.enfantHandicape || state.objectifs.includes('proteger_handicap')) {
     alerts.push({
-      type: 'info',
+      type: 'warning',
       title: 'Enfant handicapé',
-      message: 'Une structure spécialisée (MJPM, association habilitée) peut être désignée bénéficiaire. Consultez un notaire.',
+      message: "⚠️ Pour un enfant handicapé, envisagez une clause spécifique avec un trust ou une association agréée pour éviter la perte des aides sociales.",
     });
   }
 
@@ -149,6 +149,22 @@ function computeAlerts(state: WizardState): Alert[] {
       type: 'info',
       title: 'Sans ayants droit proches',
       message: "Désignez un bénéficiaire précis. Sans clause valide, le capital intègre la succession taxable.",
+    });
+  }
+
+  if (state.objectifs.includes('optimisation_fiscale')) {
+    alerts.push({
+      type: 'info',
+      title: 'Optimisation fiscale',
+      message: "Art. 990 I CGI : abattement de 152 500 € par bénéficiaire (primes avant 70 ans). Art. 757 B CGI : primes après 70 ans soumises aux droits de succession au-delà de 30 500 €.",
+    });
+  }
+
+  if (state.objectifs.includes('eviter_conflits')) {
+    alerts.push({
+      type: 'info',
+      title: 'Prévenir les conflits',
+      message: "Privilégiez une clause avec quotités précises et des désignations nominatives pour éviter toute ambiguïté entre héritiers.",
     });
   }
 
