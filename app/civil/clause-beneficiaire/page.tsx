@@ -514,7 +514,7 @@ function Step5({ state, result, loading, error, onGenerate, onReset }: {
   return (
     <div>
       <h2 style={h2Style}>Récapitulatif & génération</h2>
-      <p style={subtitleStyle}>Vérifiez vos choix, puis lancez la génération par IA.</p>
+      <p style={subtitleStyle}>Vérifiez vos choix, puis générez vos clauses.</p>
 
       {/* Summary */}
       <div style={{
@@ -534,7 +534,7 @@ function Step5({ state, result, loading, error, onGenerate, onReset }: {
       {/* Generate */}
       {!result && !loading && (
         <button onClick={onGenerate} className="btn-primary" style={{ width: '100%', padding: '0.875rem', fontSize: '1rem' }}>
-          Générer avec l&apos;IA →
+          Générer les clauses →
         </button>
       )}
 
@@ -693,7 +693,7 @@ export default function ClauseBeneficiairePage() {
     setError(null);
     setResult(null);
     try {
-      const res = await fetch('/api/generate/clause-beneficiaire', {
+      const res = await fetch('/api/calculate/clause-beneficiaire', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(wizardState),
@@ -726,7 +726,7 @@ export default function ClauseBeneficiairePage() {
           fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.1em',
           textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.75rem',
         }}>
-          Audit Patrimoine · Axe fiscal
+          Audit Patrimoine · Axe civil
         </p>
         <h1 style={{
           fontFamily: 'var(--font-display)',

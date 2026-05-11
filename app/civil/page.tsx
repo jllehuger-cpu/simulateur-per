@@ -19,6 +19,14 @@ const simulateurs = [
     badge: 'Fiscal',
     gradient: 'linear-gradient(135deg, #10B981, #0D9488)',
   },
+  {
+    href: '/civil/clause-beneficiaire',
+    icon: '📝',
+    title: 'Clause bénéficiaire',
+    description: 'Générez une clause personnalisée et juridiquement robuste en 5 étapes.',
+    badge: 'Aide à la rédaction',
+    gradient: 'linear-gradient(135deg, #6366F1, #4338CA)',
+  },
 ];
 
 export default function CivilHomePage() {
