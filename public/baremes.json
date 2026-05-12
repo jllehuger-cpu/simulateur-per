@@ -1,12 +1,16 @@
 {
-    "last_update": "2026-04-08",
+    "last_update": "2026-05-12",
     "comment": "Données fiscales complètes pour simulations civiles",
     "abattements": {
       "sarkozy": 31865,
       "enfant": 100000,
       "petit_enfant": 31865,
       "conjoint": 80724,
-      "conjoint_pacs": 80724
+      "conjoint_pacs": 80724,
+      "frere_soeur": 15932,
+      "neveu_niece": 7967,
+      "tiers": 1594,
+      "handicap": 159325
     },
     "regles": {
       "delai_rappel_fiscal": 15
