@@ -483,8 +483,8 @@ function TabDevolution() {
   const reset = () => { setQ1(''); setQ2(''); setQ3(''); };
   const hasDescendants = q2 === 'enfants_communs' || q2 === 'enfants_mixtes';
   const showQ3     = hasDescendants;
-  const showResult = q1 !== '' && q2 !== '' && (!showQ3 || q3 !== '');
-  const cas        = showResult ? buildCase(q1, q2, q3) : null;
+  const showResult = q1 === 'pacs' || (q1 !== '' && q2 !== '' && (!showQ3 || q3 !== ''));
+  const cas        = showResult && q1 !== 'pacs' ? buildCase(q1, q2, q3) : null;
 
   const optionStyle = (selected: boolean): React.CSSProperties => ({
     display: 'block', width: '100%', textAlign: 'left',
@@ -551,6 +551,36 @@ function TabDevolution() {
               {o.l}
             </button>
           ))}
+        </div>
+      )}
+
+      {q1 === 'pacs' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 0.85rem', background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.35)', borderRadius: 999, width: 'fit-content' }}>
+            <span>⚠️</span>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#F59E0B' }}>Partenaire PACS : aucun droit successoral légal</span>
+          </div>
+          <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+            Le partenaire de PACS ne bénéficie d'aucune vocation successorale légale. Il ne peut hériter que par testament.
+            Sans testament, la succession est dévolue aux héritiers légaux du défunt (descendants, ascendants, collatéraux).
+          </div>
+          <div style={{ padding: '1rem 1.25rem', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.25)', borderRadius: 10 }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#A5B4FC', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.6rem' }}>Que faire ?</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 2 }}>
+              ✅ Rédiger un testament en faveur du partenaire<br />
+              ✅ Souscrire une assurance-vie avec clause bénéficiaire<br />
+              ✅ Envisager une donation entre partenaires<br />
+              ⚠️ Sans ces dispositions, le partenaire ne reçoit rien
+            </div>
+          </div>
+          <div style={{ padding: '1rem 1.25rem', background: 'var(--bg-surface-md)', border: '1px solid var(--border-glass)', borderRadius: 10 }}>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.6rem' }}>Le partenaire bénéficie malgré tout de :</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 2 }}>
+              • Droit temporaire au logement (1 an) — art. 763 c.civ.<br />
+              • Attribution préférentielle possible du logement<br />
+              • Exonération totale de droits de succession si testament
+            </div>
+          </div>
         </div>
       )}
 
