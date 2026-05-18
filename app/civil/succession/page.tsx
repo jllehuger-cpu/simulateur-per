@@ -105,7 +105,7 @@ function sCasRow(color: 'green' | 'amber' | 'red'): React.CSSProperties {
 function TabSimulateur({ baremes }: { baremes: BaremesData }) {
   const [actifNet, setActifNet]             = useState<number>(500000);
   const [lienParente, setLienParente]       = useState<string>('ligne_directe');
-  const [nbHeritiers, setNbHeritiers]       = useState<number>(1);
+  const [nbHeritiers, setNbHeritiers]       = useState<number | ''>(1);
   const [handicap, setHandicap]             = useState<boolean>(false);
   const [representation, setRepresentation] = useState<boolean>(false);
   const [donationRappel, setDonationRappel] = useState<boolean>(false);
@@ -116,11 +116,12 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
   const isPetitEnfant = lienParente === 'petit_enfant';
 
   const calculs = useMemo(() => {
+    const nbH = typeof nbHeritiers === 'number' ? nbHeritiers : 1;
     const abHandicapBase = handicap ? (baremes.abattements['handicap'] || 159325) : 0;
     const rappelDeduction = donationRappel ? abattementDeja : 0;
 
     if (lienParente === 'conjoint') {
-      const part = actifNet / Math.max(1, nbHeritiers);
+      const part = actifNet / Math.max(1, nbH);
       return {
         exonere: true, partParHeritier: part,
         abattementTotal: 0, abBase: 0, abHandicap: 0,
@@ -130,7 +131,7 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
     }
 
     if (lienParente === 'petit_enfant') {
-      const nbSouches = Math.max(1, nbHeritiers);
+      const nbSouches = Math.max(1, nbH);
       const partDeLaSouche = actifNet / nbSouches;
       const nbPE = Math.max(1, nbPetitsEnfants);
       const partParPE = partDeLaSouche / nbPE;
@@ -185,7 +186,7 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
     const abBase     = baremes.abattements[cleAb] || 0;
     const abHandicap = abHandicapBase;
     const abTotal    = Math.max(0, abBase + abHandicap - rappelDeduction);
-    const partParHeritier = actifNet / Math.max(1, nbHeritiers);
+    const partParHeritier = actifNet / Math.max(1, nbH);
     const assietteTaxable = Math.max(0, partParHeritier - abTotal);
     const tranches        = baremes.baremes[lienParente] || [];
     const { total: droitsParHeritier, detail } = computeTax(assietteTaxable, tranches);
@@ -243,14 +244,27 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
                 className="glass-input" style={{ fontWeight: 700, fontSize: '1.2rem' }} />
             </div>
 
-            <div>
-              <label className="field-label">
-                {isPetitEnfant ? "Nombre de souches (enfants du défunt)" : "Nombre d'héritiers du même rang"}
-              </label>
-              <input type="number" value={nbHeritiers} min={1} max={20}
-                onChange={e => setNbHeritiers(Math.max(1, Number(e.target.value)))}
-                className="glass-input" />
-            </div>
+            {lienParente !== 'conjoint' && (
+              <div>
+                <label className="field-label">
+                  {isPetitEnfant ? "Nombre de souches (enfants du défunt)" : "Nombre d'héritiers du même rang"}
+                </label>
+                <input
+                  type="number"
+                  value={nbHeritiers}
+                  min={1}
+                  max={20}
+                  onChange={e => {
+                    const v = e.target.value;
+                    if (v === '') { setNbHeritiers(''); return; }
+                    const n = parseInt(v, 10);
+                    if (!isNaN(n) && n > 0) setNbHeritiers(n);
+                  }}
+                  onBlur={() => { if (nbHeritiers === '') setNbHeritiers(1); }}
+                  className="glass-input"
+                />
+              </div>
+            )}
 
             {/* ── Section renonciation (petit-enfant uniquement) ── */}
             {isPetitEnfant && (
@@ -480,11 +494,11 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
         )}
 
         {/* Répartition par héritier */}
-        {!calculs.exonere && !isPetitEnfant && nbHeritiers > 1 && (
+        {!calculs.exonere && !isPetitEnfant && Number(nbHeritiers) > 1 && (
           <div className="glass-card" style={{ padding: '1.25rem' }}>
-            <h3 style={sH3}>Répartition — {nbHeritiers} héritier{nbHeritiers > 1 ? 's' : ''}</h3>
+            <h3 style={sH3}>Répartition — {Number(nbHeritiers)} héritier{Number(nbHeritiers) > 1 ? 's' : ''}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', gap: '0.75rem' }}>
-              {Array.from({ length: Math.min(nbHeritiers, 8) }).map((_, i) => (
+              {Array.from({ length: Math.min(Number(nbHeritiers) || 1, 8) }).map((_, i) => (
                 <div key={i} style={{ background: 'var(--bg-surface-md)', borderRadius: 10, padding: '0.75rem', border: '1px solid var(--border-subtle)' }}>
                   <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
                     {representation ? `Souche ${i + 1}` : `Héritier ${i + 1}`}
@@ -500,9 +514,9 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
                   </div>
                 </div>
               ))}
-              {nbHeritiers > 8 && (
+              {Number(nbHeritiers) > 8 && (
                 <div style={{ background: 'var(--bg-surface-md)', borderRadius: 10, padding: '0.75rem', border: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>+ {nbHeritiers - 8} autres (même calcul)</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>+ {Number(nbHeritiers) - 8} autres (même calcul)</span>
                 </div>
               )}
             </div>
