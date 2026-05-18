@@ -110,37 +110,106 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
   const [representation, setRepresentation] = useState<boolean>(false);
   const [donationRappel, setDonationRappel] = useState<boolean>(false);
   const [abattementDeja, setAbattementDeja] = useState<number>(0);
+  const [enfantRenonce, setEnfantRenonce]   = useState<boolean>(false);
+  const [nbPetitsEnfants, setNbPetitsEnfants] = useState<number>(1);
+
+  const isPetitEnfant = lienParente === 'petit_enfant';
 
   const calculs = useMemo(() => {
+    const abHandicapBase = handicap ? (baremes.abattements['handicap'] || 159325) : 0;
+    const rappelDeduction = donationRappel ? abattementDeja : 0;
+
     if (lienParente === 'conjoint') {
       const part = actifNet / Math.max(1, nbHeritiers);
-      return { exonere: true, partParHeritier: part, abattementTotal: 0, abBase: 0, abHandicap: 0, assietteTaxable: 0, droitsParHeritier: 0, netParHeritier: part, detail: [] };
+      return {
+        exonere: true, partParHeritier: part,
+        abattementTotal: 0, abBase: 0, abHandicap: 0,
+        assietteTaxable: 0, droitsParHeritier: 0, netParHeritier: part, detail: [],
+        petitEnfant: null as null,
+      };
     }
+
+    if (lienParente === 'petit_enfant') {
+      const nbSouches = Math.max(1, nbHeritiers);
+      const partDeLaSouche = actifNet / nbSouches;
+      const nbPE = Math.max(1, nbPetitsEnfants);
+      const partParPE = partDeLaSouche / nbPE;
+      const tranchesLD = baremes.baremes['ligne_directe'] || [];
+
+      // Avec renonciation : abattement 100 000 partagé entre nbPE petits-enfants
+      const abAvec = 100000 / nbPE;
+      const abHandicapAvec = abHandicapBase;
+      const abTotalAvec = Math.max(0, abAvec + abHandicapAvec - rappelDeduction);
+      const assietteAvec = Math.max(0, partParPE - abTotalAvec);
+      const { total: droitsAvec, detail: detailAvec } = computeTax(assietteAvec, tranchesLD);
+      const netAvec = partParPE - droitsAvec;
+
+      // Sans renonciation : légalement 0 € (info indicative avec abattement 31 865)
+      const abSans = 31865;
+      const assietteSans = Math.max(0, partParPE - abSans);
+      const { total: droitsSans, detail: detailSans } = computeTax(assietteSans, tranchesLD);
+      const netSans = partParPE - droitsSans;
+
+      const petitEnfant = {
+        partDeLaSouche, partParPE, nbPE,
+        avecRenonciation: {
+          ab: abAvec, abHandicap: abHandicapAvec, abTotal: abTotalAvec,
+          assiette: assietteAvec, droits: droitsAvec, net: netAvec, detail: detailAvec,
+        },
+        sansRenonciation: {
+          ab: abSans, assiette: assietteSans, droits: droitsSans, net: netSans, detail: detailSans,
+        },
+      };
+
+      if (enfantRenonce) {
+        return {
+          exonere: false,
+          partParHeritier: partParPE,
+          abattementTotal: abTotalAvec, abBase: abAvec, abHandicap: abHandicapAvec,
+          assietteTaxable: assietteAvec, droitsParHeritier: droitsAvec,
+          netParHeritier: netAvec, detail: detailAvec,
+          petitEnfant,
+        };
+      } else {
+        return {
+          exonere: false,
+          partParHeritier: 0, abattementTotal: 0, abBase: 0, abHandicap: 0,
+          assietteTaxable: 0, droitsParHeritier: 0, netParHeritier: 0, detail: [],
+          petitEnfant,
+        };
+      }
+    }
+
+    // Cas standard
     const cleAb      = lienParente === 'ligne_directe' ? 'enfant' : lienParente;
     const abBase     = baremes.abattements[cleAb] || 0;
-    const abHandicap = handicap ? (baremes.abattements['handicap'] || 159325) : 0;
-    const abTotal    = Math.max(0, abBase + abHandicap - (donationRappel ? abattementDeja : 0));
-
+    const abHandicap = abHandicapBase;
+    const abTotal    = Math.max(0, abBase + abHandicap - rappelDeduction);
     const partParHeritier = actifNet / Math.max(1, nbHeritiers);
     const assietteTaxable = Math.max(0, partParHeritier - abTotal);
     const tranches        = baremes.baremes[lienParente] || [];
     const { total: droitsParHeritier, detail } = computeTax(assietteTaxable, tranches);
     const netParHeritier  = partParHeritier - droitsParHeritier;
-
-    return { exonere: false, partParHeritier, abattementTotal: abTotal, abBase, abHandicap, assietteTaxable, droitsParHeritier, netParHeritier, detail };
-  }, [actifNet, lienParente, nbHeritiers, handicap, donationRappel, abattementDeja, baremes]);
+    return {
+      exonere: false, partParHeritier, abattementTotal: abTotal, abBase, abHandicap,
+      assietteTaxable, droitsParHeritier, netParHeritier, detail, petitEnfant: null as null,
+    };
+  }, [actifNet, lienParente, nbHeritiers, handicap, donationRappel, abattementDeja, baremes, enfantRenonce, nbPetitsEnfants]);
 
   const fmt = (n: number) => Math.round(n).toLocaleString('fr-FR');
 
   const ABATTEMENTS_TABLE = [
-    { lien: 'Enfant (ligne directe)',   ab: '100 000 €', exo: false, spec: false },
-    { lien: 'Conjoint / PACS',          ab: 'Exénération', exo: true,  spec: false },
-    { lien: 'Petit-enfant',             ab: '31 865 €',  exo: false, spec: false },
-    { lien: 'Frère / Sœur',  ab: '15 932 €',  exo: false, spec: false },
-    { lien: 'Neveu / Nièce',       ab: '7 967 €',   exo: false, spec: false },
-    { lien: 'Tiers (non parent)',        ab: '1 594 €',   exo: false, spec: false },
-    { lien: '+ Handicap (cumulable)',    ab: '+ 159 325 €', exo: false, spec: true  },
+    { lien: 'Enfant (ligne directe)',           ab: '100 000 €',         exo: false, spec: false },
+    { lien: 'Conjoint / PACS',                  ab: 'Exonération totale', exo: true,  spec: false },
+    { lien: 'Petit-enfant (sans renonciation)', ab: '31 865 €',           exo: false, spec: false },
+    { lien: 'Petit-enfant (avec renonciation)', ab: '100 000 € partagé',  exo: false, spec: true  },
+    { lien: 'Frère / Sœur',                     ab: '15 932 €',           exo: false, spec: false },
+    { lien: 'Neveu / Nièce',                    ab: '7 967 €',            exo: false, spec: false },
+    { lien: 'Tiers (non parent)',                ab: '1 594 €',            exo: false, spec: false },
+    { lien: '+ Handicap (cumulable)',            ab: '+ 159 325 €',        exo: false, spec: true  },
   ];
+
+  const pe = calculs.petitEnfant;
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '1.5rem', alignItems: 'start' }}>
@@ -153,9 +222,14 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
 
             <div>
               <label className="field-label">Lien de parenté</label>
-              <select value={lienParente} onChange={e => setLienParente(e.target.value)} className="glass-select">
+              <select
+                value={lienParente}
+                onChange={e => { setLienParente(e.target.value); setEnfantRenonce(false); }}
+                className="glass-select"
+              >
                 <option value="ligne_directe">Enfant (ligne directe)</option>
                 <option value="conjoint">Conjoint / PACS</option>
+                <option value="petit_enfant">Petit-enfant (représentation)</option>
                 <option value="frere_soeur">Frère / Sœur</option>
                 <option value="neveu_niece">Neveu / Nièce</option>
                 <option value="tiers">Tiers (non parent)</option>
@@ -170,34 +244,82 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
             </div>
 
             <div>
-              <label className="field-label">Nombre d’héritiers du même rang</label>
+              <label className="field-label">
+                {isPetitEnfant ? "Nombre de souches (enfants du défunt)" : "Nombre d'héritiers du même rang"}
+              </label>
               <input type="number" value={nbHeritiers} min={1} max={20}
                 onChange={e => setNbHeritiers(Math.max(1, Number(e.target.value)))}
                 className="glass-input" />
             </div>
+
+            {/* ── Section renonciation (petit-enfant uniquement) ── */}
+            {isPetitEnfant && (
+              <div style={{
+                padding: '1rem', borderRadius: 10,
+                background: 'rgba(245,158,11,0.06)',
+                border: '1px solid rgba(245,158,11,0.3)',
+              }}>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.75rem' }}>
+                  ⚠️ L'enfant parent renonce-t-il ?
+                </div>
+                <label style={{ ...sCheckLabel, marginBottom: '0.5rem', alignItems: 'center' }}>
+                  <input
+                    type="radio"
+                    name="renonciation"
+                    checked={enfantRenonce}
+                    onChange={() => setEnfantRenonce(true)}
+                    style={{ accentColor: '#6366F1', marginRight: '0.5rem' }}
+                  />
+                  <span>
+                    <strong>Oui, l'enfant renonce</strong><br />
+                    <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>→ représentation s'applique (abattement 100 000 €)</span>
+                  </span>
+                </label>
+                <label style={{ ...sCheckLabel, alignItems: 'center' }}>
+                  <input
+                    type="radio"
+                    name="renonciation"
+                    checked={!enfantRenonce}
+                    onChange={() => setEnfantRenonce(false)}
+                    style={{ accentColor: '#6366F1', marginRight: '0.5rem' }}
+                  />
+                  <span>
+                    <strong>Non (défaut)</strong><br />
+                    <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>→ pas de représentation (0 € légalement)</span>
+                  </span>
+                </label>
+                <div style={{ marginTop: '0.875rem' }}>
+                  <label className="field-label">Nombre de petits-enfants (partage abattement)</label>
+                  <input
+                    type="number"
+                    value={nbPetitsEnfants}
+                    min={1}
+                    max={20}
+                    onChange={e => setNbPetitsEnfants(Math.max(1, Number(e.target.value)))}
+                    className="glass-input"
+                  />
+                </div>
+              </div>
+            )}
+
+            {!isPetitEnfant && (
+              <label style={sCheckLabel}>
+                <input type="checkbox" checked={representation} onChange={e => setRepresentation(e.target.checked)}
+                  style={{ marginRight: '0.5rem', accentColor: '#6366F1' }} />
+                <span>
+                  <strong>Représentation successorale</strong><br />
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Enfant prédécédé ou renonçant — partage par souche</span>
+                </span>
+              </label>
+            )}
 
             <label style={sCheckLabel}>
               <input type="checkbox" checked={handicap} onChange={e => setHandicap(e.target.checked)}
                 style={{ marginRight: '0.5rem', accentColor: '#6366F1' }} />
               <span>
                 <strong>Héritier handicapé</strong>
-                <span style={sBadgeBlue}>+ 159 325 €</span>
-                <br />
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                  Cumulable avec abattement principal (art. 779 II CGI)
-                </span>
-              </span>
-            </label>
-
-            <label style={sCheckLabel}>
-              <input type="checkbox" checked={representation} onChange={e => setRepresentation(e.target.checked)}
-                style={{ marginRight: '0.5rem', accentColor: '#6366F1' }} />
-              <span>
-                <strong>Représentation successorale</strong>
-                <br />
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                  Enfant prédécédé ou renonçant — partage par souche
-                </span>
+                <span style={sBadgeBlue}>+ 159 325 €</span><br />
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Cumulable avec abattement principal (art. 779 II CGI)</span>
               </span>
             </label>
 
@@ -205,19 +327,14 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
               <input type="checkbox" checked={donationRappel} onChange={e => setDonationRappel(e.target.checked)}
                 style={{ marginRight: '0.5rem', accentColor: '#6366F1' }} />
               <span>
-                <strong>Donation antérieure à rappeler</strong>
-                <br />
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                  Rappel fiscal 15 ans — abattement déjà consommé
-                </span>
+                <strong>Donation antérieure à rappeler</strong><br />
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Rappel fiscal 15 ans — abattement déjà consommé</span>
               </span>
             </label>
 
             {donationRappel && (
               <div>
-                <label className="field-label">
-                  Abattement déjà utilisé lors de la donation (€)
-                </label>
+                <label className="field-label">Abattement déjà utilisé lors de la donation (€)</label>
                 <input type="number" value={abattementDeja} min={0}
                   onChange={e => setAbattementDeja(Number(e.target.value))}
                   className="glass-input" />
@@ -248,45 +365,124 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
       {/* Colonne résultats */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
 
-        {representation && (
+        {representation && !isPetitEnfant && (
           <div style={sBandeauInfo}>
-            <strong>Représentation successorale</strong> — Les petits-enfants viennent en représentation de leur parent prédécédé ou renonçant. Le calcul s’applique à chaque représentant sur sa quote-part. Le partage se fait par souche et non par tête.
+            <strong>Représentation successorale</strong> — Les petits-enfants viennent en représentation de leur parent prédécédé ou renonçant. Le partage se fait par souche et non par tête.
           </div>
         )}
 
-        {/* KPIs récap */}
-        <div className="glass-card-hi" style={{ padding: '1.5rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '1rem', alignItems: 'center' }}>
-          <div>
-            <span style={sKpi}>Abattement / héritier</span>
-            <p style={{ ...sKpiVal, color: '#10B981' }}>
-              {calculs.exonere ? 'ILLIMITÉ' : `${fmt(calculs.abattementTotal)} €`}
-            </p>
-            {!calculs.exonere && handicap && (
-              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>
-                ({fmt(calculs.abBase)} + {fmt(calculs.abHandicap)} handicap{donationRappel ? ` − ${fmt(abattementDeja)} déjà utilisé` : ''})
-              </span>
-            )}
+        {/* ── Sections A & B pour petit-enfant ── */}
+        {isPetitEnfant && pe && (
+          <>
+            {/* Section A — sans renonciation */}
+            <div style={{
+              padding: '1.25rem', borderRadius: 12,
+              background: 'rgba(239,68,68,0.06)',
+              border: '1px solid rgba(239,68,68,0.25)',
+            }}>
+              <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#F87171', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.75rem' }}>
+                Situation A — Sans renonciation
+              </div>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 0.625rem' }}>
+                Si l'enfant parent <strong>accepte</strong> la succession, les petits-enfants sont exclus de la dévolution légale.
+              </p>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 8, padding: '0.5rem 0.875rem', fontSize: '0.8rem' }}>
+                  ❌ <strong style={{ color: '#F87171' }}>0 €</strong> <span style={{ color: 'var(--text-muted)' }}>reçu légalement</span>
+                </div>
+                <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 8, padding: '0.5rem 0.875rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  Partage par tête entre les enfants uniquement
+                </div>
+              </div>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: '0.75rem 0 0', fontStyle: 'italic' }}>
+                Note : avec un testament, 31 865 € d'abattement chacun (barème ligne directe).
+              </p>
+            </div>
+
+            {/* Section B — avec renonciation */}
+            <div style={{
+              padding: '1.25rem', borderRadius: 12,
+              background: 'rgba(16,185,129,0.06)',
+              border: `1.5px solid ${enfantRenonce ? 'rgba(16,185,129,0.5)' : 'rgba(16,185,129,0.2)'}`,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  Situation B — Avec renonciation
+                </span>
+                {enfantRenonce && (
+                  <span style={{ fontSize: '0.65rem', fontWeight: 700, background: 'rgba(16,185,129,0.15)', color: '#6EE7B7', border: '1px solid rgba(16,185,129,0.3)', padding: '0.15rem 0.5rem', borderRadius: 999 }}>
+                    Scénario actif
+                  </span>
+                )}
+              </div>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 0.875rem' }}>
+                Si l'enfant parent <strong>renonce</strong> : ✅ représentation s'applique · ✅ abattement 100 000 € partagé
+                entre {pe.nbPE} petit{pe.nbPE > 1 ? 's' : ''}-enfant{pe.nbPE > 1 ? 's' : ''}.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(155px, 1fr))', gap: '0.75rem' }}>
+                <div style={{ background: 'var(--bg-surface-md)', borderRadius: 8, padding: '0.75rem', border: '1px solid var(--border-subtle)' }}>
+                  <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Part reçue</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-secondary)' }}>{fmt(pe.partParPE)} €</div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>{fmt(pe.partDeLaSouche)} € ÷ {pe.nbPE}</div>
+                </div>
+                <div style={{ background: 'var(--bg-surface-md)', borderRadius: 8, padding: '0.75rem', border: '1px solid var(--border-subtle)' }}>
+                  <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Abattement</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: '#10B981' }}>{fmt(pe.avecRenonciation.abTotal)} €</div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>100 000 € ÷ {pe.nbPE} = {fmt(pe.avecRenonciation.ab)} €</div>
+                </div>
+                <div style={{ background: 'var(--bg-surface-md)', borderRadius: 8, padding: '0.75rem', border: '1px solid var(--border-subtle)' }}>
+                  <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Droits</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 700, color: '#F59E0B' }}>{fmt(pe.avecRenonciation.droits)} €</div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>Assiette {fmt(pe.avecRenonciation.assiette)} €</div>
+                </div>
+                <div style={{ background: 'rgba(99,102,241,0.08)', borderRadius: 8, padding: '0.75rem', border: '1px solid rgba(99,102,241,0.3)' }}>
+                  <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#A5B4FC', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Net reçu</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 700, color: '#6366F1' }}>{fmt(pe.avecRenonciation.net)} €</div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>par petit-enfant</div>
+                </div>
+              </div>
+              <div style={{ marginTop: '0.875rem', padding: '0.6rem 0.875rem', background: 'rgba(99,102,241,0.08)', borderRadius: 8, border: '1px solid rgba(99,102,241,0.2)', fontSize: '0.82rem', color: '#A5B4FC' }}>
+                💡 <strong>Optimisation</strong> : la renonciation permet à chaque petit-enfant de recevoir{' '}
+                <strong>{fmt(pe.avecRenonciation.net)} €</strong> au lieu de 0 € légalement
+                (gain : +{fmt(pe.avecRenonciation.net)} €).
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* KPIs récap — masqués en mode petit-enfant (sections A/B suffisent) */}
+        {!isPetitEnfant && (
+          <div className="glass-card-hi" style={{ padding: '1.5rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '1rem', alignItems: 'center' }}>
+            <div>
+              <span style={sKpi}>Abattement / héritier</span>
+              <p style={{ ...sKpiVal, color: '#10B981' }}>
+                {calculs.exonere ? 'ILLIMITÉ' : `${fmt(calculs.abattementTotal)} €`}
+              </p>
+              {!calculs.exonere && handicap && (
+                <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>
+                  ({fmt(calculs.abBase)} + {fmt(calculs.abHandicap)} handicap{donationRappel ? ` − ${fmt(abattementDeja)} déjà utilisé` : ''})
+                </span>
+              )}
+            </div>
+            <div>
+              <span style={sKpi}>Part brute / héritier</span>
+              <p style={{ ...sKpiVal, color: 'var(--text-secondary)' }}>{fmt(calculs.partParHeritier)} €</p>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <span style={sKpi}>Droits / héritier</span>
+              <p style={{ ...sKpiVal, color: 'var(--text-primary)' }}>{fmt(calculs.droitsParHeritier)} €</p>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <span style={sKpi}>Net reçu / héritier</span>
+              <p style={{ ...sKpiVal, color: '#6366F1', fontSize: '2rem' }}>{fmt(calculs.netParHeritier)} €</p>
+            </div>
           </div>
-          <div>
-            <span style={sKpi}>Part brute / héritier</span>
-            <p style={{ ...sKpiVal, color: 'var(--text-secondary)' }}>{fmt(calculs.partParHeritier)} €</p>
-          </div>
-          <div style={{ textAlign: 'right' }}>
-            <span style={sKpi}>Droits / héritier</span>
-            <p style={{ ...sKpiVal, color: 'var(--text-primary)' }}>{fmt(calculs.droitsParHeritier)} €</p>
-          </div>
-          <div style={{ textAlign: 'right' }}>
-            <span style={sKpi}>Net reçu / héritier</span>
-            <p style={{ ...sKpiVal, color: '#6366F1', fontSize: '2rem' }}>{fmt(calculs.netParHeritier)} €</p>
-          </div>
-        </div>
+        )}
 
         {/* Répartition par héritier */}
-        {!calculs.exonere && nbHeritiers > 1 && (
+        {!calculs.exonere && !isPetitEnfant && nbHeritiers > 1 && (
           <div className="glass-card" style={{ padding: '1.25rem' }}>
-            <h3 style={sH3}>
-              Répartition — {nbHeritiers} héritier{nbHeritiers > 1 ? 's' : ''}
-            </h3>
+            <h3 style={sH3}>Répartition — {nbHeritiers} héritier{nbHeritiers > 1 ? 's' : ''}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', gap: '0.75rem' }}>
               {Array.from({ length: Math.min(nbHeritiers, 8) }).map((_, i) => (
                 <div key={i} style={{ background: 'var(--bg-surface-md)', borderRadius: 10, padding: '0.75rem', border: '1px solid var(--border-subtle)' }}>
@@ -294,45 +490,80 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
                     {representation ? `Souche ${i + 1}` : `Héritier ${i + 1}`}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                    Part brute&nbsp;: <strong style={{ color: 'var(--text-primary)' }}>{fmt(calculs.partParHeritier)} €</strong>
+                    Part brute&nbsp;: <strong style={{ color: 'var(--text-primary)' }}>{fmt(calculs.partParHeritier)} €</strong>
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                    Droits&nbsp;: <strong style={{ color: '#F59E0B' }}>{fmt(calculs.droitsParHeritier)} €</strong>
+                    Droits&nbsp;: <strong style={{ color: '#F59E0B' }}>{fmt(calculs.droitsParHeritier)} €</strong>
                   </div>
                   <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6366F1', marginTop: '0.3rem' }}>
-                    Net&nbsp;: {fmt(calculs.netParHeritier)} €
+                    Net&nbsp;: {fmt(calculs.netParHeritier)} €
                   </div>
                 </div>
               ))}
               {nbHeritiers > 8 && (
                 <div style={{ background: 'var(--bg-surface-md)', borderRadius: 10, padding: '0.75rem', border: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    + {nbHeritiers - 8} autres (même calcul)
-                  </span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>+ {nbHeritiers - 8} autres (même calcul)</span>
                 </div>
               )}
             </div>
           </div>
         )}
 
-        {/* Résultat fiscal */}
-        {calculs.exonere ? (
-          <div style={{ padding: '2rem', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 14, textAlign: 'center' }}>
-            <p style={{ color: '#6EE7B7', fontWeight: 600, fontSize: '0.9rem', fontStyle: 'italic', lineHeight: 1.6 }}>
-              {'"Le conjoint survivant et le partenaire lié par un PACS sont totalement exonérés de droits de succession."'}
-              <br />
-              <span style={{ fontSize: '0.72rem', fontWeight: 400, textTransform: 'uppercase', display: 'block', marginTop: '0.5rem', opacity: 0.7 }}>
-                (Art. 796-0 bis du CGI)
-              </span>
-            </p>
-          </div>
-        ) : (
+        {/* Résultat fiscal standard */}
+        {!isPetitEnfant && (
+          calculs.exonere ? (
+            <div style={{ padding: '2rem', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 14, textAlign: 'center' }}>
+              <p style={{ color: '#6EE7B7', fontWeight: 600, fontSize: '0.9rem', fontStyle: 'italic', lineHeight: 1.6 }}>
+                {'"Le conjoint survivant et le partenaire lié par un PACS sont totalement exonérés de droits de succession."'}
+                <br />
+                <span style={{ fontSize: '0.72rem', fontWeight: 400, textTransform: 'uppercase', display: 'block', marginTop: '0.5rem', opacity: 0.7 }}>(Art. 796-0 bis du CGI)</span>
+              </p>
+            </div>
+          ) : (
+            <div className="glass-card" style={{ overflow: 'hidden' }}>
+              <div style={{ padding: '1rem 1.25rem', borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-surface-md)' }}>
+                <h3 style={{ margin: 0, fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)' }}>Barème d'imposition par héritier</h3>
+                <span style={sBadgeGray}>Part taxable&nbsp;: {fmt(calculs.assietteTaxable)} €</span>
+              </div>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                  <thead>
+                    <tr style={{ background: 'var(--bg-surface-md)', borderBottom: '1px solid var(--border-subtle)' }}>
+                      {['Tranche', 'Assiette', 'Taux', 'Impôt'].map(h => (
+                        <th key={h} style={{ padding: '0.7rem 1.25rem', textAlign: h === 'Tranche' ? 'left' : h === 'Impôt' ? 'right' : 'center', fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {calculs.detail.map((t, i) => (
+                      <tr key={i} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                        <td style={{ padding: '0.7rem 1.25rem', color: 'var(--text-secondary)' }}>{t.label}</td>
+                        <td style={{ padding: '0.7rem 1.25rem', textAlign: 'center', fontWeight: 700, color: 'var(--text-primary)' }}>{fmt(t.assiette)} €</td>
+                        <td style={{ padding: '0.7rem 1.25rem', textAlign: 'center' }}><span className="badge badge-amber">{t.taux}%</span></td>
+                        <td style={{ padding: '0.7rem 1.25rem', textAlign: 'right', fontWeight: 700, color: 'var(--text-primary)' }}>{fmt(t.impot)} €</td>
+                      </tr>
+                    ))}
+                    {calculs.detail.length === 0 && (
+                      <tr>
+                        <td colSpan={4} style={{ padding: '3rem', textAlign: 'center' }}>
+                          <p style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Aucun droit à payer</p>
+                          <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginTop: '0.25rem' }}>L'abattement couvre l'intégralité de la part.</p>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )
+        )}
+
+        {/* Barème pour petit-enfant avec renonciation */}
+        {isPetitEnfant && enfantRenonce && pe && pe.avecRenonciation.detail.length > 0 && (
           <div className="glass-card" style={{ overflow: 'hidden' }}>
             <div style={{ padding: '1rem 1.25rem', borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-surface-md)' }}>
-              <h3 style={{ margin: 0, fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                Barème d’imposition par héritier
-              </h3>
-              <span style={sBadgeGray}>Part taxable&nbsp;: {fmt(calculs.assietteTaxable)} €</span>
+              <h3 style={{ margin: 0, fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)' }}>Barème ligne directe — représentation</h3>
+              <span style={sBadgeGray}>Part taxable&nbsp;: {fmt(pe.avecRenonciation.assiette)} €</span>
             </div>
             <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
@@ -344,29 +575,25 @@ function TabSimulateur({ baremes }: { baremes: BaremesData }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {calculs.detail.map((t, i) => (
+                  {pe.avecRenonciation.detail.map((t, i) => (
                     <tr key={i} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                       <td style={{ padding: '0.7rem 1.25rem', color: 'var(--text-secondary)' }}>{t.label}</td>
-                      <td style={{ padding: '0.7rem 1.25rem', textAlign: 'center', fontWeight: 700, color: 'var(--text-primary)' }}>{fmt(t.assiette)} €</td>
+                      <td style={{ padding: '0.7rem 1.25rem', textAlign: 'center', fontWeight: 700, color: 'var(--text-primary)' }}>{fmt(t.assiette)} €</td>
                       <td style={{ padding: '0.7rem 1.25rem', textAlign: 'center' }}><span className="badge badge-amber">{t.taux}%</span></td>
-                      <td style={{ padding: '0.7rem 1.25rem', textAlign: 'right', fontWeight: 700, color: 'var(--text-primary)' }}>{fmt(t.impot)} €</td>
+                      <td style={{ padding: '0.7rem 1.25rem', textAlign: 'right', fontWeight: 700, color: 'var(--text-primary)' }}>{fmt(t.impot)} €</td>
                     </tr>
                   ))}
-                  {calculs.detail.length === 0 && (
-                    <tr>
-                      <td colSpan={4} style={{ padding: '3rem', textAlign: 'center' }}>
-                        <p style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                          Aucun droit à payer
-                        </p>
-                        <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginTop: '0.25rem' }}>
-                          L’abattement couvre l’intégralité de la part.
-                        </p>
-                      </td>
-                    </tr>
-                  )}
                 </tbody>
               </table>
             </div>
+          </div>
+        )}
+
+        {isPetitEnfant && enfantRenonce && pe && pe.avecRenonciation.assiette === 0 && (
+          <div style={{ padding: '1.5rem', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: 12, textAlign: 'center' }}>
+            <p style={{ color: '#6EE7B7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>
+              ✅ Aucun droit à payer — l'abattement couvre l'intégralité de la part.
+            </p>
           </div>
         )}
       </div>
