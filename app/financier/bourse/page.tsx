@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useState, useMemo, useEffect } from 'react';
 
@@ -287,7 +288,8 @@ export default function BoursePage() {
   };
 
   return (
-    <main style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem 1.25rem', position: 'relative', zIndex: 1 }}>
+    <AuthGate>
+      <main style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem 1.25rem', position: 'relative', zIndex: 1 }}>
 
       {/* En-tête */}
       <div className="animate-fade-up" style={{ marginBottom: '2rem' }}>
@@ -465,6 +467,7 @@ export default function BoursePage() {
           )}
         </div>
       </div>
-    </main>
+      </main>
+    </AuthGate>
   );
 }

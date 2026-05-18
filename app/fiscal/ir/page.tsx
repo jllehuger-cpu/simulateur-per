@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useState, useEffect, useMemo } from 'react';
 
@@ -110,7 +111,8 @@ export default function IRPage() {
   } as React.CSSProperties);
 
   return (
-    <main style={{ maxWidth: 1200, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
+    <AuthGate>
+      <main style={{ maxWidth: 1200, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
 
       {/* HEADER */}
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '2.5rem' }}>
@@ -256,6 +258,7 @@ export default function IRPage() {
           )}
         </div>
       </div>
-    </main>
+      </main>
+    </AuthGate>
   );
 }

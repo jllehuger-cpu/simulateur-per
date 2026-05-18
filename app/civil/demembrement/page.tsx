@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
@@ -103,7 +104,8 @@ export default function DemembrementPage() {
   } as React.CSSProperties);
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
+    <AuthGate>
+      <main style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
 
       {/* BARRE TOGGLES */}
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
@@ -285,6 +287,7 @@ export default function DemembrementPage() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+    </AuthGate>
   );
 }

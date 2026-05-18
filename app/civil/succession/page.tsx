@@ -1,5 +1,6 @@
 'use client';
 
+import { AuthGate } from '@/components/auth-gate';
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 
@@ -869,7 +870,8 @@ export default function SuccessionPage() {
   );
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.25rem' }}>
+    <AuthGate>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.25rem' }}>
       <div style={{ marginBottom: '2rem' }}>
         <p style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
           Audit Patrimoine · Axe civil
@@ -903,5 +905,6 @@ export default function SuccessionPage() {
         {tab === 'delais'       && <TabDelais />}
       </div>
     </div>
+    </AuthGate>
   );
 }

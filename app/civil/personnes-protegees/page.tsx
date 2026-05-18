@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useState } from 'react';
 
@@ -548,7 +549,8 @@ export default function PersonnesProtegeesPage() {
   const [tab, setTab] = useState('regime');
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.25rem' }}>
+    <AuthGate>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.25rem' }}>
       {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
         <p style={{
@@ -595,5 +597,6 @@ export default function PersonnesProtegeesPage() {
         {tab === 'alertes' && <TabAlertes />}
       </div>
     </div>
+    </AuthGate>
   );
 }

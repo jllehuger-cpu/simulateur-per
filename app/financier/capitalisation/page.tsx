@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useState, useMemo, useEffect } from 'react';
 
@@ -241,7 +242,8 @@ export default function CapitalisationPage() {
   const etapes = realiste.data.filter(d => d.annee % 5 === 0 || d.annee === 1 || d.annee === dureeAns);
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.25rem', position: 'relative', zIndex: 1 }}>
+    <AuthGate>
+      <main style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.25rem', position: 'relative', zIndex: 1 }}>
 
       {/* En-tête */}
       <div className="animate-fade-up" style={{ marginBottom: '2.5rem' }}>
@@ -578,6 +580,7 @@ export default function CapitalisationPage() {
 
         </div>
       </div>
-    </main>
+      </main>
+    </AuthGate>
   );
 }

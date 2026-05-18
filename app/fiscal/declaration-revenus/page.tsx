@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useMemo, useState } from 'react';
 
@@ -50,7 +51,8 @@ export default function DeclarationRevenusPage() {
   const ecart = Math.abs(forfait10 - fraisReelsTotal);
 
   return (
-    <div style={{ maxWidth: 680, margin: '0 auto', padding: '2rem 1.25rem 3rem' }}>
+    <AuthGate>
+      <div style={{ maxWidth: 680, margin: '0 auto', padding: '2rem 1.25rem 3rem' }}>
       <p className="section-title">Aspect fiscal · Déclaration de revenus</p>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '-0.02em', margin: '0 0 2rem' }}>
         Aide à la préparation
@@ -153,6 +155,7 @@ export default function DeclarationRevenusPage() {
           * Outil pédagogique simplifié. Plafonds et barème kilométrique exact : voir impots.gouv.fr
         </p>
       </div>
-    </div>
+      </div>
+    </AuthGate>
   );
 }

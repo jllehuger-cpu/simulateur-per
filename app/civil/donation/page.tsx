@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
@@ -52,7 +53,8 @@ export default function DonationPage() {
   );
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
+    <AuthGate>
+      <main style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem 3rem' }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1.5rem', alignItems: 'start' }}>
 
         {/* COLONNE GAUCHE */}
@@ -147,6 +149,7 @@ export default function DonationPage() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+    </AuthGate>
   );
 }

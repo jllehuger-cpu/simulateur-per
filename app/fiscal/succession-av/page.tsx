@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -286,7 +287,8 @@ export default function SuccessionAVPage() {
      RENDU
   ───────────────────────────────────────────────────────── */
   return (
-    <main style={{ minHeight: '100vh', padding: '2rem 1rem 4rem', fontFamily: 'var(--font-sans)' }}>
+    <AuthGate>
+      <main style={{ minHeight: '100vh', padding: '2rem 1rem 4rem', fontFamily: 'var(--font-sans)' }}>
       <div style={{ maxWidth: 820, margin: '0 auto' }}>
 
         {/* ── Fil d'Ariane ── */}
@@ -652,6 +654,7 @@ export default function SuccessionAVPage() {
 
         </div>
       </div>
-    </main>
+      </main>
+    </AuthGate>
   );
 }

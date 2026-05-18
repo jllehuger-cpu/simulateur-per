@@ -1,4 +1,5 @@
 'use client';
+import { AuthGate } from '@/components/auth-gate';
 
 import { useState, useMemo } from 'react';
 
@@ -192,7 +193,8 @@ export default function EmpruntPage() {
   const pctInterets = resultats.coutInterets / (montant + resultats.coutTotal) * 100;
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.25rem', position: 'relative', zIndex: 1 }}>
+    <AuthGate>
+      <main style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.25rem', position: 'relative', zIndex: 1 }}>
 
       {/* En-tête */}
       <div className="animate-fade-up" style={{ marginBottom: '2.5rem' }}>
@@ -416,7 +418,8 @@ export default function EmpruntPage() {
 
         </div>
       </div>
-    </main>
+      </main>
+    </AuthGate>
   );
 }
 

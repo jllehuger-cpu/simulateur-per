@@ -1,5 +1,6 @@
 'use client';
 
+import { AuthGate } from '@/components/auth-gate';
 import { useState } from 'react';
 
 /* ─── Types ─── */
@@ -785,7 +786,8 @@ export default function ClauseBeneficiairePage() {
   const goBack = () => setStep(s => Math.max(1, s - 1));
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.25rem' }}>
+    <AuthGate>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.25rem' }}>
       {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
         <p style={{
@@ -872,5 +874,6 @@ export default function ClauseBeneficiairePage() {
         </div>
       </div>
     </div>
+    </AuthGate>
   );
 }
