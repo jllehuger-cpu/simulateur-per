@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeAppCatalog xmlns="http://schemas.microsoft.com/office/appforoffice/1.1">
+  <Apps>
+    <App>
+      <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:type="TaskPaneApp">
+        <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
+        <Version>1.0.1.0</Version>
+        <ProviderName>Heritum</ProviderName>
+        <DefaultLocale>fr-FR</DefaultLocale>
+        <DisplayName DefaultValue="Heritum – Simulation PER" />
+        <Description DefaultValue="Simulation PER connectée à votre moteur de calcul. Données client 100% locales." />
+        <IconUrl DefaultValue="https://per.mon-audit-patrimoine.fr/favicon.ico" />
+        <HighResolutionIconUrl DefaultValue="https://per.mon-audit-patrimoine.fr/favicon.ico" />
+        <SupportUrl DefaultValue="https://heritum.fr" />
+        <AppDomains>
+          <AppDomain>https://per.mon-audit-patrimoine.fr</AppDomain>
+        </AppDomains>
+        <Hosts>
+          <Host Name="Document" />
+        </Hosts>
+        <DefaultSettings>
+          <SourceLocation DefaultValue="https://per.mon-audit-patrimoine.fr/addin/taskpane.html" />
+        </DefaultSettings>
+        <Permissions>ReadWriteDocument</Permissions>
+      </OfficeApp>
+    </App>
+  </Apps>
+</OfficeAppCatalog>
