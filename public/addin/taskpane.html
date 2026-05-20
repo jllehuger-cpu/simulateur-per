@@ -1,1 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heritum – Simulation PER</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+    :root {
+      --or:       #C9A84C;
+      --or-light: #F0DFA0;
+      --encre:    #1A1A2E;
+      --fond:     #F7F5F0;
+      --gris:     #6B6B7B;
+      --bordure:  #E0D9CC;
+      --succes:   #2D6A4F;
+      --erreur:   #C1121F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--fond);
+      color: var(--encre);
+      font-size: 13px;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--encre);
+      padding: 14px 16px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--or);
+    }
+
+    .logo-mark {
+      width: 32px; height: 32px;
+      background: var(--or);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--encre);
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      color: var(--or-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .tabs {
+      display: flex;
+      background: #fff;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .tab {
+      flex: 1;
+      padding: 9px 4px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gris);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all .2s;
+      letter-spacing: 0.03em;
+    }
+
+    .tab.active {
+      color: var(--encre);
+      border-bottom-color: var(--or);
+      font-weight: 600;
+    }
+
+    .content { padding: 14px 14px 80px; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .dossier-card {
+      background: #fff;
+      border: 1px solid var(--bordure);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+
+    .dossier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--encre);
+    }
+
+    .badge {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-local { background: #E8F5E9; color: var(--succes); }
+    .badge-calcul { background: #FFF8E1; color: #B8860B; }
+
+    .field { margin-bottom: 10px; }
+
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gris);
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--bordure);
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--encre);
+      background: var(--fond);
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--or);
+      background: #fff;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .sep { height: 1px; background: var(--bordure); margin: 12px 0; }
+
+    .rgpd-notice {
+      background: #E8F5E9;
+      border: 1px solid #A5D6A7;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .rgpd-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+    .rgpd-text {
+      font-size: 11px;
+      color: var(--succes);
+      line-height: 1.5;
+    }
+
+    .rgpd-text strong { font-weight: 600; }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-primary { background: var(--encre); color: #fff; }
+    .btn-primary:hover { background: #2d2d4e; }
+    .btn-gold { background: var(--or); color: var(--encre); font-weight: 600; }
+    .btn-gold:hover { background: #b8923e; }
+    .btn-outline { background: transparent; border: 1px solid var(--bordure); color: var(--gris); }
+    .btn-outline:hover { border-color: var(--encre); color: var(--encre); }
+    .btn-sm { padding: 6px 12px; font-size: 12px; width: auto; }
+
+    .results-card {
+      background: var(--encre);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .results-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--or-light);
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .result-item:last-child { border-bottom: none; }
+
+    .result-label { font-size: 11px; color: rgba(255,255,255,0.6); }
+
+    .result-value { font-size: 14px; font-weight: 600; color: var(--or); }
+
+    .result-value.highlight {
+      font-size: 18px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .tranche-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--bordure);
+      font-size: 12px;
+    }
+
+    .tranche-bar:last-child { border-bottom: none; }
+
+    .tranche-taux {
+      width: 32px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 11px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      background: var(--or-light);
+      color: var(--encre);
+      flex-shrink: 0;
+    }
+
+    .tranche-label { flex: 1; color: var(--gris); }
+    .tranche-value { font-weight: 600; color: var(--succes); }
+
+    .tmi-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tmi-stable { background: #FFF8E1; color: #B8860B; }
+    .tmi-baisse { background: #E8F5E9; color: var(--succes); }
+
+    .dossier-item {
+      background: #fff;
+      border: 1px solid var(--bordure);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: border-color .2s;
+    }
+
+    .dossier-item:hover { border-color: var(--or); }
+    .dossier-name { font-weight: 500; font-size: 13px; }
+    .dossier-meta { font-size: 11px; color: var(--gris); margin-top: 2px; }
+
+    .loader { display: none; text-align: center; padding: 20px; }
+    .loader.active { display: block; }
+
+    .spinner {
+      width: 28px; height: 28px;
+      border: 3px solid var(--bordure);
+      border-top-color: var(--or);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loader-text { font-size: 12px; color: var(--gris); }
+
+    .toast {
+      position: fixed;
+      bottom: 16px; left: 14px; right: 14px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all .3s;
+      z-index: 100;
+    }
+
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.success { background: var(--succes); color: #fff; }
+    .toast.error { background: var(--erreur); color: #fff; }
+
+    .footer-actions {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #fff;
+      border-top: 1px solid var(--bordure);
+      padding: 10px 14px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .empty-state { text-align: center; padding: 30px 20px; color: var(--gris); }
+    .empty-icon { font-size: 32px; margin-bottom: 10px; }
+    .empty-text { font-size: 13px; line-height: 1.5; }
+
+    .info-box {
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 11px;
+      color: #3730A3;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<!-- En-tête -->
+<header>
+  <div class="logo-mark">H</div>
+  <div>
+    <div class="logo-text">Heritum</div>
+    <div class="logo-sub">Simulation patrimoniale</div>
+  </div>
+</header>
+
+<!-- Onglets -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('saisie')">Saisie</div>
+  <div class="tab" onclick="switchTab('resultats')">Résultats</div>
+  <div class="tab" onclick="switchTab('dossiers')">Dossiers</div>
+</div>
+
+<div class="content">
+
+  <!-- ═══ ONGLET SAISIE ═══ -->
+  <div id="panel-saisie" class="panel active">
+
+    <div class="rgpd-notice">
+      <div class="rgpd-icon">🔒</div>
+      <div class="rgpd-text">
+        <strong>Données 100% locales.</strong> Nom et identité restent sur votre poste. Seuls les chiffres anonymisés sont envoyés au moteur de calcul.
+      </div>
+    </div>
+
+    <!-- Identité client — locale uniquement -->
+    <div class="dossier-card">
+      <div class="dossier-header">
+        <div class="section-title">Client</div>
+        <span class="badge badge-local">📁 Local uniquement</span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Prénom</label>
+          <input type="text" id="prenom" placeholder="Jean" />
+        </div>
+        <div class="field">
+          <label>Nom</label>
+          <input type="text" id="nom" placeholder="Dupont" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Référence dossier</label>
+        <input type="text" id="ref" placeholder="DUPONT-2024-PER" />
+      </div>
+    </div>
+
+    <!-- Données fiscales — envoyées anonymisées -->
+    <div class="dossier-card">
+      <div class="dossier-header">
+        <div class="section-title">Situation fiscale</div>
+        <span class="badge badge-calcul">⚡ Calcul Heritum</span>
+      </div>
+
+      <div class="field">
+        <label>Situation familiale</label>
+        <select id="statut">
+          <option value="celibataire">Célibataire / Divorcé / Veuf</option>
+          <option value="marie_pacse">Marié / Pacsé</option>
+        </select>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Parts fiscales</label>
+          <input type="number" id="parts-fiscales" placeholder="1" min="1" max="10" step="0.5" value="1" />
+        </div>
+        <div class="field">
+          <label>Revenu fiscal référence (€)</label>
+          <input type="number" id="rfr" placeholder="120000" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Revenu brut global (€)</label>
+        <input type="number" id="revenu-brut" placeholder="120000" />
+        <div class="info-box">💡 En général identique au RFR pour un salarié. Différent si revenus fonciers, BIC…</div>
+      </div>
+    </div>
+
+    <!-- Données PER -->
+    <div class="dossier-card">
+      <div class="dossier-header">
+        <div class="section-title">Versement PER</div>
+        <span class="badge badge-calcul">⚡ Calcul Heritum</span>
+      </div>
+
+      <div class="field">
+        <label>Plafond de déductibilité disponible (€)</label>
+        <input type="number" id="plafond" placeholder="12000" />
+        <div class="info-box">💡 10% du revenu N-1, max 35 194 € (2024). Vérifiez l'avis d'imposition du client.</div>
+      </div>
+
+      <div class="field">
+        <label>Versement PER envisagé (€)</label>
+        <input type="number" id="versement" placeholder="10000" />
+      </div>
+    </div>
+
+    <button class="btn btn-gold" onclick="lancerCalcul()">
+      ⚡ Lancer la simulation
+    </button>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <div class="loader-text">Calcul en cours sur le moteur Heritum…</div>
+    </div>
+
+  </div>
+
+  <!-- ═══ ONGLET RÉSULTATS ═══ -->
+  <div id="panel-resultats" class="panel">
+
+    <div id="resultats-vide" class="empty-state">
+      <div class="empty-icon">📊</div>
+      <div class="empty-text">Lancez une simulation depuis l'onglet Saisie pour voir les résultats ici.</div>
+    </div>
+
+    <div id="resultats-contenu" style="display:none">
+
+      <!-- TMI badge -->
+      <div id="tmi-badge-container" style="margin-bottom:12px"></div>
+
+      <!-- Synthèse principale -->
+      <div class="results-card">
+        <div class="results-title">💶 Synthèse — <span id="res-client-name"></span></div>
+
+        <div class="result-item">
+          <span class="result-label">Économie fiscale totale</span>
+          <span class="result-value highlight" id="res-economie-totale">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">dont économie IR</span>
+          <span class="result-value" id="res-economie-ir">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">dont économie CEHR</span>
+          <span class="result-value" id="res-economie-cehr">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Coût réel du versement</span>
+          <span class="result-value" id="res-cout-reel">—</span>
+        </div>
+      </div>
+
+      <!-- Impôt avant/après -->
+      <div class="dossier-card">
+        <div class="section-title" style="margin-bottom:10px">Impôt avant / après versement</div>
+        <div class="result-item">
+          <span class="result-label">IR avant versement</span>
+          <span class="result-value" id="res-ir-avant">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">IR après versement</span>
+          <span class="result-value" id="res-ir-apres">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">TMI avant</span>
+          <span class="result-value" id="res-tmi-avant">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">TMI après</span>
+          <span class="result-value" id="res-tmi-apres">—</span>
+        </div>
+      </div>
+
+      <!-- Répartition par tranche -->
+      <div class="dossier-card" id="tranches-card">
+        <div class="section-title" style="margin-bottom:10px">Répartition de l'économie par tranche</div>
+        <div id="tranches-list"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ ONGLET DOSSIERS ═══ -->
+  <div id="panel-dossiers" class="panel">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+      <div class="section-title" style="font-family:'Cormorant Garamond',serif; font-size:16px">Dossiers locaux</div>
+      <button class="btn btn-outline btn-sm" onclick="switchTab('saisie')">+ Nouveau</button>
+    </div>
+
+    <div id="liste-dossiers">
+      <div class="empty-state">
+        <div class="empty-icon">📂</div>
+        <div class="empty-text">Aucun dossier sauvegardé.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer-actions" id="footer-actions" style="display:none">
+  <button class="btn btn-outline" style="flex:1" onclick="sauvegarderDossier()">💾 Sauvegarder</button>
+  <button class="btn btn-primary" style="flex:1" onclick="insererDansWord()">📄 Insérer dans Word</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════
+// URL DE L'API — votre site Next.js
+// ══════════════════════════════════════════
+const API_URL = 'https://per.mon-audit-patrimoine.fr/api/calculate/per';
+
+let etatActuel = { client: {}, donnees: {}, resultats: null };
+let dossiers = [];
+
+Office.onReady(() => chargerDossiers());
+
+// ══════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach((t, i) => {
+    t.classList.toggle('active', ['saisie','resultats','dossiers'][i] === tab);
+  });
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('footer-actions').style.display =
+    (tab === 'resultats' && etatActuel.resultats) ? 'flex' : 'none';
+}
+
+// ══════════════════════════════════════════
+// CALCUL — appel à votre API PER réelle
+// ══════════════════════════════════════════
+async function lancerCalcul() {
+  const prenom      = document.getElementById('prenom').value.trim();
+  const nom         = document.getElementById('nom').value.trim();
+  const ref         = document.getElementById('ref').value.trim();
+  const statut      = document.getElementById('statut').value;
+  const parts       = parseFloat(document.getElementById('parts-fiscales').value);
+  const rfr         = parseFloat(document.getElementById('rfr').value);
+  const revenuBrut  = parseFloat(document.getElementById('revenu-brut').value);
+  const plafond     = parseFloat(document.getElementById('plafond').value);
+  const versement   = parseFloat(document.getElementById('versement').value);
+
+  if (!parts || !rfr || !revenuBrut || !plafond || !versement) {
+    afficherToast('Veuillez remplir tous les champs de simulation.', 'error');
+    return;
+  }
+
+  if (versement > plafond) {
+    afficherToast(`Le versement (${formaterEuros(versement)}) dépasse le plafond disponible (${formaterEuros(plafond)}).`, 'error');
+    return;
+  }
+
+  etatActuel.client = { prenom, nom, ref };
+
+  // Données anonymisées envoyées à l'API — aucune identité
+  const payload = {
+    statut,
+    revenuFiscalReference:   rfr,
+    revenuBrutGlobal:        revenuBrut,
+    partsFiscales:           parts,
+    plafondDeductibilitePer: plafond,
+    versement
+  };
+
+  etatActuel.donnees = payload;
+
+  document.getElementById('loader').classList.add('active');
+
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      throw new Error(err.error || 'Erreur serveur');
+    }
+
+    const resultats = await response.json();
+    etatActuel.resultats = resultats;
+    afficherResultats(resultats, prenom, nom);
+    switchTab('resultats');
+    afficherToast('Simulation calculée avec succès.', 'success');
+
+  } catch (e) {
+    afficherToast('Erreur : ' + e.message, 'error');
+    console.error(e);
+  } finally {
+    document.getElementById('loader').classList.remove('active');
+  }
+}
+
+// ══════════════════════════════════════════
+// AFFICHAGE RÉSULTATS
+// ══════════════════════════════════════════
+function afficherResultats(r, prenom, nom) {
+  document.getElementById('resultats-vide').style.display = 'none';
+  document.getElementById('resultats-contenu').style.display = 'block';
+
+  const nomClient = [prenom, nom].filter(Boolean).join(' ') || 'Client';
+  document.getElementById('res-client-name').textContent = nomClient;
+
+  // Synthèse
+  document.getElementById('res-economie-totale').textContent = formaterEuros(r.economieTotale);
+  document.getElementById('res-economie-ir').textContent     = formaterEuros(r.economieIR);
+  document.getElementById('res-economie-cehr').textContent   = formaterEuros(r.economieCEHR);
+  document.getElementById('res-cout-reel').textContent       = formaterEuros(r.coutReel);
+
+  // Impôt avant/après
+  document.getElementById('res-ir-avant').textContent  = formaterEuros(r.impotIRAvant);
+  document.getElementById('res-ir-apres').textContent  = formaterEuros(r.impotIRApres);
+  document.getElementById('res-tmi-avant').textContent = Math.round(r.tmiAvant * 100) + ' %';
+  document.getElementById('res-tmi-apres').textContent = Math.round(r.tmiApres * 100) + ' %';
+
+  // Badge TMI
+  const badge = document.getElementById('tmi-badge-container');
+  if (r.tmiBaisse) {
+    badge.innerHTML = `<div class="tmi-badge tmi-baisse">✅ Le versement fait descendre la TMI de ${Math.round(r.tmiAvant*100)}% à ${Math.round(r.tmiApres*100)}%</div>`;
+  } else {
+    badge.innerHTML = `<div class="tmi-badge tmi-stable">➡️ TMI stable à ${Math.round(r.tmiAvant*100)}%</div>`;
+  }
+
+  // Répartition par tranche
+  const list = document.getElementById('tranches-list');
+  if (r.repartitionParTranche && r.repartitionParTranche.length > 0) {
+    list.innerHTML = r.repartitionParTranche.map(t => `
+      <div class="tranche-bar">
+        <div class="tranche-taux">${t.label}</div>
+        <div class="tranche-label">${formaterEuros(t.eurosVerses)} versés</div>
+        <div class="tranche-value">−${formaterEuros(Math.round(t.economie))}</div>
+      </div>
+    `).join('');
+  } else {
+    list.innerHTML = '<div style="font-size:12px;color:var(--gris)">Aucune tranche impactée.</div>';
+  }
+}
+
+// ══════════════════════════════════════════
+// INSERTION DANS WORD
+// ══════════════════════════════════════════
+async function insererDansWord() {
+  if (!etatActuel.resultats) return;
+
+  const r = etatActuel.resultats;
+  const c = etatActuel.client;
+  const d = etatActuel.donnees;
+  const nomClient = [c.prenom, c.nom].filter(Boolean).join(' ') || 'Client';
+  const date = new Date().toLocaleDateString('fr-FR', { day:'2-digit', month:'long', year:'numeric' });
+
+  const tranches = (r.repartitionParTranche || [])
+    .map(t => `  • Tranche ${t.label} : ${formaterEuros(t.eurosVerses)} versés → économie ${formaterEuros(Math.round(t.economie))}`)
+    .join('\n');
+
+  const texte = `
+SIMULATION PER — ${nomClient.toUpperCase()}
+Date : ${date}${c.ref ? '\nRéférence : ' + c.ref : ''}
+
+────────────────────────────────────────
+PARAMÈTRES
+────────────────────────────────────────
+• Situation : ${d.statut === 'marie_pacse' ? 'Marié / Pacsé' : 'Célibataire / Divorcé / Veuf'}
+• Parts fiscales : ${d.partsFiscales}
+• Revenu fiscal de référence : ${formaterEuros(d.revenuFiscalReference)}
+• Revenu brut global : ${formaterEuros(d.revenuBrutGlobal)}
+• Plafond PER disponible : ${formaterEuros(d.plafondDeductibilitePer)}
+• Versement envisagé : ${formaterEuros(d.versement)}
+
+────────────────────────────────────────
+RÉSULTATS
+────────────────────────────────────────
+Économie fiscale totale         : ${formaterEuros(r.economieTotale)}
+  dont économie IR              : ${formaterEuros(r.economieIR)}
+  dont économie CEHR            : ${formaterEuros(r.economieCEHR)}
+Coût réel du versement          : ${formaterEuros(r.coutReel)}
+
+Impôt IR avant versement        : ${formaterEuros(r.impotIRAvant)}
+Impôt IR après versement        : ${formaterEuros(r.impotIRApres)}
+TMI avant                       : ${Math.round(r.tmiAvant * 100)} %
+TMI après                       : ${Math.round(r.tmiApres * 100)} %
+${r.tmiBaisse ? '⚠️  Le versement fait descendre la tranche marginale.' : ''}
+
+────────────────────────────────────────
+RÉPARTITION PAR TRANCHE
+────────────────────────────────────────
+${tranches || 'Non disponible'}
+
+────────────────────────────────────────
+Document généré par Heritum — Usage professionnel uniquement.
+Les projections sont indicatives et non contractuelles.
+  `.trim();
+
+  try {
+    await Word.run(async (context) => {
+      context.document.body.insertParagraph(texte, Word.InsertLocation.end);
+      await context.sync();
+    });
+    afficherToast('Simulation insérée dans Word.', 'success');
+  } catch (e) {
+    afficherToast('Mode démo : Word non détecté. Contenu prêt.', 'success');
+    console.log('Contenu Word :\n', texte);
+  }
+}
+
+// ══════════════════════════════════════════
+// GESTION DOSSIERS
+// ══════════════════════════════════════════
+function sauvegarderDossier() {
+  if (!etatActuel.resultats) return;
+
+  const dossier = {
+    id: Date.now(),
+    date: new Date().toISOString(),
+    client: etatActuel.client,
+    donnees: etatActuel.donnees,
+    resultats: etatActuel.resultats
+  };
+
+  dossiers.push(dossier);
+  persistDossiers();
+
+  // Télécharger JSON local
+  const blob = new Blob([JSON.stringify(dossier, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${etatActuel.client.ref || 'heritum-per-' + Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+
+  afficherToast('Dossier sauvegardé.', 'success');
+}
+
+function persistDossiers() {
+  try { localStorage.setItem('heritum_dossiers', JSON.stringify(dossiers)); } catch(e) {}
+  afficherListeDossiers();
+}
+
+function chargerDossiers() {
+  try {
+    const d = localStorage.getItem('heritum_dossiers');
+    dossiers = d ? JSON.parse(d) : [];
+  } catch(e) { dossiers = []; }
+  afficherListeDossiers();
+}
+
+function afficherListeDossiers() {
+  const liste = document.getElementById('liste-dossiers');
+  if (!dossiers.length) {
+    liste.innerHTML = `<div class="empty-state"><div class="empty-icon">📂</div><div class="empty-text">Aucun dossier sauvegardé.<br>Lancez une simulation pour commencer.</div></div>`;
+    return;
+  }
+  liste.innerHTML = dossiers.slice().reverse().map(d => `
+    <div class="dossier-item" onclick="chargerDossier(${d.id})">
+      <div>
+        <div class="dossier-name">${[d.client.prenom, d.client.nom].filter(Boolean).join(' ') || 'Sans nom'}</div>
+        <div class="dossier-meta">${d.client.ref || 'Sans référence'} · ${new Date(d.date).toLocaleDateString('fr-FR')}</div>
+        <div class="dossier-meta" style="color:var(--or)">Économie : ${formaterEuros(d.resultats.economieTotale)}</div>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); supprimerDossier(${d.id})">✕</button>
+    </div>
+  `).join('');
+}
+
+function chargerDossier(id) {
+  const d = dossiers.find(x => x.id === id);
+  if (!d) return;
+  etatActuel = { client: d.client, donnees: d.donnees, resultats: d.resultats };
+
+  document.getElementById('prenom').value         = d.client.prenom || '';
+  document.getElementById('nom').value            = d.client.nom || '';
+  document.getElementById('ref').value            = d.client.ref || '';
+  document.getElementById('statut').value         = d.donnees.statut || 'celibataire';
+  document.getElementById('parts-fiscales').value = d.donnees.partsFiscales || 1;
+  document.getElementById('rfr').value            = d.donnees.revenuFiscalReference || '';
+  document.getElementById('revenu-brut').value    = d.donnees.revenuBrutGlobal || '';
+  document.getElementById('plafond').value        = d.donnees.plafondDeductibilitePer || '';
+  document.getElementById('versement').value      = d.donnees.versement || '';
+
+  afficherResultats(d.resultats, d.client.prenom, d.client.nom);
+  switchTab('resultats');
+  afficherToast('Dossier chargé.', 'success');
+}
+
+function supprimerDossier(id) {
+  dossiers = dossiers.filter(d => d.id !== id);
+  persistDossiers();
+  afficherToast('Dossier supprimé.', 'success');
+}
+
+// ══════════════════════════════════════════
+// UTILITAIRES
+// ══════════════════════════════════════════
+function formaterEuros(n) {
+  return new Intl.NumberFormat('fr-FR', { style:'currency', currency:'EUR', maximumFractionDigits:0 }).format(n);
+}
+
+function afficherToast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type} show`;
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+</script>
+</body>
+</html>
 
