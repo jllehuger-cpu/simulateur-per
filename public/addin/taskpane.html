@@ -604,8 +604,23 @@ async function lancerCalcul() {
   const plafond     = parseFloat(document.getElementById('plafond').value);
   const versement   = parseFloat(document.getElementById('versement').value);
 
-  if (!parts || !rfr || !revenuBrut || !plafond || !versement) {
-    afficherToast('Veuillez remplir tous les champs de simulation.', 'error');
+  // Validation robuste — isNaN couvre les champs vides, null, undefined
+  const champsManquants = [];
+  if (isNaN(parts)    || parts <= 0)    champsManquants.push('Parts fiscales');
+  if (isNaN(rfr)      || rfr <= 0)      champsManquants.push('Revenu fiscal de référence');
+  if (isNaN(revenuBrut) || revenuBrut <= 0) champsManquants.push('Revenu brut global');
+  if (isNaN(plafond)  || plafond <= 0)  champsManquants.push('Plafond de déductibilité');
+  if (isNaN(versement) || versement <= 0) champsManquants.push('Versement PER');
+
+  if (champsManquants.length > 0) {
+    afficherToast('Champ(s) manquant(s) : ' + champsManquants.join(', '), 'error');
+    return;
+  }
+
+  // Vérification parts fiscales selon statut
+  const minParts = statut === 'marie_pacse' ? 2 : 1;
+  if (parts < minParts) {
+    afficherToast(`Pour un statut marié/pacsé, les parts fiscales doivent être ≥ 2.`, 'error');
     return;
   }
 
@@ -869,4 +884,3 @@ function afficherToast(msg, type) {
 </script>
 </body>
 </html>
-
