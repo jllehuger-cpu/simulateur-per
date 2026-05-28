@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-const NAV_LINKS = [
+const NAV_LINKS: { href: string; label: string; icon: string; accent?: boolean }[] = [
+  { href: '/audit',      label: 'Audit IA',   icon: '🔍', accent: true },
   { href: '/civil',      label: 'Civil',      icon: '⚖️' },
   { href: '/fiscal',     label: 'Fiscal',     icon: '📊' },
   { href: '/financier',  label: 'Financier',  icon: '💼' },
@@ -91,6 +92,7 @@ export function Navbar() {
         >
           {NAV_LINKS.map((link) => {
             const active = pathname?.startsWith(link.href);
+            const accentColor = link.accent ? '#8B5CF6' : '#3B82F6';
             return (
               <Link
                 key={link.href}
@@ -104,14 +106,19 @@ export function Navbar() {
                   fontSize: '0.875rem',
                   fontWeight: 500,
                   textDecoration: 'none',
-                  color: active ? '#fff' : 'var(--text-secondary)',
-                  background: active ? 'rgba(59,130,246,0.18)' : 'transparent',
-                  border: active ? '1px solid rgba(59,130,246,0.35)' : '1px solid transparent',
+                  color: active ? '#fff' : link.accent ? '#A78BFA' : 'var(--text-secondary)',
+                  background: active ? `rgba(${link.accent ? '139,92,246' : '59,130,246'},0.18)` : 'transparent',
+                  border: active ? `1px solid rgba(${link.accent ? '139,92,246' : '59,130,246'},0.35)` : '1px solid transparent',
                   transition: 'all 0.2s',
                 }}
               >
                 <span style={{ fontSize: '0.8rem' }}>{link.icon}</span>
                 {link.label}
+                {link.accent && !active && (
+                  <span style={{ fontSize: '0.6rem', padding: '0.1rem 0.35rem', borderRadius: 4, background: 'rgba(139,92,246,0.2)', color: accentColor, fontWeight: 700, letterSpacing: '0.04em' }}>
+                    IA
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -210,8 +217,8 @@ export function Navbar() {
                   fontSize: '0.9rem',
                   fontWeight: 500,
                   textDecoration: 'none',
-                  color: active ? '#fff' : 'var(--text-secondary)',
-                  background: active ? 'rgba(59,130,246,0.15)' : 'transparent',
+                  color: active ? '#fff' : link.accent ? '#A78BFA' : 'var(--text-secondary)',
+                  background: active ? `rgba(${link.accent ? '139,92,246' : '59,130,246'},0.15)` : 'transparent',
                 }}
               >
                 <span>{link.icon}</span>
