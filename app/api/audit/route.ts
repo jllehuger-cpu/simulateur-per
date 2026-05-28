@@ -68,7 +68,7 @@ Préconisations civiles, fiscales et financières concrètes, chiffrées. Priori
 Sois précis, technique mais accessible. Utilise les données chiffrées du client. N'invente rien.`;
 
 function extractSection(text: string, tag: string): string {
-  const re = new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`, 'i');
+  const re = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'i');
   const m = text.match(re);
   return m ? m[1].trim() : '';
 }

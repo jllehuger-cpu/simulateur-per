@@ -104,7 +104,7 @@ export function Navbar() {
                   padding: '0.4rem 0.85rem',
                   borderRadius: 8,
                   fontSize: '0.875rem',
-                  fontWeight: 500,
+                  fontWeight: link.accent ? 700 : 500,
                   textDecoration: 'none',
                   color: active ? '#fff' : link.accent ? '#A78BFA' : 'var(--text-secondary)',
                   background: active ? `rgba(${link.accent ? '139,92,246' : '59,130,246'},0.18)` : 'transparent',
