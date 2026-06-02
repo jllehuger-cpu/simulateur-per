@@ -1,3 +1,5 @@
+'use client';
+
 import { SectionAuthGate } from '@/components/section-auth-gate';
 
 export default function FiscalLayout({

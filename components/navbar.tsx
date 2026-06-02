@@ -5,10 +5,12 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const NAV_LINKS: { href: string; label: string; icon: string; accent?: boolean }[] = [
-  { href: '/audit',      label: 'Audit IA',   icon: '🔍', accent: true },
-  { href: '/civil',      label: 'Civil',      icon: '⚖️' },
-  { href: '/fiscal',     label: 'Fiscal',     icon: '📊' },
-  { href: '/financier',  label: 'Financier',  icon: '💼' },
+  { href: '/audit',      label: 'Audit IA',       icon: '🔍', accent: true },
+  { href: '/dossiers',   label: 'Dossiers',        icon: '📁' },
+  { href: '/saisie',     label: 'Nouvelle saisie', icon: '✏️' },
+  { href: '/civil',      label: 'Civil',           icon: '⚖️' },
+  { href: '/fiscal',     label: 'Fiscal',          icon: '📊' },
+  { href: '/financier',  label: 'Financier',       icon: '💼' },
 ];
 
 export function Navbar() {

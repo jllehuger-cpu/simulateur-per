@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { getDossier, sauvegarderDossier } from '@/lib/dossiers';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -127,6 +128,66 @@ function inlineMd(text: string): React.ReactNode {
       return <em key={i} style={{ color: '#A78BFA' }}>{part.slice(1, -1)}</em>;
     return part;
   });
+}
+
+// ─── Section extractor (XML tags + markdown fallback) ─────────────────────────
+
+function extractSection(text: string, tag: string): string {
+  const re = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'i');
+  const m = text.match(re);
+  return m ? m[1].trim() : '';
+}
+
+function parseAuditSections(raw: string): AuditSections {
+  const markers: Record<keyof Omit<AuditSections, 'raw'>, RegExp> = {
+    bilan_civil:     /#{1,3}\s*.*?(profil|bilan civil|situation civil)/i,
+    bilan_fiscal:    /#{1,3}\s*.*?(fiscal|revenus|fiscalit)/i,
+    bilan_financier: /#{1,3}\s*.*?(bilan financier|patrimoine|actif|passif)/i,
+    zones_risque:    /#{1,3}\s*.*?(risque|zone)/i,
+    recommandations: /#{1,3}\s*.*?(pr.conisation|recommandation|action|synth)/i,
+  }
+
+  // Try XML extraction first
+  const xmlResult: AuditSections = {
+    bilan_civil:     extractSection(raw, 'bilan_civil'),
+    bilan_fiscal:    extractSection(raw, 'bilan_fiscal'),
+    bilan_financier: extractSection(raw, 'bilan_financier'),
+    zones_risque:    extractSection(raw, 'zones_risque'),
+    recommandations: extractSection(raw, 'recommandations'),
+    raw,
+  }
+  const hasXml = (Object.keys(markers) as (keyof typeof markers)[]).some(k => xmlResult[k].length > 0)
+  if (hasXml) return xmlResult
+
+  // Fallback: markdown header detection
+  const lines = raw.split('\n')
+  const sectionStarts: { key: keyof Omit<AuditSections, 'raw'>; line: number }[] = []
+
+  lines.forEach((line, idx) => {
+    for (const [key, regex] of Object.entries(markers) as [keyof typeof markers, RegExp][]) {
+      if (regex.test(line) && !sectionStarts.find(s => s.key === key)) {
+        sectionStarts.push({ key, line: idx })
+      }
+    }
+  })
+
+  sectionStarts.sort((a, b) => a.line - b.line)
+
+  const result: AuditSections = {
+    bilan_civil: '', bilan_fiscal: '', bilan_financier: '',
+    zones_risque: '', recommandations: '', raw,
+  }
+
+  sectionStarts.forEach((section, idx) => {
+    const start = section.line
+    const end = sectionStarts[idx + 1]?.line ?? lines.length
+    result[section.key] = lines.slice(start, end).join('\n').trim()
+  })
+
+  const hasContent = (Object.keys(markers) as (keyof typeof markers)[]).some(k => result[k].length > 0)
+  if (!hasContent) result.bilan_financier = raw
+
+  return result
 }
 
 // ─── Helpers formatage ────────────────────────────────────────────────────────
@@ -396,8 +457,92 @@ export default function AuditPage() {
   const [loadingDot, setLoadingDot] = useState(0);
   const [sections, setSections] = useState<AuditSections | null>(null);
   const [apiError, setApiError] = useState('');
+  const [showExportModal, setShowExportModal] = useState(false);
+  const [nomProspect, setNomProspect] = useState('');
+  const [exporting, setExporting] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const loadingRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const runAudit = useCallback(async (data: string, alias: string | null) => {
+    setLoading(true);
+    setApiError('');
+    setSections(null);
+
+    let dot = 0;
+    loadingRef.current = setInterval(() => {
+      dot = (dot + 1) % 4;
+      setLoadingDot(dot);
+    }, 500);
+
+    try {
+      const res = await fetch('/api/audit', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ data }),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json() as { error?: string };
+        setApiError(errData.error ?? 'Erreur inconnue.');
+        setStep(2);
+        return;
+      }
+
+      // Consume SSE stream
+      const reader = res.body!.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        for (const line of chunk.split('\n')) {
+          if (!line.startsWith('data: ')) continue;
+          const raw = line.slice(6).trim();
+          if (!raw || raw === '[DONE]') continue;
+          try {
+            const evt = JSON.parse(raw) as { type: string; delta?: { type: string; text?: string } };
+            if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta' && evt.delta.text) {
+              fullText += evt.delta.text;
+            }
+          } catch { /* ignore malformed SSE events */ }
+        }
+      }
+
+      setSections(parseAuditSections(fullText));
+
+      if (alias) {
+        const dossier = await getDossier(alias);
+        if (dossier) {
+          await sauvegarderDossier({ ...dossier, audit_result: fullText, updated_at: new Date().toISOString() });
+        }
+      }
+    } catch (e) {
+      setApiError(String(e));
+      setStep(2);
+    } finally {
+      setLoading(false);
+      if (loadingRef.current) clearInterval(loadingRef.current);
+    }
+  }, []);
+
+  // Auto-launch from saisie page or display existing audit (view=1 from dossiers)
+  useEffect(() => {
+    const payload = sessionStorage.getItem('audit_payload');
+    const alias   = sessionStorage.getItem('audit_alias');
+    if (payload) {
+      sessionStorage.removeItem('audit_payload');
+      sessionStorage.removeItem('audit_alias');
+      if (window.location.search.includes('view=1')) {
+        setStep(3);
+        setSections(parseAuditSections(payload));
+      } else {
+        setStep(3);
+        void runAudit(payload, alias);
+      }
+    }
+  }, [runAudit]);
 
   const handleFile = useCallback(async (file: File) => {
     if (!file.name.endsWith('.xlsx') && !file.name.endsWith('.xls')) {
@@ -423,37 +568,8 @@ export default function AuditPage() {
 
   const handleLaunch = async () => {
     if (!clientData) return;
-    setLoading(true);
-    setApiError('');
-    setSections(null);
     setStep(3);
-
-    let dot = 0;
-    loadingRef.current = setInterval(() => {
-      dot = (dot + 1) % 4;
-      setLoadingDot(dot);
-    }, 500);
-
-    try {
-      const res = await fetch('/api/audit', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ clientData }),
-      });
-      const json = await res.json() as { success?: boolean; sections?: AuditSections; error?: string };
-      if (!json.success || !json.sections) {
-        setApiError(json.error ?? 'Erreur inconnue.');
-        setStep(2);
-      } else {
-        setSections(json.sections);
-      }
-    } catch (e) {
-      setApiError(String(e));
-      setStep(2);
-    } finally {
-      setLoading(false);
-      if (loadingRef.current) clearInterval(loadingRef.current);
-    }
+    await runAudit(JSON.stringify(clientData), null);
   };
 
   const reset = () => {
@@ -462,6 +578,44 @@ export default function AuditPage() {
     setSections(null);
     setParseError('');
     setApiError('');
+  };
+
+  const handleExportWord = async () => {
+    if (!sections) return;
+    setExporting(true);
+    try {
+      const res = await fetch('/api/export-word', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          sections: {
+            bilan_civil:     sections.bilan_civil,
+            bilan_fiscal:    sections.bilan_fiscal,
+            bilan_financier: sections.bilan_financier,
+            zones_risque:    sections.zones_risque,
+            recommandations: sections.recommandations,
+          },
+          alias: sessionStorage.getItem('audit_alias') ?? 'DOS',
+          nom_prospect: nomProspect.trim() || undefined,
+          date: new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' })
+        })
+      });
+      if (!res.ok) throw new Error('Erreur export');
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const alias = sessionStorage.getItem('audit_alias') ?? 'DOS';
+      a.download = `Audit_${alias}_${new Date().toISOString().slice(0, 10)}.docx`;
+      a.click();
+      URL.revokeObjectURL(url);
+      setShowExportModal(false);
+      setNomProspect('');
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setExporting(false);
+    }
   };
 
   const tmiColor = clientData ? (clientData.tmi >= 0.41 ? '#F87171' : '#FBBF24') : '#94A3B8';
@@ -791,6 +945,16 @@ export default function AuditPage() {
             <div style={{ display: 'flex', gap: '0.6rem' }}>
               <button className="btn-ghost" onClick={reset}>+ Nouvel audit</button>
               <button className="btn-ghost" onClick={() => window.print()}>🖨️ Imprimer</button>
+              <button
+                onClick={() => setShowExportModal(true)}
+                style={{
+                  padding: '8px 18px', borderRadius: 10, border: 'none', cursor: 'pointer',
+                  background: 'linear-gradient(135deg, #2E75B6, #1F3864)',
+                  color: '#fff', fontWeight: 600, fontSize: 13
+                }}
+              >
+                📄 Exporter Word
+              </button>
             </div>
           </div>
 
@@ -844,6 +1008,58 @@ export default function AuditPage() {
         {step === 2 && step2}
         {step === 3 && step3}
       </div>
+
+      {showExportModal && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50
+        }} onClick={() => setShowExportModal(false)}>
+          <div className="glass-card" style={{ padding: 32, maxWidth: 420, width: '90%' }}
+            onClick={e => e.stopPropagation()}>
+            <div style={{ fontSize: 28, textAlign: 'center', marginBottom: 12 }}>📄</div>
+            <h3 style={{ textAlign: 'center', marginBottom: 8, fontSize: 16, fontWeight: 600, margin: '0 0 8px' }}>
+              Exporter l&apos;audit en Word
+            </h3>
+            <p style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', marginBottom: 20 }}>
+              Le nom saisi apparaît sur la page de garde.<br/>
+              Il n&apos;est jamais stocké — ni en base, ni en local.
+            </p>
+            <label style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'block', marginBottom: 6 }}>
+              Nom du prospect (optionnel)
+            </label>
+            <input
+              className="glass-input"
+              type="text"
+              value={nomProspect}
+              onChange={e => setNomProspect(e.target.value)}
+              onKeyDown={e => { if (e.key === 'Enter') void handleExportWord(); }}
+              placeholder="Ex : M. et Mme Dupont"
+              style={{ marginBottom: 8 }}
+              autoFocus
+            />
+            <p style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 20 }}>
+              Si laissé vide, l&apos;alias {sessionStorage.getItem('audit_alias') ?? 'DOS-XXXX'} sera utilisé.
+            </p>
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button onClick={() => setShowExportModal(false)} className="btn-ghost" style={{ flex: 1 }}>
+                Annuler
+              </button>
+              <button
+                onClick={() => void handleExportWord()}
+                disabled={exporting}
+                style={{
+                  flex: 2, padding: '10px', borderRadius: 10, border: 'none', cursor: 'pointer',
+                  background: 'linear-gradient(135deg, #2E75B6, #1F3864)',
+                  color: '#fff', fontWeight: 600, fontSize: 14,
+                  opacity: exporting ? 0.7 : 1
+                }}
+              >
+                {exporting ? '⏳ Génération...' : '⬇️ Télécharger le .docx'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

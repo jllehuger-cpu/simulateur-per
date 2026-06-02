@@ -142,6 +142,16 @@ body::after {
 .glass-select:focus { border-color: var(--accent-blue); }
 .glass-select option { background: #111827; color: var(--text-primary); }
 
+select.glass-input option {
+  background: #0F1623 !important;
+  color: #E2E8F0 !important;
+}
+select.glass-input option:checked,
+select.glass-input option:hover {
+  background: #3B82F6 !important;
+  color: #FFFFFF !important;
+}
+
 /* ─── Slider ──────────────────────────────────────────────── */
 .glass-range {
   width: 100%;

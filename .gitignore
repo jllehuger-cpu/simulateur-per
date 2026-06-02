@@ -21,3 +21,12 @@ out/
 *.log
 .DS_Store
 ~$*
+
+# generated / build artifacts
+tsconfig.tsbuildinfo
+next-env.d.ts
+repomix-output.xml
+debug_output.txt
+
+# données sensibles
+michel_*.xlsx

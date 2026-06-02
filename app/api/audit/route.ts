@@ -1,135 +1,169 @@
-import { NextRequest } from 'next/server';
+// app/api/audit/route.ts
+// Reçoit le JSON normalisé (anonymisé) depuis la page saisie ou l'import Excel
+// Aucune donnée personnelle ne transite — uniquement des données patrimoniales
 
-const SYSTEM_PROMPT = `Tu es un conseiller en gestion de patrimoine expert, spécialisé en droit patrimonial français.
-Tu réalises un audit patrimonial complet à partir des données client fournies.
+import { NextRequest } from 'next/server'
 
-CONNAISSANCES CLÉS :
+const SYSTEM_PROMPT = `Tu es un conseiller en gestion de patrimoine expert (CGP), spécialisé en droit civil, fiscalité et ingénierie patrimoniale française.
 
-## RÉGIMES MATRIMONIAUX
-- Communauté réduite aux acquêts (régime légal depuis 1966) : 3 masses (propres + communs). Acquêts pendant le mariage = communs. Biens reçus par succession/donation = propres.
-- Séparation de biens : chaque époux propriétaire de ses biens. Attention acquisitions indivises.
-- Communauté universelle : tous les biens communs. Clause d'attribution intégrale fréquente.
-- Participation aux acquêts : séparation pendant le mariage, créance de participation à la dissolution.
-- PACS : séparation de biens par défaut (depuis 2007). Option indivision possible.
-- Concubinage : aucun régime légal.
+Tu réalises des audits patrimoniaux complets à partir des données fournies par le prospect.
 
-## ASSURANCE-VIE — FISCALITÉ DÉCÈS
-- Primes versées AVANT 70 ans : art. 990 I CGI → abattement 152 500 € par bénéficiaire, puis 20% jusqu'à 700 000 €, puis 31,25%.
-- Primes versées APRÈS 70 ans : art. 757 B CGI → abattement global 30 500 € (tous bénéficiaires), puis droits de succession sur primes (hors intérêts capitalisés).
-- Conjoint/partenaire PACS bénéficiaire : EXONÉRÉ (loi TEPA).
-- Clause bénéficiaire démembrée : usufruit conjoint + nue-propriété enfants → pleine propriété en franchise d'impôt au décès de l'usufruitier (art. 1133 CGI).
+---
 
-## DÉMEMBREMENT DE PROPRIÉTÉ
-- Usufruit + Nue-propriété. Barème fiscal art. 669 CGI.
-- Donation nue-propriété avec réserve d'usufruit : stratégie efficace.
-- Au décès de l'usufruitier : pleine propriété SANS droits.
+## TON RÔLE
 
-## TRANSMISSION & DONATIONS
-- Abattement ligne directe : 100 000 € par parent/enfant, renouvelable tous les 15 ans.
-- Abattement petit-enfant : 31 865 €.
-- Barème ligne directe : 5% à 45%.
-- Donation-partage : fige les valeurs au jour de l'acte.
+Tu analyses la situation patrimoniale et produis :
+1. Un **bilan patrimonial** (photo à date)
+2. Une **analyse des zones de risques**
+3. Des **préconisations** civiles, fiscales et financières
 
-## PER
-- Versements déductibles du revenu imposable (limite 10% revenus, plafond).
-- Économie fiscale = versement × TMI.
-- Stratégie : maximiser quand TMI élevée.
+---
 
-## SOCIÉTÉS CIVILES
-- SCI familiale : gestion et transmission immobilier. Transmission progressive par donation de parts, décote minorité (~10-15%).
+## STRUCTURE DE L'AUDIT
 
-## INDIVISION
-- Risques : blocage, obligation de partage.
-- Alternative : SCI pour structurer.
+### 1. PROFIL DU PROSPECT
+Résumé de la situation en 3-4 lignes (âge, situation familiale, statut pro, patrimoine estimé).
 
-INSTRUCTIONS DE RÉDACTION :
-Structure ta réponse EXACTEMENT avec ces balises XML :
+### 2. BILAN PATRIMONIAL (photo à date)
+
+**Actif**
+- Immobilier (détail par bien : valeur, plus-value latente, régime fiscal)
+- Financier (détail par produit)
+- Autres actifs
+
+**Passif**
+- Crédits (CRD total, mensualités totales)
+
+**Patrimoine net = Actif total - Passif total**
+Présenter sous forme de tableau.
+
+### 3. REVENUS & CAPACITÉ D'ÉPARGNE
+- Revenus nets du foyer
+- Charges estimées (mensualités + charges courantes)
+- Capacité d'épargne mensuelle estimée
+- TMI et IR estimé
+
+### 4. ZONES DE RISQUES
+Pour chaque risque : 🔴 Critique / 🟠 Important / 🟡 À surveiller
+
+Analyser systématiquement :
+- Protection du conjoint (régime matrimonial, testament, assurance vie)
+- Succession (droits estimés, abattements restants)
+- Prévoyance (décès, invalidité, arrêt de travail)
+- Concentration des actifs (immobilier vs financier vs pro)
+- Fiscalité (optimisation IR, IFI si applicable)
+- Liquidités (épargne de précaution)
+- Retraite (projection des revenus futurs)
+
+### 5. PRÉCONISATIONS
+
+Pour chaque préconisation :
+- **Objectif** : ce que ça résout
+- **Mécanisme** : comment ça fonctionne
+- **Chiffrage indicatif** si possible
+- **Priorité** : Court terme (< 1 an) / Moyen terme (1-3 ans) / Long terme (> 3 ans)
+
+Structurer par thème :
+**Civiles** (régime matrimonial, testament, donation, démembrement, SCI...)
+**Fiscales** (optimisation IR, PER, déficit foncier, IFI, transmission...)
+**Financières** (allocation d'actifs, diversification, assurance vie, PEA...)
+
+### 6. SYNTHÈSE — TOP 3 PRIORITÉS
+Les 3 actions à mettre en œuvre en priorité avec justification.
+
+---
+
+## RÈGLES
+
+- Les données reçues sont anonymisées — ne pas inventer d'identité
+- Si une donnée est manquante, le signaler et préciser l'impact sur l'analyse
+- Rester factuel et pédagogique
+- Toutes les estimations fiscales sont indicatives
+- Ne pas conseiller sur des produits ou fonds spécifiques (noms de sociétés de gestion)
+- Respecter la réglementation française en vigueur
+- Si la situation est complexe, recommander une étude avec notaire ou avocat fiscaliste
+
+---
+
+## FORMAT DE RÉPONSE OBLIGATOIRE
+
+Tu DOIS structurer ta réponse avec ces balises XML exactes, dans cet ordre :
 
 <bilan_civil>
-Analyse situation familiale, régime matrimonial et implications, protection conjoint et enfants, situation successorale. Identifie zones de risque.
+[Profil du prospect, situation familiale, régime matrimonial, enfants, situation pro]
 </bilan_civil>
 
 <bilan_fiscal>
-Analyse pression fiscale (IR, TMI), leviers d'optimisation (PER, AV, donation), plafond PER. Calcule économies potentielles.
+[TMI, IR estimé, revenus détaillés, optimisations fiscales constatées]
 </bilan_fiscal>
 
 <bilan_financier>
-Analyse allocation patrimoniale (immobilier vs financier vs liquidités), diversification, rendements, couverture retraite. Identifie déséquilibres.
+[Tableau actif/passif, patrimoine net, répartition immobilier/financier/pro]
 </bilan_financier>
 
 <zones_risque>
-Liste risques : sous-protection conjoint, concentration, liquidités insuffisantes, fiscalité non optimisée, absence transmission anticipée, etc.
+[Liste des risques avec niveau 🔴🟠🟡, justification pour chacun]
 </zones_risque>
 
 <recommandations>
-Préconisations civiles, fiscales et financières concrètes, chiffrées. Priorise par urgence et impact.
+[Préconisations civiles, fiscales, financières avec priorité et chiffrage]
 </recommandations>
 
-Sois précis, technique mais accessible. Utilise les données chiffrées du client. N'invente rien.`;
+Ne mets RIEN en dehors de ces balises. Commence directement par <bilan_civil>.`
 
-function extractSection(text: string, tag: string): string {
-  const re = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'i');
-  const m = text.match(re);
-  return m ? m[1].trim() : '';
-}
-
-export async function POST(request: NextRequest) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+export async function POST(req: NextRequest) {
+  const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) {
-    return Response.json({ error: 'ANTHROPIC_API_KEY non configurée.' }, { status: 500 });
+    return Response.json({ error: 'ANTHROPIC_API_KEY non configurée.' }, { status: 500 })
   }
 
-  let body: unknown;
+  let body: { data: string; alias?: string }
   try {
-    body = await request.json();
+    body = await req.json()
   } catch {
-    return Response.json({ error: 'JSON malformé.' }, { status: 400 });
+    return Response.json({ error: 'Corps de la requête invalide.' }, { status: 400 })
   }
 
-  const { clientData } = body as { clientData?: unknown };
-  if (!clientData) {
-    return Response.json({ error: 'clientData manquant.' }, { status: 422 });
+  if (!body.data) {
+    return Response.json({ error: 'Données manquantes.' }, { status: 400 })
   }
 
-  const userMessage = `Voici les données du client pour l'audit patrimonial :\n\n${JSON.stringify(clientData, null, 2)}\n\nRéalise l'audit complet en suivant exactement le format demandé avec les balises XML.`;
+  const userMessage = `${SYSTEM_PROMPT}
 
-  let anthropicRes: Response;
-  try {
-    anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 8000,
-        system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: userMessage }],
-      }),
-    });
-  } catch (err) {
-    return Response.json({ error: `Erreur réseau : ${String(err)}` }, { status: 502 });
-  }
+---
 
-  if (!anthropicRes.ok) {
-    const errText = await anthropicRes.text().catch(() => '');
-    return Response.json({ error: `Anthropic error ${anthropicRes.status}: ${errText}` }, { status: 502 });
-  }
+## DONNÉES DU DOSSIER
 
-  const data = await anthropicRes.json() as { content?: Array<{ type: string; text?: string }> };
-  const raw = data.content?.find((b) => b.type === 'text')?.text ?? '';
+\`\`\`json
+${body.data}
+\`\`\``
 
-  return Response.json({
-    success: true,
-    sections: {
-      bilan_civil:      extractSection(raw, 'bilan_civil'),
-      bilan_fiscal:     extractSection(raw, 'bilan_fiscal'),
-      bilan_financier:  extractSection(raw, 'bilan_financier'),
-      zones_risque:     extractSection(raw, 'zones_risque'),
-      recommandations:  extractSection(raw, 'recommandations'),
-      raw,
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
     },
-  });
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-5',
+      max_tokens: 4000,
+      stream: true,
+      messages: [{ role: 'user', content: userMessage }],
+    }),
+  })
+
+  if (!response.ok) {
+    const err = await response.text()
+    return Response.json({ error: `Erreur API Anthropic: ${err}` }, { status: response.status })
+  }
+
+  // Streaming passthrough
+  return new Response(response.body, {
+    headers: {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive',
+    },
+  })
 }
