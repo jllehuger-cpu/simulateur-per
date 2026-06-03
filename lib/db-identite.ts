@@ -14,6 +14,9 @@ export async function sauvegarderIdentite(identite: IdentiteProspect): Promise<v
   const cle = getCleIdentiteSession()
   if (!cle) throw new Error('Cle identite non disponible')
 
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) throw new Error('Non authentifié')
+
   const { chiffre: nomChiffre, iv: ivNom } = await chiffrer(identite.nom, cle)
   const { chiffre: prenomChiffre } = await chiffrer(identite.prenom, cle)
   const telChiffre = identite.tel ? (await chiffrer(identite.tel, cle)).chiffre : null
@@ -28,6 +31,7 @@ export async function sauvegarderIdentite(identite: IdentiteProspect): Promise<v
     email_chiffre:  emailChiffre,
     notes_cgp:      identite.notes_cgp ?? null,
     updated_at:     new Date().toISOString(),
+    user_id:        user.id,
   })
 }
 
@@ -77,6 +81,9 @@ export async function lireToutes(): Promise<Map<string, IdentiteProspect>> {
 }
 
 export async function sauvegarderMeta(alias: string, dossier: Record<string, unknown>): Promise<void> {
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) throw new Error('Non authentifié')
+
   const identite = dossier.identite as Record<string, unknown> ?? {}
   const biensImmo = (dossier.biens_immo as unknown[]) ?? []
   const produits  = (dossier.produits_financiers as Record<string, unknown>[]) ?? []
@@ -96,6 +103,7 @@ export async function sauvegarderMeta(alias: string, dossier: Record<string, unk
     has_per:        produits.some(p => p.type === 'PER'),
     has_pea:        produits.some(p => p.type === 'PEA'),
     updated_at:     new Date().toISOString(),
+    user_id:        user.id,
   })
 }
 

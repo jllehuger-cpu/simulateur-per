@@ -1,8 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useAuth } from '@/lib/use-auth';
+import { seDeconnecter } from '@/lib/auth-supabase';
 
 const NAV_LINKS: { href: string; label: string; icon: string; accent?: boolean }[] = [
   { href: '/audit',      label: 'Audit IA',       icon: '🔍', accent: true },
@@ -15,7 +17,9 @@ const NAV_LINKS: { href: string; label: string; icon: string; accent?: boolean }
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user } = useAuth(false);
 
   return (
     <header
@@ -128,41 +132,47 @@ export function Navbar() {
 
         {/* Right side */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
-          <button
-            type="button"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.45rem 1rem',
-              borderRadius: 8,
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              letterSpacing: '0.04em',
-              color: 'var(--text-secondary)',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              cursor: 'pointer',
-              transition: 'all 0.2s',
-              fontFamily: 'var(--font-sans)',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-primary)';
-              (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.25)';
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.09)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-secondary)';
-              (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.12)';
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.05)';
-            }}
-          >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-            Se connecter
-          </button>
+          {user ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                {user.email}
+              </span>
+              <button
+                onClick={async () => {
+                  await seDeconnecter();
+                  router.push('/login');
+                }}
+                className="btn-ghost"
+                style={{ fontSize: 11, padding: '4px 10px' }}
+              >
+                Déconnexion
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.45rem 1rem',
+                borderRadius: 8,
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                letterSpacing: '0.04em',
+                color: 'var(--text-secondary)',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.12)',
+                textDecoration: 'none',
+              }}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              Se connecter
+            </Link>
+          )}
 
           {/* Burger mobile */}
           <button

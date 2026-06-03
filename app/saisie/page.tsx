@@ -12,6 +12,7 @@ import {
 } from '@/lib/dossiers'
 import { UnlockGate } from '@/components/unlock-gate'
 import { ImportDocument } from '@/components/import-document'
+import { useAuth } from '@/lib/use-auth'
 
 // ─── Constantes listes ──────────────────────────────────────
 const SITUATIONS: { v: SituationFamiliale; l: string }[] = [
@@ -1550,6 +1551,8 @@ function StepObjectifs({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPa
 function SaisieInner() {
   const router = useRouter()
   const params = useSearchParams()
+  const { loading: authLoading } = useAuth()
+  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
   const [step, setStep] = useState(1)
   const [dossier, setDossier] = useState<DossierPatrimonial>(nouveauDossier)
   const [saved, setSaved] = useState(false)

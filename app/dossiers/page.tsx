@@ -10,6 +10,7 @@ import {
 import { identiteDisponible } from '@/lib/crypto'
 import { lireToutes, sauvegarderIdentite, IdentiteProspect } from '@/lib/db-identite'
 import { UnlockGate } from '@/components/unlock-gate'
+import { useAuth } from '@/lib/use-auth'
 
 function ModalIdentite({
   alias,
@@ -90,6 +91,8 @@ function ModalIdentite({
 
 function DossiersContent() {
   const router = useRouter()
+  const { loading: authLoading } = useAuth()
+  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
   const [dossiers,   setDossiers]   = useState<DossierPatrimonial[]>([])
   const [search,     setSearch]     = useState('')
   const [confirmDel, setConfirmDel] = useState<string | null>(null)

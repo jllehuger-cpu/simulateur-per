@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { getDossier, sauvegarderDossier } from '@/lib/dossiers';
+import { useAuth } from '@/lib/use-auth';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -449,6 +450,7 @@ function Stepper({ step }: { step: number }) {
 // ─── Page principale ──────────────────────────────────────────────────────────
 
 export default function AuditPage() {
+  const { loading: authLoading } = useAuth();
   const [step, setStep] = useState(1);
   const [dragging, setDragging] = useState(false);
   const [clientData, setClientData] = useState<ClientData | null>(null);
@@ -565,6 +567,8 @@ export default function AuditPage() {
     const file = e.dataTransfer.files[0];
     if (file) handleFile(file);
   }, [handleFile]);
+
+  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>;
 
   const handleLaunch = async () => {
     if (!clientData) return;

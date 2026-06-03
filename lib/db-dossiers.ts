@@ -19,6 +19,9 @@ export async function sauvegarderDossierDB(
   iv: string,
   auditResult?: string
 ): Promise<void> {
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) throw new Error('Non authentifié')
+
   await supabase.from('dossiers').upsert({
     alias,
     data_chiffre: dataChiffre,
@@ -26,6 +29,7 @@ export async function sauvegarderDossierDB(
     audit_result: auditResult ?? null,
     has_audit: !!auditResult,
     updated_at: new Date().toISOString(),
+    user_id: user.id,
   })
 }
 
