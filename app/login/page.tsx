@@ -14,8 +14,10 @@ export default function LoginPage() {
     try {
       await envoyerMagicLink(email.trim())
       setSent(true)
-    } catch {
-      setError("Erreur envoi email. Vérifiez l'adresse.")
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err)
+      setError(message)
+      console.error('Magic link error:', err)
     } finally {
       setLoading(false)
     }
