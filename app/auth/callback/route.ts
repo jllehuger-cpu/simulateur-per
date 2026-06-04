@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url)
+  const { searchParams, origin } = new URL(req.url)
   const code = searchParams.get('code')
   const next = searchParams.get('next') ?? '/dossiers'
 
@@ -11,8 +11,20 @@ export async function GET(req: NextRequest) {
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     )
-    await supabase.auth.exchangeCodeForSession(code)
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code)
+
+    if (!error && data.session) {
+      const response = NextResponse.redirect(new URL(next, origin))
+      response.cookies.set('sb-access-token', data.session.access_token, {
+        path: '/',
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        maxAge: data.session.expires_in,
+      })
+      return response
+    }
   }
 
-  return NextResponse.redirect(new URL(next, req.url))
+  return NextResponse.redirect(new URL('/login', origin))
 }
