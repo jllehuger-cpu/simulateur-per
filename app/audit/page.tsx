@@ -450,7 +450,7 @@ function Stepper({ step }: { step: number }) {
 // ─── Page principale ──────────────────────────────────────────────────────────
 
 export default function AuditPage() {
-  const { loading: authLoading } = useAuth();
+  const { loading: authLoading, profil } = useAuth();
   const [step, setStep] = useState(1);
   const [dragging, setDragging] = useState(false);
   const [clientData, setClientData] = useState<ClientData | null>(null);
@@ -624,6 +624,13 @@ export default function AuditPage() {
 
   const tmiColor = clientData ? (clientData.tmi >= 0.41 ? '#F87171' : '#FBBF24') : '#94A3B8';
 
+  const quotaTotal   = profil?.api_quota ?? 0
+  const quotaUsed    = profil?.api_used ?? 0
+  const quotaUnlim   = quotaTotal >= 999999
+  const quotaLeft    = quotaUnlim ? Infinity : Math.max(0, quotaTotal - quotaUsed)
+  const quotaColor   = quotaLeft === 0 ? '#F87171' : quotaLeft <= 1 ? '#F59E0B' : '#34D399'
+  console.log('[AUDIT] profil:', profil, 'quotaLeft:', quotaLeft)
+
   // ── ÉTAPE 1 : Import ──────────────────────────────────────────────────────
 
   const step1 = (
@@ -636,6 +643,16 @@ export default function AuditPage() {
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
           Importez le fichier Excel "Mon Audit Patrimoine" pour générer<br />une analyse patrimoniale complète par intelligence artificielle.
         </p>
+        {profil && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.9rem' }}>
+            <span style={{
+              fontSize: '0.82rem', padding: '0.3rem 0.9rem', borderRadius: 20, fontWeight: 600,
+              background: `${quotaColor}14`, border: `1px solid ${quotaColor}35`, color: quotaColor,
+            }}>
+              🎯 {quotaUnlim ? 'Audits : illimité' : `Audits restants ce mois : ${quotaLeft} / ${quotaTotal}`}
+            </span>
+          </div>
+        )}
       </div>
 
       <div
@@ -830,9 +847,15 @@ export default function AuditPage() {
         </div>
       )}
 
+      {!quotaUnlim && quotaLeft === 0 && (
+        <div style={{ marginBottom: '1rem', padding: '0.75rem 1rem', borderRadius: 10, textAlign: 'center', background: 'rgba(248,113,113,0.1)', border: '1px solid rgba(248,113,113,0.3)', color: '#F87171', fontSize: '0.875rem' }}>
+          Quota mensuel atteint. Contactez l&apos;administrateur.
+        </div>
+      )}
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <button
           onClick={handleLaunch}
+          disabled={!quotaUnlim && quotaLeft === 0}
           style={{
             padding: '0.9rem 2.5rem',
             borderRadius: 12,
@@ -843,7 +866,8 @@ export default function AuditPage() {
             fontSize: '1rem',
             fontWeight: 700,
             letterSpacing: '0.03em',
-            cursor: 'pointer',
+            cursor: (!quotaUnlim && quotaLeft === 0) ? 'not-allowed' : 'pointer',
+            opacity: (!quotaUnlim && quotaLeft === 0) ? 0.5 : 1,
             boxShadow: '0 4px 24px rgba(139,92,246,0.45)',
             transition: 'all 0.2s',
             display: 'flex',
@@ -851,6 +875,7 @@ export default function AuditPage() {
             gap: '0.6rem',
           }}
           onMouseEnter={(e) => {
+            if (!quotaUnlim && quotaLeft === 0) return;
             (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)';
             (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 32px rgba(139,92,246,0.6)';
           }}

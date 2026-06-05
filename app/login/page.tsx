@@ -1,12 +1,30 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import { getSupabase } from '@/lib/supabase'
 import { envoyerMagicLink } from '@/lib/auth-supabase'
 
-export default function LoginPage() {
+function LoginForm() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const infoMessage = searchParams.get('message')
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    getSupabase().auth.getSession().then(({ data: { session } }) => {
+      if (session) router.push('/dossiers')
+    })
+
+    const { data: { subscription } } = getSupabase().auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' && session) router.push('/dossiers')
+    })
+
+    return () => subscription.unsubscribe()
+  }, [router])
 
   const handleSubmit = async () => {
     if (!email.trim()) return
@@ -59,6 +77,11 @@ export default function LoginPage() {
               style={{ marginBottom: 16, textAlign: 'center' }}
               autoFocus
             />
+            {infoMessage && (
+              <p style={{ fontSize: 12, color: '#F59E0B', marginBottom: 12 }}>
+                {infoMessage}
+              </p>
+            )}
             {error && (
               <p style={{ fontSize: 12, color: '#EF4444', marginBottom: 12 }}>
                 {error}
@@ -111,5 +134,13 @@ export default function LoginPage() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
   )
 }

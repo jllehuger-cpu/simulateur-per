@@ -1,3 +1,4 @@
+import { createServerClient } from '@supabase/ssr'
 import { NextRequest, NextResponse } from 'next/server'
 
 const PUBLIC_PATHS = ['/login', '/auth/callback', '/api']
@@ -9,17 +10,50 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  const projectRef = process.env.NEXT_PUBLIC_SUPABASE_URL
-    ?.split('//')[1]?.split('.')[0]
+  const response = NextResponse.next()
 
-  const token = req.cookies.get('sb-access-token')?.value
-    ?? req.cookies.get(`sb-${projectRef}-auth-token`)?.value
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() { return req.cookies.getAll() },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            req.cookies.set(name, value)
+            response.cookies.set(name, value, options)
+          })
+        },
+      },
+    }
+  )
 
-  if (!token) {
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
     return NextResponse.redirect(new URL('/login', req.url))
   }
 
-  return NextResponse.next()
+  const { data: profile } = await supabase
+    .from('user_profiles')
+    .select('status')
+    .eq('id', user.id)
+    .single()
+
+  const status = profile?.status
+
+  if (status === 'pending' && !path.startsWith('/pending')) {
+    return NextResponse.redirect(new URL('/pending', req.url))
+  }
+
+  if (status === 'blocked') {
+    return NextResponse.redirect(new URL(
+      '/login?message=Votre+acc%C3%A8s+a+%C3%A9t%C3%A9+bloqu%C3%A9.+Contactez+l%27administrateur.',
+      req.url
+    ))
+  }
+
+  return response
 }
 
 export const config = {

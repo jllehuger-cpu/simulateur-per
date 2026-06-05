@@ -1,4 +1,6 @@
-import { supabase } from './supabase'
+import { getSupabase } from './supabase'
+
+const supabase = getSupabase()
 import { chiffrer, dechiffrer, getCleIdentiteSession } from './crypto'
 
 export interface IdentiteProspect {

@@ -3,6 +3,9 @@
 // Aucune donnée personnelle ne transite — uniquement des données patrimoniales
 
 import { NextRequest } from 'next/server'
+import { createServerClient } from '@supabase/ssr'
+import { createClient } from '@supabase/supabase-js'
+import { cookies } from 'next/headers'
 
 const SYSTEM_PROMPT = `Tu es un conseiller en gestion de patrimoine expert (CGP), spécialisé en droit civil, fiscalité et ingénierie patrimoniale française.
 
@@ -117,6 +120,55 @@ export async function POST(req: NextRequest) {
     return Response.json({ error: 'ANTHROPIC_API_KEY non configurée.' }, { status: 500 })
   }
 
+  // ── Vérification authentification & quota ──────────────────────────────────
+  const cookieStore = await cookies()
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() { return cookieStore.getAll() },
+        setAll() {},
+      },
+    }
+  )
+
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) {
+    return Response.json({ error: 'Non authentifié.' }, { status: 401 })
+  }
+
+  const { data: profile } = await supabase
+    .from('user_profiles')
+    .select('api_used, api_quota, api_quota_reset_at')
+    .eq('id', user.id)
+    .single()
+
+  if (profile) {
+    const now = new Date()
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1)
+    const resetAt = profile.api_quota_reset_at ? new Date(profile.api_quota_reset_at) : null
+    const needsReset = !resetAt || resetAt < startOfMonth
+    const currentUsed = needsReset ? 0 : (profile.api_used ?? 0)
+    const quota = profile.api_quota ?? 10
+
+    if (!needsReset && currentUsed >= quota) {
+      return Response.json({
+        error: `Quota mensuel atteint (${currentUsed}/${quota} audits). Contactez l'administrateur.`
+      }, { status: 429 })
+    }
+
+    const serviceClient = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SECRET_KEY!
+    )
+    await serviceClient.from('user_profiles').update({
+      api_used: currentUsed + 1,
+      ...(needsReset ? { api_quota_reset_at: now.toISOString() } : {}),
+    }).eq('id', user.id)
+  }
+
+  // ── Appel Anthropic ────────────────────────────────────────────────────────
   let body: { data: string; alias?: string }
   try {
     body = await req.json()

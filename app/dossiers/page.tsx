@@ -92,7 +92,6 @@ function ModalIdentite({
 function DossiersContent() {
   const router = useRouter()
   const { loading: authLoading } = useAuth()
-  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
   const [dossiers,   setDossiers]   = useState<DossierPatrimonial[]>([])
   const [search,     setSearch]     = useState('')
   const [confirmDel, setConfirmDel] = useState<string | null>(null)
@@ -117,6 +116,8 @@ function DossiersContent() {
     void reload()
     void reloadIdentites()
   }, [reload, reloadIdentites])
+
+  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
 
   const handleNew = async () => {
     const d = nouveauDossier()

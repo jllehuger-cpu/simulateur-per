@@ -31,15 +31,32 @@ export type Horizon = 'court' | 'moyen' | 'long'
 // ── Ascendant ────────────────────────────────────────────
 export interface Ascendant {
   id: string
-  lien: 'pere_client' | 'mere_client' | 'pere_conjoint' | 'mere_conjoint' | 'autre'
+  lien: 'pere_client' | 'mere_client' | 'pere_conjoint' | 'mere_conjoint'
+      | 'pere_adoptif_client' | 'mere_adoptif_client'
+      | 'pere_adoptif_conjoint' | 'mere_adoptif_conjoint'
+      | 'autre'
+  type_adoption?: 'pleniere' | 'simple'
   age?: number
   situation: 'vivant' | 'decede'
   patrimoine_estime?: number
   dependant: boolean
-  testament_connu: boolean
+  testament_connu: boolean | 'inconnu'
   donation_consentie: boolean
-  mandat_protection_future?: 'oui' | 'non' | 'a_faire'
+  mandat_protection_future?: 'oui' | 'non' | 'a_faire' | 'en_cours'
+  mpf_authentique?: 'oui' | 'non' | 'inconnu'
+  grand_parent_vivant?: boolean
   notes?: string
+}
+
+// ── Frère / Sœur ────────────────────────────────────────
+export interface FrereSoeur {
+  id: string
+  alias: string
+  age: number
+  situation: 'valide' | 'handicape'
+  type_handicap?: string
+  a_enfants: boolean
+  nb_enfants?: number
 }
 
 // ── Enfant ──────────────────────────────────────────────
@@ -66,18 +83,21 @@ export interface Identite {
   enfants: Enfant[]
   enfants_garde_alternee?: string[]  // IDs des enfants en garde alternée
   ascendants?: Ascendant[]
+  freres_soeurs?: FrereSoeur[]
   date_union?: string                // Date mariage ou PACS (ISO)
   notes_famille?: string             // Notes libres famille
   contrat_mariage?: 'oui' | 'non'   // Contrat de mariage
   testament?: 'oui' | 'non' | 'en_cours'
   type_testament?: 'olographe' | 'authentique' | 'mystique'
   dde?: 'oui' | 'non'               // Donation entre époux
+  mpf_authentique?: 'oui' | 'non' | 'inconnu'
   // Objectifs
   profil_risque: ProfilRisque
   horizon: Horizon
   capacite_epargne_mensuelle: number
   objectifs: string[]
   projet_imminent?: string
+  objectifs_commentaire?: string
 }
 
 // ── Revenus ──────────────────────────────────────────────
@@ -130,6 +150,7 @@ export interface BienImmo {
   charges_annuelles: number
   regime_fiscal: string
   dispositif_fiscal: string
+  date_achat_exacte?: string
   notes?: string
 }
 

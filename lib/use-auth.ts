@@ -1,7 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { supabase } from './supabase'
+import { getSupabase } from './supabase'
+
+const supabase = getSupabase()
 import { getProfil, UserProfile } from './auth-supabase'
 
 export function useAuth(requireAuth = true) {

@@ -19,7 +19,7 @@ export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user } = useAuth(false);
+  const { user, profil } = useAuth(false);
 
   return (
     <header
@@ -125,6 +125,18 @@ export function Navbar() {
                     IA
                   </span>
                 )}
+                {link.href === '/audit' && (() => {
+                  const q = profil?.api_quota ?? 0;
+                  const u = profil?.api_used ?? 0;
+                  if (!profil || q >= 999999) return null;
+                  const r = Math.max(0, q - u);
+                  const c = r === 0 ? '#F87171' : 'var(--text-muted)';
+                  return (
+                    <span style={{ fontSize: '0.6rem', padding: '0.1rem 0.35rem', borderRadius: 4, background: r === 0 ? 'rgba(248,113,113,0.2)' : 'rgba(255,255,255,0.08)', color: c, fontWeight: 700 }}>
+                      {r}
+                    </span>
+                  );
+                })()}
               </Link>
             );
           })}
@@ -134,6 +146,20 @@ export function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              {profil?.role === 'admin' && (
+                <Link
+                  href="/admin"
+                  style={{
+                    padding: '4px 10px', borderRadius: 7, fontSize: 12, fontWeight: 600,
+                    textDecoration: 'none',
+                    color: '#A78BFA',
+                    background: 'rgba(139,92,246,0.1)',
+                    border: '1px solid rgba(139,92,246,0.25)',
+                  }}
+                >
+                  🛡️ Admin
+                </Link>
+              )}
               <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
                 {user.email}
               </span>

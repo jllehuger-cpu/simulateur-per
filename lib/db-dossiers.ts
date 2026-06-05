@@ -11,7 +11,9 @@
 //   has_audit    BOOLEAN DEFAULT false
 // );
 
-import { supabase } from './supabase'
+import { getSupabase } from './supabase'
+
+const supabase = getSupabase()
 
 export async function sauvegarderDossierDB(
   alias: string,

@@ -1,11 +1,18 @@
-import { supabase } from './supabase'
+import { getSupabase } from './supabase'
+
+const supabase = getSupabase()
 
 export interface UserProfile {
   id: string
   email: string
   role: 'admin' | 'cgp' | 'expert_comptable'
+  status?: 'pending' | 'active' | 'blocked'
   nom?: string
   cabinet?: string
+  api_used?: number
+  api_quota?: number
+  api_quota_reset_at?: string
+  created_at?: string
 }
 
 export async function envoyerMagicLink(email: string): Promise<void> {

@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import {
   DossierPatrimonial, Enfant, BienImmo, ProduitFinancier, LignePorfolio,
-  SituationFamiliale, StatutPro, ProfilRisque, Horizon, FraisContrat, Ascendant
+  SituationFamiliale, StatutPro, ProfilRisque, Horizon, FraisContrat, Ascendant, FrereSoeur
 } from '@/lib/types'
 import {
   nouveauDossier, getDossier, sauvegarderDossier,
@@ -481,8 +481,16 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
   const sfFamille = (d.identite.situation_familiale ?? '') as string
   const hasConjFamille = sfFamille === 'marie' || sfFamille === 'pacse' || sfFamille === 'concubin'
 
+  // Bug 1 : normaliser le lien quand la situation bascule vers sans-conjoint
+  useEffect(() => {
+    if (!hasConjFamille && enfants.some(e => e.lien !== 'client_seul')) {
+      setD({ ...d, identite: { ...d.identite, enfants: enfants.map(e => ({ ...e, lien: 'client_seul' as Enfant['lien'] })) } })
+    }
+  }, [hasConjFamille]) // eslint-disable-line react-hooks/exhaustive-deps
+
   const addEnfant = () => {
-    const e: Enfant = { id: crypto.randomUUID(), age: 0, lien: 'commun', situation: 'mineur', rattachement_fiscal: 'foyer_client' }
+    const lienDefaut: Enfant['lien'] = hasConjFamille ? 'commun' : 'client_seul'
+    const e: Enfant = { id: crypto.randomUUID(), age: 0, lien: lienDefaut, situation: 'mineur', rattachement_fiscal: 'foyer_client' }
     setD({ ...d, identite: { ...d.identite, enfants: [...enfants, e] } })
   }
   const updEnfant = (id: string, k: keyof Enfant, v: unknown) =>
@@ -502,6 +510,17 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
     const next = ga ? [...cur, id] : cur.filter(x => x !== id)
     setD({ ...d, identite: { ...d.identite, enfants_garde_alternee: next } })
   }
+
+  const freresSoeurs = d.identite.freres_soeurs ?? []
+  const addFS = () => {
+    if (freresSoeurs.length >= 10) return
+    const fs: FrereSoeur = { id: crypto.randomUUID(), alias: '', age: 0, situation: 'valide', a_enfants: false }
+    setD({ ...d, identite: { ...d.identite, freres_soeurs: [...freresSoeurs, fs] } })
+  }
+  const updFS = (id: string, k: keyof FrereSoeur, v: unknown) =>
+    setD({ ...d, identite: { ...d.identite, freres_soeurs: freresSoeurs.map(f => f.id === id ? { ...f, [k]: v } : f) } })
+  const delFS = (id: string) =>
+    setD({ ...d, identite: { ...d.identite, freres_soeurs: freresSoeurs.filter(f => f.id !== id) } })
 
   const addAscendant = () => {
     const a: Ascendant = {
@@ -529,7 +548,16 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
         </div>
       )}
 
-      {enfants.map((e, idx) => (
+      {enfants.map((e, idx) => {
+        const ageClient = d.identite.age_client || 0
+        const ageConj = d.identite.age_conjoint || 0
+        const effectiveLien = !hasConjFamille ? 'client_seul' : e.lien
+        const parentAgeForCheck =
+          effectiveLien === 'client_seul'   ? ageClient :
+          effectiveLien === 'conjoint_seul' ? ageConj :
+          (ageConj > 0 ? Math.min(ageClient, ageConj) : ageClient)
+        const ageGapWarn = e.age > 0 && parentAgeForCheck > 0 && (parentAgeForCheck - e.age) < 14
+        return (
         <div key={e.id} className="glass-card" style={{ padding: 16, position: 'relative' }}>
           <div style={{ fontSize: 12, color: 'var(--accent-blue)', fontWeight: 600, marginBottom: 12 }}>
             Enfant {idx + 1}
@@ -544,18 +572,37 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
               <NumInput value={e.age} onChange={v => updEnfantAge(e.id, v)} />
             </Field>
             <Field label="Lien de filiation">
-              <Select value={e.lien} onChange={v => updEnfant(e.id, 'lien', v as Enfant['lien'])}
-                options={[{ v: 'commun', l: 'Commun' }, { v: 'client_seul', l: 'Client seul' }, { v: 'conjoint_seul', l: 'Conjoint seul' }]} />
+              <Select
+                value={!hasConjFamille ? 'client_seul' : e.lien}
+                onChange={v => updEnfant(e.id, 'lien', v as Enfant['lien'])}
+                options={hasConjFamille
+                  ? [{ v: 'commun', l: 'Enfant commun' }, { v: 'client_seul', l: 'Enfant du client seul' }, { v: 'conjoint_seul', l: 'Enfant du conjoint seul' }]
+                  : [{ v: 'client_seul', l: 'Enfant seul' }]
+                }
+              />
             </Field>
             <Field label="Situation">
               <Select value={e.situation} onChange={v => updEnfant(e.id, 'situation', v as Enfant['situation'])}
                 options={situationOpts(e.age)} />
             </Field>
-            <Field label="Rattachement fiscal">
-              <Select value={e.rattachement_fiscal} onChange={v => updEnfant(e.id, 'rattachement_fiscal', v as Enfant['rattachement_fiscal'])}
-                options={[{ v: 'foyer_client', l: 'Foyer du client' }, { v: 'autonome', l: 'Foyer autonome' }]} />
-            </Field>
-            {e.situation === 'mineur' && (
+            {e.situation !== 'mineur' && (
+              <Field label="Rattachement fiscal">
+                {e.age > 25 && e.situation !== 'etudiant' ? (
+                  <>
+                    <div style={{ fontSize: 12, color: 'var(--text-muted)', padding: '8px 10px',
+                      background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: 8 }}>
+                      Propre foyer fiscal
+                    </div>
+                    <FieldNote>Un enfant de plus de 25 ans non étudiant ne peut plus être rattaché au foyer fiscal de ses parents.</FieldNote>
+                  </>
+                ) : (
+                  <Select value={e.rattachement_fiscal} onChange={v => updEnfant(e.id, 'rattachement_fiscal', v as Enfant['rattachement_fiscal'])}
+                    options={[{ v: 'foyer_client', l: 'Foyer du client' }, { v: 'autonome', l: 'Foyer autonome' }]} />
+                )}
+              </Field>
+            )}
+            {e.situation === 'mineur' && e.lien !== 'commun' && (
               <Field label="Garde alternée ?">
                 <Select value={gaIds.includes(e.id) ? 'oui' : 'non'}
                   onChange={v => toggleGA(e.id, v === 'oui')}
@@ -563,8 +610,18 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
               </Field>
             )}
           </Grid>
+          {ageGapWarn && (
+            <div style={{
+              marginTop: 8, fontSize: 11, color: '#F59E0B', lineHeight: 1.5,
+              padding: '8px 12px', background: 'rgba(245,158,11,0.08)',
+              border: '1px solid rgba(245,158,11,0.2)', borderRadius: 8,
+            }}>
+              ⚠️ L&apos;écart d&apos;âge entre le parent et l&apos;enfant semble incohérent (moins de 14 ans)
+            </div>
+          )}
         </div>
-      ))}
+        )
+      })}
 
       <button onClick={addEnfant} style={{
         background: 'rgba(59,130,246,0.08)', border: '1px dashed rgba(59,130,246,0.35)',
@@ -578,8 +635,22 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
 
       <Field label="Mandat de protection future (client) ?">
         <Select value={getE('mandat_protection_future')} onChange={v => setE('mandat_protection_future', v)}
-          options={[{ v: 'oui', l: 'Oui' }, { v: 'non', l: 'Non' }]} />
+          options={[
+            { v: 'oui',      l: 'Oui' },
+            { v: 'non',      l: 'Non' },
+            { v: 'en_cours', l: 'En cours de réalisation' },
+          ]} />
       </Field>
+      {getE('mandat_protection_future') === 'oui' && (
+        <Field label="Ce mandat est-il authentique (rédigé par un notaire) ?">
+          <Select value={getE('mpf_authentique')} onChange={v => setE('mpf_authentique', v)}
+            options={[
+              { v: 'oui',     l: 'Oui (authentique — notarié)' },
+              { v: 'non',     l: 'Non (sous seing privé)' },
+              { v: 'inconnu', l: 'Je ne sais pas' },
+            ]} />
+        </Field>
+      )}
 
       <SectionTitle>Notes famille</SectionTitle>
       <Field label="Informations complémentaires" hint="Recomposition, donations reçues...">
@@ -613,13 +684,33 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
             <Field label="Lien">
               <Select value={a.lien} onChange={v => updAscendant(a.id, 'lien', v as Ascendant['lien'])}
                 options={[
-                  { v: 'pere_client',   l: 'Père du client' },
-                  { v: 'mere_client',   l: 'Mère du client' },
-                  { v: 'pere_conjoint', l: 'Père du conjoint' },
-                  { v: 'mere_conjoint', l: 'Mère du conjoint' },
-                  { v: 'autre',         l: 'Autre' },
+                  { v: 'pere_client',           l: 'Père du client' },
+                  { v: 'mere_client',           l: 'Mère du client' },
+                  { v: 'pere_conjoint',         l: 'Père du conjoint' },
+                  { v: 'mere_conjoint',         l: 'Mère du conjoint' },
+                  { v: 'pere_adoptif_client',   l: 'Père adoptif du client' },
+                  { v: 'mere_adoptif_client',   l: 'Mère adoptive du client' },
+                  { v: 'pere_adoptif_conjoint', l: 'Père adoptif du conjoint' },
+                  { v: 'mere_adoptif_conjoint', l: 'Mère adoptive du conjoint' },
+                  { v: 'autre',                 l: 'Autre' },
                 ]} />
             </Field>
+            {a.lien.includes('adoptif') && (
+              <Field label="Type d'adoption">
+                <Select value={a.type_adoption ?? ''}
+                  onChange={v => updAscendant(a.id, 'type_adoption', v as Ascendant['type_adoption'])}
+                  options={[
+                    { v: 'pleniere', l: 'Adoption plénière' },
+                    { v: 'simple',   l: 'Adoption simple' },
+                  ]} />
+                {a.type_adoption === 'pleniere' && (
+                  <FieldNote>L&apos;adopté a les mêmes droits successoraux qu&apos;un enfant biologique</FieldNote>
+                )}
+                {a.type_adoption === 'simple' && (
+                  <FieldNote>L&apos;adopté conserve ses droits dans sa famille d&apos;origine. Droits en ligne directe uniquement si lien au 4e degré (enfant du conjoint, pupille...)</FieldNote>
+                )}
+              </Field>
+            )}
             <Field label="Situation">
               <Select value={a.situation} onChange={v => updAscendant(a.id, 'situation', v as Ascendant['situation'])}
                 options={[{ v: 'vivant', l: 'Vivant(e)' }, { v: 'decede', l: 'Décédé(e)' }]} />
@@ -627,34 +718,76 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
             <Field label="Âge" hint="optionnel">
               <NumInput value={a.age} onChange={v => updAscendant(a.id, 'age', v)} placeholder="ex: 78" />
             </Field>
-            <Field label="Patrimoine estimé (€)">
-              <NumInput value={a.patrimoine_estime} onChange={v => updAscendant(a.id, 'patrimoine_estime', v)} />
-              <FieldNote>Estimation utile pour anticiper la succession future</FieldNote>
-            </Field>
-            <Field label="Dépendant (à charge) ?">
-              <Select value={a.dependant ? 'oui' : 'non'}
-                onChange={v => updAscendant(a.id, 'dependant', v === 'oui')}
-                options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
-            </Field>
+            {a.situation !== 'decede' && (
+              <Field label="Patrimoine estimé (€)">
+                <NumInput value={a.patrimoine_estime} onChange={v => updAscendant(a.id, 'patrimoine_estime', v)} />
+                <FieldNote>Estimation utile pour anticiper la succession future</FieldNote>
+              </Field>
+            )}
+            {a.situation !== 'decede' && (
+              <Field label="Dépendant (à charge) ?">
+                <Select value={a.dependant ? 'oui' : 'non'}
+                  onChange={v => updAscendant(a.id, 'dependant', v === 'oui')}
+                  options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
+              </Field>
+            )}
+            {a.situation === 'decede' && a.lien !== 'autre' && (() => {
+              const gpLabel = ({
+                pere_client:           'Grand-parent paternel (côté client)',
+                mere_client:           'Grand-parent maternel (côté client)',
+                pere_conjoint:         'Grand-parent paternel (côté conjoint)',
+                mere_conjoint:         'Grand-parent maternel (côté conjoint)',
+                pere_adoptif_client:   'Grand-parent adoptif paternel (côté client)',
+                mere_adoptif_client:   'Grand-parent adoptif maternel (côté client)',
+                pere_adoptif_conjoint: 'Grand-parent adoptif paternel (côté conjoint)',
+                mere_adoptif_conjoint: 'Grand-parent adoptif maternel (côté conjoint)',
+              } as Record<string, string>)[a.lien]
+              return (
+                <Field label={`${gpLabel} vivant ?`}>
+                  <Select
+                    value={a.grand_parent_vivant === true ? 'oui' : a.grand_parent_vivant === false ? 'non' : ''}
+                    onChange={v => updAscendant(a.id, 'grand_parent_vivant', v === 'oui')}
+                    options={[{ v: 'oui', l: 'Oui' }, { v: 'non', l: 'Non' }]}
+                  />
+                  <FieldNote>Utile pour la représentation successorale</FieldNote>
+                </Field>
+              )
+            })()}
             <Field label="Testament connu ?">
-              <Select value={a.testament_connu ? 'oui' : 'non'}
-                onChange={v => updAscendant(a.id, 'testament_connu', v === 'oui')}
-                options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
+              <Select
+                value={a.testament_connu === 'inconnu' ? 'inconnu' : a.testament_connu ? 'oui' : 'non'}
+                onChange={v => updAscendant(a.id, 'testament_connu', v === 'oui' ? true : v === 'non' ? false : 'inconnu')}
+                options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }, { v: 'inconnu', l: 'Je ne sais pas' }]}
+              />
             </Field>
             <Field label="Donation consentie à vous ?">
               <Select value={a.donation_consentie ? 'oui' : 'non'}
                 onChange={v => updAscendant(a.id, 'donation_consentie', v === 'oui')}
                 options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
             </Field>
-            <Field label="Mandat de protection future">
-              <Select value={a.mandat_protection_future ?? ''}
-                onChange={v => updAscendant(a.id, 'mandat_protection_future', v as Ascendant['mandat_protection_future'])}
-                options={[
-                  { v: 'oui',     l: 'Oui — en place' },
-                  { v: 'non',     l: 'Non' },
-                  { v: 'a_faire', l: 'À mettre en place' },
-                ]} />
-            </Field>
+            {a.situation !== 'decede' && (
+              <Field label="Mandat de protection future">
+                <Select value={a.mandat_protection_future ?? ''}
+                  onChange={v => updAscendant(a.id, 'mandat_protection_future', v as Ascendant['mandat_protection_future'])}
+                  options={[
+                    { v: 'oui',      l: 'Oui — en place' },
+                    { v: 'non',      l: 'Non' },
+                    { v: 'a_faire',  l: 'À mettre en place' },
+                    { v: 'en_cours', l: 'En cours de réalisation' },
+                  ]} />
+              </Field>
+            )}
+            {a.situation !== 'decede' && a.mandat_protection_future === 'oui' && (
+              <Field label="Ce mandat est-il authentique (notarié) ?">
+                <Select value={a.mpf_authentique ?? ''}
+                  onChange={v => updAscendant(a.id, 'mpf_authentique', v as Ascendant['mpf_authentique'])}
+                  options={[
+                    { v: 'oui',     l: 'Oui (authentique — notarié)' },
+                    { v: 'non',     l: 'Non (sous seing privé)' },
+                    { v: 'inconnu', l: 'Je ne sais pas' },
+                  ]} />
+              </Field>
+            )}
           </Grid>
           {a.situation === 'vivant' && (a.age ?? 0) > 70 &&
             (a.mandat_protection_future === 'non' || a.mandat_protection_future === 'a_faire') && (
@@ -685,6 +818,75 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
       }}>
         + Ajouter un ascendant
       </button>
+
+      <SectionTitle>👫 Frères et sœurs</SectionTitle>
+      <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>
+        {freresSoeurs.length}/10 · Utile pour l&apos;analyse successorale (représentation, abattements handicap)
+      </div>
+
+      {freresSoeurs.length === 0 && (
+        <div style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 13, padding: '12px 0' }}>
+          Aucun frère ou sœur renseigné
+        </div>
+      )}
+
+      {freresSoeurs.map((fs, idx) => (
+        <div key={fs.id} className="glass-card" style={{ padding: 16, position: 'relative' }}>
+          <div style={{ fontSize: 12, color: 'var(--accent-blue)', fontWeight: 600, marginBottom: 12 }}>
+            Frère / Sœur {idx + 1}
+          </div>
+          <button onClick={() => delFS(fs.id)} style={{
+            position: 'absolute', top: 12, right: 12,
+            background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)',
+            borderRadius: 6, color: '#EF4444', cursor: 'pointer', padding: '2px 8px', fontSize: 12
+          }}>✕</button>
+          <Grid cols={2}>
+            <Field label="Prénom ou alias">
+              <Input value={fs.alias} onChange={v => updFS(fs.id, 'alias', v)} placeholder="ex: Frère 1" />
+            </Field>
+            <Field label="Âge">
+              <NumInput value={fs.age} onChange={v => updFS(fs.id, 'age', v)} />
+            </Field>
+            <Field label="Situation">
+              <Select value={fs.situation} onChange={v => updFS(fs.id, 'situation', v as FrereSoeur['situation'])}
+                options={[{ v: 'valide', l: 'Valide' }, { v: 'handicape', l: 'Handicapé(e)' }]} />
+            </Field>
+            {fs.situation === 'handicape' && (
+              <Field label="Type de handicap">
+                <Input value={fs.type_handicap ?? ''} onChange={v => updFS(fs.id, 'type_handicap', v)}
+                  placeholder="ex: RQTH, taux d'invalidité..." />
+              </Field>
+            )}
+            <Field label="A des enfants ?">
+              <Select value={fs.a_enfants ? 'oui' : 'non'}
+                onChange={v => updFS(fs.id, 'a_enfants', v === 'oui')}
+                options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
+            </Field>
+            {fs.a_enfants && (
+              <Field label="Nombre d'enfants">
+                <NumInput value={fs.nb_enfants ?? 0} onChange={v => updFS(fs.id, 'nb_enfants', v)} />
+              </Field>
+            )}
+          </Grid>
+          {fs.situation === 'handicape' && (
+            <div style={{ marginTop: 8, fontSize: 11, color: '#A78BFA', lineHeight: 1.5,
+              padding: '8px 12px', background: 'rgba(167,139,250,0.06)',
+              border: '1px solid rgba(167,139,250,0.2)', borderRadius: 8 }}>
+              ℹ️ Abattement spécifique de 159 325 € en cas de succession (art. 779 II CGI)
+            </div>
+          )}
+        </div>
+      ))}
+
+      {freresSoeurs.length < 10 && (
+        <button onClick={addFS} style={{
+          background: 'rgba(59,130,246,0.08)', border: '1px dashed rgba(59,130,246,0.35)',
+          borderRadius: 10, color: 'var(--accent-blue)', cursor: 'pointer',
+          padding: '12px 20px', fontSize: 13, fontWeight: 500
+        }}>
+          + Ajouter un frère / une sœur
+        </button>
+      )}
     </div>
   )
 }
@@ -903,6 +1105,12 @@ function StepImmo({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatrimo
         const bExtra = b as unknown as Record<string, unknown>
         const pvAlert = b.valeur_venale > 0 && b.prix_acquisition > 0 &&
           b.valeur_venale < b.prix_acquisition * 0.5
+        const dateUnion = d.identite.date_union ?? ''
+        const anneeUnion = dateUnion ? new Date(dateUnion).getFullYear() : null
+        const showMariageZone = d.identite.situation_familiale === 'marie' && anneeUnion !== null && b.annee_acquisition === anneeUnion
+        const dateAchatExacte = b.date_achat_exacte ?? ''
+        const bienPropre = showMariageZone && dateAchatExacte && dateUnion && dateAchatExacte < dateUnion
+        const bienCommun = showMariageZone && dateAchatExacte && dateUnion && dateAchatExacte >= dateUnion
         return (
           <div key={b.id} className="glass-card" style={{ padding: 16, position: 'relative' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
@@ -934,6 +1142,21 @@ function StepImmo({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatrimo
               <Field label="Année d'acquisition">
                 <NumInput value={b.annee_acquisition} onChange={v => upd(b.id, 'annee_acquisition', v)} placeholder="ex: 2018" />
               </Field>
+              {showMariageZone && (
+                <Field label="Date exacte d'achat" hint={`Date du mariage : ${dateUnion}`}>
+                  <Input type="date" value={dateAchatExacte} onChange={v => upd(b.id, 'date_achat_exacte', v)} />
+                  {(bienPropre || bienCommun) && (
+                    <div style={{ marginTop: 6, display: 'inline-flex', alignItems: 'center', gap: 6,
+                      fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 20,
+                      background: bienPropre ? 'rgba(167,139,250,0.12)' : 'rgba(52,211,153,0.1)',
+                      border: `1px solid ${bienPropre ? 'rgba(167,139,250,0.3)' : 'rgba(52,211,153,0.25)'}`,
+                      color: bienPropre ? '#A78BFA' : '#34D399',
+                    }}>
+                      🏠 {bienPropre ? 'Bien propre (achat avant mariage)' : 'Bien commun (achat après mariage)'}
+                    </div>
+                  )}
+                </Field>
+              )}
               <Field label="Quote-part (%)">
                 <NumInput value={b.quote_part} onChange={v => upd(b.id, 'quote_part', v)} />
               </Field>
@@ -1543,6 +1766,16 @@ function StepObjectifs({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPa
         <Input value={i.projet_imminent ?? ''} onChange={v => upd('projet_imminent', v)}
           placeholder="ex: achat RP prévu, départ retraite dans 18 mois..." />
       </Field>
+      <Field label="Précisez votre projet (optionnel)">
+        <textarea
+          className="glass-input"
+          rows={4}
+          value={i.objectifs_commentaire ?? ''}
+          onChange={e => upd('objectifs_commentaire', e.target.value)}
+          placeholder="Décrivez ici plus en détail votre projet ou vos attentes..."
+          style={{ resize: 'vertical', lineHeight: 1.5 }}
+        />
+      </Field>
     </div>
   )
 }
@@ -1552,7 +1785,6 @@ function SaisieInner() {
   const router = useRouter()
   const params = useSearchParams()
   const { loading: authLoading } = useAuth()
-  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
   const [step, setStep] = useState(1)
   const [dossier, setDossier] = useState<DossierPatrimonial>(nouveauDossier)
   const [saved, setSaved] = useState(false)
@@ -1582,6 +1814,8 @@ function SaisieInner() {
     const t = setTimeout(save, 800)
     return () => clearTimeout(t)
   }, [dossier, save])
+
+  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
 
   const handleLaunchAudit = async () => {
     setLaunching(true)
