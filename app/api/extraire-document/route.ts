@@ -62,7 +62,3 @@ export async function POST(req: NextRequest) {
     try { await unlink(tmpJson) } catch {}
   }
 }
-
-export const config = {
-  api: { bodyParser: false }
-}
