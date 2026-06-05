@@ -16,10 +16,12 @@ export interface UserProfile {
 }
 
 export async function envoyerMagicLink(email: string): Promise<void> {
+  const redirectUrl = `${window.location.origin}/auth/callback`
+  console.log('[AUTH] emailRedirectTo:', redirectUrl)
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: `${window.location.origin}/auth/callback`,
+      emailRedirectTo: redirectUrl,
     }
   })
   if (error) throw error
