@@ -1,0 +1,22 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Ping toutes les 4 jours à 8h du matin
+    - cron: '0 8 */4 * *'
+  workflow_dispatch: # Permet un lancement manuel
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping health endpoint
+        run: |
+          echo "Pinging Supabase via health endpoint..."
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://mon-audit-patrimoine.fr/api/health)
+          echo "Response code: $response"
+          if [ "$response" != "200" ]; then
+            echo "Health check failed!"
+            exit 1
+          fi
+          echo "Supabase is alive!"
