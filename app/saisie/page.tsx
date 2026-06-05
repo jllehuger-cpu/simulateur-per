@@ -13,6 +13,7 @@ import {
 import { UnlockGate } from '@/components/unlock-gate'
 import { ImportDocument } from '@/components/import-document'
 import { useAuth } from '@/lib/use-auth'
+import ArbreGenealogie from '@/components/arbre-genealogique'
 
 // ─── Constantes listes ──────────────────────────────────────
 const SITUATIONS: { v: SituationFamiliale; l: string }[] = [
@@ -470,6 +471,7 @@ function situationOpts(age: number): { v: Enfant['situation']; l: string }[] {
 }
 
 function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatrimonial) => void }) {
+  const [showArbre, setShowArbre] = useState(false)
   const enfants = d.identite.enfants ?? []
   const ascendants = d.identite.ascendants ?? []
   const gaIds = d.identite.enfants_garde_alternee ?? []
@@ -536,6 +538,45 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+
+      {/* ── Bouton arbre ── */}
+      <button
+        onClick={() => setShowArbre(v => !v)}
+        style={{
+          alignSelf: 'flex-start',
+          background: showArbre ? 'rgba(16,185,129,0.12)' : 'rgba(255,255,255,0.04)',
+          border: `1px solid ${showArbre ? 'rgba(16,185,129,0.4)' : 'rgba(255,255,255,0.12)'}`,
+          borderRadius: 10, color: showArbre ? 'var(--accent-emerald)' : 'var(--text-secondary)',
+          cursor: 'pointer', fontSize: 13, fontWeight: 500, padding: '8px 16px',
+          transition: 'all 0.2s',
+        }}
+      >
+        🌳 {showArbre ? 'Masquer' : 'Voir'} l&apos;arbre généalogique
+      </button>
+
+      {/* ── Arbre dépliable ── */}
+      <div style={{
+        overflow: 'hidden',
+        maxHeight: showArbre ? 800 : 0,
+        opacity: showArbre ? 1 : 0,
+        transition: 'max-height 0.35s ease, opacity 0.25s ease',
+      }}>
+        <div style={{
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          borderRadius: 12, padding: 16, overflowX: 'auto',
+        }}>
+          <ArbreGenealogie
+            ageClient={d.identite.age_client ?? 0}
+            ageConjoint={d.identite.age_conjoint}
+            situationFamiliale={d.identite.situation_familiale ?? 'celibataire'}
+            enfants={enfants}
+            ascendants={ascendants}
+            freresSoeurs={d.identite.freres_soeurs ?? []}
+            enfantsGardeAlternee={gaIds}
+          />
+        </div>
+      </div>
 
       <SectionTitle>👶 Famille descendante</SectionTitle>
       <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: -8 }}>
