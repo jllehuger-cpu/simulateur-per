@@ -102,7 +102,41 @@ export interface Identite {
 
 // ── Revenus ──────────────────────────────────────────────
 export interface Revenus {
-  // Package salarié (brut)
+  // Mode de saisie
+  mode_revenus?: 'package' | 'detail_avis' | 'import_pdf'
+
+  // ── Mode "package" ──
+  revenu_brut_annuel_client?: number
+  revenu_brut_annuel_conjoint?: number
+  type_revenus_client?: 'salarie' | 'tns' | 'mixte'
+  type_revenus_conjoint?: 'salarie' | 'tns' | 'mixte'
+  primes_incluses_client?: boolean
+  primes_montant_client?: number
+  primes_incluses_conjoint?: boolean
+  primes_montant_conjoint?: number
+  avantages_nature_client?: number
+  avantages_nature_conjoint?: number
+
+  // ── Mode "detail_avis" — Revenus d'activité ──
+  traitements_salaires_client?: number    // case 1AJ
+  traitements_salaires_conjoint?: number  // case 1BJ
+  bic_bnc_ba?: number                     // cases 5…
+  pensions_retraites_client?: number      // case 1AS
+  pensions_retraites_conjoint?: number    // case 1BS
+  // Revenus du patrimoine
+  revenus_fonciers_4ba?: number           // case 4BA / 4BE
+  rcm_2dc?: number                        // case 2DC
+  pv_mobiliere_3vg?: number               // case 3VG
+  // Charges déductibles
+  pensions_alimentaires_6gu?: number      // case 6GU
+  csg_deductible_6de?: number             // case 6DE
+  epargne_retraite_6ns?: number           // case 6NS / 6NT
+  // Résultat fiscal (saisi manuellement depuis l'avis)
+  revenu_brut_global?: number
+  revenu_net_imposable?: number
+  rfr?: number                            // Revenu fiscal de référence
+
+  // ── Champs communs (anciens, conservés) ──
   salaire_base_brut_client: number
   salaire_base_brut_conjoint: number
   primes_brut_client: number

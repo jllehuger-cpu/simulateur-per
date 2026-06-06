@@ -933,20 +933,32 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
 }
 
 // ─── ÉTAPE 3 : REVENUS ──────────────────────────────────────
+const MODE_CARDS = [
+  {
+    id: 'package' as const,
+    icon: '📦',
+    label: 'Package annuel brut',
+    desc: 'Saisie rapide — revenu brut total + type',
+  },
+  {
+    id: 'detail_avis' as const,
+    icon: '📋',
+    label: "Détail de l'avis d'imposition",
+    desc: 'Cases 1AJ, 4BA, 3VG… saisie manuelle détaillée',
+  },
+  {
+    id: 'import_pdf' as const,
+    icon: '📄',
+    label: 'Importer l\'avis (PDF)',
+    desc: 'Extraction automatique par IA',
+  },
+]
+
 function StepRevenus({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatrimonial) => void }) {
   const r = d.revenus
-  const upd = (k: string, v: number | string) => setD({ ...d, revenus: { ...d.revenus, [k]: v } })
+  const upd = (k: string, v: number | string | boolean) => setD({ ...d, revenus: { ...d.revenus, [k]: v } })
+  const mode = r.mode_revenus ?? 'package'
 
-  const tauxC  = r.taux_cotisations_client  ?? 0.22
-  const tauxCo = r.taux_cotisations_conjoint ?? 0.22
-  const netC  = Math.round(((r.salaire_base_brut_client ?? 0) + (r.primes_brut_client ?? 0)) * (1 - tauxC)
-    + (r.epargne_salariale_brut_client ?? 0) * 0.93)
-  const netCo = Math.round(((r.salaire_base_brut_conjoint ?? 0) + (r.primes_brut_conjoint ?? 0)) * (1 - tauxCo)
-    + (r.epargne_salariale_brut_conjoint ?? 0) * 0.93)
-
-  const fmt = (n: number) => n > 0 ? n.toLocaleString('fr-FR') + ' €' : '—'
-
-  // Calcul des parts théoriques (garde alternée = moitié des parts)
   const sf = (d.identite.situation_familiale ?? '') as string
   const hasConj = sf === 'marie' || sf === 'pacse' || sf === 'concubin'
   const gaIds = d.identite.enfants_garde_alternee ?? []
@@ -962,118 +974,19 @@ function StepRevenus({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
   const nbParts = r.nb_parts ?? 0
   const showPartsWarn = nbParts > 0 && Math.abs(nbParts - partsTheo) > 0.6
 
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+  const fmt = (n: number) => n > 0 ? n.toLocaleString('fr-FR') + ' €' : '—'
 
-      <ImportDocument
-        label="Importer avis d'imposition (PDF)"
-        typeForce="avis_imposition"
-        onSuccess={(data) => {
-          const r = data as {
-            ir_paye_n1?: number
-            tmi?: number
-            nb_parts?: number
-            ifi_paye_n1?: number
-            deficit_foncier_reportable?: number
-            revenus_declares?: {
-              salaires_traitements_net_total?: number
-              revenus_fonciers_nets?: number
-              lmnp_recettes?: number
-              dividendes_rcm?: number
-            }
-          }
-          const rev = r.revenus_declares ?? {}
-          const updates: Partial<typeof d.revenus> = {}
-          if (r.ir_paye_n1)                      updates.ir_paye_n1 = r.ir_paye_n1
-          if (r.tmi)                             updates.tmi = r.tmi
-          if (r.nb_parts)                        updates.nb_parts = r.nb_parts
-          if (r.ifi_paye_n1)                     updates.ifi_paye_n1 = r.ifi_paye_n1
-          if (r.deficit_foncier_reportable)      updates.deficit_foncier_reportable = r.deficit_foncier_reportable
-          if (rev.salaires_traitements_net_total) updates.salaire_base_brut_client = rev.salaires_traitements_net_total
-          if (rev.revenus_fonciers_nets)         updates.revenus_fonciers_net = rev.revenus_fonciers_nets
-          if (rev.lmnp_recettes)                 updates.loyers_lmnp_net = rev.lmnp_recettes
-          if (rev.dividendes_rcm)                updates.dividendes_net = rev.dividendes_rcm
-          setD({ ...d, revenus: { ...d.revenus, ...updates } })
-        }}
-      />
+  // Estimation net pour le mode package
+  const typeC  = r.type_revenus_client   ?? 'salarie'
+  const typeCo = r.type_revenus_conjoint ?? 'salarie'
+  const factorC  = typeC  === 'tns' ? 0.55 : typeC  === 'mixte' ? 0.65 : 0.78
+  const factorCo = typeCo === 'tns' ? 0.55 : typeCo === 'mixte' ? 0.65 : 0.78
+  const estNetC  = Math.round((r.revenu_brut_annuel_client   ?? 0) * factorC)
+  const estNetCo = Math.round((r.revenu_brut_annuel_conjoint ?? 0) * factorCo)
 
-      <SectionTitle>Package salarié (saisie en BRUT annuel)</SectionTitle>
-      <ColHeaders />
-
-      <Grid cols={2}>
-        <Field label="Salaire de base brut">
-          <NumInput value={(r as Record<string, unknown>).salaire_base_brut_client as number}
-            onChange={v => upd('salaire_base_brut_client', v)} placeholder="€/an" />
-          <FieldNote>Ligne &lsquo;Salaires et traitements&rsquo; de votre avis d&apos;imposition × 1,28 environ</FieldNote>
-        </Field>
-        <Field label="Salaire de base brut">
-          <NumInput value={hasConj ? (r as Record<string, unknown>).salaire_base_brut_conjoint as number : undefined}
-            onChange={v => upd('salaire_base_brut_conjoint', v)} placeholder="€/an" disabled={!hasConj} />
-        </Field>
-      </Grid>
-
-      <Grid cols={2}>
-        <Field label="Primes / bonus bruts">
-          <NumInput value={(r as Record<string, unknown>).primes_brut_client as number}
-            onChange={v => upd('primes_brut_client', v)} placeholder="€/an" />
-        </Field>
-        <Field label="Primes / bonus bruts">
-          <NumInput value={hasConj ? (r as Record<string, unknown>).primes_brut_conjoint as number : undefined}
-            onChange={v => upd('primes_brut_conjoint', v)} placeholder="€/an" disabled={!hasConj} />
-        </Field>
-      </Grid>
-
-      <Grid cols={2}>
-        <Field label="Épargne salariale brute (int./part.)">
-          <NumInput value={(r as Record<string, unknown>).epargne_salariale_brut_client as number}
-            onChange={v => upd('epargne_salariale_brut_client', v)} placeholder="€/an" />
-          <FieldNote>Soumise à 7% CSG/CRDS uniquement (hors cotisations sociales)</FieldNote>
-        </Field>
-        <Field label="Épargne salariale brute (int./part.)">
-          <NumInput value={hasConj ? (r as Record<string, unknown>).epargne_salariale_brut_conjoint as number : undefined}
-            onChange={v => upd('epargne_salariale_brut_conjoint', v)} placeholder="€/an" disabled={!hasConj} />
-        </Field>
-      </Grid>
-
-      <Grid cols={2}>
-        <Field label="Taux cotisations client (%)" hint="défaut 22%">
-          <NumInput value={Math.round(tauxC * 100)} onChange={v => upd('taux_cotisations_client', v / 100)} />
-        </Field>
-        <Field label="Taux cotisations conjoint (%)" hint="défaut 22%">
-          <NumInput value={Math.round(tauxCo * 100)} onChange={v => upd('taux_cotisations_conjoint', v / 100)} disabled={!hasConj} />
-        </Field>
-      </Grid>
-
-      <div style={{
-        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12,
-        background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.18)',
-        borderRadius: 10, padding: '12px 16px'
-      }}>
-        <div>
-          <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Net calculé — Client</div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--accent-emerald)' }}>{fmt(netC)}</div>
-        </div>
-        <div>
-          <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Net calculé — Conjoint</div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--accent-emerald)' }}>{fmt(netCo)}</div>
-        </div>
-      </div>
-
-      <SectionTitle>Autres revenus nets annuels</SectionTitle>
-      {[
-        { k: 'revenus_tns_net',      label: 'Revenus TNS nets (gérance / BNC)' },
-        { k: 'dividendes_net',       label: 'Dividendes nets' },
-        { k: 'revenus_fonciers_net', label: 'Revenus fonciers nets' },
-        { k: 'loyers_lmnp_net',      label: 'Loyers LMNP / LMP nets' },
-        { k: 'rcm_net',              label: 'Revenus de capitaux mobiliers nets' },
-        { k: 'plus_values_net',      label: 'Plus-values nettes réalisées' },
-        { k: 'retraite_net',         label: 'Retraite nette (si retraité)' },
-      ].map(row => (
-        <Field key={row.k} label={row.label}>
-          <NumInput value={(r as Record<string, unknown>)[row.k] as number} onChange={v => upd(row.k, v)} placeholder="€/an" />
-        </Field>
-      ))}
-
+  // Bloc fiscalité commun (tous modes)
+  const BlocFiscalite = (
+    <>
       <SectionTitle>Fiscalité</SectionTitle>
       <Grid cols={2}>
         <Field label="IR payé N-1 (€)">
@@ -1103,6 +1016,321 @@ function StepRevenus({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
         <Input value={r.avantages_fiscaux ?? ''} onChange={v => upd('avantages_fiscaux', v)}
           placeholder="ex: PER individuel 3 000 €/an, Pinel..." />
       </Field>
+    </>
+  )
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+
+      {/* ── Sélecteur de mode ─────────────────────────────────── */}
+      <div>
+        <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 10 }}>
+          Comment souhaitez-vous renseigner vos revenus ?
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+          {MODE_CARDS.map(card => {
+            const active = mode === card.id
+            return (
+              <button
+                key={card.id}
+                type="button"
+                onClick={() => upd('mode_revenus', card.id)}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+                  gap: 6, padding: '14px 14px 12px',
+                  background: active ? 'rgba(59,130,246,0.12)' : 'rgba(255,255,255,0.03)',
+                  border: active ? '1.5px solid rgba(59,130,246,0.55)' : '1.5px solid rgba(255,255,255,0.1)',
+                  borderRadius: 10, cursor: 'pointer', textAlign: 'left',
+                  transition: 'all 0.18s',
+                }}
+              >
+                <span style={{ fontSize: 22 }}>{card.icon}</span>
+                <span style={{
+                  fontSize: 12, fontWeight: 700,
+                  color: active ? 'var(--accent-blue)' : 'var(--text-primary)',
+                  lineHeight: 1.3,
+                }}>
+                  {card.label}
+                </span>
+                <span style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.4 }}>
+                  {card.desc}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* ── Option 1 : Package annuel brut ────────────────────── */}
+      {mode === 'package' && (
+        <>
+          <SectionTitle>Revenus bruts annuels</SectionTitle>
+          <ColHeaders />
+          <Grid cols={2}>
+            <Field label="Revenu brut annuel">
+              <NumInput value={r.revenu_brut_annuel_client}
+                onChange={v => upd('revenu_brut_annuel_client', v)} placeholder="€/an" />
+            </Field>
+            <Field label="Revenu brut annuel">
+              <NumInput value={hasConj ? r.revenu_brut_annuel_conjoint : undefined}
+                onChange={v => upd('revenu_brut_annuel_conjoint', v)} placeholder="€/an" disabled={!hasConj} />
+            </Field>
+          </Grid>
+
+          <Grid cols={2}>
+            <Field label="Type de revenus">
+              <Select
+                value={r.type_revenus_client ?? ''}
+                onChange={v => upd('type_revenus_client', v)}
+                options={[
+                  { v: 'salarie', l: 'Salarié' },
+                  { v: 'tns',     l: 'TNS (indépendant)' },
+                  { v: 'mixte',   l: 'Mixte (salarié + TNS)' },
+                ]}
+              />
+              <FieldNote>Salarié → net ≈ brut × 78 % · TNS → net ≈ brut × 55 %</FieldNote>
+            </Field>
+            <Field label="Type de revenus">
+              <Select
+                value={r.type_revenus_conjoint ?? ''}
+                onChange={v => upd('type_revenus_conjoint', v)}
+                options={[
+                  { v: 'salarie', l: 'Salarié' },
+                  { v: 'tns',     l: 'TNS (indépendant)' },
+                  { v: 'mixte',   l: 'Mixte' },
+                ]}
+                disabled={!hasConj}
+              />
+            </Field>
+          </Grid>
+
+          <Grid cols={2}>
+            <Field label="Primes / bonus inclus ?">
+              <Select
+                value={r.primes_incluses_client !== undefined ? (r.primes_incluses_client ? 'oui' : 'non') : ''}
+                onChange={v => upd('primes_incluses_client', v === 'oui')}
+                options={[{ v: 'oui', l: 'Oui — inclus dans le brut' }, { v: 'non', l: 'Non — hors primes' }]}
+              />
+            </Field>
+            <Field label="Primes / bonus inclus ?">
+              <Select
+                value={r.primes_incluses_conjoint !== undefined ? (r.primes_incluses_conjoint ? 'oui' : 'non') : ''}
+                onChange={v => upd('primes_incluses_conjoint', v === 'oui')}
+                options={[{ v: 'oui', l: 'Oui — inclus dans le brut' }, { v: 'non', l: 'Non — hors primes' }]}
+                disabled={!hasConj}
+              />
+            </Field>
+          </Grid>
+
+          {r.primes_incluses_client === false && (
+            <Grid cols={2}>
+              <Field label="Montant primes brutes (€/an)">
+                <NumInput value={r.primes_montant_client} onChange={v => upd('primes_montant_client', v)} />
+              </Field>
+              {hasConj && r.primes_incluses_conjoint === false && (
+                <Field label="Montant primes brutes (€/an)">
+                  <NumInput value={r.primes_montant_conjoint} onChange={v => upd('primes_montant_conjoint', v)} />
+                </Field>
+              )}
+            </Grid>
+          )}
+
+          <Grid cols={2}>
+            <Field label="Avantages en nature (€/an)" hint="si applicable">
+              <NumInput value={r.avantages_nature_client} onChange={v => upd('avantages_nature_client', v)} />
+            </Field>
+            <Field label="Avantages en nature (€/an)">
+              <NumInput value={hasConj ? r.avantages_nature_conjoint : undefined}
+                onChange={v => upd('avantages_nature_conjoint', v)} disabled={!hasConj} />
+            </Field>
+          </Grid>
+
+          {((r.revenu_brut_annuel_client ?? 0) > 0 || (r.revenu_brut_annuel_conjoint ?? 0) > 0) && (
+            <div style={{
+              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12,
+              background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.18)',
+              borderRadius: 10, padding: '12px 16px'
+            }}>
+              <div>
+                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Net estimé — Client</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--accent-emerald)' }}>{fmt(estNetC)}</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Net estimé — Conjoint</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--accent-emerald)' }}>{fmt(estNetCo)}</div>
+              </div>
+            </div>
+          )}
+
+          <SectionTitle>Autres revenus nets annuels</SectionTitle>
+          {[
+            { k: 'revenus_tns_net',      label: 'Revenus TNS nets (gérance / BNC)' },
+            { k: 'dividendes_net',       label: 'Dividendes nets' },
+            { k: 'revenus_fonciers_net', label: 'Revenus fonciers nets' },
+            { k: 'loyers_lmnp_net',      label: 'Loyers LMNP / LMP nets' },
+            { k: 'plus_values_net',      label: 'Plus-values nettes réalisées' },
+            { k: 'retraite_net',         label: 'Retraite nette (si retraité)' },
+          ].map(row => (
+            <Field key={row.k} label={row.label}>
+              <NumInput value={(r as Record<string, unknown>)[row.k] as number} onChange={v => upd(row.k, v)} placeholder="€/an" />
+            </Field>
+          ))}
+
+          {BlocFiscalite}
+        </>
+      )}
+
+      {/* ── Option 2 : Détail avis d'imposition ───────────────── */}
+      {mode === 'detail_avis' && (
+        <>
+          <SectionTitle>Revenus d&apos;activité</SectionTitle>
+          <ColHeaders />
+          <Grid cols={2}>
+            <Field label="Traitements et salaires" hint="Case 1AJ">
+              <NumInput value={r.traitements_salaires_client}
+                onChange={v => upd('traitements_salaires_client', v)} placeholder="€" />
+            </Field>
+            <Field label="Traitements et salaires" hint="Case 1BJ">
+              <NumInput value={hasConj ? r.traitements_salaires_conjoint : undefined}
+                onChange={v => upd('traitements_salaires_conjoint', v)} disabled={!hasConj} placeholder="€" />
+            </Field>
+          </Grid>
+
+          <Field label="Revenus indépendants BIC / BNC / BA" hint="Cases 5…">
+            <NumInput value={r.bic_bnc_ba} onChange={v => upd('bic_bnc_ba', v)} placeholder="€" />
+          </Field>
+
+          <Grid cols={2}>
+            <Field label="Pensions et retraites" hint="Case 1AS">
+              <NumInput value={r.pensions_retraites_client}
+                onChange={v => upd('pensions_retraites_client', v)} placeholder="€" />
+            </Field>
+            <Field label="Pensions et retraites" hint="Case 1BS">
+              <NumInput value={hasConj ? r.pensions_retraites_conjoint : undefined}
+                onChange={v => upd('pensions_retraites_conjoint', v)} disabled={!hasConj} placeholder="€" />
+            </Field>
+          </Grid>
+
+          <SectionTitle>Revenus du patrimoine</SectionTitle>
+          <Field label="Revenus fonciers nets" hint="Case 4BA (réel) ou 4BE (micro-foncier)">
+            <NumInput value={r.revenus_fonciers_4ba} onChange={v => upd('revenus_fonciers_4ba', v)} placeholder="€" />
+          </Field>
+          <Grid cols={2}>
+            <Field label="Revenus de capitaux mobiliers" hint="Case 2DC">
+              <NumInput value={r.rcm_2dc} onChange={v => upd('rcm_2dc', v)} placeholder="€" />
+            </Field>
+            <Field label="Plus-values mobilières" hint="Case 3VG">
+              <NumInput value={r.pv_mobiliere_3vg} onChange={v => upd('pv_mobiliere_3vg', v)} placeholder="€" />
+            </Field>
+          </Grid>
+
+          <SectionTitle>Charges déductibles</SectionTitle>
+          <Grid cols={2}>
+            <Field label="Pensions alimentaires versées" hint="Case 6GU">
+              <NumInput value={r.pensions_alimentaires_6gu}
+                onChange={v => upd('pensions_alimentaires_6gu', v)} placeholder="€" />
+            </Field>
+            <Field label="CSG déductible" hint="Case 6DE">
+              <NumInput value={r.csg_deductible_6de} onChange={v => upd('csg_deductible_6de', v)} placeholder="€" />
+            </Field>
+          </Grid>
+          <Field label="Épargne retraite PER / PERP" hint="Cases 6NS / 6NT">
+            <NumInput value={r.epargne_retraite_6ns} onChange={v => upd('epargne_retraite_6ns', v)} placeholder="€" />
+          </Field>
+
+          <SectionTitle>Résultat fiscal</SectionTitle>
+          <Grid cols={2}>
+            <Field label="Revenu brut global (€)">
+              <NumInput value={r.revenu_brut_global} onChange={v => upd('revenu_brut_global', v)} />
+            </Field>
+            <Field label="Revenu net imposable (€)">
+              <NumInput value={r.revenu_net_imposable} onChange={v => upd('revenu_net_imposable', v)} />
+            </Field>
+            <Field label="Nombre de parts fiscales">
+              <NumInput value={r.nb_parts} onChange={v => upd('nb_parts', v)} />
+              {showPartsWarn && (
+                <Warn color="#F59E0B">
+                  Parts attendues : ~{partsTheo.toLocaleString('fr-FR')}
+                </Warn>
+              )}
+            </Field>
+            <Field label="Revenu fiscal de référence (RFR)">
+              <NumInput value={r.rfr} onChange={v => upd('rfr', v)} />
+            </Field>
+          </Grid>
+
+          {BlocFiscalite}
+        </>
+      )}
+
+      {/* ── Option 3 : Import PDF ──────────────────────────────── */}
+      {mode === 'import_pdf' && (
+        <>
+          <ImportDocument
+            label="Importer l'avis d'imposition (PDF)"
+            typeForce="avis_imposition"
+            onSuccess={(data) => {
+              const extracted = data as {
+                ir_paye_n1?: number; tmi?: number; nb_parts?: number
+                ifi_paye_n1?: number; deficit_foncier_reportable?: number
+                revenu_net_imposable?: number; rfr?: number
+                revenus_declares?: {
+                  salaires_traitements_net_total?: number
+                  revenus_fonciers_nets?: number
+                  lmnp_recettes?: number
+                  dividendes_rcm?: number
+                }
+              }
+              const rev = extracted.revenus_declares ?? {}
+              const updates: Partial<typeof d.revenus> = {}
+              if (extracted.ir_paye_n1)               updates.ir_paye_n1 = extracted.ir_paye_n1
+              if (extracted.tmi)                       updates.tmi = extracted.tmi
+              if (extracted.nb_parts)                  updates.nb_parts = extracted.nb_parts
+              if (extracted.ifi_paye_n1)               updates.ifi_paye_n1 = extracted.ifi_paye_n1
+              if (extracted.deficit_foncier_reportable) updates.deficit_foncier_reportable = extracted.deficit_foncier_reportable
+              if (extracted.revenu_net_imposable)      updates.revenu_net_imposable = extracted.revenu_net_imposable
+              if (extracted.rfr)                       updates.rfr = extracted.rfr
+              if (rev.salaires_traitements_net_total)  updates.traitements_salaires_client = rev.salaires_traitements_net_total
+              if (rev.revenus_fonciers_nets)           updates.revenus_fonciers_4ba = rev.revenus_fonciers_nets
+              if (rev.lmnp_recettes)                   updates.loyers_lmnp_net = rev.lmnp_recettes
+              if (rev.dividendes_rcm)                  updates.rcm_2dc = rev.dividendes_rcm
+              setD({ ...d, revenus: { ...d.revenus, ...updates } })
+            }}
+          />
+
+          {/* Récapitulatif si données extraites */}
+          {(r.ir_paye_n1 || r.revenu_net_imposable || r.traitements_salaires_client) && (
+            <>
+              <SectionTitle>Données extraites</SectionTitle>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {[
+                  { label: 'Traitements et salaires (client)', v: r.traitements_salaires_client },
+                  { label: 'Revenu net imposable', v: r.revenu_net_imposable },
+                  { label: 'Revenus fonciers nets', v: r.revenus_fonciers_4ba },
+                  { label: 'RFR', v: r.rfr },
+                  { label: 'IR payé N-1', v: r.ir_paye_n1 },
+                  { label: 'Nombre de parts', v: r.nb_parts },
+                  { label: 'TMI (%)', v: r.tmi },
+                ].filter(row => row.v).map(row => (
+                  <div key={row.label} style={{
+                    display: 'flex', justifyContent: 'space-between',
+                    fontSize: 12, color: 'var(--text-secondary)',
+                    padding: '6px 12px', background: 'rgba(255,255,255,0.03)',
+                    borderRadius: 7, border: '1px solid rgba(255,255,255,0.07)',
+                  }}>
+                    <span>{row.label}</span>
+                    <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
+                      {typeof row.v === 'number' ? row.v.toLocaleString('fr-FR') : row.v}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {BlocFiscalite}
+        </>
+      )}
     </div>
   )
 }

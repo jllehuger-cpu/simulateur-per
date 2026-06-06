@@ -131,6 +131,12 @@ export function normaliserPourPrompt(d: DossierPatrimonial): string {
   const totalImmoValeur = d.biens_immo.reduce((s, b) => s + (b.valeur_venale ?? 0), 0)
   const totalCRD        = d.biens_immo.reduce((s, b) => s + (b.crd ?? 0), 0)
 
+  // Estimation net imposable en mode package
+  const factorC  = r.type_revenus_client   === 'tns' ? 0.55 : r.type_revenus_client   === 'mixte' ? 0.65 : 0.78
+  const factorCo = r.type_revenus_conjoint === 'tns' ? 0.55 : r.type_revenus_conjoint === 'mixte' ? 0.65 : 0.78
+  const packageNetClient   = Math.round((r.revenu_brut_annuel_client   ?? 0) * factorC)
+  const packageNetConjoint = Math.round((r.revenu_brut_annuel_conjoint ?? 0) * factorCo)
+
   return JSON.stringify({
     alias: d.alias,
     identite: { ...d.identite },
@@ -138,6 +144,10 @@ export function normaliserPourPrompt(d: DossierPatrimonial): string {
       ...r,
       _net_salaire_client_calcule:   Math.round(netSalaireClient),
       _net_salaire_conjoint_calcule: Math.round(netSalaireConjoint),
+      ...(r.mode_revenus === 'package' && {
+        _estimation_net_imposable_client:   packageNetClient,
+        _estimation_net_imposable_conjoint: packageNetConjoint,
+      }),
     },
     biens_immo:          d.biens_immo,
     produits_financiers: d.produits_financiers,
