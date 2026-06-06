@@ -26,13 +26,18 @@ const C = {
   lineDash:  'rgba(255,255,255,0.13)',
 }
 
-const RW = 90   // rect width
-const RH = 42   // rect height
-const RX = 7    // border radius
-const PAD = 16  // horizontal padding between rects
+const RW = 90    // rect width
+const RH = 42    // rect height
+const RX = 7     // border radius
+const PAD = 16   // horizontal gap between rects
+const LEVEL_H = 80  // vertical gap between levels
 
-interface Rect { x: number; y: number; w: number; h: number; label: string; sub?: string
-  fill: string; stroke: string; textColor: string; dash?: boolean; badge?: string }
+interface Rect {
+  x: number; y: number; w: number; h: number
+  label: string; sub?: string
+  fill: string; stroke: string; textColor: string
+  dash?: boolean; badge?: string
+}
 
 function Rct({ r }: { r: Rect }) {
   return (
@@ -66,22 +71,10 @@ function Rct({ r }: { r: Rect }) {
   )
 }
 
-function Line({ x1, y1, x2, y2, dash }: { x1:number; y1:number; x2:number; y2:number; dash?: boolean }) {
-  const mx = (x1 + x2) / 2
-  const my = (y1 + y2) / 2
-  return (
-    <path
-      d={`M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`}
-      fill="none" stroke={dash ? C.lineDash : C.line}
-      strokeWidth={1.2} strokeDasharray={dash ? '4 3' : undefined}
-    />
-  )
-}
-
 function libelleAscendant(lien: Ascendant['lien']) {
   const MAP: Record<string, string> = {
-    pere_client:           'Père ♂', mere_client:           'Mère ♀',
-    pere_conjoint:         'Père ♂', mere_conjoint:         'Mère ♀',
+    pere_client:           'Père ♂',    mere_client:           'Mère ♀',
+    pere_conjoint:         'Père ♂',    mere_conjoint:         'Mère ♀',
     pere_adoptif_client:   'P.adopt ♂', mere_adoptif_client:   'M.adopt ♀',
     pere_adoptif_conjoint: 'P.adopt ♂', mere_adoptif_conjoint: 'M.adopt ♀',
     autre: 'Autre',
@@ -93,14 +86,22 @@ function libelleEnfantSituation(s: Enfant['situation']) {
   return { mineur: 'mineur', etudiant: 'étudiant', actif: 'actif', marie: 'marié' }[s] ?? s
 }
 
+/** Centre `count` rects of width RW+PAD around `center`. Returns left-edge X for each. */
+function spreadX(count: number, center: number): number[] {
+  if (count === 0) return []
+  const total = count * RW + (count - 1) * PAD
+  const startX = center - total / 2
+  return Array.from({ length: count }, (_, i) => startX + i * (RW + PAD))
+}
+
 export default function ArbreGenealogie({
   ageClient, ageConjoint, situationFamiliale, enfants,
-  ascendants, freresSoeurs, enfantsGardeAlternee,
+  ascendants, freresSoeurs,
 }: ArbreGenealogieProps) {
 
-  const hasConjoint = ['marie','pacse','concubin'].includes(situationFamiliale)
+  const hasConjoint = ['marie', 'pacse', 'concubin'].includes(situationFamiliale)
 
-  // ── Séparer les ascendants par branche ──────────────────
+  // ── Séparer les ascendants par branche ──────────────────────
   const gpClient = ascendants.filter(a =>
     (a.lien === 'pere_client' || a.lien === 'mere_client') &&
     a.situation === 'decede' && a.grand_parent_vivant === true
@@ -109,77 +110,77 @@ export default function ArbreGenealogie({
     (a.lien === 'pere_conjoint' || a.lien === 'mere_conjoint') &&
     a.situation === 'decede' && a.grand_parent_vivant === true
   )
-  const parentsClient   = ascendants.filter(a => a.lien === 'pere_client' || a.lien === 'mere_client' || a.lien === 'pere_adoptif_client' || a.lien === 'mere_adoptif_client')
-  const parentsConjoint = ascendants.filter(a => a.lien === 'pere_conjoint' || a.lien === 'mere_conjoint' || a.lien === 'pere_adoptif_conjoint' || a.lien === 'mere_adoptif_conjoint')
+  const parentsClient = ascendants.filter(a =>
+    a.lien === 'pere_client' || a.lien === 'mere_client' ||
+    a.lien === 'pere_adoptif_client' || a.lien === 'mere_adoptif_client'
+  )
+  const parentsConjoint = ascendants.filter(a =>
+    a.lien === 'pere_conjoint' || a.lien === 'mere_conjoint' ||
+    a.lien === 'pere_adoptif_conjoint' || a.lien === 'mere_adoptif_conjoint'
+  )
 
   const showGP = gpClient.length > 0 || gpConjoint.length > 0
   const showParentsConj = hasConjoint && parentsConjoint.length > 0
 
-  // ── Layout vertical ──────────────────────────────────────
-  const LEVEL_H = 80  // px entre niveaux
-  let currentY = 20
-  const levels: number[] = []
-  if (showGP)              { levels.push(currentY); currentY += LEVEL_H }
-  const parentLevelY = currentY; currentY += LEVEL_H
-  const coupleLevelY = currentY; currentY += LEVEL_H
-  const siblingLevelY = freresSoeurs.length > 0 ? currentY : -1
-  if (freresSoeurs.length > 0) currentY += LEVEL_H
-  const childLevelY = enfants.length > 0 ? currentY : -1
-  if (enfants.length > 0) currentY += LEVEL_H
-  const svgH = currentY + 24
-  void levels
+  // ── Layout vertical (Y levels) ───────────────────────────────
+  let curY = 20
+  const gpLevelY     = showGP ? curY : -1
+  if (showGP) curY += LEVEL_H
+  const parentLevelY = curY; curY += LEVEL_H
+  // Niveau 3 : frères/sœurs + client + conjoint — TOUS au même Y
+  const coupleLevelY = curY; curY += LEVEL_H
+  const childLevelY  = enfants.length > 0 ? curY : -1
+  if (enfants.length > 0) curY += LEVEL_H
+  const svgH = curY + 24
 
-  // ── Calcul largeur totale ────────────────────────────────
-  const gpCount = gpClient.length + gpConjoint.length
-  const parentCount = parentsClient.length + (showParentsConj ? parentsConjoint.length : 0)
-  const sibCount = freresSoeurs.length
-  const childCount = enfants.length
-  // Éléments au couple : client + (conjoint)
-  const coupleCount = hasConjoint ? 2 : 1
+  // ── Niveau 3 : disposition horizontale complète ──────────────
+  // Ordre dans la rangée : [F/S gauches…, Client, Conjoint?, F/S droits…]
+  const coupleCount   = hasConjoint ? 2 : 1
+  const sibCount      = freresSoeurs.length
+  const leftSibCount  = Math.ceil(sibCount / 2)
+  const rightSibCount = sibCount - leftSibCount
 
-  const maxItems = Math.max(gpCount, parentCount, coupleCount + sibCount + 2, childCount, 1)
-  const svgW = Math.max(500, maxItems * (RW + PAD) + PAD * 4)
+  const rowItemCount = sibCount + coupleCount
+  const rowW         = rowItemCount * RW + Math.max(0, rowItemCount - 1) * PAD
+  const svgW         = Math.max(500, rowW + PAD * 8)
+  const cx           = svgW / 2
+  const rowStartX    = cx - rowW / 2
 
-  // ── Helpers de positionnement ────────────────────────────
-  function spreadX(count: number, center: number): number[] {
-    if (count === 0) return []
-    const total = count * RW + (count - 1) * PAD
-    const startX = center - total / 2
-    return Array.from({ length: count }, (_, i) => startX + i * (RW + PAD))
-  }
+  // Positions X de chaque nœud dans la rangée
+  const leftSibXs      = Array.from({ length: leftSibCount  }, (_, i) => rowStartX + i * (RW + PAD))
+  const clientX        = rowStartX + leftSibCount * (RW + PAD)
+  const conjX          = hasConjoint ? clientX + RW + PAD : -1
+  const rightSibsStart = clientX + coupleCount * (RW + PAD)
+  const rightSibXs     = Array.from({ length: rightSibCount }, (_, i) => rightSibsStart + i * (RW + PAD))
 
-  const cx = svgW / 2  // center X
-
-  // ── Couple ───────────────────────────────────────────────
-  const coupleXs = hasConjoint
-    ? [cx - RW - PAD / 2, cx + PAD / 2]
-    : [cx - RW / 2]
-
-  const clientRect: Rect = {
-    x: coupleXs[0], y: coupleLevelY, w: RW, h: RH,
-    label: `Client ${ageClient}a`,
-    fill: C.client.fill, stroke: C.client.stroke, textColor: C.client.text,
-  }
-  const conjointRect: Rect | null = hasConjoint ? {
-    x: coupleXs[1], y: coupleLevelY, w: RW, h: RH,
-    label: `Conjoint ${ageConjoint ?? '?'}a`,
-    fill: C.conjoint.fill, stroke: C.conjoint.stroke, textColor: C.conjoint.text,
-  } : null
-
-  const clientCX = clientRect.x + RW / 2
-  const clientCY = clientRect.y + RH / 2
-  const conjCX   = conjointRect ? conjointRect.x + RW / 2 : clientCX
+  // ── Géométrie du couple ──────────────────────────────────────
+  const clientCX = clientX + RW / 2
+  const clientCY = coupleLevelY + RH / 2
+  const conjCX   = hasConjoint ? conjX + RW / 2 : clientCX
   const coupleCX = hasConjoint ? (clientCX + conjCX) / 2 : clientCX
 
-  // lien entre le couple
-  const sfLabel: Record<string,string> = { marie:'Marié·e·s', pacse:'Pacsé·e·s', concubin:'Concubins' }
-  const liensCouple = sfLabel[situationFamiliale]
+  // ── Positions des parents : au-dessus du centre de leur groupe d'enfants ──
+  // Parents du client → au-dessus du groupe {frères/sœurs + client}
+  const clientGroupMinX    = leftSibXs.length > 0 ? leftSibXs[0] : clientX
+  const clientGroupCenterX = (clientGroupMinX + clientX + RW) / 2
+  // Parents du conjoint → au-dessus du conjoint
+  const conjGroupCenterX   = hasConjoint ? conjX + RW / 2 : cx
 
-  // ── Grands-parents ───────────────────────────────────────
-  const gpLevelY = showGP ? levels[0] : parentLevelY - LEVEL_H
-  const gpClientXs  = spreadX(gpClient.length,  cx * 0.45)
-  const gpConjointXs = spreadX(gpConjoint.length, cx * 1.55)
+  const parClientXs   = spreadX(parentsClient.length,   clientGroupCenterX)
+  const parConjointXs = spreadX(parentsConjoint.length, conjGroupCenterX)
 
+  // ── Grands-parents : au-dessus de leurs parents ──────────────
+  const parClientCenter = parClientXs.length > 0
+    ? (parClientXs[0] + parClientXs[parClientXs.length - 1] + RW) / 2
+    : clientGroupCenterX
+  const parConjCenter = parConjointXs.length > 0
+    ? (parConjointXs[0] + parConjointXs[parConjointXs.length - 1] + RW) / 2
+    : conjGroupCenterX
+
+  const gpClientXs   = spreadX(gpClient.length,   parClientCenter)
+  const gpConjointXs = spreadX(gpConjoint.length, parConjCenter)
+
+  // ── Construction des tableaux de rects ──────────────────────
   const gpRects: Rect[] = [
     ...gpClient.map((a, i) => ({
       x: gpClientXs[i], y: gpLevelY, w: RW, h: RH,
@@ -194,10 +195,6 @@ export default function ArbreGenealogie({
       fill: C.vivant.fill, stroke: C.vivant.stroke, textColor: C.vivant.text,
     })),
   ]
-
-  // ── Parents ──────────────────────────────────────────────
-  const parClientXs   = spreadX(parentsClient.length,   cx * 0.45)
-  const parConjointXs = spreadX(parentsConjoint.length, cx * 1.55)
 
   const parentRects: Rect[] = [
     ...parentsClient.map((a, i) => ({
@@ -220,36 +217,37 @@ export default function ArbreGenealogie({
     })) : []),
   ]
 
-  // ── Frères/sœurs ─────────────────────────────────────────
-  const leftSiblings  = freresSoeurs.slice(0, Math.ceil(freresSoeurs.length / 2))
-  const rightSiblings = freresSoeurs.slice(Math.ceil(freresSoeurs.length / 2))
+  const clientRect: Rect = {
+    x: clientX, y: coupleLevelY, w: RW, h: RH,
+    label: `Client ${ageClient}a`,
+    fill: C.client.fill, stroke: C.client.stroke, textColor: C.client.text,
+  }
+  const conjointRect: Rect | null = hasConjoint ? {
+    x: conjX, y: coupleLevelY, w: RW, h: RH,
+    label: `Conjoint ${ageConjoint ?? '?'}a`,
+    fill: C.conjoint.fill, stroke: C.conjoint.stroke, textColor: C.conjoint.text,
+  } : null
 
-  const leftSibXs  = leftSiblings.length > 0
-    ? spreadX(leftSiblings.length, clientRect.x - (leftSiblings.length * (RW + PAD)) / 2 - PAD / 2)
-    : []
-  const rightSibXs = rightSiblings.length > 0
-    ? spreadX(rightSiblings.length, (conjointRect?.x ?? clientRect.x + RW + PAD) + RW + (rightSiblings.length * (RW + PAD)) / 2 + PAD / 2)
-    : []
-
+  // Frères/sœurs — MÊME Y que le client (coupleLevelY)
   const sibRects: Rect[] = [
-    ...leftSiblings.map((fs, i) => ({
-      x: leftSibXs[i], y: siblingLevelY, w: RW, h: RH,
+    ...freresSoeurs.slice(0, leftSibCount).map((fs, i) => ({
+      x: leftSibXs[i], y: coupleLevelY, w: RW, h: RH,
       label: fs.alias || `F/S ${i + 1}`,
       sub: `${fs.age} ans`,
       fill: C.sibling.fill, stroke: C.sibling.stroke, textColor: C.sibling.text,
       badge: fs.situation === 'handicape' ? 'H' : undefined,
     })),
-    ...rightSiblings.map((fs, i) => ({
-      x: rightSibXs[i], y: siblingLevelY, w: RW, h: RH,
-      label: fs.alias || `F/S ${leftSiblings.length + i + 1}`,
+    ...freresSoeurs.slice(leftSibCount).map((fs, i) => ({
+      x: rightSibXs[i], y: coupleLevelY, w: RW, h: RH,
+      label: fs.alias || `F/S ${leftSibCount + i + 1}`,
       sub: `${fs.age} ans`,
       fill: C.sibling.fill, stroke: C.sibling.stroke, textColor: C.sibling.text,
       badge: fs.situation === 'handicape' ? 'H' : undefined,
     })),
   ]
 
-  // ── Enfants ───────────────────────────────────────────────
-  const childXs = spreadX(childCount, coupleCX)
+  // Enfants
+  const childXs    = spreadX(enfants.length, coupleCX)
   const childRects: Rect[] = enfants.map((e, i) => {
     const col = e.lien === 'client_seul' ? C.clientSeul : e.lien === 'conjoint_seul' ? C.conjSeul : C.commun
     return {
@@ -261,38 +259,102 @@ export default function ArbreGenealogie({
     }
   })
 
+  // ── Bus Y : ligne horizontale de jonction entre parents et enfants (niveau 3) ──
+  // Situé à mi-chemin entre le bas du niveau parents et le haut du niveau 3
+  const busY = Math.round((parentLevelY + RH + coupleLevelY) / 2)
+
+  // Centres X des nœuds côté client au niveau 3 : F/S gauches + Client + F/S droits
+  const clientSideChildCenters = [
+    ...leftSibXs.map(x => x + RW / 2),
+    clientX + RW / 2,
+    ...rightSibXs.map(x => x + RW / 2),
+  ]
+  // Centres X des parents côté client
+  const parentClientCenters = parClientXs.map(x => x + RW / 2)
+
+  // Centres X côté conjoint
+  const conjChildCenters  = hasConjoint ? [conjCX] : []
+  const parentConjCenters = parConjointXs.map(x => x + RW / 2)
+
+  const sfLabel: Record<string, string> = { marie: 'Marié·e·s', pacse: 'Pacsé·e·s', concubin: 'Concubins' }
+  const liensCouple = sfLabel[situationFamiliale]
+
   return (
     <svg
       viewBox={`0 0 ${svgW} ${svgH}`}
       style={{ width: '100%', height: 'auto', display: 'block' }}
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* ── Lignes GP → Parents ─────────────────── */}
+      {/* ── GP → Parents (lignes directes) ─────────────────────── */}
       {showGP && gpRects.map((gp, i) => {
-        const targetParents = i < gpClient.length ? parentRects.slice(0, parentsClient.length) : parentRects.slice(parentsClient.length)
-        return targetParents.map((par, j) => (
-          <Line key={`gp-par-${i}-${j}`}
+        const isClientGP = i < gpClient.length
+        const targets = isClientGP
+          ? parentRects.slice(0, parentsClient.length)
+          : parentRects.slice(parentsClient.length)
+        return targets.map((par, j) => (
+          <line key={`gp-par-${i}-${j}`}
             x1={gp.x + RW / 2} y1={gp.y + RH}
-            x2={par.x + RW / 2} y2={par.y} />
+            x2={par.x + RW / 2} y2={par.y}
+            stroke={C.line} strokeWidth={1.2} />
         ))
       })}
 
-      {/* ── Lignes Parents → Client/Conjoint ────── */}
-      {parentsClient.map((_, i) => (
-        <Line key={`par-cl-${i}`}
-          x1={parentRects[i].x + RW / 2} y1={parentRects[i].y + RH}
-          x2={clientCX} y2={clientRect.y}
-          dash={parentsClient[i].lien.includes('adoptif')} />
-      ))}
-      {showParentsConj && parentsConjoint.map((a, i) => (
-        <Line key={`par-conj-${i}`}
-          x1={parentRects[parentsClient.length + i].x + RW / 2}
-          y1={parentRects[parentsClient.length + i].y + RH}
-          x2={conjCX} y2={conjointRect!.y}
-          dash={a.lien.includes('adoptif')} />
-      ))}
+      {/* ── Bus parents client → frères/sœurs + client ─────────── */}
+      {parentsClient.length > 0 && clientSideChildCenters.length > 0 && (() => {
+        const all   = [...parentClientCenters, ...clientSideChildCenters]
+        const minX  = Math.min(...all)
+        const maxX  = Math.max(...all)
+        return (
+          <>
+            {/* Verticales : chaque parent descend jusqu'au bus */}
+            {parentClientCenters.map((pcx, i) => (
+              <line key={`par-vbus-${i}`}
+                x1={pcx} y1={parentLevelY + RH} x2={pcx} y2={busY}
+                stroke={parentsClient[i].lien.includes('adoptif') ? C.lineDash : C.line}
+                strokeWidth={1.2}
+                strokeDasharray={parentsClient[i].lien.includes('adoptif') ? '4 3' : undefined}
+              />
+            ))}
+            {/* Barre horizontale du bus */}
+            <line x1={minX} y1={busY} x2={maxX} y2={busY}
+              stroke={C.line} strokeWidth={1.2} />
+            {/* Verticales : bus descend vers chaque enfant (F/S + client) */}
+            {clientSideChildCenters.map((ccx, i) => (
+              <line key={`bus-child-${i}`}
+                x1={ccx} y1={busY} x2={ccx} y2={coupleLevelY}
+                stroke={C.line} strokeWidth={1.2} />
+            ))}
+          </>
+        )
+      })()}
 
-      {/* ── Lien couple ─────────────────────────── */}
+      {/* ── Bus parents conjoint → conjoint ────────────────────── */}
+      {showParentsConj && conjChildCenters.length > 0 && (() => {
+        const all  = [...parentConjCenters, ...conjChildCenters]
+        const minX = Math.min(...all)
+        const maxX = Math.max(...all)
+        return (
+          <>
+            {parentConjCenters.map((pcx, i) => (
+              <line key={`par-conj-vbus-${i}`}
+                x1={pcx} y1={parentLevelY + RH} x2={pcx} y2={busY}
+                stroke={parentsConjoint[i].lien.includes('adoptif') ? C.lineDash : C.line}
+                strokeWidth={1.2}
+                strokeDasharray={parentsConjoint[i].lien.includes('adoptif') ? '4 3' : undefined}
+              />
+            ))}
+            <line x1={minX} y1={busY} x2={maxX} y2={busY}
+              stroke={C.line} strokeWidth={1.2} />
+            {conjChildCenters.map((ccx, i) => (
+              <line key={`bus-conj-child-${i}`}
+                x1={ccx} y1={busY} x2={ccx} y2={coupleLevelY}
+                stroke={C.line} strokeWidth={1.2} />
+            ))}
+          </>
+        )
+      })()}
+
+      {/* ── Lien matrimonial ────────────────────────────────────── */}
       {hasConjoint && conjointRect && (
         <>
           <line
@@ -306,30 +368,33 @@ export default function ArbreGenealogie({
         </>
       )}
 
-      {/* ── Lignes couple → Enfants ─────────────── */}
-      {childRects.map((cr, i) => (
-        <Line key={`couple-child-${i}`}
-          x1={coupleCX} y1={coupleLevelY + RH}
-          x2={cr.x + RW / 2} y2={cr.y}
-          dash={cr.dash} />
-      ))}
+      {/* ── Couple → Enfants (courbes de Bézier) ────────────────── */}
+      {childRects.map((cr, i) => {
+        const x1 = coupleCX
+        const y1 = coupleLevelY + RH
+        const x2 = cr.x + RW / 2
+        const y2 = cr.y
+        const my = (y1 + y2) / 2
+        return (
+          <path key={`child-line-${i}`}
+            d={`M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`}
+            fill="none"
+            stroke={cr.dash ? C.lineDash : C.line}
+            strokeWidth={1.2}
+            strokeDasharray={cr.dash ? '4 3' : undefined}
+          />
+        )
+      })}
 
-      {/* ── Lignes client → frères/sœurs ────────── */}
-      {sibRects.map((sr, i) => (
-        <Line key={`sib-${i}`}
-          x1={clientCX} y1={siblingLevelY}
-          x2={sr.x + RW / 2} y2={sr.y + RH / 2} />
-      ))}
-
-      {/* ── Render rects ────────────────────────── */}
-      {gpRects.map((r, i)      => <Rct key={`gp-${i}`}      r={r} />)}
-      {parentRects.map((r, i)  => <Rct key={`par-${i}`}     r={r} />)}
+      {/* ── Rendu des rects ─────────────────────────────────────── */}
+      {gpRects.map((r, i)     => <Rct key={`gp-${i}`}      r={r} />)}
+      {parentRects.map((r, i) => <Rct key={`par-${i}`}     r={r} />)}
       <Rct r={clientRect} />
       {conjointRect && <Rct r={conjointRect} />}
-      {sibRects.map((r, i)     => <Rct key={`sib-r-${i}`}   r={r} />)}
-      {childRects.map((r, i)   => <Rct key={`child-r-${i}`} r={r} />)}
+      {sibRects.map((r, i)    => <Rct key={`sib-${i}`}     r={r} />)}
+      {childRects.map((r, i)  => <Rct key={`child-${i}`}   r={r} />)}
 
-      {/* ── Légende enfants ─────────────────────── */}
+      {/* ── Légende enfants ─────────────────────────────────────── */}
       {enfants.length > 0 && (
         <g transform={`translate(8, ${svgH - 16})`}>
           {[
