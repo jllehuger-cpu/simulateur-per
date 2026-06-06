@@ -6,10 +6,13 @@ import { useState } from 'react';
 import { useAuth } from '@/lib/use-auth';
 import { seDeconnecter } from '@/lib/auth-supabase';
 
-const NAV_LINKS: { href: string; label: string; icon: string; accent?: boolean }[] = [
+const NAV_LINKS_AUTH: { href: string; label: string; icon: string; accent?: boolean }[] = [
   { href: '/audit',      label: 'Audit IA',       icon: '🔍', accent: true },
   { href: '/dossiers',   label: 'Dossiers',        icon: '📁' },
   { href: '/saisie',     label: 'Nouvelle saisie', icon: '✏️' },
+];
+
+const NAV_LINKS_PUBLIC: { href: string; label: string; icon: string; accent?: boolean }[] = [
   { href: '/civil',      label: 'Civil',           icon: '⚖️' },
   { href: '/fiscal',     label: 'Fiscal',          icon: '📊' },
   { href: '/financier',  label: 'Financier',       icon: '💼' },
@@ -20,6 +23,7 @@ export function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, profil } = useAuth(false);
+  const navLinks = user ? [...NAV_LINKS_AUTH, ...NAV_LINKS_PUBLIC] : NAV_LINKS_PUBLIC;
 
   return (
     <header
@@ -96,7 +100,7 @@ export function Navbar() {
           }}
           className="hidden-mobile"
         >
-          {NAV_LINKS.map((link) => {
+          {navLinks.map((link) => {
             const active = pathname?.startsWith(link.href);
             const accentColor = link.accent ? '#8B5CF6' : '#3B82F6';
             return (
@@ -239,7 +243,7 @@ export function Navbar() {
             gap: '0.25rem',
           }}
         >
-          {NAV_LINKS.map((link) => {
+          {navLinks.map((link) => {
             const active = pathname?.startsWith(link.href);
             return (
               <Link

@@ -1,12 +1,13 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextRequest, NextResponse } from 'next/server'
 
-const PUBLIC_PATHS = ['/login', '/auth/callback', '/api']
+const PROTECTED_PATHS = ['/dossiers', '/saisie', '/audit', '/admin', '/pending']
 
 export async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname
 
-  if (PUBLIC_PATHS.some(p => path.startsWith(p))) {
+  const isProtected = PROTECTED_PATHS.some(p => path.startsWith(p))
+  if (!isProtected) {
     return NextResponse.next()
   }
 
