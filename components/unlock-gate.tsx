@@ -35,15 +35,27 @@ export function UnlockGate({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (unlocked) return
     const supabase = getSupabase()
+
     supabase.auth.getUser().then(async ({ data: { user } }) => {
       if (!user) { setStep('unlock'); return }
-      const { count } = await supabase
-        .from('dossiers')
-        .select('*', { count: 'exact', head: true })
-        .eq('user_id', user.id)
-      const first = (count ?? 0) === 0
-      setIsFirstVisit(first)
-      setStep(first ? 'onboarding' : 'unlock')
+      try {
+        const { count, error } = await supabase
+          .from('dossiers')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_id', user.id)
+        if (error) {
+          console.error('[UNLOCK] Erreur comptage dossiers:', error.message)
+        }
+        const first = (count ?? 0) === 0
+        setIsFirstVisit(first)
+        setStep(first ? 'onboarding' : 'unlock')
+      } catch (err) {
+        console.error('[UNLOCK] Erreur inattendue:', err)
+        setStep('unlock')
+      }
+    }).catch((err) => {
+      console.error('[UNLOCK] Erreur getUser:', err)
+      setStep('unlock')
     })
   }, [unlocked])
 

@@ -1,15 +1,7 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import { seDeconnecter } from '@/lib/auth-supabase'
 
 export default function PendingPage() {
-  const router = useRouter()
-
-  const handleLogout = async () => {
-    await seDeconnecter()
-    router.push('/login')
-  }
-
   return (
     <div style={{
       minHeight: '100vh', display: 'flex',
@@ -39,7 +31,7 @@ export default function PendingPage() {
           Vous recevrez un email dès que votre accès sera activé.
         </p>
         <button
-          onClick={() => void handleLogout()}
+          onClick={() => void seDeconnecter()}
           className="btn-ghost"
           style={{ fontSize: 13 }}
         >

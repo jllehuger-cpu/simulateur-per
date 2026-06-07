@@ -15,13 +15,20 @@ interface StoredEntry {
 }
 
 // ── Génération d'alias (sync — compteur séparé non chiffré) ──
-export function genererAlias(): string {
-  if (typeof window === 'undefined') return `DOS-${new Date().getFullYear()}-001`
-  const year = new Date().getFullYear()
-  const counterKey = `cgp_counter_${year}`
-  const next = parseInt(localStorage.getItem(counterKey) ?? '0') + 1
-  localStorage.setItem(counterKey, String(next))
-  return `DOS-${year}-${String(next).padStart(3, '0')}`
+export function genererAlias(initiale?: string): string {
+  const now = new Date()
+  const year = now.getFullYear()
+  const month = String(now.getMonth() + 1).padStart(2, '0')
+  const lettre = (initiale ?? 'X').charAt(0).toUpperCase()
+
+  if (typeof window === 'undefined') return `DOS-${year}-${month}-${lettre}`
+
+  const prefix = `DOS-${year}-${month}-${lettre}`
+  const counterKey = `cgp_alias_${prefix}`
+  const count = parseInt(localStorage.getItem(counterKey) ?? '0') + 1
+  localStorage.setItem(counterKey, String(count))
+
+  return count === 1 ? prefix : `${prefix}${count}`
 }
 
 // ── CRUD localStorage chiffré ─────────────────────────────
@@ -95,10 +102,10 @@ export async function supprimerDossier(alias: string): Promise<void> {
   } catch { /* */ }
 }
 
-export function nouveauDossier(): DossierPatrimonial {
+export function nouveauDossier(initiale?: string): DossierPatrimonial {
   const now = new Date().toISOString()
   return {
-    alias: genererAlias(),
+    alias: genererAlias(initiale),
     created_at: now,
     updated_at: now,
     identite: {

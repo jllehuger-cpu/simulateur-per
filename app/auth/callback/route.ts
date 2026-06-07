@@ -5,10 +5,12 @@ import { NextResponse } from 'next/server'
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
   const code = requestUrl.searchParams.get('code')
+  const type = requestUrl.searchParams.get('type')
 
   console.log('[CALLBACK] code reçu:', code?.slice(0, 20))
 
-  const response = NextResponse.redirect(new URL('/dossiers', requestUrl.origin))
+  const redirectTarget = type === 'recovery' ? '/reset-password' : '/dossiers'
+  const response = NextResponse.redirect(new URL(redirectTarget, requestUrl.origin))
 
   if (code) {
     const cookieStore = await cookies()

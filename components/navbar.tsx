@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useAuth } from '@/lib/use-auth';
 import { seDeconnecter } from '@/lib/auth-supabase';
@@ -20,7 +20,6 @@ const NAV_LINKS_PUBLIC: { href: string; label: string; icon: string; accent?: bo
 
 export function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, profil } = useAuth(false);
   const navLinks = user ? [...NAV_LINKS_AUTH, ...NAV_LINKS_PUBLIC] : NAV_LINKS_PUBLIC;
@@ -168,10 +167,7 @@ export function Navbar() {
                 {user.email}
               </span>
               <button
-                onClick={async () => {
-                  await seDeconnecter();
-                  router.push('/login');
-                }}
+                onClick={() => void seDeconnecter()}
                 className="btn-ghost"
                 style={{ fontSize: 11, padding: '4px 10px' }}
               >

@@ -94,9 +94,11 @@ function DossiersContent() {
   const { loading: authLoading } = useAuth()
   const [dossiers,   setDossiers]   = useState<DossierPatrimonial[]>([])
   const [search,     setSearch]     = useState('')
-  const [confirmDel, setConfirmDel] = useState<string | null>(null)
-  const [identites,  setIdentites]  = useState<Map<string, IdentiteProspect>>(new Map())
-  const [modalId,    setModalId]    = useState<string | null>(null)
+  const [confirmDel,    setConfirmDel]    = useState<string | null>(null)
+  const [identites,     setIdentites]     = useState<Map<string, IdentiteProspect>>(new Map())
+  const [modalId,       setModalId]       = useState<string | null>(null)
+  const [showNewDialog, setShowNewDialog] = useState(false)
+  const [newInitiale,   setNewInitiale]   = useState('')
 
   const reloadIdentites = useCallback(async () => {
     if (identiteDisponible()) {
@@ -120,8 +122,11 @@ function DossiersContent() {
   if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
 
   const handleNew = async () => {
-    const d = nouveauDossier()
+    const lettre = newInitiale.trim().charAt(0).toUpperCase()
+    const d = nouveauDossier(lettre || undefined)
     await sauvegarderDossier(d)
+    setShowNewDialog(false)
+    setNewInitiale('')
     router.push(`/saisie?alias=${d.alias}`)
   }
 
@@ -183,7 +188,7 @@ function DossiersContent() {
             ↑ Importer JSON
             <input type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
           </label>
-          <button onClick={() => void handleNew()} style={{
+          <button onClick={() => setShowNewDialog(true)} style={{
             padding: '8px 18px', borderRadius: 10, border: 'none', cursor: 'pointer',
             background: 'linear-gradient(135deg, var(--accent-blue), var(--accent-indigo))',
             color: '#fff', fontWeight: 600, fontSize: 13, whiteSpace: 'nowrap'
@@ -240,7 +245,7 @@ function DossiersContent() {
         <div className="glass-card" style={{ padding: 48, textAlign: 'center' }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>📁</div>
           <div style={{ color: 'var(--text-secondary)', fontSize: 14 }}>Aucun dossier pour l&apos;instant</div>
-          <button onClick={() => void handleNew()} style={{
+          <button onClick={() => setShowNewDialog(true)} style={{
             marginTop: 16, padding: '10px 24px', borderRadius: 10, border: 'none', cursor: 'pointer',
             background: 'linear-gradient(135deg, var(--accent-blue), var(--accent-indigo))',
             color: '#fff', fontWeight: 600, fontSize: 13
@@ -382,6 +387,67 @@ function DossiersContent() {
           onClose={() => setModalId(null)}
           onSaved={() => void reloadIdentites()}
         />
+      )}
+
+      {/* Dialog nouvelle initiale */}
+      {showNewDialog && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.65)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60,
+        }} onClick={() => setShowNewDialog(false)}>
+          <div className="glass-card" style={{ padding: 28, maxWidth: 360, width: '92%' }}
+            onClick={e => e.stopPropagation()}>
+            <div style={{ fontWeight: 600, marginBottom: 16, fontSize: 15, color: 'var(--text-primary)' }}>
+              Nouveau dossier
+            </div>
+            <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12, lineHeight: 1.5 }}>
+              Première lettre du nom de famille du client :
+            </div>
+            <input
+              autoFocus
+              maxLength={1}
+              value={newInitiale}
+              onChange={e => setNewInitiale(e.target.value.replace(/[^a-zA-ZÀ-ÿ]/g, ''))}
+              onKeyDown={e => e.key === 'Enter' && void handleNew()}
+              placeholder="Ex : D pour Dupont"
+              style={{
+                width: '100%', padding: '10px 14px', borderRadius: 8,
+                border: '1px solid rgba(255,255,255,0.12)',
+                background: 'rgba(255,255,255,0.05)',
+                color: 'var(--text-primary)', fontSize: 20,
+                textAlign: 'center', textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                marginBottom: 12, boxSizing: 'border-box',
+              }}
+            />
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 16, textAlign: 'center' }}>
+              L&apos;alias sera : <strong style={{ color: 'var(--accent-gold)' }}>
+                DOS-{new Date().getFullYear()}-{String(new Date().getMonth() + 1).padStart(2, '0')}-{newInitiale.toUpperCase() || '?'}
+              </strong>
+            </div>
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => { setShowNewDialog(false); setNewInitiale('') }}
+                className="btn-ghost" style={{ fontSize: 12 }}
+              >
+                Annuler
+              </button>
+              <button
+                onClick={() => void handleNew()}
+                disabled={!newInitiale.trim()}
+                style={{
+                  padding: '8px 20px', borderRadius: 8, border: 'none',
+                  cursor: newInitiale.trim() ? 'pointer' : 'not-allowed',
+                  background: 'linear-gradient(135deg, var(--accent-blue), var(--accent-indigo))',
+                  color: '#fff', fontWeight: 600, fontSize: 13,
+                  opacity: newInitiale.trim() ? 1 : 0.4,
+                }}
+              >
+                Créer le dossier
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Modal confirmation suppression */}

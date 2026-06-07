@@ -28,7 +28,9 @@ export async function envoyerMagicLink(email: string): Promise<void> {
 }
 
 export async function seDeconnecter(): Promise<void> {
-  await supabase.auth.signOut()
+  await supabase.auth.signOut({ scope: 'local' })
+  // Hard redirect pour que le middleware re-vérifie la session (soft nav ne suffit pas)
+  window.location.href = '/login'
 }
 
 export async function getUser() {
@@ -68,4 +70,29 @@ export function onAuthChange(
       callback(null)
     }
   })
+}
+
+export async function signInWithPassword(email: string, password: string): Promise<void> {
+  const { error } = await supabase.auth.signInWithPassword({ email, password })
+  if (error) throw error
+}
+
+export async function signUpWithPassword(email: string, password: string, nom?: string): Promise<void> {
+  const { error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: { data: { nom } },
+  })
+  if (error) throw error
+}
+
+export async function resetPassword(email: string): Promise<void> {
+  const redirectTo = `${window.location.origin}/auth/callback?type=recovery`
+  const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo })
+  if (error) throw error
+}
+
+export async function updatePassword(newPassword: string): Promise<void> {
+  const { error } = await supabase.auth.updateUser({ password: newPassword })
+  if (error) throw error
 }
