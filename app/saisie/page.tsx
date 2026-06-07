@@ -14,6 +14,8 @@ import { UnlockGate } from '@/components/unlock-gate'
 import { ImportDocument } from '@/components/import-document'
 import { useAuth } from '@/lib/use-auth'
 import ArbreGenealogie from '@/components/arbre-genealogique'
+import { identiteDisponible } from '@/lib/crypto'
+import { sauvegarderIdentite, lireIdentite, IdentiteProspect } from '@/lib/db-identite'
 
 // ─── Constantes listes ──────────────────────────────────────
 const SITUATIONS: { v: SituationFamiliale; l: string }[] = [
@@ -238,7 +240,18 @@ function NumInput({ value, onChange, placeholder, disabled }: {
 }
 
 // ─── ÉTAPE 1 : IDENTITÉ ─────────────────────────────────────
-function StepIdentite({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatrimonial) => void }) {
+function StepIdentite({ d, setD, identiteNom, setIdentiteNom, identitePrenom, setIdentitePrenom, identiteTel, setIdentiteTel, identiteEmail, setIdentiteEmail }: {
+  d: DossierPatrimonial
+  setD: (d: DossierPatrimonial) => void
+  identiteNom: string
+  setIdentiteNom: (v: string) => void
+  identitePrenom: string
+  setIdentitePrenom: (v: string) => void
+  identiteTel: string
+  setIdentiteTel: (v: string) => void
+  identiteEmail: string
+  setIdentiteEmail: (v: string) => void
+}) {
   const upd = (k: string, v: unknown) => setD({ ...d, identite: { ...d.identite, [k]: v } })
   const i = d.identite
   const sf = (i.situation_familiale ?? '') as string
@@ -290,6 +303,62 @@ function StepIdentite({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPat
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+
+      {/* ══ DONNÉES PERSONNELLES (Clé B) ══ */}
+      {identiteDisponible() ? (
+        <>
+          <SectionTitle>Données personnelles</SectionTitle>
+          <div style={{
+            background: 'rgba(127,119,221,0.06)',
+            border: '1px solid rgba(127,119,221,0.2)',
+            borderRadius: 12, padding: '6px 14px', marginBottom: 4,
+            fontSize: 11, color: 'var(--text-muted)',
+            display: 'flex', alignItems: 'center', gap: 6,
+          }}>
+            <span>🔐</span>
+            <span>Chiffrées avec votre clé identité — jamais visibles sur le serveur</span>
+          </div>
+          <Grid cols={2}>
+            <Field label="Prénom">
+              <Input value={identitePrenom} onChange={v => setIdentitePrenom(v)} placeholder="Jean" />
+            </Field>
+            <Field label="Nom">
+              <Input value={identiteNom} onChange={v => setIdentiteNom(v)} placeholder="Dupont" />
+            </Field>
+          </Grid>
+          <Grid cols={2}>
+            <Field label="Téléphone" hint="optionnel">
+              <Input value={identiteTel} onChange={v => setIdentiteTel(v)} placeholder="06 12 34 56 78" />
+            </Field>
+            <Field label="Email" hint="optionnel">
+              <Input value={identiteEmail} onChange={v => setIdentiteEmail(v)} placeholder="jean.dupont@email.fr" />
+            </Field>
+          </Grid>
+        </>
+      ) : (
+        <>
+          <SectionTitle>Données personnelles</SectionTitle>
+          <div style={{
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px dashed rgba(255,255,255,0.15)',
+            borderRadius: 12, padding: '16px 20px',
+            display: 'flex', alignItems: 'center', gap: 12,
+          }}>
+            <span style={{ fontSize: 20, opacity: 0.5 }}>🔒</span>
+            <div>
+              <div style={{ fontSize: 13, color: 'var(--text-secondary)', fontWeight: 500 }}>
+                Clé identité non active
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2, lineHeight: 1.5 }}>
+                Pour saisir le nom, prénom, téléphone et email du client,
+                activez la clé identité (Clé B) lors du déverrouillage.
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* ══ ALIAS DOSSIER ══ */}
       <SectionTitle>Alias dossier</SectionTitle>
       <div style={{
         display: 'flex', alignItems: 'center', gap: 12,
@@ -300,6 +369,11 @@ function StepIdentite({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPat
         <div>
           <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--accent-gold)', letterSpacing: '0.05em' }}>
             {d.alias}
+            {identiteDisponible() && identiteNom.trim() && identitePrenom.trim() && (
+              <span style={{ marginLeft: 10, fontSize: 13, color: 'var(--text-secondary)', fontWeight: 400 }}>
+                · {identitePrenom.trim()} {identiteNom.trim().toUpperCase()}
+              </span>
+            )}
           </div>
           <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
             Identifiant anonyme — aucun nom réel stocké sur ce serveur
@@ -2059,6 +2133,12 @@ function SaisieInner() {
   const [saved, setSaved] = useState(false)
   const [launching, setLaunching] = useState(false)
 
+  // Données personnelles (Clé B)
+  const [identiteNom,    setIdentiteNom]    = useState('')
+  const [identitePrenom, setIdentitePrenom] = useState('')
+  const [identiteTel,    setIdentiteTel]    = useState('')
+  const [identiteEmail,  setIdentiteEmail]  = useState('')
+
   // Charger dossier existant si alias en param
   useEffect(() => {
     const alias = params.get('alias')
@@ -2067,6 +2147,19 @@ function SaisieInner() {
       .then(existing => { if (existing) setDossier(existing) })
       .catch(() => { /* session locked */ })
   }, [params])
+
+  // Charger identité existante si Clé B active
+  useEffect(() => {
+    if (!dossier.alias || !identiteDisponible()) return
+    lireIdentite(dossier.alias).then((id: IdentiteProspect | null) => {
+      if (id) {
+        setIdentiteNom(id.nom)
+        setIdentitePrenom(id.prenom)
+        setIdentiteTel(id.tel ?? '')
+        setIdentiteEmail(id.email ?? '')
+      }
+    }).catch(() => { /* clé indisponible */ })
+  }, [dossier.alias])
 
   // Auto-save
   const save = useCallback(() => {
@@ -2084,6 +2177,28 @@ function SaisieInner() {
     return () => clearTimeout(t)
   }, [dossier, save])
 
+  // Auto-save identité (debounce 1.5s)
+  const saveIdentite = useCallback(async () => {
+    if (!identiteDisponible() || !identiteNom.trim() || !identitePrenom.trim()) return
+    try {
+      await sauvegarderIdentite({
+        alias: dossier.alias,
+        nom: identiteNom.trim(),
+        prenom: identitePrenom.trim(),
+        tel: identiteTel.trim() || undefined,
+        email: identiteEmail.trim() || undefined,
+      })
+    } catch (err) {
+      console.error('[SAISIE] Erreur sauvegarde identité:', err)
+    }
+  }, [dossier.alias, identiteNom, identitePrenom, identiteTel, identiteEmail])
+
+  useEffect(() => {
+    if (!identiteDisponible() || !identiteNom.trim()) return
+    const t = setTimeout(() => void saveIdentite(), 1500)
+    return () => clearTimeout(t)
+  }, [identiteNom, identitePrenom, identiteTel, identiteEmail, saveIdentite])
+
   if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
 
   const handleLaunchAudit = async () => {
@@ -2100,7 +2215,13 @@ function SaisieInner() {
   }
 
   const stepComponents: Record<number, React.ReactNode> = {
-    1: <StepIdentite   d={dossier} setD={setDossier} />,
+    1: <StepIdentite
+          d={dossier} setD={setDossier}
+          identiteNom={identiteNom} setIdentiteNom={setIdentiteNom}
+          identitePrenom={identitePrenom} setIdentitePrenom={setIdentitePrenom}
+          identiteTel={identiteTel} setIdentiteTel={setIdentiteTel}
+          identiteEmail={identiteEmail} setIdentiteEmail={setIdentiteEmail}
+        />,
     2: <StepFamille    d={dossier} setD={setDossier} />,
     3: <StepRevenus    d={dossier} setD={setDossier} />,
     4: <StepImmo       d={dossier} setD={setDossier} />,
