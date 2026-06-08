@@ -1,5 +1,4 @@
 'use client'
-import { seDeconnecter } from '@/lib/auth-supabase'
 
 export default function PendingPage() {
   return (
@@ -30,13 +29,13 @@ export default function PendingPage() {
         }}>
           Vous recevrez un email dès que votre accès sera activé.
         </p>
-        <button
-          onClick={() => void seDeconnecter()}
+        <a
+          href="/api/auth/logout"
           className="btn-ghost"
-          style={{ fontSize: 13 }}
+          style={{ fontSize: 13, textDecoration: 'none' }}
         >
           Se déconnecter
-        </button>
+        </a>
       </div>
     </div>
   )

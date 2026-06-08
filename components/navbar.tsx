@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useAuth } from '@/lib/use-auth';
-import { seDeconnecter } from '@/lib/auth-supabase';
 
 const NAV_LINKS_AUTH: { href: string; label: string; icon: string; accent?: boolean }[] = [
   { href: '/audit',      label: 'Audit IA',       icon: '🔍', accent: true },
@@ -166,13 +165,13 @@ export function Navbar() {
               <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
                 {user.email}
               </span>
-              <button
-                onClick={() => void seDeconnecter()}
+              <a
+                href="/api/auth/logout"
                 className="btn-ghost"
-                style={{ fontSize: 11, padding: '4px 10px' }}
+                style={{ fontSize: 11, padding: '4px 10px', textDecoration: 'none' }}
               >
                 Déconnexion
-              </button>
+              </a>
             </div>
           ) : (
             <Link
