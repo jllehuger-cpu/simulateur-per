@@ -268,6 +268,7 @@ function StepIdentite({ d, setD,
   identiteEmailConjoint: string
   setIdentiteEmailConjoint: (v: string) => void
 }) {
+  const { visible: identiteVisible } = useIdentiteVisible()
   const upd = (k: string, v: unknown) => setD({ ...d, identite: { ...d.identite, [k]: v } })
   const i = d.identite
   const sf = (i.situation_familiale ?? '') as string
