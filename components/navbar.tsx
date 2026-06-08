@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useAuth } from '@/lib/use-auth';
+import { useIdentiteVisible } from '@/lib/use-identite-visible';
+import { identiteDisponible } from '@/lib/crypto';
 
 const NAV_LINKS_AUTH: { href: string; label: string; icon: string; accent?: boolean }[] = [
   { href: '/audit',      label: 'Audit IA',       icon: '🔍', accent: true },
@@ -21,6 +23,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, profil } = useAuth(false);
+  const { visible: identiteVisible, toggle: toggleIdentite } = useIdentiteVisible();
   const navLinks = user ? [...NAV_LINKS_AUTH, ...NAV_LINKS_PUBLIC] : NAV_LINKS_PUBLIC;
 
   return (
@@ -161,6 +164,34 @@ export function Navbar() {
                 >
                   🛡️ Admin
                 </Link>
+              )}
+              {identiteDisponible() && (
+                <button
+                  onClick={toggleIdentite}
+                  title={identiteVisible ? 'Masquer les identités' : 'Afficher les identités'}
+                  style={{
+                    background: identiteVisible ? 'rgba(127,119,221,0.15)' : 'transparent',
+                    border: identiteVisible
+                      ? '1px solid rgba(127,119,221,0.4)'
+                      : '1px solid rgba(255,255,255,0.12)',
+                    borderRadius: 6,
+                    padding: '3px 8px',
+                    cursor: 'pointer',
+                    fontSize: 14,
+                    transition: 'all 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                  }}
+                >
+                  <span>{identiteVisible ? '👁' : '👁‍🗨'}</span>
+                  <span style={{
+                    fontSize: 10, fontWeight: 500,
+                    color: identiteVisible ? 'rgba(127,119,221,1)' : 'var(--text-muted)',
+                  }}>
+                    {identiteVisible ? 'ON' : 'OFF'}
+                  </span>
+                </button>
               )}
               <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
                 {user.email}

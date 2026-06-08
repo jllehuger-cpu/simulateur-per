@@ -16,6 +16,7 @@ import { useAuth } from '@/lib/use-auth'
 import ArbreGenealogie from '@/components/arbre-genealogique'
 import { identiteDisponible } from '@/lib/crypto'
 import { sauvegarderIdentite, lireIdentite, IdentiteProspect } from '@/lib/db-identite'
+import { useIdentiteVisible, masquerTexte } from '@/lib/use-identite-visible'
 
 // ─── Constantes listes ──────────────────────────────────────
 const SITUATIONS: { v: SituationFamiliale; l: string }[] = [
@@ -418,10 +419,14 @@ function StepIdentite({ d, setD,
           <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--accent-gold)', letterSpacing: '0.05em' }}>
             {d.alias}
             {identiteDisponible() && identiteNom.trim() && identitePrenom.trim() && (
-              <span style={{ marginLeft: 10, fontSize: 13, color: 'var(--text-secondary)', fontWeight: 400 }}>
-                · {identitePrenom.trim()} {identiteNom.trim().toUpperCase()}
+              <span style={{
+                marginLeft: 10, fontSize: 13, color: 'var(--text-secondary)', fontWeight: 400,
+                fontFamily: identiteVisible ? 'inherit' : 'var(--font-mono, monospace)',
+                letterSpacing: identiteVisible ? 'normal' : '0.05em',
+              }}>
+                · {masquerTexte(identitePrenom.trim(), identiteVisible)} {masquerTexte(identiteNom.trim().toUpperCase(), identiteVisible)}
                 {identitePrenomConjoint.trim() && identiteNomConjoint.trim() && (
-                  <span> &amp; {identitePrenomConjoint.trim()} {identiteNomConjoint.trim().toUpperCase()}</span>
+                  <span> &amp; {masquerTexte(identitePrenomConjoint.trim(), identiteVisible)} {masquerTexte(identiteNomConjoint.trim().toUpperCase(), identiteVisible)}</span>
                 )}
               </span>
             )}
@@ -2183,6 +2188,8 @@ function SaisieInner() {
   const [dossier, setDossier] = useState<DossierPatrimonial>(nouveauDossier)
   const [saved, setSaved] = useState(false)
   const [launching, setLaunching] = useState(false)
+
+  const { visible: identiteVisible } = useIdentiteVisible()
 
   // Données personnelles (Clé B)
   const [identiteNom,    setIdentiteNom]    = useState('')

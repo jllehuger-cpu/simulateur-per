@@ -11,6 +11,7 @@ import { identiteDisponible } from '@/lib/crypto'
 import { lireToutes, sauvegarderIdentite, IdentiteProspect } from '@/lib/db-identite'
 import { UnlockGate } from '@/components/unlock-gate'
 import { useAuth } from '@/lib/use-auth'
+import { useIdentiteVisible, masquerTexte } from '@/lib/use-identite-visible'
 
 function ModalIdentite({
   alias,
@@ -92,6 +93,7 @@ function ModalIdentite({
 function DossiersContent() {
   const router = useRouter()
   const { loading: authLoading } = useAuth()
+  const { visible: identiteVisible } = useIdentiteVisible()
   const [dossiers,   setDossiers]   = useState<DossierPatrimonial[]>([])
   const [search,     setSearch]     = useState('')
   const [confirmDel,    setConfirmDel]    = useState<string | null>(null)
@@ -285,11 +287,18 @@ function DossiersContent() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     {nomAffiche ? (
                       <>
-                        <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
-                          {nomAffiche}
+                        <span style={{
+                          fontWeight: 600, color: 'var(--text-primary)',
+                          fontFamily: identiteVisible ? 'inherit' : 'var(--font-mono, monospace)',
+                          letterSpacing: identiteVisible ? 'normal' : '0.05em',
+                        }}>
+                          {masquerTexte(identite!.prenom, identiteVisible)}{' '}
+                          {masquerTexte(identite!.nom.toUpperCase(), identiteVisible)}
                           {identites.get(d.alias)?.prenom_conjoint && identites.get(d.alias)?.nom_conjoint && (
                             <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>
-                              {' '}&amp; {identites.get(d.alias)!.prenom_conjoint} {identites.get(d.alias)!.nom_conjoint!.toUpperCase()}
+                              {' '}&amp;{' '}
+                              {masquerTexte(identites.get(d.alias)!.prenom_conjoint!, identiteVisible)}{' '}
+                              {masquerTexte(identites.get(d.alias)!.nom_conjoint!.toUpperCase(), identiteVisible)}
                             </span>
                           )}
                         </span>
