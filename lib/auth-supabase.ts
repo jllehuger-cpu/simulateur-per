@@ -33,8 +33,23 @@ export async function seDeconnecter(): Promise<void> {
   } catch (err) {
     console.error('[AUTH] Erreur signOut (ignorée):', err)
   }
-  // Toujours rediriger, même si signOut a échoué
-  // Hard redirect pour que le middleware re-vérifie la session (soft nav ne suffit pas)
+
+  // Nettoyer manuellement TOUS les cookies Supabase (sb-*)
+  document.cookie.split(';').forEach(c => {
+    const name = c.trim().split('=')[0]
+    if (name.startsWith('sb-') || name.includes('supabase')) {
+      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`
+    }
+  })
+
+  // Vider le localStorage Supabase
+  Object.keys(localStorage).forEach(key => {
+    if (key.startsWith('sb-') || key.includes('supabase')) {
+      localStorage.removeItem(key)
+    }
+  })
+
+  // Hard redirect
   window.location.href = '/login'
 }
 
