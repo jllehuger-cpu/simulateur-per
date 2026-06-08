@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { getSupabase } from '@/lib/supabase'
 
 export default function ResetPasswordPage() {
@@ -9,29 +9,31 @@ export default function ResetPasswordPage() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [ready, setReady] = useState(false)
+  const successHandled = useRef(false)
 
   const supabase = getSupabase()
 
   useEffect(() => {
-    // Vérifier session recovery
-    supabase.auth.getUser().then(({ data: { user }, error: err }) => {
-      console.log('[RESET] getUser result:', user?.email, 'error:', err?.message)
+    supabase.auth.getUser().then(({ data: { user } }) => {
       if (user) {
         setReady(true)
       } else {
-        console.warn('[RESET] Pas de session — redirect login')
         window.location.href = '/login?message=Session+expir%C3%A9e'
       }
-    }).catch(err => {
-      console.error('[RESET] getUser catch:', err)
+    }).catch(() => {
       window.location.href = '/login'
     })
 
-    // Listener PASSWORD_RECOVERY
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('[RESET] Auth event:', event, 'session:', !!session)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'PASSWORD_RECOVERY') {
         setReady(true)
+      }
+      // Le signal de succès : USER_UPDATED arrive même si la Promise pend
+      if (event === 'USER_UPDATED' && !successHandled.current) {
+        successHandled.current = true
+        setLoading(false)
+        setSuccess(true)
+        setTimeout(() => { window.location.href = '/login' }, 2000)
       }
     })
     return () => subscription.unsubscribe()
@@ -49,57 +51,47 @@ export default function ResetPasswordPage() {
     }
 
     setLoading(true)
-    console.log('[RESET] Tentative updateUser...')
+    successHandled.current = false
 
-    // Timeout de sécurité
+    // Timeout de sécurité (15s)
     const timeout = setTimeout(() => {
-      console.error('[RESET] Timeout 10s atteint — updateUser n\'a pas répondu')
-      setLoading(false)
-      setError('La requête a expiré. Veuillez réessayer ou demander un nouveau lien de réinitialisation.')
-    }, 10000)
+      if (!successHandled.current) {
+        setLoading(false)
+        setError('La requête a expiré. Veuillez réessayer.')
+      }
+    }, 15000)
 
     try {
-      // Vérifier d'abord que la session est valide
-      const { data: { user }, error: userError } = await supabase.auth.getUser()
-      console.log('[RESET] Pre-check user:', user?.email, 'error:', userError?.message)
+      const { error: updateError } = await supabase.auth.updateUser({ password })
 
-      if (!user) {
-        clearTimeout(timeout)
+      clearTimeout(timeout)
+
+      if (updateError) {
+        if (updateError.message.includes('same_password') || updateError.message.includes('different from the old')) {
+          setError('Le nouveau mot de passe doit être différent de l\'ancien.')
+        } else {
+          setError(updateError.message)
+        }
         setLoading(false)
-        setError('Session expirée. Veuillez demander un nouveau lien de réinitialisation.')
         return
       }
 
-      // Appeler updateUser directement sur le client local
-      console.log('[RESET] Appel supabase.auth.updateUser...')
-      const { data, error: updateError } = await supabase.auth.updateUser({
-        password: password,
-      })
-      clearTimeout(timeout)
-      console.log('[RESET] updateUser result:', data?.user?.email, 'error:', updateError?.message)
-
-      if (updateError) {
-        throw updateError
+      // Succès via la Promise (si USER_UPDATED n'a pas déjà géré)
+      if (!successHandled.current) {
+        successHandled.current = true
+        setSuccess(true)
+        setLoading(false)
+        setTimeout(() => { window.location.href = '/login' }, 2000)
       }
-
-      setSuccess(true)
-      setTimeout(() => {
-        window.location.href = '/login'
-      }, 2000)
     } catch (err: unknown) {
       clearTimeout(timeout)
       const msg = err instanceof Error ? err.message : String(err)
-      console.error('[RESET] Erreur updateUser:', msg)
 
-      // Messages d'erreur traduits
-      if (msg.includes('same_password')) {
+      if (msg.includes('same_password') || msg.includes('different from the old')) {
         setError('Le nouveau mot de passe doit être différent de l\'ancien.')
-      } else if (msg.includes('session_not_found') || msg.includes('not authenticated')) {
-        setError('Session expirée. Veuillez demander un nouveau lien de réinitialisation.')
       } else {
-        setError(msg || 'Erreur lors de la mise à jour du mot de passe.')
+        setError(msg || 'Erreur lors de la mise à jour.')
       }
-    } finally {
       setLoading(false)
     }
   }
@@ -135,7 +127,7 @@ export default function ResetPasswordPage() {
             background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)',
             color: '#6EE7B7', fontSize: '0.875rem', textAlign: 'center',
           }}>
-            ✅ Mot de passe mis à jour. Redirection vers la connexion…
+            ✅ Mot de passe mis à jour ! Redirection vers la connexion…
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -178,7 +170,6 @@ export default function ResetPasswordPage() {
                 fontSize: '0.875rem', fontWeight: 600, border: 'none',
                 cursor: loading ? 'not-allowed' : 'pointer',
                 opacity: loading || !password || !confirm ? 0.5 : 1,
-                transition: 'all 0.2s',
               }}
             >
               {loading ? '⏳ Mise à jour...' : '🔐 Enregistrer le mot de passe'}
