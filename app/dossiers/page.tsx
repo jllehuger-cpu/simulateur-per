@@ -392,58 +392,102 @@ function DossiersContent() {
       {/* Dialog nouvelle initiale */}
       {showNewDialog && (
         <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.65)',
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
           display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60,
-        }} onClick={() => setShowNewDialog(false)}>
-          <div className="glass-card" style={{ padding: 28, maxWidth: 360, width: '92%' }}
-            onClick={e => e.stopPropagation()}>
-            <div style={{ fontWeight: 600, marginBottom: 16, fontSize: 15, color: 'var(--text-primary)' }}>
-              Nouveau dossier
+          backdropFilter: 'blur(4px)',
+        }} onClick={() => { setShowNewDialog(false); setNewInitiale('') }}>
+          <div className="glass-card" style={{
+            padding: '32px 28px', maxWidth: 400, width: '92%',
+            border: '1px solid rgba(255,255,255,0.12)',
+          }} onClick={e => e.stopPropagation()}>
+
+            {/* Titre */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+              <span style={{ fontSize: 24 }}>📁</span>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 16, color: 'var(--text-primary)' }}>
+                  Nouveau dossier
+                </div>
+                <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
+                  Créer un dossier patrimonial anonymisé
+                </div>
+              </div>
             </div>
-            <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12, lineHeight: 1.5 }}>
-              Première lettre du nom de famille du client :
+
+            {/* Explication pédagogique */}
+            <div style={{
+              background: 'rgba(59,130,246,0.06)',
+              border: '1px solid rgba(59,130,246,0.15)',
+              borderRadius: 10, padding: '12px 14px', marginBottom: 16,
+              fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6,
+            }}>
+              <strong style={{ color: 'var(--text-primary)' }}>Comment fonctionne l&apos;alias ?</strong><br/>
+              Chaque dossier est identifié par un code anonyme : <strong style={{ color: 'var(--accent-gold)' }}>DOS-année-mois-initiale</strong>.<br/>
+              L&apos;initiale vous aide à retrouver vos dossiers sans stocker de nom sur le serveur.
+              Le nom complet du client pourra être saisi de manière chiffrée dans l&apos;étape Identité.
             </div>
-            <input
-              autoFocus
-              maxLength={1}
-              value={newInitiale}
-              onChange={e => setNewInitiale(e.target.value.replace(/[^a-zA-ZÀ-ÿ]/g, ''))}
-              onKeyDown={e => e.key === 'Enter' && void handleNew()}
-              placeholder="Ex : D pour Dupont"
-              style={{
-                width: '100%', padding: '10px 14px', borderRadius: 8,
-                border: '1px solid rgba(255,255,255,0.12)',
-                background: 'rgba(255,255,255,0.05)',
-                color: 'var(--text-primary)', fontSize: 20,
-                textAlign: 'center', textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                marginBottom: 12, boxSizing: 'border-box',
-              }}
-            />
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 16, textAlign: 'center' }}>
-              L&apos;alias sera : <strong style={{ color: 'var(--accent-gold)' }}>
+
+            {/* Champ de saisie */}
+            <div style={{ marginBottom: 8 }}>
+              <label style={{ fontSize: 13, color: 'var(--text-secondary)', fontWeight: 500, marginBottom: 6, display: 'block' }}>
+                Première lettre du nom de famille :
+              </label>
+              <input
+                autoFocus
+                maxLength={1}
+                value={newInitiale}
+                onChange={e => setNewInitiale(e.target.value.replace(/[^a-zA-ZÀ-ÿ]/g, ''))}
+                onKeyDown={e => e.key === 'Enter' && newInitiale.trim() && void handleNew()}
+                placeholder="D"
+                style={{
+                  width: '100%', fontSize: 28, textAlign: 'center',
+                  textTransform: 'uppercase', letterSpacing: '0.15em',
+                  padding: '10px 14px', borderRadius: 10,
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  background: 'rgba(255,255,255,0.05)',
+                  color: 'var(--text-primary)',
+                  outline: 'none', boxSizing: 'border-box',
+                }}
+              />
+            </div>
+
+            {/* Preview alias */}
+            <div style={{
+              textAlign: 'center', marginBottom: 20, padding: '10px 0',
+              borderRadius: 8, background: 'rgba(201,168,76,0.06)',
+              border: '1px solid rgba(201,168,76,0.15)',
+            }}>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 4 }}>
+                Alias du dossier :
+              </div>
+              <div style={{
+                fontSize: 18, fontWeight: 700, letterSpacing: '0.08em',
+                color: newInitiale.trim() ? 'var(--accent-gold)' : 'var(--text-muted)',
+                fontFamily: 'var(--font-mono, monospace)',
+              }}>
                 DOS-{new Date().getFullYear()}-{String(new Date().getMonth() + 1).padStart(2, '0')}-{newInitiale.toUpperCase() || '?'}
-              </strong>
+              </div>
             </div>
+
+            {/* Boutons */}
             <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
-              <button
-                onClick={() => { setShowNewDialog(false); setNewInitiale('') }}
-                className="btn-ghost" style={{ fontSize: 12 }}
-              >
+              <button onClick={() => { setShowNewDialog(false); setNewInitiale('') }}
+                className="btn-ghost" style={{ fontSize: 13, padding: '8px 16px' }}>
                 Annuler
               </button>
-              <button
-                onClick={() => void handleNew()}
+              <button onClick={() => void handleNew()}
                 disabled={!newInitiale.trim()}
                 style={{
-                  padding: '8px 20px', borderRadius: 8, border: 'none',
+                  padding: '8px 22px', borderRadius: 8, border: 'none',
                   cursor: newInitiale.trim() ? 'pointer' : 'not-allowed',
-                  background: 'linear-gradient(135deg, var(--accent-blue), var(--accent-indigo))',
-                  color: '#fff', fontWeight: 600, fontSize: 13,
-                  opacity: newInitiale.trim() ? 1 : 0.4,
-                }}
-              >
-                Créer le dossier
+                  background: newInitiale.trim()
+                    ? 'linear-gradient(135deg, var(--accent-blue), var(--accent-indigo))'
+                    : 'rgba(255,255,255,0.05)',
+                  color: newInitiale.trim() ? '#fff' : 'var(--text-muted)',
+                  fontWeight: 600, fontSize: 13,
+                  transition: 'all 0.2s',
+                }}>
+                Créer le dossier →
               </button>
             </div>
           </div>
