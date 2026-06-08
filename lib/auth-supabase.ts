@@ -28,7 +28,12 @@ export async function envoyerMagicLink(email: string): Promise<void> {
 }
 
 export async function seDeconnecter(): Promise<void> {
-  await supabase.auth.signOut({ scope: 'local' })
+  try {
+    await supabase.auth.signOut({ scope: 'local' })
+  } catch (err) {
+    console.error('[AUTH] Erreur signOut (ignorée):', err)
+  }
+  // Toujours rediriger, même si signOut a échoué
   // Hard redirect pour que le middleware re-vérifie la session (soft nav ne suffit pas)
   window.location.href = '/login'
 }
