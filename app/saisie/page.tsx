@@ -240,7 +240,14 @@ function NumInput({ value, onChange, placeholder, disabled }: {
 }
 
 // ─── ÉTAPE 1 : IDENTITÉ ─────────────────────────────────────
-function StepIdentite({ d, setD, identiteNom, setIdentiteNom, identitePrenom, setIdentitePrenom, identiteTel, setIdentiteTel, identiteEmail, setIdentiteEmail }: {
+function StepIdentite({ d, setD,
+  identiteNom, setIdentiteNom, identitePrenom, setIdentitePrenom,
+  identiteTel, setIdentiteTel, identiteEmail, setIdentiteEmail,
+  identiteNomConjoint, setIdentiteNomConjoint,
+  identitePrenomConjoint, setIdentitePrenomConjoint,
+  identiteTelConjoint, setIdentiteTelConjoint,
+  identiteEmailConjoint, setIdentiteEmailConjoint,
+}: {
   d: DossierPatrimonial
   setD: (d: DossierPatrimonial) => void
   identiteNom: string
@@ -251,6 +258,14 @@ function StepIdentite({ d, setD, identiteNom, setIdentiteNom, identitePrenom, se
   setIdentiteTel: (v: string) => void
   identiteEmail: string
   setIdentiteEmail: (v: string) => void
+  identiteNomConjoint: string
+  setIdentiteNomConjoint: (v: string) => void
+  identitePrenomConjoint: string
+  setIdentitePrenomConjoint: (v: string) => void
+  identiteTelConjoint: string
+  setIdentiteTelConjoint: (v: string) => void
+  identiteEmailConjoint: string
+  setIdentiteEmailConjoint: (v: string) => void
 }) {
   const upd = (k: string, v: unknown) => setD({ ...d, identite: { ...d.identite, [k]: v } })
   const i = d.identite
@@ -334,6 +349,39 @@ function StepIdentite({ d, setD, identiteNom, setIdentiteNom, identitePrenom, se
               <Input value={identiteEmail} onChange={v => setIdentiteEmail(v)} placeholder="jean.dupont@email.fr" />
             </Field>
           </Grid>
+
+          {/* ── Conjoint (affiché si marié/pacsé/concubin) ── */}
+          {hasConjoint && (
+            <>
+              <div style={{
+                borderTop: '1px solid rgba(255,255,255,0.08)',
+                paddingTop: 14, marginTop: 6,
+              }}>
+                <div style={{
+                  fontSize: 12, fontWeight: 600, color: '#67E8F9',
+                  textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10,
+                }}>
+                  Conjoint
+                </div>
+              </div>
+              <Grid cols={2}>
+                <Field label="Prénom conjoint">
+                  <Input value={identitePrenomConjoint} onChange={v => setIdentitePrenomConjoint(v)} placeholder="Marie" />
+                </Field>
+                <Field label="Nom conjoint">
+                  <Input value={identiteNomConjoint} onChange={v => setIdentiteNomConjoint(v)} placeholder="Dupont" />
+                </Field>
+              </Grid>
+              <Grid cols={2}>
+                <Field label="Téléphone conjoint" hint="optionnel">
+                  <Input value={identiteTelConjoint} onChange={v => setIdentiteTelConjoint(v)} placeholder="06 98 76 54 32" />
+                </Field>
+                <Field label="Email conjoint" hint="optionnel">
+                  <Input value={identiteEmailConjoint} onChange={v => setIdentiteEmailConjoint(v)} placeholder="marie.dupont@email.fr" />
+                </Field>
+              </Grid>
+            </>
+          )}
         </>
       ) : (
         <>
@@ -372,6 +420,9 @@ function StepIdentite({ d, setD, identiteNom, setIdentiteNom, identitePrenom, se
             {identiteDisponible() && identiteNom.trim() && identitePrenom.trim() && (
               <span style={{ marginLeft: 10, fontSize: 13, color: 'var(--text-secondary)', fontWeight: 400 }}>
                 · {identitePrenom.trim()} {identiteNom.trim().toUpperCase()}
+                {identitePrenomConjoint.trim() && identiteNomConjoint.trim() && (
+                  <span> &amp; {identitePrenomConjoint.trim()} {identiteNomConjoint.trim().toUpperCase()}</span>
+                )}
               </span>
             )}
           </div>
@@ -2138,6 +2189,10 @@ function SaisieInner() {
   const [identitePrenom, setIdentitePrenom] = useState('')
   const [identiteTel,    setIdentiteTel]    = useState('')
   const [identiteEmail,  setIdentiteEmail]  = useState('')
+  const [identiteNomConjoint,    setIdentiteNomConjoint]    = useState('')
+  const [identitePrenomConjoint, setIdentitePrenomConjoint] = useState('')
+  const [identiteTelConjoint,    setIdentiteTelConjoint]    = useState('')
+  const [identiteEmailConjoint,  setIdentiteEmailConjoint]  = useState('')
 
   // Charger dossier existant si alias en param
   useEffect(() => {
@@ -2157,6 +2212,10 @@ function SaisieInner() {
         setIdentitePrenom(id.prenom)
         setIdentiteTel(id.tel ?? '')
         setIdentiteEmail(id.email ?? '')
+        setIdentiteNomConjoint(id.nom_conjoint ?? '')
+        setIdentitePrenomConjoint(id.prenom_conjoint ?? '')
+        setIdentiteTelConjoint(id.tel_conjoint ?? '')
+        setIdentiteEmailConjoint(id.email_conjoint ?? '')
       }
     }).catch(() => { /* clé indisponible */ })
   }, [dossier.alias])
@@ -2187,17 +2246,24 @@ function SaisieInner() {
         prenom: identitePrenom.trim(),
         tel: identiteTel.trim() || undefined,
         email: identiteEmail.trim() || undefined,
+        nom_conjoint: identiteNomConjoint.trim() || undefined,
+        prenom_conjoint: identitePrenomConjoint.trim() || undefined,
+        tel_conjoint: identiteTelConjoint.trim() || undefined,
+        email_conjoint: identiteEmailConjoint.trim() || undefined,
       })
     } catch (err) {
       console.error('[SAISIE] Erreur sauvegarde identité:', err)
     }
-  }, [dossier.alias, identiteNom, identitePrenom, identiteTel, identiteEmail])
+  }, [dossier.alias, identiteNom, identitePrenom, identiteTel, identiteEmail,
+      identiteNomConjoint, identitePrenomConjoint, identiteTelConjoint, identiteEmailConjoint])
 
   useEffect(() => {
     if (!identiteDisponible() || !identiteNom.trim()) return
     const t = setTimeout(() => void saveIdentite(), 1500)
     return () => clearTimeout(t)
-  }, [identiteNom, identitePrenom, identiteTel, identiteEmail, saveIdentite])
+  }, [identiteNom, identitePrenom, identiteTel, identiteEmail,
+      identiteNomConjoint, identitePrenomConjoint, identiteTelConjoint, identiteEmailConjoint,
+      saveIdentite])
 
   if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
 
@@ -2221,6 +2287,10 @@ function SaisieInner() {
           identitePrenom={identitePrenom} setIdentitePrenom={setIdentitePrenom}
           identiteTel={identiteTel} setIdentiteTel={setIdentiteTel}
           identiteEmail={identiteEmail} setIdentiteEmail={setIdentiteEmail}
+          identiteNomConjoint={identiteNomConjoint} setIdentiteNomConjoint={setIdentiteNomConjoint}
+          identitePrenomConjoint={identitePrenomConjoint} setIdentitePrenomConjoint={setIdentitePrenomConjoint}
+          identiteTelConjoint={identiteTelConjoint} setIdentiteTelConjoint={setIdentiteTelConjoint}
+          identiteEmailConjoint={identiteEmailConjoint} setIdentiteEmailConjoint={setIdentiteEmailConjoint}
         />,
     2: <StepFamille    d={dossier} setD={setDossier} />,
     3: <StepRevenus    d={dossier} setD={setDossier} />,

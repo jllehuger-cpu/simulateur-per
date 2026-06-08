@@ -9,6 +9,11 @@ export interface IdentiteProspect {
   prenom: string
   tel?: string
   email?: string
+  // Conjoint
+  nom_conjoint?: string
+  prenom_conjoint?: string
+  tel_conjoint?: string
+  email_conjoint?: string
   notes_cgp?: string
 }
 
@@ -24,16 +29,30 @@ export async function sauvegarderIdentite(identite: IdentiteProspect): Promise<v
   const telChiffre = identite.tel ? (await chiffrer(identite.tel, cle)).chiffre : null
   const emailChiffre = identite.email ? (await chiffrer(identite.email, cle)).chiffre : null
 
+  // Conjoint
+  const nomConjointChiffre = identite.nom_conjoint
+    ? (await chiffrer(identite.nom_conjoint, cle)).chiffre : null
+  const prenomConjointChiffre = identite.prenom_conjoint
+    ? (await chiffrer(identite.prenom_conjoint, cle)).chiffre : null
+  const telConjointChiffre = identite.tel_conjoint
+    ? (await chiffrer(identite.tel_conjoint, cle)).chiffre : null
+  const emailConjointChiffre = identite.email_conjoint
+    ? (await chiffrer(identite.email_conjoint, cle)).chiffre : null
+
   await supabase.from('dossiers_identite').upsert({
-    alias:          identite.alias,
-    nom_chiffre:    nomChiffre,
-    prenom_chiffre: prenomChiffre,
-    iv_identite:    ivNom,
-    tel_chiffre:    telChiffre,
-    email_chiffre:  emailChiffre,
-    notes_cgp:      identite.notes_cgp ?? null,
-    updated_at:     new Date().toISOString(),
-    user_id:        user.id,
+    alias:                    identite.alias,
+    nom_chiffre:              nomChiffre,
+    prenom_chiffre:           prenomChiffre,
+    iv_identite:              ivNom,
+    tel_chiffre:              telChiffre,
+    email_chiffre:            emailChiffre,
+    nom_conjoint_chiffre:     nomConjointChiffre,
+    prenom_conjoint_chiffre:  prenomConjointChiffre,
+    tel_conjoint_chiffre:     telConjointChiffre,
+    email_conjoint_chiffre:   emailConjointChiffre,
+    notes_cgp:                identite.notes_cgp ?? null,
+    updated_at:               new Date().toISOString(),
+    user_id:                  user.id,
   })
 }
 
@@ -56,7 +75,22 @@ export async function lireIdentite(alias: string): Promise<IdentiteProspect | nu
       ? await dechiffrer(data.tel_chiffre, data.iv_identite, cle) : undefined
     const email  = data.email_chiffre
       ? await dechiffrer(data.email_chiffre, data.iv_identite, cle) : undefined
-    return { alias, nom, prenom, tel, email, notes_cgp: data.notes_cgp }
+
+    // Conjoint
+    const nom_conjoint = data.nom_conjoint_chiffre
+      ? await dechiffrer(data.nom_conjoint_chiffre, data.iv_identite, cle) : undefined
+    const prenom_conjoint = data.prenom_conjoint_chiffre
+      ? await dechiffrer(data.prenom_conjoint_chiffre, data.iv_identite, cle) : undefined
+    const tel_conjoint = data.tel_conjoint_chiffre
+      ? await dechiffrer(data.tel_conjoint_chiffre, data.iv_identite, cle) : undefined
+    const email_conjoint = data.email_conjoint_chiffre
+      ? await dechiffrer(data.email_conjoint_chiffre, data.iv_identite, cle) : undefined
+
+    return {
+      alias, nom, prenom, tel, email,
+      nom_conjoint, prenom_conjoint, tel_conjoint, email_conjoint,
+      notes_cgp: data.notes_cgp,
+    }
   } catch {
     return null
   }
@@ -74,7 +108,11 @@ export async function lireToutes(): Promise<Map<string, IdentiteProspect>> {
     try {
       const nom    = await dechiffrer(row.nom_chiffre,    row.iv_identite, cle)
       const prenom = await dechiffrer(row.prenom_chiffre, row.iv_identite, cle)
-      map.set(row.alias, { alias: row.alias, nom, prenom, notes_cgp: row.notes_cgp })
+      const nom_conjoint = row.nom_conjoint_chiffre
+        ? await dechiffrer(row.nom_conjoint_chiffre, row.iv_identite, cle) : undefined
+      const prenom_conjoint = row.prenom_conjoint_chiffre
+        ? await dechiffrer(row.prenom_conjoint_chiffre, row.iv_identite, cle) : undefined
+      map.set(row.alias, { alias: row.alias, nom, prenom, nom_conjoint, prenom_conjoint, notes_cgp: row.notes_cgp })
     } catch {
       // Ignorer les entrées avec mauvaise clé
     }

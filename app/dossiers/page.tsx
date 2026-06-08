@@ -287,6 +287,11 @@ function DossiersContent() {
                       <>
                         <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
                           {nomAffiche}
+                          {identites.get(d.alias)?.prenom_conjoint && identites.get(d.alias)?.nom_conjoint && (
+                            <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>
+                              {' '}&amp; {identites.get(d.alias)!.prenom_conjoint} {identites.get(d.alias)!.nom_conjoint!.toUpperCase()}
+                            </span>
+                          )}
                         </span>
                         <span style={{ fontSize: 11, color: 'var(--accent-gold)', letterSpacing: '0.03em' }}>
                           {d.alias}
