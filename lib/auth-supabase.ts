@@ -5,7 +5,7 @@ const supabase = getSupabase()
 export interface UserProfile {
   id: string
   email: string
-  role: 'admin' | 'cgp' | 'expert_comptable'
+  role: 'admin' | 'cgp' | 'client' | 'expert_comptable'
   status?: 'pending' | 'active' | 'blocked'
   nom?: string
   cabinet?: string

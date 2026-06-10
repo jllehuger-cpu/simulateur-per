@@ -29,6 +29,7 @@ const STATUS_COLOR: Record<string, string> = {
 const ROLE_LABEL: Record<string, string> = {
   admin:             'Admin',
   cgp:               'CGP',
+  client:            'Client',
   expert_comptable:  'Expert-comptable',
 }
 
@@ -67,7 +68,7 @@ export default function AdminPage() {
     }
   }, [authLoading, profil, fetchUsers])
 
-  const updateUser = async (id: string, updates: { status?: string; api_quota?: number }) => {
+  const updateUser = async (id: string, updates: { status?: string; api_quota?: number; role?: string }) => {
     setSaving(id)
     try {
       const res = await fetch('/api/admin/users', {
@@ -151,8 +152,23 @@ export default function AdminPage() {
                     </span>
                   </td>
 
-                  <td style={{ padding: '12px 16px', color: 'var(--text-secondary)' }}>
-                    {ROLE_LABEL[u.role] ?? u.role}
+                  <td style={{ padding: '12px 16px' }}>
+                    <select
+                      value={u.role}
+                      onChange={e => void updateUser(u.id, { role: e.target.value })}
+                      disabled={saving === u.id}
+                      style={{
+                        background: 'var(--bg-surface-md)',
+                        color: 'var(--text-primary)',
+                        border: '1px solid var(--border-glass)',
+                        borderRadius: 6, padding: '4px 8px', fontSize: 12,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <option value="cgp">CGP</option>
+                      <option value="client">Client</option>
+                      <option value="admin">Admin</option>
+                    </select>
                   </td>
 
                   <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--text-primary)', fontWeight: 600 }}>

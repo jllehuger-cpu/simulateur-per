@@ -7,16 +7,26 @@ import { useAuth } from '@/lib/use-auth';
 import { useIdentiteVisible } from '@/lib/use-identite-visible';
 import { identiteDisponible } from '@/lib/crypto';
 
-const NAV_LINKS_AUTH: { href: string; label: string; icon: string; accent?: boolean }[] = [
+type NavLink = { href: string; label: string; icon: string; accent?: boolean }
+
+const NAV_LINKS_CGP: NavLink[] = [
   { href: '/audit',      label: 'Audit IA',       icon: '🔍', accent: true },
   { href: '/dossiers',   label: 'Dossiers',        icon: '📁' },
   { href: '/saisie',     label: 'Nouvelle saisie', icon: '✏️' },
-];
-
-const NAV_LINKS_PUBLIC: { href: string; label: string; icon: string; accent?: boolean }[] = [
   { href: '/civil',      label: 'Civil',           icon: '⚖️' },
   { href: '/fiscal',     label: 'Fiscal',          icon: '📊' },
   { href: '/financier',  label: 'Financier',       icon: '💼' },
+]
+
+const NAV_LINKS_CLIENT: NavLink[] = [
+  { href: '/client',           label: 'Mon patrimoine', icon: '🏠' },
+  { href: '/client/financier', label: 'Mes placements', icon: '💰' },
+]
+
+const NAV_LINKS_PUBLIC: NavLink[] = [
+  { href: '/civil',      label: 'Civil',      icon: '⚖️' },
+  { href: '/fiscal',     label: 'Fiscal',     icon: '📊' },
+  { href: '/financier',  label: 'Financier',  icon: '💼' },
 ];
 
 export function Navbar() {
@@ -24,7 +34,10 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, profil } = useAuth(false);
   const { visible: identiteVisible, toggle: toggleIdentite } = useIdentiteVisible();
-  const navLinks = user ? [...NAV_LINKS_AUTH, ...NAV_LINKS_PUBLIC] : NAV_LINKS_PUBLIC;
+  const role = profil?.role ?? 'cgp'
+  const navLinks = user
+    ? (role === 'client' ? NAV_LINKS_CLIENT : NAV_LINKS_CGP)
+    : NAV_LINKS_PUBLIC;
 
   return (
     <header
@@ -165,7 +178,7 @@ export function Navbar() {
                   🛡️ Admin
                 </Link>
               )}
-              {identiteDisponible() && (
+              {role !== 'client' && identiteDisponible() && (
                 <button
                   onClick={toggleIdentite}
                   title={identiteVisible ? 'Masquer les identités' : 'Afficher les identités'}

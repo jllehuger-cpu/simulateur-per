@@ -57,7 +57,7 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: 'Accès refusé.' }, { status: 403 })
   }
 
-  const body = await req.json() as { id: string; updates: { status?: string; api_quota?: number } }
+  const body = await req.json() as { id: string; updates: { status?: string; api_quota?: number; role?: string } }
   if (!body.id || !body.updates) {
     return NextResponse.json({ error: 'Paramètres manquants.' }, { status: 400 })
   }

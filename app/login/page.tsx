@@ -146,10 +146,20 @@ function PasswordTab() {
     setLoading(true); setError('')
     try {
       await signInWithPassword(email.trim(), password)
-      router.push('/dossiers')
+      const supabase = getSupabase()
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        const { data: profile } = await supabase
+          .from('user_profiles')
+          .select('role')
+          .eq('id', user.id)
+          .single()
+        window.location.href = profile?.role === 'client' ? '/client' : '/dossiers'
+      } else {
+        window.location.href = '/dossiers'
+      }
     } catch (err: unknown) {
       setError(translateError(err instanceof Error ? err.message : String(err)))
-    } finally {
       setLoading(false)
     }
   }
@@ -338,11 +348,18 @@ function LoginForm() {
 
   useEffect(() => {
     const supabase = getSupabase()
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) router.push('/dossiers')
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      if (!session) return
+      const { data: profile } = await supabase
+        .from('user_profiles').select('role').eq('id', session.user.id).single()
+      router.push(profile?.role === 'client' ? '/client' : '/dossiers')
     })
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' && session) router.push('/dossiers')
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_IN' && session) {
+        const { data: profile } = await supabase
+          .from('user_profiles').select('role').eq('id', session.user.id).single()
+        router.push(profile?.role === 'client' ? '/client' : '/dossiers')
+      }
     })
     return () => subscription.unsubscribe()
   }, [router])
