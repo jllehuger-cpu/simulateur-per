@@ -14,7 +14,7 @@ import { UnlockGate } from '@/components/unlock-gate'
 import { ImportDocument } from '@/components/import-document'
 import { useAuth } from '@/lib/use-auth'
 import ArbreGenealogie from '@/components/arbre-genealogique'
-import { identiteDisponible } from '@/lib/crypto'
+import { identiteDisponible, getCleIdentiteSession, deriverCle, setCleIdentiteSession } from '@/lib/crypto'
 import { sauvegarderIdentite, lireIdentite, IdentiteProspect } from '@/lib/db-identite'
 import { useIdentiteVisible, masquerTexte } from '@/lib/use-identite-visible'
 
@@ -287,6 +287,47 @@ function StepIdentite({ d, setD,
   }
 
   const [rpFeedback, setRpFeedback] = useState(false)
+  const [showCleB, setShowCleB] = useState(false)
+  const [cleBInput, setCleBInput] = useState('')
+  const [cleBLoading, setCleBLoading] = useState(false)
+  const [cleBError, setCleBError] = useState('')
+  const [, forceRender] = useState(0)
+
+  useEffect(() => {
+    const handler = () => forceRender(n => n + 1)
+    window.addEventListener('cle-identite-changed', handler)
+    return () => window.removeEventListener('cle-identite-changed', handler)
+  }, [])
+
+  const handleActiverCleB = async () => {
+    if (!cleBInput.trim()) return
+    setCleBLoading(true)
+    setCleBError('')
+    try {
+      const cleIdentite = await deriverCle(cleBInput.trim() + '_identite')
+      setCleIdentiteSession(cleIdentite)
+      setShowCleB(false)
+      setCleBInput('')
+      if (d.alias) {
+        const id = await lireIdentite(d.alias)
+        if (id) {
+          setIdentiteNom(id.nom)
+          setIdentitePrenom(id.prenom)
+          setIdentiteTel(id.tel ?? '')
+          setIdentiteEmail(id.email ?? '')
+          setIdentiteNomConjoint(id.nom_conjoint ?? '')
+          setIdentitePrenomConjoint(id.prenom_conjoint ?? '')
+          setIdentiteTelConjoint(id.tel_conjoint ?? '')
+          setIdentiteEmailConjoint(id.email_conjoint ?? '')
+        }
+      }
+      window.dispatchEvent(new Event('cle-identite-changed'))
+    } catch {
+      setCleBError('Erreur lors de la dérivation de la clé.')
+    } finally {
+      setCleBLoading(false)
+    }
+  }
 
   const handleProprietaireChange = (val: string) => {
     if (val === 'proprio') {
@@ -392,18 +433,96 @@ function StepIdentite({ d, setD,
             background: 'rgba(255,255,255,0.03)',
             border: '1px dashed rgba(255,255,255,0.15)',
             borderRadius: 12, padding: '16px 20px',
-            display: 'flex', alignItems: 'center', gap: 12,
           }}>
-            <span style={{ fontSize: 20, opacity: 0.5 }}>🔒</span>
-            <div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)', fontWeight: 500 }}>
-                Clé identité non active
+            {!showCleB ? (
+              /* ── État fermé : bandeau + bouton ── */
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{ fontSize: 20, opacity: 0.5 }}>🔒</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 13, color: 'var(--text-secondary)', fontWeight: 500 }}>
+                    Clé identité non active
+                  </div>
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2, lineHeight: 1.5 }}>
+                    Activez-la pour saisir le nom, prénom, téléphone et email du client.
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowCleB(true)}
+                  style={{
+                    padding: '6px 14px', borderRadius: 8, border: 'none',
+                    background: 'linear-gradient(135deg, rgba(127,119,221,0.2), rgba(127,119,221,0.1))',
+                    color: '#A78BFA', fontWeight: 600, fontSize: 12,
+                    cursor: 'pointer', whiteSpace: 'nowrap',
+                    transition: 'all 0.2s',
+                  }}
+                >
+                  🔑 Activer
+                </button>
               </div>
-              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2, lineHeight: 1.5 }}>
-                Pour saisir le nom, prénom, téléphone et email du client,
-                activez la clé identité (Clé B) lors du déverrouillage.
+            ) : (
+              /* ── État ouvert : formulaire de saisie ── */
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                  <span style={{ fontSize: 18 }}>🔑</span>
+                  <div style={{ fontSize: 13, color: 'var(--text-primary)', fontWeight: 600 }}>
+                    Saisissez votre clé identité (Clé B)
+                  </div>
+                </div>
+                <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10, lineHeight: 1.5 }}>
+                  C&apos;est le mot de passe que vous avez choisi pour protéger les données personnelles de vos clients.
+                  Il est différent de votre clé patrimoine (Clé A).
+                </div>
+                {cleBError && (
+                  <div style={{
+                    fontSize: 12, color: '#FCA5A5', marginBottom: 8,
+                    padding: '6px 10px', borderRadius: 6,
+                    background: 'rgba(239,68,68,0.1)',
+                  }}>{cleBError}</div>
+                )}
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <input
+                    type="password"
+                    value={cleBInput}
+                    onChange={e => setCleBInput(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && cleBInput.trim() && void handleActiverCleB()}
+                    placeholder="Votre clé identité"
+                    autoFocus
+                    style={{
+                      flex: 1, padding: '8px 12px', borderRadius: 8,
+                      border: '1px solid rgba(127,119,221,0.3)',
+                      background: 'rgba(127,119,221,0.05)',
+                      color: 'var(--text-primary)', fontSize: 13,
+                      outline: 'none', boxSizing: 'border-box',
+                    }}
+                  />
+                  <button
+                    onClick={() => void handleActiverCleB()}
+                    disabled={cleBLoading || !cleBInput.trim()}
+                    style={{
+                      padding: '8px 16px', borderRadius: 8, border: 'none',
+                      background: cleBInput.trim()
+                        ? 'linear-gradient(135deg, rgba(127,119,221,0.3), rgba(127,119,221,0.15))'
+                        : 'rgba(255,255,255,0.05)',
+                      color: cleBInput.trim() ? '#A78BFA' : 'var(--text-muted)',
+                      fontWeight: 600, fontSize: 12,
+                      cursor: cleBInput.trim() ? 'pointer' : 'not-allowed',
+                    }}
+                  >
+                    {cleBLoading ? '⏳' : '✓ Activer'}
+                  </button>
+                  <button
+                    onClick={() => { setShowCleB(false); setCleBInput(''); setCleBError('') }}
+                    style={{
+                      padding: '8px 12px', borderRadius: 8, border: 'none',
+                      background: 'transparent', color: 'var(--text-muted)',
+                      fontSize: 12, cursor: 'pointer',
+                    }}
+                  >
+                    Annuler
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </>
       )}
@@ -647,7 +766,7 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
   const freresSoeurs = d.identite.freres_soeurs ?? []
   const addFS = () => {
     if (freresSoeurs.length >= 10) return
-    const fs: FrereSoeur = { id: crypto.randomUUID(), alias: '', age: 0, situation: 'valide', a_enfants: false }
+    const fs: FrereSoeur = { id: crypto.randomUUID(), alias: '', age: 0, lien: 'client', situation: 'valide', a_enfants: false }
     setD({ ...d, identite: { ...d.identite, freres_soeurs: [...freresSoeurs, fs] } })
   }
   const updFS = (id: string, k: keyof FrereSoeur, v: unknown) =>
@@ -925,18 +1044,22 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
                 </Field>
               )
             })()}
-            <Field label="Testament connu ?">
-              <Select
-                value={a.testament_connu === 'inconnu' ? 'inconnu' : a.testament_connu ? 'oui' : 'non'}
-                onChange={v => updAscendant(a.id, 'testament_connu', v === 'oui' ? true : v === 'non' ? false : 'inconnu')}
-                options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }, { v: 'inconnu', l: 'Je ne sais pas' }]}
-              />
-            </Field>
-            <Field label="Donation consentie à vous ?">
-              <Select value={a.donation_consentie ? 'oui' : 'non'}
-                onChange={v => updAscendant(a.id, 'donation_consentie', v === 'oui')}
-                options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
-            </Field>
+            {a.situation !== 'decede' && (
+              <Field label="Testament connu ?">
+                <Select
+                  value={a.testament_connu === 'inconnu' ? 'inconnu' : a.testament_connu ? 'oui' : 'non'}
+                  onChange={v => updAscendant(a.id, 'testament_connu', v === 'oui' ? true : v === 'non' ? false : 'inconnu')}
+                  options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }, { v: 'inconnu', l: 'Je ne sais pas' }]}
+                />
+              </Field>
+            )}
+            {a.situation !== 'decede' && (
+              <Field label="Donation consentie à vous ?">
+                <Select value={a.donation_consentie ? 'oui' : 'non'}
+                  onChange={v => updAscendant(a.id, 'donation_consentie', v === 'oui')}
+                  options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
+              </Field>
+            )}
             {a.situation !== 'decede' && (
               <Field label="Mandat de protection future">
                 <Select value={a.mandat_protection_future ?? ''}
@@ -1013,6 +1136,18 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
             borderRadius: 6, color: '#EF4444', cursor: 'pointer', padding: '2px 8px', fontSize: 12
           }}>✕</button>
           <Grid cols={2}>
+            {hasConjFamille && (
+              <Field label="Côté">
+                <Select
+                  value={fs.lien ?? 'client'}
+                  onChange={v => updFS(fs.id, 'lien', v)}
+                  options={[
+                    { v: 'client',   l: 'Frère/Sœur du client' },
+                    { v: 'conjoint', l: 'Frère/Sœur du conjoint' },
+                  ]}
+                />
+              </Field>
+            )}
             <Field label="Prénom ou alias">
               <Input value={fs.alias} onChange={v => updFS(fs.id, 'alias', v)} placeholder="ex: Frère 1" />
             </Field>

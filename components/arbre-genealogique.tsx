@@ -135,23 +135,26 @@ export default function ArbreGenealogie({
 
   // ── Niveau 3 : disposition horizontale complète ──────────────
   // Ordre dans la rangée : [F/S gauches…, Client, Conjoint?, F/S droits…]
-  const coupleCount   = hasConjoint ? 2 : 1
-  const sibCount      = freresSoeurs.length
-  const leftSibCount  = Math.ceil(sibCount / 2)
-  const rightSibCount = sibCount - leftSibCount
+  const coupleCount = hasConjoint ? 2 : 1
 
-  const rowItemCount = sibCount + coupleCount
+  // Séparer les F/S par branche (rétro-compat : lien absent → 'client')
+  const sibsClient   = freresSoeurs.filter(fs => (fs.lien ?? 'client') === 'client')
+  const sibsConjoint = freresSoeurs.filter(fs => fs.lien === 'conjoint')
+  const leftCount    = sibsClient.length
+  const rightCount   = hasConjoint ? sibsConjoint.length : 0
+
+  const rowItemCount = leftCount + coupleCount + rightCount
   const rowW         = rowItemCount * RW + Math.max(0, rowItemCount - 1) * PAD
   const svgW         = Math.max(500, rowW + PAD * 8)
   const cx           = svgW / 2
   const rowStartX    = cx - rowW / 2
 
-  // Positions X de chaque nœud dans la rangée
-  const leftSibXs      = Array.from({ length: leftSibCount  }, (_, i) => rowStartX + i * (RW + PAD))
-  const clientX        = rowStartX + leftSibCount * (RW + PAD)
-  const conjX          = hasConjoint ? clientX + RW + PAD : -1
-  const rightSibsStart = clientX + coupleCount * (RW + PAD)
-  const rightSibXs     = Array.from({ length: rightSibCount }, (_, i) => rightSibsStart + i * (RW + PAD))
+  // Positions X : [F/S client…, Client, Conjoint?, F/S conjoint…]
+  const sibClientXs   = Array.from({ length: leftCount  }, (_, i) => rowStartX + i * (RW + PAD))
+  const clientX       = rowStartX + leftCount * (RW + PAD)
+  const conjX         = hasConjoint ? clientX + RW + PAD : -1
+  const sibConjStartX = hasConjoint ? conjX + RW + PAD : -1
+  const sibConjointXs = Array.from({ length: rightCount }, (_, i) => sibConjStartX + i * (RW + PAD))
 
   // ── Géométrie du couple ──────────────────────────────────────
   const clientCX = clientX + RW / 2
@@ -160,11 +163,12 @@ export default function ArbreGenealogie({
   const coupleCX = hasConjoint ? (clientCX + conjCX) / 2 : clientCX
 
   // ── Positions des parents : au-dessus du centre de leur groupe d'enfants ──
-  // Parents du client → au-dessus du groupe {frères/sœurs + client}
-  const clientGroupMinX    = leftSibXs.length > 0 ? leftSibXs[0] : clientX
+  // Parents du client → au-dessus du groupe {F/S client + client}
+  const clientGroupMinX    = sibClientXs.length > 0 ? sibClientXs[0] : clientX
   const clientGroupCenterX = (clientGroupMinX + clientX + RW) / 2
-  // Parents du conjoint → au-dessus du conjoint
-  const conjGroupCenterX   = hasConjoint ? conjX + RW / 2 : cx
+  // Parents du conjoint → au-dessus du groupe {conjoint + F/S conjoint}
+  const conjGroupMaxX      = sibConjointXs.length > 0 ? sibConjointXs[sibConjointXs.length - 1] + RW : (hasConjoint ? conjX + RW : cx)
+  const conjGroupCenterX   = hasConjoint ? (conjX + conjGroupMaxX) / 2 : cx
 
   const parClientXs   = spreadX(parentsClient.length,   clientGroupCenterX)
   const parConjointXs = spreadX(parentsConjoint.length, conjGroupCenterX)
@@ -228,18 +232,18 @@ export default function ArbreGenealogie({
     fill: C.conjoint.fill, stroke: C.conjoint.stroke, textColor: C.conjoint.text,
   } : null
 
-  // Frères/sœurs — MÊME Y que le client (coupleLevelY)
+  // Frères/sœurs — séparés par branche, même Y que le client (coupleLevelY)
   const sibRects: Rect[] = [
-    ...freresSoeurs.slice(0, leftSibCount).map((fs, i) => ({
-      x: leftSibXs[i], y: coupleLevelY, w: RW, h: RH,
+    ...sibsClient.map((fs, i) => ({
+      x: sibClientXs[i], y: coupleLevelY, w: RW, h: RH,
       label: fs.alias || `F/S ${i + 1}`,
       sub: `${fs.age} ans`,
       fill: C.sibling.fill, stroke: C.sibling.stroke, textColor: C.sibling.text,
       badge: fs.situation === 'handicape' ? 'H' : undefined,
     })),
-    ...freresSoeurs.slice(leftSibCount).map((fs, i) => ({
-      x: rightSibXs[i], y: coupleLevelY, w: RW, h: RH,
-      label: fs.alias || `F/S ${leftSibCount + i + 1}`,
+    ...sibsConjoint.map((fs, i) => ({
+      x: sibConjointXs[i], y: coupleLevelY, w: RW, h: RH,
+      label: fs.alias || `F/S ${i + 1}`,
       sub: `${fs.age} ans`,
       fill: C.sibling.fill, stroke: C.sibling.stroke, textColor: C.sibling.text,
       badge: fs.situation === 'handicape' ? 'H' : undefined,
@@ -263,17 +267,18 @@ export default function ArbreGenealogie({
   // Situé à mi-chemin entre le bas du niveau parents et le haut du niveau 3
   const busY = Math.round((parentLevelY + RH + coupleLevelY) / 2)
 
-  // Centres X des nœuds côté client au niveau 3 : F/S gauches + Client + F/S droits
+  // Centres X côté client : F/S client + client
   const clientSideChildCenters = [
-    ...leftSibXs.map(x => x + RW / 2),
+    ...sibClientXs.map(x => x + RW / 2),
     clientX + RW / 2,
-    ...rightSibXs.map(x => x + RW / 2),
   ]
   // Centres X des parents côté client
   const parentClientCenters = parClientXs.map(x => x + RW / 2)
 
-  // Centres X côté conjoint
-  const conjChildCenters  = hasConjoint ? [conjCX] : []
+  // Centres X côté conjoint : conjoint + F/S conjoint
+  const conjChildCenters = hasConjoint
+    ? [conjCX, ...sibConjointXs.map(x => x + RW / 2)]
+    : []
   const parentConjCenters = parConjointXs.map(x => x + RW / 2)
 
   const sfLabel: Record<string, string> = { marie: 'Marié·e·s', pacse: 'Pacsé·e·s', concubin: 'Concubins' }

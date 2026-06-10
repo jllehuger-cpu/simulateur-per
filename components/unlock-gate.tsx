@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { deriverCle, setCleSession, getCleSession, setCleIdentiteSession } from '@/lib/crypto'
+import { migrationNecessaire, migrerVersClesDerivees } from '@/lib/migration-cles'
 import { getSupabase } from '@/lib/supabase'
 
 type Step = 'init' | 'onboarding' | 'unlock'
@@ -70,6 +71,15 @@ export function UnlockGate({ children }: { children: React.ReactNode }) {
       if (mdpIdentite.trim()) {
         const cleIdentite = await deriverCle(mdpIdentite + '_identite')
         setCleIdentiteSession(cleIdentite)
+      }
+      if (migrationNecessaire()) {
+        console.log('[UNLOCK] Migration vers clés dérivées...')
+        try {
+          const result = await migrerVersClesDerivees()
+          console.log(`[UNLOCK] Migration : ${result.migres} migré(s), ${result.erreurs} erreur(s)`)
+        } catch (err) {
+          console.error('[UNLOCK] Erreur migration:', err)
+        }
       }
       setUnlocked(true)
     } catch {

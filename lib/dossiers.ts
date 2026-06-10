@@ -4,8 +4,8 @@
 // ─────────────────────────────────────────────────────────
 
 import { DossierPatrimonial, STORAGE_KEY } from './types'
-import { getCleSession, chiffrer, dechiffrer } from './crypto'
-import { sauvegarderDossierDB, supprimerDossierDB } from './db-dossiers'
+import { getCleSession, chiffrer, dechiffrer, deriverCleDossier } from './crypto'
+import { sauvegarderDossierDB, supprimerDossierDB, listerDossiersDB, getDossierDB } from './db-dossiers'
 import { sauvegarderMeta } from './db-identite'
 
 interface StoredEntry {
@@ -36,22 +36,75 @@ export async function listerDossiers(): Promise<DossierPatrimonial[]> {
   if (typeof window === 'undefined') return []
   const cle = getCleSession()
   if (!cle) throw new Error('Session verrouillée')
+
+  // 1. Essayer localStorage d'abord (rapide)
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return []
-    const entries = JSON.parse(raw) as StoredEntry[]
-    const results = await Promise.all(
-      entries.map(async ({ chiffre, iv }) => {
+    if (raw) {
+      const entries = JSON.parse(raw) as StoredEntry[]
+      if (entries.length > 0) {
+        const results = await Promise.all(
+          entries.map(async ({ alias, chiffre, iv }) => {
+            try {
+              const cleDossier = await deriverCleDossier(cle, alias)
+              const json = await dechiffrer(chiffre, iv, cleDossier)
+              return JSON.parse(json) as DossierPatrimonial
+            } catch {
+              return null
+            }
+          })
+        )
+        const dossiers = results.filter(Boolean) as DossierPatrimonial[]
+        if (dossiers.length > 0) return dossiers
+      }
+    }
+  } catch {
+    // localStorage corrompu ou vide, on continue vers Supabase
+  }
+
+  // 2. Fallback : restaurer depuis Supabase
+  console.log('[DOSSIERS] localStorage vide — restauration depuis Supabase...')
+  try {
+    const dbList = await listerDossiersDB()
+    if (dbList.length === 0) return []
+
+    const restoredEntries: StoredEntry[] = []
+    const restoredDossiers: DossierPatrimonial[] = []
+
+    await Promise.all(
+      dbList.map(async ({ alias }) => {
         try {
-          const json = await dechiffrer(chiffre, iv, cle)
-          return JSON.parse(json) as DossierPatrimonial
-        } catch {
-          return null
+          const dbData = await getDossierDB(alias)
+          if (!dbData) return
+
+          const cleDossier = await deriverCleDossier(cle, alias)
+          const json = await dechiffrer(dbData.data_chiffre, dbData.iv, cleDossier)
+          const dossier = JSON.parse(json) as DossierPatrimonial
+
+          if (dbData.audit_result) {
+            dossier.audit_result = dbData.audit_result
+          }
+
+          restoredDossiers.push(dossier)
+          restoredEntries.push({
+            alias,
+            chiffre: dbData.data_chiffre,
+            iv: dbData.iv,
+          })
+        } catch (err) {
+          console.warn(`[DOSSIERS] Impossible de déchiffrer ${alias}:`, err)
         }
       })
     )
-    return results.filter(Boolean) as DossierPatrimonial[]
-  } catch {
+
+    if (restoredEntries.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(restoredEntries))
+      console.log(`[DOSSIERS] ✅ ${restoredEntries.length} dossier(s) restauré(s) depuis Supabase`)
+    }
+
+    return restoredDossiers
+  } catch (err) {
+    console.error('[DOSSIERS] Erreur restauration Supabase:', err)
     return []
   }
 }
@@ -62,10 +115,11 @@ export async function getDossier(alias: string): Promise<DossierPatrimonial | nu
 }
 
 export async function sauvegarderDossier(dossier: DossierPatrimonial): Promise<void> {
-  const cle = getCleSession()
-  if (!cle) throw new Error('Session verrouillée')
+  const cleMaitre = getCleSession()
+  if (!cleMaitre) throw new Error('Session verrouillée')
+  const cleDossier = await deriverCleDossier(cleMaitre, dossier.alias)
   const json = JSON.stringify(dossier)
-  const { chiffre, iv } = await chiffrer(json, cle)
+  const { chiffre, iv } = await chiffrer(json, cleDossier)
   let entries: StoredEntry[] = []
   try {
     const raw = localStorage.getItem(STORAGE_KEY)

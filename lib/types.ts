@@ -53,6 +53,7 @@ export interface FrereSoeur {
   id: string
   alias: string
   age: number
+  lien: 'client' | 'conjoint'
   situation: 'valide' | 'handicape'
   type_handicap?: string
   a_enfants: boolean
@@ -257,3 +258,33 @@ export interface DossierPatrimonial {
 
 // ── Store local (localStorage, pas de serveur) ───────────
 export const STORAGE_KEY = 'cgp_dossiers_v1'
+
+// ── Partage CGP → Client ──────────────────────────────────
+export type PartageStatus = 'pending' | 'active' | 'revoked'
+export type PartagePermission = 'read_partial' | 'read_full' | 'edit_partial'
+
+export interface Partage {
+  id: string
+  dossier_alias: string
+  cgp_user_id: string
+  client_user_id: string | null
+  client_email: string | null
+  cle_partage_chiffree: string | null  // clé dossier chiffrée avec la phrase de partage
+  iv_partage: string | null
+  permissions: PartagePermission
+  champs_editables: string[]
+  status: PartageStatus
+  created_at: string
+  updated_at: string
+}
+
+export interface ModificationClient {
+  id: string
+  partage_id: string
+  dossier_alias: string
+  champ_modifie: string
+  ancienne_valeur: string | null
+  nouvelle_valeur: string | null
+  client_user_id: string | null
+  created_at: string
+}

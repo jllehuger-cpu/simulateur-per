@@ -12,8 +12,60 @@ export async function deriverCle(motDePasse: string): Promise<CryptoKey> {
     { name: 'PBKDF2', salt: enc.encode(SALT), iterations: 100000, hash: 'SHA-256' },
     keyMaterial,
     { name: 'AES-GCM', length: 256 },
-    false,
+    true,   // exportable pour dérivation HMAC par dossier
     ['encrypt', 'decrypt']
+  )
+}
+
+/**
+ * Dérive une clé AES-256 unique pour un dossier via HMAC(clé maître, alias).
+ * Rapide car la clé maître est déjà forte (pas besoin de PBKDF2).
+ */
+export async function deriverCleDossier(cleMaitre: CryptoKey, alias: string): Promise<CryptoKey> {
+  const enc = new TextEncoder()
+  const masterBytes = await crypto.subtle.exportKey('raw', cleMaitre)
+  const hmacKey = await crypto.subtle.importKey(
+    'raw', masterBytes, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
+  )
+  const derivedBytes = await crypto.subtle.sign('HMAC', hmacKey, enc.encode(alias))
+  return crypto.subtle.importKey(
+    'raw', derivedBytes, { name: 'AES-GCM', length: 256 },
+    true,   // exportable pour le partage client
+    ['encrypt', 'decrypt']
+  )
+}
+
+const MOTS_PARTAGE = [
+  'soleil', 'montagne', 'riviere', 'etoile', 'jardin', 'ocean', 'colline', 'prairie',
+  'aurore', 'cascade', 'nuage', 'foret', 'sentier', 'vallee', 'source', 'horizon',
+  'aube', 'brise', 'clairiere', 'dune', 'eclat', 'falaise', 'glacier', 'herbe',
+  'iris', 'jade', 'kayak', 'lac', 'marais', 'nectar', 'oasis', 'palme',
+  'quartz', 'rosee', 'sable', 'tempete', 'univers', 'vague', 'wagon', 'xenon',
+  'yacht', 'zenith', 'abricot', 'bambou', 'cerise', 'dahlia', 'erable', 'figue',
+  'genoise', 'hibiscus', 'indigo', 'jasmin', 'kiwi', 'lavande', 'mangue', 'noisette',
+  'olive', 'pivoine', 'raisin', 'safran', 'tulipe', 'vanille', 'acacia', 'bouton',
+]
+
+export async function genererPhrasePartage(cleDossier: CryptoKey): Promise<string> {
+  const bytes = new Uint8Array(await crypto.subtle.exportKey('raw', cleDossier))
+  const mot1 = MOTS_PARTAGE[bytes[0] % MOTS_PARTAGE.length]
+  const mot2 = MOTS_PARTAGE[bytes[1] % MOTS_PARTAGE.length]
+  const nombre = (bytes[2] % 90) + 10
+  return `${mot1}-${mot2}-${nombre}`
+}
+
+export async function phraseVersCleDossier(phrase: string): Promise<CryptoKey> {
+  return deriverCle(phrase + '_partage')
+}
+
+export async function exporterCle(cle: CryptoKey): Promise<ArrayBuffer> {
+  return crypto.subtle.exportKey('raw', cle)
+}
+
+export async function importerCle(bytes: ArrayBuffer): Promise<CryptoKey> {
+  return crypto.subtle.importKey(
+    'raw', bytes, { name: 'AES-GCM', length: 256 },
+    true, ['encrypt', 'decrypt']
   )
 }
 
