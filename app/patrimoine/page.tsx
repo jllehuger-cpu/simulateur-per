@@ -1,321 +1,318 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useMemo, Suspense } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
+import { getDossier, listerDossiers } from '@/lib/dossiers'
+import { UnlockGate } from '@/components/unlock-gate'
+import type { DossierPatrimonial } from '@/lib/types'
 
-// ─── Types ───────────────────────────────────────────────────
-type TypeBien =
-  | 'Immobilier'
-  | 'Liquidités'
-  | 'Assurance-Vie'
-  | 'Valeurs'
-  | 'Entreprise'
-  | 'Or/Métaux'
-  | 'Autre'
+// ─── Types internes ───────────────────────────────────────────
+type Proprietaire = 'Client' | 'Conjoint' | 'Commun'
 
-interface Bien {
+interface BienUnifie {
   id: string
-  type: TypeBien
+  categorie: string
   libelle: string
+  proprietaire: Proprietaire
   valeur: number
 }
 
-interface FormBien {
-  type: TypeBien
-  libelle: string
-  valeur: string
+// ─── Constantes ───────────────────────────────────────────────
+const ICONS: Record<string, string> = {
+  'Immobilier':      '🏠',
+  'Assurance-Vie':   '🛡️',
+  'Valeurs':         '📈',
+  'Liquidités':      '💵',
+  'Retraite / PER':  '🏦',
+  'Épargne salariale': '💼',
+  'Autre':           '📦',
 }
 
-interface Enfant {
-  id: string
-  nom: string
-}
-
-// ─── Constantes ──────────────────────────────────────────────
-const TYPES: TypeBien[] = [
-  'Immobilier', 'Liquidités', 'Assurance-Vie',
-  'Valeurs', 'Entreprise', 'Or/Métaux', 'Autre',
-]
-const ICONS: Record<TypeBien, string> = {
-  'Immobilier':   '🏠',
-  'Liquidités':   '💵',
-  'Assurance-Vie':'🛡️',
-  'Valeurs':      '📈',
-  'Entreprise':   '🏢',
-  'Or/Métaux':    '🥇',
-  'Autre':        '📦',
-}
+const COL_CLIENT   = '#3B82F6'
+const COL_CONJOINT = '#C9A84C'
+const COL_COMMUN   = '#10B981'
 
 // ─── Helpers ─────────────────────────────────────────────────
 const EUR = (n: number) =>
   n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })
 
-const total = (biens: Bien[]) => biens.reduce((s, b) => s + b.valeur, 0)
+const PCT = (n: number) => Math.round(n) + '%'
 
-const byType = (biens: Bien[]) => {
-  const map = new Map<TypeBien, number>()
-  biens.forEach(b => map.set(b.type, (map.get(b.type) ?? 0) + b.valeur))
-  return map
+function mapProprietaire(raw: string): Proprietaire {
+  const d = (raw ?? '').toLowerCase().trim()
+  if (d === 'conjoint') return 'Conjoint'
+  if (d === 'client')   return 'Client'
+  return 'Commun'
 }
 
-function emptyForm(): FormBien {
-  return { type: 'Immobilier', libelle: '', valeur: '' }
+function categorieFinancier(type: string): string {
+  switch (type) {
+    case 'Assurance-Vie':
+    case 'Contrat de capitalisation': return 'Assurance-Vie'
+    case 'PEA':
+    case 'Compte-Titres':             return 'Valeurs'
+    case 'Livret A':
+    case 'LDDS':
+    case 'PEL':
+    case 'CEL':                        return 'Liquidités'
+    case 'PER':                        return 'Retraite / PER'
+    case 'Épargne salariale':          return 'Épargne salariale'
+    default:                           return 'Autre'
+  }
 }
 
-// ─── Composant Tableau de biens ──────────────────────────────
-function TableauBiens({
-  title, color, biens, form, onForm, onAdd, onDelete,
-}: {
-  title: string; color: string
-  biens: Bien[]
-  form: FormBien; onForm: (f: FormBien) => void
-  onAdd: () => void; onDelete: (id: string) => void
-}) {
-  const tot = total(biens)
+function extraireBiens(dossier: DossierPatrimonial): BienUnifie[] {
+  const biens: BienUnifie[] = []
+
+  for (const b of dossier.biens_immo ?? []) {
+    if ((b.valeur_venale ?? 0) > 0) {
+      biens.push({
+        id: b.id,
+        categorie: 'Immobilier',
+        libelle: [b.type, b.localisation].filter(Boolean).join(' — ') || b.type,
+        proprietaire: mapProprietaire(b.detenu_par),
+        valeur: b.valeur_venale,
+      })
+    }
+  }
+
+  for (const p of dossier.produits_financiers ?? []) {
+    if ((p.valeur_actuelle ?? 0) > 0) {
+      biens.push({
+        id: p.id,
+        categorie: categorieFinancier(p.type),
+        libelle: [p.type, p.etablissement].filter(Boolean).join(' — ') || p.type,
+        proprietaire: mapProprietaire(p.titulaire),
+        valeur: p.valeur_actuelle,
+      })
+    }
+  }
+
+  return biens
+}
+
+function bilanParCategorie(biens: BienUnifie[]): Map<string, number> {
+  const m = new Map<string, number>()
+  biens.forEach(b => m.set(b.categorie, (m.get(b.categorie) ?? 0) + b.valeur))
+  return m
+}
+
+// ─── Composants partiels ──────────────────────────────────────
+function EmptyBiens({ goSaisie }: { goSaisie: () => void }) {
   return (
-    <div style={{
-      background: 'var(--bg-surface)',
-      border: `1px solid ${color}33`,
-      borderRadius: 14, padding: 20,
-    }}>
-      <div style={{ fontSize: 14, fontWeight: 700, color, marginBottom: 14 }}>{title}</div>
-
-      {/* Table */}
-      {biens.length === 0 ? (
-        <div style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 13, padding: '12px 0' }}>
-          Aucun bien renseigné
-        </div>
-      ) : (
-        <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 8 }}>
-          <thead>
-            <tr style={{ fontSize: 11, color: 'var(--text-muted)', textAlign: 'left' }}>
-              <th style={{ padding: '4px 8px', fontWeight: 500 }}>Type</th>
-              <th style={{ padding: '4px 8px', fontWeight: 500 }}>Libellé</th>
-              <th style={{ padding: '4px 8px', fontWeight: 500, textAlign: 'right' }}>Valeur</th>
-              <th style={{ padding: '4px 8px', width: 32 }} />
-            </tr>
-          </thead>
-          <tbody>
-            {biens.map(b => (
-              <tr key={b.id} style={{
-                borderTop: '1px solid rgba(255,255,255,0.05)',
-                fontSize: 13,
-              }}>
-                <td style={{ padding: '6px 8px' }}>
-                  <span>{ICONS[b.type]} {b.type}</span>
-                </td>
-                <td style={{ padding: '6px 8px', color: 'var(--text-secondary)' }}>{b.libelle}</td>
-                <td style={{ padding: '6px 8px', textAlign: 'right', fontWeight: 600, fontFamily: 'var(--font-geist-mono)' }}>
-                  {EUR(b.valeur)}
-                </td>
-                <td style={{ padding: '6px 4px', textAlign: 'center' }}>
-                  <button
-                    onClick={() => onDelete(b.id)}
-                    style={{
-                      background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)',
-                      borderRadius: 5, color: '#EF4444', cursor: 'pointer',
-                      fontSize: 11, padding: '2px 6px',
-                    }}
-                  >✕</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr style={{ borderTop: `1px solid ${color}44` }}>
-              <td colSpan={2} style={{ padding: '8px 8px', fontSize: 12, color: 'var(--text-muted)' }}>Total</td>
-              <td style={{ padding: '8px 8px', textAlign: 'right', fontWeight: 700, fontSize: 14, color }}>
-                {EUR(tot)}
-              </td>
-              <td />
-            </tr>
-          </tfoot>
-        </table>
-      )}
-
-      {/* Formulaire d'ajout */}
-      <div style={{
-        marginTop: 12, padding: '14px', background: 'rgba(255,255,255,0.02)',
-        border: '1px dashed rgba(255,255,255,0.1)', borderRadius: 10,
-      }}>
-        <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-          Ajouter un bien
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 120px', gap: 8, alignItems: 'end' }}>
-          <div>
-            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 4 }}>Type</div>
-            <select
-              className="glass-input"
-              value={form.type}
-              onChange={e => onForm({ ...form, type: e.target.value as TypeBien })}
-              style={{ fontSize: 12 }}
-            >
-              {TYPES.map(t => <option key={t} value={t}>{ICONS[t]} {t}</option>)}
-            </select>
-          </div>
-          <div>
-            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 4 }}>Libellé</div>
-            <input
-              className="glass-input"
-              value={form.libelle}
-              onChange={e => onForm({ ...form, libelle: e.target.value })}
-              placeholder="ex: Maison Boulogne"
-              style={{ fontSize: 12 }}
-            />
-          </div>
-          <div>
-            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 4 }}>Valeur (€)</div>
-            <input
-              className="glass-input"
-              type="number"
-              value={form.valeur}
-              onChange={e => onForm({ ...form, valeur: e.target.value })}
-              placeholder="0"
-              min={0}
-              style={{ fontSize: 12, textAlign: 'right' }}
-            />
-          </div>
-        </div>
-        <button
-          onClick={onAdd}
-          disabled={!form.libelle.trim() || !form.valeur || parseFloat(form.valeur) <= 0}
-          style={{
-            marginTop: 10, width: '100%', padding: '8px',
-            background: form.libelle.trim() && form.valeur && parseFloat(form.valeur) > 0
-              ? `linear-gradient(135deg, ${color}22, ${color}11)`
-              : 'rgba(255,255,255,0.03)',
-            border: `1px solid ${color}44`,
-            borderRadius: 8, color,
-            fontSize: 12, fontWeight: 600, cursor: 'pointer',
-            transition: 'all 0.18s',
-          }}
-        >
-          + Ajouter ce bien
-        </button>
+    <div style={{ textAlign: 'center', padding: '48px 20px', border: '1px dashed rgba(255,255,255,0.1)', borderRadius: 12 }}>
+      <div style={{ fontSize: 32, marginBottom: 12 }}>📭</div>
+      <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 8 }}>
+        Aucun bien saisi
       </div>
+      <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 20 }}>
+        Complétez les étapes Immobilier et Financier dans la saisie patrimoniale.
+      </div>
+      <button
+        onClick={goSaisie}
+        style={{
+          padding: '8px 20px', borderRadius: 8, border: 'none',
+          background: 'rgba(59,130,246,0.15)', color: 'var(--accent-blue)',
+          cursor: 'pointer', fontWeight: 600, fontSize: 13,
+        }}
+      >
+        ✏️ Aller à la saisie
+      </button>
     </div>
   )
 }
 
-// ─── Page principale ─────────────────────────────────────────
-export default function PatrimoinePage() {
-  const [tab, setTab] = useState<'saisie' | 'bilan' | 'succession'>('saisie')
+// ─── Composant principal ──────────────────────────────────────
+function PatrimoineInner() {
+  const searchParams = useSearchParams()
+  const router       = useRouter()
+  const alias        = searchParams.get('alias')
 
-  // Biens par pôle
-  const [biensMr,     setBiensMr]     = useState<Bien[]>([])
-  const [biensMme,    setBiensMme]    = useState<Bien[]>([])
-  const [biensCommun, setBiensCommun] = useState<Bien[]>([])
+  const [dossier,  setDossier]  = useState<DossierPatrimonial | null>(null)
+  const [dossiers, setDossiers] = useState<DossierPatrimonial[]>([])
+  const [loading,  setLoading]  = useState(true)
+  const [error,    setError]    = useState<string | null>(null)
+  const [tab,      setTab]      = useState<'biens' | 'bilan' | 'succession'>('biens')
+  const [defunt,   setDefunt]   = useState<'client' | 'conjoint'>('client')
+  const [fraisPct, setFraisPct] = useState('7')
 
-  // Formulaires
-  const [formMr,     setFormMr]     = useState<FormBien>(emptyForm())
-  const [formMme,    setFormMme]    = useState<FormBien>(emptyForm())
-  const [formCommun, setFormCommun] = useState<FormBien>(emptyForm())
+  // ── Chargement ───────────────────────────────────────────
+  useEffect(() => {
+    setLoading(true)
+    setError(null)
+    if (alias) {
+      getDossier(alias)
+        .then(d => { if (!d) setError('Dossier introuvable'); else setDossier(d) })
+        .catch(e => setError((e as Error).message))
+        .finally(() => setLoading(false))
+    } else {
+      listerDossiers()
+        .then(setDossiers)
+        .catch(e => setError((e as Error).message))
+        .finally(() => setLoading(false))
+    }
+  }, [alias])
 
-  // Succession
-  const [defunt,   setDefunt]   = useState<'mr' | 'mme'>('mr')
-  const [fraisPct, setFraisPct] = useState<string>('7')
-  const [enfants,  setEnfants]  = useState<Enfant[]>([
-    { id: '1', nom: 'Alice' },
-    { id: '2', nom: 'Bob' },
-  ])
-  const [newEnfantNom, setNewEnfantNom] = useState('')
+  // ── Extraction des biens ─────────────────────────────────
+  const biens = useMemo(() => (dossier ? extraireBiens(dossier) : []), [dossier])
 
-  // ── Helpers d'ajout/suppression ────────────────────────────
-  const addBien = (
-    biens: Bien[], set: (b: Bien[]) => void,
-    form: FormBien, reset: (f: FormBien) => void,
-  ) => {
-    const v = parseFloat(form.valeur)
-    if (!form.libelle.trim() || isNaN(v) || v <= 0) return
-    set([...biens, { id: crypto.randomUUID(), type: form.type, libelle: form.libelle.trim(), valeur: v }])
-    reset(emptyForm())
-  }
+  const biensClient   = biens.filter(b => b.proprietaire === 'Client')
+  const biensConjoint = biens.filter(b => b.proprietaire === 'Conjoint')
+  const biensCommun   = biens.filter(b => b.proprietaire === 'Commun')
 
-  const delBien = (set: (b: Bien[]) => void, biens: Bien[], id: string) =>
-    set(biens.filter(b => b.id !== id))
+  const totClient   = biensClient.reduce((s, b) => s + b.valeur, 0)
+  const totConjoint = biensConjoint.reduce((s, b) => s + b.valeur, 0)
+  const totCommun   = biensCommun.reduce((s, b) => s + b.valeur, 0)
+  const grandTotal  = totClient + totConjoint + totCommun
 
-  // ── Totaux ─────────────────────────────────────────────────
-  const totMr     = total(biensMr)
-  const totMme    = total(biensMme)
-  const totCommun = total(biensCommun)
-  const grandTotal = totMr + totMme + totCommun
+  // ── Succession ───────────────────────────────────────────
+  const identite    = dossier?.identite ?? {}
+  const sf          = identite.situation_familiale ?? 'celibataire'
+  const hasConjoint = ['marie', 'pacse', 'concubin'].includes(sf)
+  const nbEnfants   = (identite.enfants ?? []).length
 
-  // ── Calcul succession ──────────────────────────────────────
-  const masseDefunt = defunt === 'mr'
-    ? totMr + totCommun / 2
-    : totMme + totCommun / 2
-
+  const masseDefunt = defunt === 'client' ? totClient + totCommun / 2 : totConjoint + totCommun / 2
   const fraisEuros  = masseDefunt * (parseFloat(fraisPct) || 0) / 100
   const actifNet    = Math.max(0, masseDefunt - fraisEuros)
-  const nbEnfants   = enfants.length
-  const hasConjoint = true // toujours présent dans cette démo
 
-  interface Part { label: string; pct: number; montant: number; tag?: string }
+  interface Part { label: string; pct: number; montant: number; isConjoint: boolean }
 
-  const parts: Part[] = (() => {
-    if (!hasConjoint && nbEnfants === 0) return []
+  const parts: Part[] = useMemo(() => {
+    const survivant = defunt === 'client' ? 'Madame (conjoint survivant)' : 'Monsieur (conjoint survivant)'
     if (!hasConjoint) {
-      const pE = 100 / nbEnfants
-      return enfants.map(e => ({ label: e.nom, pct: pE, montant: actifNet * pE / 100 }))
+      if (nbEnfants === 0) return []
+      const p = 100 / nbEnfants
+      return Array.from({ length: nbEnfants }, (_, i) => ({ label: `Enfant ${i + 1}`, pct: p, montant: actifNet * p / 100, isConjoint: false }))
     }
-    const conjointLabel = defunt === 'mr' ? 'Madame (conjoint survivant)' : 'Monsieur (conjoint survivant)'
-    if (nbEnfants === 0) {
-      return [{ label: conjointLabel, pct: 100, montant: actifNet, tag: 'Héritier unique' }]
-    }
-    if (nbEnfants === 1) {
-      return [
-        { label: conjointLabel, pct: 50, montant: actifNet * 0.5, tag: '1/2 en PP' },
-        { label: enfants[0].nom, pct: 50, montant: actifNet * 0.5, tag: '1/2 en PP' },
-      ]
-    }
+    if (nbEnfants === 0) return [{ label: survivant, pct: 100, montant: actifNet, isConjoint: true }]
+    if (nbEnfants === 1) return [
+      { label: survivant, pct: 50, montant: actifNet * 0.5, isConjoint: true },
+      { label: 'Enfant 1', pct: 50, montant: actifNet * 0.5, isConjoint: false },
+    ]
     if (nbEnfants === 2) {
-      const pE = 100 / 3
+      const p = 100 / 3
       return [
-        { label: conjointLabel, pct: pE, montant: actifNet / 3, tag: '1/3 en PP' },
-        ...enfants.map(e => ({ label: e.nom, pct: pE, montant: actifNet / 3, tag: '1/3 en PP' })),
+        { label: survivant, pct: p, montant: actifNet / 3, isConjoint: true },
+        { label: 'Enfant 1', pct: p, montant: actifNet / 3, isConjoint: false },
+        { label: 'Enfant 2', pct: p, montant: actifNet / 3, isConjoint: false },
       ]
     }
-    // 3+ enfants
     const pE = 75 / nbEnfants
     return [
-      { label: conjointLabel, pct: 25, montant: actifNet * 0.25, tag: '1/4 en PP' },
-      ...enfants.map(e => ({ label: e.nom, pct: pE, montant: actifNet * pE / 100, tag: `${(75 / nbEnfants).toFixed(1)}%` })),
+      { label: survivant, pct: 25, montant: actifNet * 0.25, isConjoint: true },
+      ...Array.from({ length: nbEnfants }, (_, i) => ({
+        label: `Enfant ${i + 1}`, pct: pE, montant: actifNet * pE / 100, isConjoint: false,
+      })),
     ]
-  })()
+  }, [defunt, hasConjoint, nbEnfants, actifNet])
 
-  // ── Couleurs des onglets de saisie ─────────────────────────
-  const COL_MR     = '#3B82F6'
-  const COL_MME    = '#C9A84C'
-  const COL_COMMUN = '#10B981'
+  const goSaisie = () => router.push(`/saisie?alias=${alias}`)
+
+  // ── États de chargement ──────────────────────────────────
+  if (loading) {
+    return <div style={{ padding: 48, textAlign: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
+  }
+
+  // ── Sélecteur de dossier (pas d'alias dans l'URL) ────────
+  if (!alias) {
+    return (
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '32px 20px' }}>
+        <div style={{ marginBottom: 28 }}>
+          <h1 style={{ fontSize: 26, fontWeight: 700, margin: 0, fontFamily: 'var(--font-display)' }}>💰 Bilan & Succession</h1>
+          <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 6 }}>Sélectionnez un dossier pour afficher son bilan patrimonial</div>
+        </div>
+
+        {error && (
+          <div style={{ color: '#EF4444', padding: 12, border: '1px solid rgba(239,68,68,0.2)', borderRadius: 8, marginBottom: 16, fontSize: 13 }}>
+            {error}
+          </div>
+        )}
+
+        {dossiers.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: 48, border: '1px dashed rgba(255,255,255,0.1)', borderRadius: 12, color: 'var(--text-muted)' }}>
+            Aucun dossier disponible.{' '}
+            <button onClick={() => router.push('/dossiers')} style={{ background: 'none', border: 'none', color: 'var(--accent-blue)', cursor: 'pointer', textDecoration: 'underline', fontSize: 'inherit' }}>
+              Créer un dossier
+            </button>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {dossiers.map(d => (
+              <button
+                key={d.alias}
+                onClick={() => router.push(`/patrimoine?alias=${d.alias}`)}
+                style={{
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                  padding: '14px 18px',
+                  background: 'var(--bg-surface)', border: '1px solid var(--border-glass)',
+                  borderRadius: 10, cursor: 'pointer', textAlign: 'left',
+                }}
+              >
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--accent-gold)' }}>{d.alias}</div>
+                  {d.resume_auto && (
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
+                      {d.resume_auto.slice(0, 90)}
+                    </div>
+                  )}
+                </div>
+                <span style={{ color: 'var(--accent-blue)', fontSize: 20 }}>→</span>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div style={{ padding: 48, textAlign: 'center' }}>
+        <div style={{ color: '#EF4444', fontSize: 14, marginBottom: 16 }}>{error}</div>
+        <button onClick={() => router.push('/dossiers')} style={{ padding: '8px 20px', borderRadius: 8, border: '1px solid rgba(59,130,246,0.3)', background: 'rgba(59,130,246,0.1)', color: 'var(--accent-blue)', cursor: 'pointer' }}>
+          ← Mes dossiers
+        </button>
+      </div>
+    )
+  }
+
+  if (!dossier) return null
 
   const TABS = [
-    { id: 'saisie' as const,     label: '📝 Saisie des biens' },
-    { id: 'bilan' as const,      label: '📊 Bilan patrimonial' },
+    { id: 'biens'      as const, label: '📋 Biens saisis' },
+    { id: 'bilan'      as const, label: '📊 Bilan patrimonial' },
     { id: 'succession' as const, label: '⚖️ Simulateur succession' },
   ]
 
   return (
     <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 20px 60px' }}>
 
-      {/* Header */}
-      <div style={{ marginBottom: 28 }}>
-        <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>
-          Outil patrimonial
+      {/* ── Header ─────────────────────────────────────────── */}
+      <div style={{ marginBottom: 28, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div>
+          <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>
+            Audit patrimonial
+          </div>
+          <h1 style={{ fontSize: 26, fontWeight: 700, margin: 0, fontFamily: 'var(--font-display)' }}>
+            💰 Bilan & Succession
+          </h1>
+          <div style={{ fontSize: 13, color: 'var(--accent-gold)', marginTop: 4, fontWeight: 500 }}>
+            {dossier.alias}
+            {dossier.resume_auto && (
+              <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>
+                {' · '}{dossier.resume_auto.slice(0, 60)}
+              </span>
+            )}
+          </div>
         </div>
-        <h1 style={{ fontSize: 28, fontWeight: 700, color: 'var(--text-primary)', margin: 0, fontFamily: 'var(--font-display)' }}>
-          💰 Bilan & Succession
-        </h1>
-        <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 6 }}>
-          Saisie des biens · Bilan par pôle · Simulation de la dévolution légale
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button onClick={goSaisie} className="btn-ghost" style={{ fontSize: 12 }}>✏️ Saisie</button>
+          <button onClick={() => router.push('/dossiers')} className="btn-ghost" style={{ fontSize: 12 }}>← Dossiers</button>
         </div>
       </div>
 
-      {/* Tabs */}
-      <div style={{
-        display: 'flex', gap: 4, padding: 4,
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: 12, marginBottom: 24, width: 'fit-content',
-      }}>
+      {/* ── Tabs ───────────────────────────────────────────── */}
+      <div style={{ display: 'flex', gap: 4, padding: 4, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, marginBottom: 24, width: 'fit-content' }}>
         {TABS.map(t => {
           const active = tab === t.id
           return (
@@ -326,8 +323,7 @@ export default function PatrimoinePage() {
                 padding: '9px 18px', borderRadius: 9, border: 'none',
                 background: active ? 'rgba(59,130,246,0.15)' : 'transparent',
                 color: active ? 'var(--accent-blue)' : 'var(--text-muted)',
-                fontWeight: active ? 700 : 400,
-                fontSize: 13, cursor: 'pointer',
+                fontWeight: active ? 700 : 400, fontSize: 13, cursor: 'pointer',
                 borderBottom: active ? '2px solid var(--accent-blue)' : '2px solid transparent',
                 transition: 'all 0.18s',
               }}
@@ -338,210 +334,188 @@ export default function PatrimoinePage() {
         })}
       </div>
 
-      {/* ═══════════════════════════════════════════════════════
-          TAB 1 : SAISIE
-      ══════════════════════════════════════════════════════════ */}
-      {tab === 'saisie' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <TableauBiens
-            title="👨 Patrimoine de Monsieur"
-            color={COL_MR}
-            biens={biensMr}
-            form={formMr}
-            onForm={setFormMr}
-            onAdd={() => addBien(biensMr, setBiensMr, formMr, setFormMr)}
-            onDelete={id => delBien(setBiensMr, biensMr, id)}
-          />
-          <TableauBiens
-            title="👩 Patrimoine de Madame"
-            color={COL_MME}
-            biens={biensMme}
-            form={formMme}
-            onForm={setFormMme}
-            onAdd={() => addBien(biensMme, setBiensMme, formMme, setFormMme)}
-            onDelete={id => delBien(setBiensMme, biensMme, id)}
-          />
-          <TableauBiens
-            title="🤝 Patrimoine Commun"
-            color={COL_COMMUN}
-            biens={biensCommun}
-            form={formCommun}
-            onForm={setFormCommun}
-            onAdd={() => addBien(biensCommun, setBiensCommun, formCommun, setFormCommun)}
-            onDelete={id => delBien(setBiensCommun, biensCommun, id)}
-          />
-        </div>
-      )}
-
-      {/* ═══════════════════════════════════════════════════════
-          TAB 2 : BILAN
-      ══════════════════════════════════════════════════════════ */}
-      {tab === 'bilan' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-
-          {grandTotal === 0 && (
-            <div style={{
-              textAlign: 'center', padding: '40px 20px',
-              color: 'var(--text-muted)', fontSize: 13,
-              border: '1px dashed rgba(255,255,255,0.1)', borderRadius: 12,
-            }}>
-              Aucun bien saisi — rendez-vous dans l&apos;onglet &quot;Saisie des biens&quot;
-            </div>
-          )}
-
-          {grandTotal > 0 && (
-            <>
-              {/* 3 colonnes */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-                {[
-                  { label: '👨 Monsieur',   color: COL_MR,     biens: biensMr,     tot: totMr     },
-                  { label: '👩 Madame',     color: COL_MME,    biens: biensMme,    tot: totMme    },
-                  { label: '🤝 Commun',     color: COL_COMMUN, biens: biensCommun, tot: totCommun },
-                ].map(col => {
-                  const map = byType(col.biens)
+      {/* ════════════════════════════════════════════════════════
+          TAB 1 : BIENS SAISIS
+      ════════════════════════════════════════════════════════ */}
+      {tab === 'biens' && (
+        biens.length === 0 ? <EmptyBiens goSaisie={goSaisie} /> : (
+          <div className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead>
+                <tr style={{ background: 'rgba(255,255,255,0.03)' }}>
+                  {['Catégorie', 'Description', 'Propriétaire', 'Valeur'].map((h, i) => (
+                    <th key={h} style={{
+                      padding: '12px 16px', fontSize: 11, fontWeight: 600, color: 'var(--text-muted)',
+                      textAlign: i === 3 ? 'right' : 'left', letterSpacing: '0.06em', textTransform: 'uppercase',
+                      borderBottom: '1px solid rgba(255,255,255,0.06)',
+                    }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {biens.map(b => {
+                  const col = b.proprietaire === 'Client' ? COL_CLIENT : b.proprietaire === 'Conjoint' ? COL_CONJOINT : COL_COMMUN
                   return (
-                    <div key={col.label} style={{
-                      background: 'var(--bg-surface)',
-                      border: `1px solid ${col.color}33`,
-                      borderRadius: 14, padding: 18,
-                    }}>
-                      <div style={{ fontSize: 13, fontWeight: 700, color: col.color, marginBottom: 14 }}>
-                        {col.label}
-                      </div>
-
-                      {col.biens.length === 0 ? (
-                        <div style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', padding: '12px 0' }}>
-                          Aucun bien
-                        </div>
-                      ) : (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                          {Array.from(map.entries()).map(([type, val]) => (
-                            <div key={type} style={{
-                              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                              padding: '6px 10px',
-                              background: `${col.color}0A`,
-                              borderRadius: 7,
-                            }}>
-                              <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-                                {ICONS[type]} {type}
-                              </span>
-                              <span style={{ fontSize: 12, fontWeight: 600, fontFamily: 'var(--font-geist-mono)', color: col.color }}>
-                                {EUR(val)}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      <div style={{
-                        marginTop: 14, paddingTop: 10,
-                        borderTop: `1px solid ${col.color}33`,
-                        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                      }}>
-                        <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>TOTAL</span>
-                        <span style={{ fontSize: 18, fontWeight: 800, color: col.color, fontFamily: 'var(--font-geist-mono)' }}>
-                          {EUR(col.tot)}
+                    <tr key={b.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                      <td style={{ padding: '10px 16px', fontSize: 13 }}>
+                        {ICONS[b.categorie] ?? '📦'} {b.categorie}
+                      </td>
+                      <td style={{ padding: '10px 16px', fontSize: 13, color: 'var(--text-secondary)' }}>{b.libelle}</td>
+                      <td style={{ padding: '10px 16px' }}>
+                        <span style={{ fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 10, background: `${col}18`, color: col, border: `1px solid ${col}33` }}>
+                          {b.proprietaire === 'Client' ? '👨 Monsieur' : b.proprietaire === 'Conjoint' ? '👩 Madame' : '🤝 Commun'}
                         </span>
-                      </div>
-
-                      {grandTotal > 0 && (
-                        <div style={{ marginTop: 6, textAlign: 'right' }}>
-                          <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
-                            {(col.tot / grandTotal * 100).toFixed(1)}% du total
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                      </td>
+                      <td style={{ padding: '10px 16px', textAlign: 'right', fontWeight: 600, fontFamily: 'var(--font-geist-mono)', fontSize: 13 }}>
+                        {EUR(b.valeur)}
+                      </td>
+                    </tr>
                   )
                 })}
-              </div>
-
-              {/* Résumé global */}
-              <div style={{
-                background: '#0F172A',
-                border: '1px solid rgba(255,255,255,0.1)',
-                borderRadius: 14, padding: '24px 28px',
-                fontFamily: 'var(--font-geist-mono)',
-              }}>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>
-                  ◈ Résumé patrimonial global
-                </div>
-                {[
-                  { label: 'Monsieur',  val: totMr,     color: COL_MR     },
-                  { label: 'Madame',    val: totMme,    color: COL_MME    },
-                  { label: 'Commun',    val: totCommun, color: COL_COMMUN },
-                ].map(row => (
-                  <div key={row.label} style={{
-                    display: 'flex', justifyContent: 'space-between',
-                    padding: '6px 0',
-                    borderBottom: '1px solid rgba(255,255,255,0.05)',
-                    fontSize: 13,
-                  }}>
-                    <span style={{ color: 'rgba(255,255,255,0.6)' }}>{row.label}</span>
-                    <span style={{ color: row.color, fontWeight: 700 }}>{EUR(row.val)}</span>
-                  </div>
-                ))}
-                <div style={{
-                  display: 'flex', justifyContent: 'space-between',
-                  padding: '14px 0 0',
-                  fontSize: 18, fontWeight: 800,
-                }}>
-                  <span style={{ color: 'rgba(255,255,255,0.9)', letterSpacing: '0.05em' }}>TOTAL</span>
-                  <span style={{ color: '#F0F4FF' }}>{EUR(grandTotal)}</span>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
+              </tbody>
+              <tfoot>
+                <tr style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                  <td colSpan={3} style={{ padding: '12px 16px', fontSize: 12, color: 'var(--text-muted)', fontWeight: 600 }}>
+                    TOTAL — {biens.length} bien{biens.length > 1 ? 's' : ''}
+                  </td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: 800, fontSize: 16, color: 'var(--accent-emerald)', fontFamily: 'var(--font-geist-mono)' }}>
+                    {EUR(grandTotal)}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        )
       )}
 
-      {/* ═══════════════════════════════════════════════════════
-          TAB 3 : SUCCESSION
-      ══════════════════════════════════════════════════════════ */}
+      {/* ════════════════════════════════════════════════════════
+          TAB 2 : BILAN PATRIMONIAL
+      ════════════════════════════════════════════════════════ */}
+      {tab === 'bilan' && (
+        grandTotal === 0 ? <EmptyBiens goSaisie={goSaisie} /> : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+
+            {/* 3 colonnes */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+              {[
+                { label: '👨 Monsieur (Client)',  color: COL_CLIENT,   biensList: biensClient,   tot: totClient   },
+                { label: '👩 Madame (Conjoint)',  color: COL_CONJOINT, biensList: biensConjoint, tot: totConjoint },
+                { label: '🤝 Patrimoine Commun',  color: COL_COMMUN,   biensList: biensCommun,   tot: totCommun   },
+              ].map(col => {
+                const map = bilanParCategorie(col.biensList)
+                return (
+                  <div key={col.label} style={{ background: 'var(--bg-surface)', border: `1px solid ${col.color}33`, borderRadius: 14, padding: 18 }}>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: col.color, marginBottom: 14 }}>{col.label}</div>
+
+                    {col.biensList.length === 0 ? (
+                      <div style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', padding: '16px 0' }}>Aucun bien</div>
+                    ) : (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        {Array.from(map.entries()).map(([cat, val]) => (
+                          <div key={cat} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 9px', background: `${col.color}0A`, borderRadius: 6 }}>
+                            <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{ICONS[cat] ?? '📦'} {cat}</span>
+                            <span style={{ fontSize: 12, fontWeight: 600, color: col.color, fontFamily: 'var(--font-geist-mono)' }}>{EUR(val)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <div style={{ marginTop: 12, paddingTop: 10, borderTop: `1px solid ${col.color}33`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>TOTAL</span>
+                      <span style={{ fontSize: 17, fontWeight: 800, color: col.color, fontFamily: 'var(--font-geist-mono)' }}>{EUR(col.tot)}</span>
+                    </div>
+                    {grandTotal > 0 && col.tot > 0 && (
+                      <div style={{ marginTop: 4, textAlign: 'right', fontSize: 11, color: 'var(--text-muted)' }}>
+                        {(col.tot / grandTotal * 100).toFixed(1)}% du total
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Résumé global dark */}
+            <div style={{ background: '#0F172A', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 14, padding: '24px 28px', fontFamily: 'var(--font-geist-mono)' }}>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>
+                ◈ Résumé patrimonial global
+              </div>
+              {[
+                { label: 'Monsieur (Client)',  val: totClient,   color: COL_CLIENT   },
+                { label: 'Madame (Conjoint)',  val: totConjoint, color: COL_CONJOINT },
+                { label: 'Patrimoine Commun',  val: totCommun,   color: COL_COMMUN   },
+              ].map(r => (
+                <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', fontSize: 13 }}>
+                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{r.label}</span>
+                  <span style={{ fontWeight: 700, color: r.color }}>{EUR(r.val)}</span>
+                </div>
+              ))}
+              <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px 0 0', fontSize: 20, fontWeight: 800 }}>
+                <span style={{ color: 'rgba(255,255,255,0.9)', letterSpacing: '0.05em' }}>TOTAL</span>
+                <span style={{ color: '#F0F4FF' }}>{EUR(grandTotal)}</span>
+              </div>
+            </div>
+          </div>
+        )
+      )}
+
+      {/* ════════════════════════════════════════════════════════
+          TAB 3 : SIMULATEUR SUCCESSION
+      ════════════════════════════════════════════════════════ */}
       {tab === 'succession' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
 
           {/* Paramètres */}
           <div className="glass-card" style={{ padding: 22 }}>
-            <div style={{
-              fontSize: 11, fontWeight: 600, letterSpacing: '0.1em',
-              color: 'var(--accent-blue)', textTransform: 'uppercase', marginBottom: 16,
-            }}>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', color: 'var(--accent-blue)', textTransform: 'uppercase', marginBottom: 16 }}>
               Paramètres de simulation
+            </div>
+
+            {/* Contexte dossier */}
+            <div style={{ padding: '9px 14px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, marginBottom: 18, fontSize: 12, color: 'var(--text-secondary)' }}>
+              Situation : <strong>{sf}</strong>
+              {hasConjoint && ' · Avec conjoint'}
+              {' · '}<strong>{nbEnfants}</strong> enfant{nbEnfants !== 1 ? 's' : ''}
+              {' · '} Données issues du dossier <span style={{ color: 'var(--accent-gold)' }}>{dossier.alias}</span>
             </div>
 
             {/* Qui décède ? */}
             <div style={{ marginBottom: 18 }}>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>
-                Qui décède en premier ?
-              </div>
+              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>Qui décède en premier ?</div>
               <div style={{ display: 'flex', gap: 10 }}>
-                {(['mr', 'mme'] as const).map(v => {
+                {[
+                  { v: 'client'   as const, label: '👨 Monsieur décède', col: COL_CLIENT,   disabled: false },
+                  { v: 'conjoint' as const, label: '👩 Madame décède',   col: COL_CONJOINT, disabled: !hasConjoint },
+                ].map(({ v, label, col, disabled }) => {
                   const active = defunt === v
-                  const col = v === 'mr' ? COL_MR : COL_MME
                   return (
                     <button
                       key={v}
-                      onClick={() => setDefunt(v)}
+                      onClick={() => { if (!disabled) setDefunt(v) }}
                       style={{
-                        flex: 1, padding: '12px 0', borderRadius: 10, border: 'none',
+                        flex: 1, padding: '11px 0', borderRadius: 10, border: 'none',
                         background: active ? `${col}22` : 'rgba(255,255,255,0.03)',
-                        color: active ? col : 'var(--text-muted)',
-                        fontWeight: active ? 700 : 400,
-                        fontSize: 14, cursor: 'pointer',
+                        color: active ? col : disabled ? 'var(--text-muted)' : 'var(--text-secondary)',
+                        fontWeight: active ? 700 : 400, fontSize: 13,
+                        cursor: disabled ? 'not-allowed' : 'pointer',
                         outline: active ? `2px solid ${col}66` : '2px solid transparent',
+                        opacity: disabled ? 0.4 : 1,
                         transition: 'all 0.18s',
                       }}
                     >
-                      {v === 'mr' ? '👨 Monsieur décède' : '👩 Madame décède'}
+                      {label}
                     </button>
                   )
                 })}
               </div>
+              {!hasConjoint && (
+                <div style={{ marginTop: 6, fontSize: 11, color: 'var(--text-muted)' }}>
+                  Pas de conjoint — situation familiale : {sf}
+                </div>
+              )}
             </div>
 
             {/* Frais */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 18 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               <div>
                 <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 6 }}>
                   Frais de succession (%)
@@ -556,209 +530,84 @@ export default function PatrimoinePage() {
                   style={{ textAlign: 'right' }}
                 />
               </div>
-              <div style={{
-                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
-                padding: '10px 14px',
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 8,
-              }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '10px 14px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8 }}>
                 <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Frais estimés</div>
-                <div style={{ fontSize: 16, fontWeight: 700, color: '#EF4444', fontFamily: 'var(--font-geist-mono)' }}>
-                  {EUR(fraisEuros)}
-                </div>
-              </div>
-            </div>
-
-            {/* Enfants */}
-            <div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>
-                Enfants ({enfants.length})
-              </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 10 }}>
-                {enfants.map(e => (
-                  <div key={e.id} style={{
-                    display: 'flex', alignItems: 'center', gap: 6,
-                    padding: '4px 10px 4px 12px',
-                    background: 'rgba(16,185,129,0.1)',
-                    border: '1px solid rgba(16,185,129,0.3)',
-                    borderRadius: 20, fontSize: 13,
-                  }}>
-                    <span>👶 {e.nom}</span>
-                    <button
-                      onClick={() => setEnfants(enfants.filter(x => x.id !== e.id))}
-                      style={{
-                        background: 'none', border: 'none', color: '#EF4444',
-                        cursor: 'pointer', fontSize: 12, padding: 0, lineHeight: 1,
-                      }}
-                    >✕</button>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: 'flex', gap: 8 }}>
-                <input
-                  className="glass-input"
-                  value={newEnfantNom}
-                  onChange={e => setNewEnfantNom(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && newEnfantNom.trim()) {
-                      setEnfants([...enfants, { id: crypto.randomUUID(), nom: newEnfantNom.trim() }])
-                      setNewEnfantNom('')
-                    }
-                  }}
-                  placeholder="Prénom de l'enfant (Entrée pour ajouter)"
-                  style={{ fontSize: 12 }}
-                />
-                <button
-                  onClick={() => {
-                    if (!newEnfantNom.trim()) return
-                    setEnfants([...enfants, { id: crypto.randomUUID(), nom: newEnfantNom.trim() }])
-                    setNewEnfantNom('')
-                  }}
-                  style={{
-                    padding: '0 16px', borderRadius: 8, border: 'none',
-                    background: 'rgba(16,185,129,0.15)',
-                    color: 'var(--accent-emerald)',
-                    fontWeight: 600, fontSize: 12, cursor: 'pointer', whiteSpace: 'nowrap',
-                  }}
-                >
-                  + Ajouter
-                </button>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#EF4444', fontFamily: 'var(--font-geist-mono)' }}>{EUR(fraisEuros)}</div>
               </div>
             </div>
           </div>
 
-          {/* Résultats */}
           {masseDefunt === 0 ? (
-            <div style={{
-              textAlign: 'center', padding: '32px 20px',
-              color: 'var(--text-muted)', fontSize: 13,
-              border: '1px dashed rgba(255,255,255,0.1)', borderRadius: 12,
-            }}>
-              Saisissez des biens dans l&apos;onglet &quot;Saisie&quot; pour simuler la succession
-            </div>
+            <EmptyBiens goSaisie={goSaisie} />
           ) : (
             <>
               {/* Masse successorale */}
               <div className="glass-card" style={{ padding: 22 }}>
-                <div style={{
-                  fontSize: 11, fontWeight: 600, letterSpacing: '0.1em',
-                  color: 'var(--accent-amber)', textTransform: 'uppercase', marginBottom: 14,
-                }}>
-                  ⚖️ Masse successorale — {defunt === 'mr' ? 'Monsieur' : 'Madame'}
+                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', color: 'var(--accent-amber)', textTransform: 'uppercase', marginBottom: 14 }}>
+                  ⚖️ Masse successorale — {defunt === 'client' ? 'Monsieur' : 'Madame'}
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
                   {[
-                    { label: 'Patrimoine propre', val: defunt === 'mr' ? totMr : totMme, color: defunt === 'mr' ? COL_MR : COL_MME },
-                    { label: '½ du commun',       val: totCommun / 2,  color: COL_COMMUN },
-                    { label: 'Actif brut',        val: masseDefunt,    color: 'var(--accent-amber)' },
+                    { label: 'Patrimoine propre', val: defunt === 'client' ? totClient : totConjoint, color: defunt === 'client' ? COL_CLIENT : COL_CONJOINT },
+                    { label: '½ du commun',        val: totCommun / 2, color: COL_COMMUN },
+                    { label: 'Actif brut',          val: masseDefunt,   color: 'var(--accent-amber)' },
                   ].map(item => (
-                    <div key={item.label} style={{
-                      padding: '12px 14px',
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: 10,
-                    }}>
+                    <div key={item.label} style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10 }}>
                       <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 4 }}>{item.label}</div>
-                      <div style={{ fontSize: 17, fontWeight: 700, color: item.color, fontFamily: 'var(--font-geist-mono)' }}>
-                        {EUR(item.val)}
-                      </div>
+                      <div style={{ fontSize: 16, fontWeight: 700, color: item.color, fontFamily: 'var(--font-geist-mono)' }}>{EUR(item.val)}</div>
                     </div>
                   ))}
                 </div>
-                <div style={{
-                  marginTop: 12, display: 'flex', alignItems: 'center', gap: 8,
-                  padding: '10px 14px',
-                  background: 'rgba(239,68,68,0.06)',
-                  border: '1px solid rgba(239,68,68,0.2)',
-                  borderRadius: 8,
-                }}>
-                  <span style={{ fontSize: 12, color: 'var(--text-secondary)', flex: 1 }}>
-                    Frais de succession ({fraisPct}%)
-                  </span>
-                  <span style={{ fontSize: 14, fontWeight: 600, color: '#EF4444', fontFamily: 'var(--font-geist-mono)' }}>
-                    − {EUR(fraisEuros)}
-                  </span>
+                <div style={{ marginTop: 12, display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 8 }}>
+                  <span style={{ fontSize: 12, color: 'var(--text-secondary)', flex: 1 }}>Frais de succession ({fraisPct}%)</span>
+                  <span style={{ fontSize: 14, fontWeight: 600, color: '#EF4444', fontFamily: 'var(--font-geist-mono)' }}>− {EUR(fraisEuros)}</span>
                 </div>
-                <div style={{
-                  marginTop: 8, display: 'flex', alignItems: 'center', gap: 8,
-                  padding: '12px 14px',
-                  background: 'rgba(16,185,129,0.08)',
-                  border: '1px solid rgba(16,185,129,0.3)',
-                  borderRadius: 8,
-                }}>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', flex: 1 }}>
-                    Actif net successoral
-                  </span>
-                  <span style={{ fontSize: 20, fontWeight: 800, color: 'var(--accent-emerald)', fontFamily: 'var(--font-geist-mono)' }}>
-                    {EUR(actifNet)}
-                  </span>
+                <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 8, padding: '12px 14px', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: 8 }}>
+                  <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', flex: 1 }}>Actif net successoral</span>
+                  <span style={{ fontSize: 20, fontWeight: 800, color: 'var(--accent-emerald)', fontFamily: 'var(--font-geist-mono)' }}>{EUR(actifNet)}</span>
                 </div>
               </div>
 
               {/* Répartition héritiers */}
               <div className="glass-card" style={{ padding: 22 }}>
-                <div style={{
-                  fontSize: 11, fontWeight: 600, letterSpacing: '0.1em',
-                  color: 'var(--accent-blue)', textTransform: 'uppercase', marginBottom: 6,
-                }}>
+                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', color: 'var(--accent-blue)', textTransform: 'uppercase', marginBottom: 6 }}>
                   👨‍👩‍👧 Dévolution légale (Code civil)
                 </div>
                 <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>
-                  {nbEnfants === 0 && 'Sans enfant — conjoint hérite en totalité'}
-                  {nbEnfants === 1 && '1 enfant — partage 50/50 avec le conjoint'}
-                  {nbEnfants === 2 && '2 enfants — partage en tiers (conjoint + 2 enfants)'}
-                  {nbEnfants >= 3 && `${nbEnfants} enfants — conjoint ¼, enfants ¾ à parts égales`}
+                  {!hasConjoint && nbEnfants === 0 && 'Aucun héritier identifié dans le dossier'}
+                  {!hasConjoint && nbEnfants > 0  && `${nbEnfants} enfant${nbEnfants > 1 ? 's' : ''} — parts égales`}
+                  {hasConjoint  && nbEnfants === 0 && 'Sans enfant — conjoint hérite en totalité'}
+                  {hasConjoint  && nbEnfants === 1 && '1 enfant + conjoint — partage 50/50'}
+                  {hasConjoint  && nbEnfants === 2 && '2 enfants + conjoint — partage en tiers'}
+                  {hasConjoint  && nbEnfants >= 3  && `${nbEnfants} enfants + conjoint — conjoint ¼, enfants ¾`}
                 </div>
 
                 {parts.length === 0 ? (
-                  <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>Aucun héritier défini.</div>
+                  <div style={{ color: 'var(--text-muted)', fontSize: 13, textAlign: 'center', padding: '16px 0' }}>
+                    Aucun héritier identifiable — vérifiez les données du dossier.
+                  </div>
                 ) : (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                     {parts.map((p, i) => {
-                      const isConjoint = i === 0 && nbEnfants >= 0
-                      const col = isConjoint
-                        ? (defunt === 'mr' ? COL_MME : COL_MR)
-                        : COL_COMMUN
+                      const col = p.isConjoint
+                        ? (defunt === 'client' ? COL_CONJOINT : COL_CLIENT)
+                        : '#A78BFA'
                       return (
-                        <div key={i} style={{
-                          display: 'flex', alignItems: 'center', gap: 12,
-                          padding: '12px 16px',
-                          background: `${col}0D`,
-                          border: `1px solid ${col}33`,
-                          borderRadius: 10,
-                        }}>
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px', background: `${col}0D`, border: `1px solid ${col}33`, borderRadius: 10 }}>
                           <div style={{ flex: 1 }}>
                             <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)' }}>
-                              {isConjoint ? '💍 ' : '👶 '}{p.label}
-                            </div>
-                            {p.tag && (
-                              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>{p.tag}</div>
-                            )}
-                          </div>
-                          {/* Barre de progression */}
-                          <div style={{ width: 100 }}>
-                            <div style={{
-                              height: 6, background: 'rgba(255,255,255,0.08)',
-                              borderRadius: 3, overflow: 'hidden',
-                            }}>
-                              <div style={{
-                                height: '100%', width: `${p.pct}%`,
-                                background: col, borderRadius: 3,
-                                transition: 'width 0.3s',
-                              }} />
+                              {p.isConjoint ? '💍 ' : '👶 '}{p.label}
                             </div>
                           </div>
-                          <div style={{ textAlign: 'right', minWidth: 48 }}>
-                            <div style={{ fontSize: 12, fontWeight: 700, color: col }}>
-                              {p.pct.toFixed(1)}%
+                          <div style={{ width: 80 }}>
+                            <div style={{ height: 5, background: 'rgba(255,255,255,0.08)', borderRadius: 3 }}>
+                              <div style={{ height: '100%', width: `${Math.min(p.pct, 100)}%`, background: col, borderRadius: 3 }} />
                             </div>
                           </div>
-                          <div style={{
-                            textAlign: 'right', minWidth: 110,
-                            fontFamily: 'var(--font-geist-mono)',
-                            fontSize: 15, fontWeight: 800, color: col,
-                          }}>
+                          <div style={{ minWidth: 44, textAlign: 'right', fontSize: 12, fontWeight: 700, color: col }}>
+                            {PCT(p.pct)}
+                          </div>
+                          <div style={{ minWidth: 108, textAlign: 'right', fontFamily: 'var(--font-geist-mono)', fontSize: 15, fontWeight: 800, color: col }}>
                             {EUR(p.montant)}
                           </div>
                         </div>
@@ -767,14 +616,9 @@ export default function PatrimoinePage() {
                   </div>
                 )}
 
-                <div style={{
-                  marginTop: 16, padding: '10px 14px',
-                  background: 'rgba(255,255,255,0.02)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  borderRadius: 8, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6,
-                }}>
+                <div style={{ marginTop: 16, padding: '10px 14px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 8, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
                   ⚠️ Simulation indicative — dévolution légale sans testament ni donation entre époux (DDE).
-                  Les droits de succession ne sont pas calculés ici. Consultez un notaire pour une analyse précise.
+                  Les droits de succession (barèmes fiscaux) ne sont pas calculés ici. Consultez un notaire.
                 </div>
               </div>
             </>
@@ -782,5 +626,16 @@ export default function PatrimoinePage() {
         </div>
       )}
     </div>
+  )
+}
+
+// ─── Export avec UnlockGate + Suspense ───────────────────────
+export default function PatrimoinePage() {
+  return (
+    <UnlockGate>
+      <Suspense fallback={<div style={{ padding: 48, textAlign: 'center', color: 'var(--text-muted)' }}>Chargement...</div>}>
+        <PatrimoineInner />
+      </Suspense>
+    </UnlockGate>
   )
 }
