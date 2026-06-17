@@ -3,6 +3,8 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { getDossier, sauvegarderDossier } from '@/lib/dossiers';
 import { useAuth } from '@/lib/use-auth';
+import type { DossierPatrimonial } from '@/lib/types';
+import { AnalyseSuccessionInteractive } from '@/components/analyse-succession-interactive';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -462,6 +464,7 @@ export default function AuditPage() {
   const [showExportModal, setShowExportModal] = useState(false);
   const [nomProspect, setNomProspect] = useState('');
   const [exporting, setExporting] = useState(false);
+  const [dossier, setDossier] = useState<DossierPatrimonial | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const loadingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -515,9 +518,10 @@ export default function AuditPage() {
       setSections(parseAuditSections(fullText));
 
       if (alias) {
-        const dossier = await getDossier(alias);
-        if (dossier) {
-          await sauvegarderDossier({ ...dossier, audit_result: fullText, updated_at: new Date().toISOString() });
+        const d = await getDossier(alias);
+        if (d) {
+          setDossier(d);
+          await sauvegarderDossier({ ...d, audit_result: fullText, updated_at: new Date().toISOString() });
         }
       }
     } catch (e) {
@@ -536,6 +540,10 @@ export default function AuditPage() {
     if (payload) {
       sessionStorage.removeItem('audit_payload');
       sessionStorage.removeItem('audit_alias');
+      // Load dossier for succession analysis (async, non-blocking)
+      if (alias) {
+        getDossier(alias).then(d => { if (d) setDossier(d) }).catch(() => {})
+      }
       if (window.location.search.includes('view=1')) {
         setStep(3);
         setSections(parseAuditSections(payload));
@@ -1024,6 +1032,13 @@ export default function AuditPage() {
               />
             ))}
           </div>
+
+          {/* Analyse de succession interactive */}
+          {dossier && (
+            <div className="glass-card" style={{ padding: '1.5rem', marginTop: '1.25rem' }}>
+              <AnalyseSuccessionInteractive dossier={dossier} />
+            </div>
+          )}
         </div>
       ) : null}
     </div>

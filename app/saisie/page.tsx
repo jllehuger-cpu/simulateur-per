@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect, useCallback, Suspense } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useState, useEffect, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 import {
   DossierPatrimonial, Enfant, BienImmo, ProduitFinancier, LignePorfolio,
   SituationFamiliale, StatutPro, ProfilRisque, Horizon, FraisContrat, Ascendant, FrereSoeur
@@ -14,6 +14,7 @@ import { UnlockGate } from '@/components/unlock-gate'
 import { ImportDocument } from '@/components/import-document'
 import { useAuth } from '@/lib/use-auth'
 import ArbreGenealogie from '@/components/arbre-genealogique'
+import { AscendantInput } from '@/components/ascendant-input'
 import { identiteDisponible, getCleIdentiteSession, deriverCle, setCleIdentiteSession } from '@/lib/crypto'
 import { sauvegarderIdentite, lireIdentite, IdentiteProspect } from '@/lib/db-identite'
 import { useIdentiteVisible, masquerTexte } from '@/lib/use-identite-visible'
@@ -774,6 +775,26 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
   const delFS = (id: string) =>
     setD({ ...d, identite: { ...d.identite, freres_soeurs: freresSoeurs.filter(f => f.id !== id) } })
 
+  // GP lien sets — these are managed inline under their parent card, not in the top-level list
+  const ALL_GP_LIENS = new Set<Ascendant['lien']>([
+    'gp_paternel_client', 'gm_paternelle_client',
+    'gp_maternel_client', 'gm_maternelle_client',
+    'gp_paternel_conjoint', 'gm_paternelle_conjoint',
+    'gp_maternel_conjoint', 'gm_maternelle_conjoint',
+  ])
+  const GP_CHILDREN_MAP: Partial<Record<Ascendant['lien'], Set<Ascendant['lien']>>> = {
+    'pere_client':   new Set<Ascendant['lien']>(['gp_paternel_client',   'gm_paternelle_client']),
+    'mere_client':   new Set<Ascendant['lien']>(['gp_maternel_client',   'gm_maternelle_client']),
+    'pere_conjoint': new Set<Ascendant['lien']>(['gp_paternel_conjoint', 'gm_paternelle_conjoint']),
+    'mere_conjoint': new Set<Ascendant['lien']>(['gp_maternel_conjoint', 'gm_maternelle_conjoint']),
+  }
+  const parentAscendants = ascendants.filter(a => !ALL_GP_LIENS.has(a.lien))
+  const getGpsForParent = (parentLien: Ascendant['lien']): Ascendant[] => {
+    const gpSet = GP_CHILDREN_MAP[parentLien]
+    if (!gpSet) return []
+    return ascendants.filter(a => gpSet.has(a.lien))
+  }
+
   const addAscendant = () => {
     const a: Ascendant = {
       id: crypto.randomUUID(), lien: 'pere_client', situation: 'vivant',
@@ -781,10 +802,30 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
     }
     setD({ ...d, identite: { ...d.identite, ascendants: [...ascendants, a] } })
   }
-  const updAscendant = (id: string, k: keyof Ascendant, v: unknown) =>
-    setD({ ...d, identite: { ...d.identite, ascendants: ascendants.map(a => a.id === id ? { ...a, [k]: v } : a) } })
-  const delAscendant = (id: string) =>
-    setD({ ...d, identite: { ...d.identite, ascendants: ascendants.filter(a => a.id !== id) } })
+  const replaceAscendant = (old: Ascendant, updated: Ascendant) => {
+    let next = ascendants.map(a => a.id === old.id ? updated : a)
+    // When lien changes, clear the old parent's GP entries
+    if (old.lien !== updated.lien) {
+      const oldGpSet = GP_CHILDREN_MAP[old.lien]
+      if (oldGpSet) next = next.filter(a => !oldGpSet.has(a.lien))
+    }
+    setD({ ...d, identite: { ...d.identite, ascendants: next } })
+  }
+  const delAscendant = (id: string) => {
+    const target = ascendants.find(a => a.id === id)
+    let next = ascendants.filter(a => a.id !== id)
+    // Also delete this parent's GPs
+    if (target) {
+      const gpSet = GP_CHILDREN_MAP[target.lien]
+      if (gpSet) next = next.filter(a => !gpSet.has(a.lien))
+    }
+    setD({ ...d, identite: { ...d.identite, ascendants: next } })
+  }
+  const handleGpChange = (parentLien: Ascendant['lien'], newGps: Ascendant[]) => {
+    const gpSet = GP_CHILDREN_MAP[parentLien]
+    const withoutOld = gpSet ? ascendants.filter(a => !gpSet.has(a.lien)) : ascendants
+    setD({ ...d, identite: { ...d.identite, ascendants: [...withoutOld, ...newGps] } })
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -955,155 +996,22 @@ function StepFamille({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPatr
 
       <SectionTitle>👴 Famille ascendante</SectionTitle>
 
-      {ascendants.length === 0 && (
+      {parentAscendants.length === 0 && (
         <div style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 13, padding: '16px 0' }}>
           Aucun ascendant renseigné
         </div>
       )}
 
-      {ascendants.map((a, idx) => (
-        <div key={a.id} className="glass-card" style={{ padding: 16, position: 'relative' }}>
-          <div style={{ fontSize: 12, color: 'var(--accent-blue)', fontWeight: 600, marginBottom: 12 }}>
-            Ascendant {idx + 1}
-          </div>
-          <button onClick={() => delAscendant(a.id)} style={{
-            position: 'absolute', top: 12, right: 12,
-            background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)',
-            borderRadius: 6, color: '#EF4444', cursor: 'pointer', padding: '2px 8px', fontSize: 12
-          }}>✕</button>
-          <Grid cols={2}>
-            <Field label="Lien">
-              <Select value={a.lien} onChange={v => updAscendant(a.id, 'lien', v as Ascendant['lien'])}
-                options={[
-                  { v: 'pere_client',           l: 'Père du client' },
-                  { v: 'mere_client',           l: 'Mère du client' },
-                  { v: 'pere_conjoint',         l: 'Père du conjoint' },
-                  { v: 'mere_conjoint',         l: 'Mère du conjoint' },
-                  { v: 'pere_adoptif_client',   l: 'Père adoptif du client' },
-                  { v: 'mere_adoptif_client',   l: 'Mère adoptive du client' },
-                  { v: 'pere_adoptif_conjoint', l: 'Père adoptif du conjoint' },
-                  { v: 'mere_adoptif_conjoint', l: 'Mère adoptive du conjoint' },
-                  { v: 'autre',                 l: 'Autre' },
-                ]} />
-            </Field>
-            {a.lien.includes('adoptif') && (
-              <Field label="Type d'adoption">
-                <Select value={a.type_adoption ?? ''}
-                  onChange={v => updAscendant(a.id, 'type_adoption', v as Ascendant['type_adoption'])}
-                  options={[
-                    { v: 'pleniere', l: 'Adoption plénière' },
-                    { v: 'simple',   l: 'Adoption simple' },
-                  ]} />
-                {a.type_adoption === 'pleniere' && (
-                  <FieldNote>L&apos;adopté a les mêmes droits successoraux qu&apos;un enfant biologique</FieldNote>
-                )}
-                {a.type_adoption === 'simple' && (
-                  <FieldNote>L&apos;adopté conserve ses droits dans sa famille d&apos;origine. Droits en ligne directe uniquement si lien au 4e degré (enfant du conjoint, pupille...)</FieldNote>
-                )}
-              </Field>
-            )}
-            <Field label="Situation">
-              <Select value={a.situation} onChange={v => updAscendant(a.id, 'situation', v as Ascendant['situation'])}
-                options={[{ v: 'vivant', l: 'Vivant(e)' }, { v: 'decede', l: 'Décédé(e)' }]} />
-            </Field>
-            <Field label="Âge" hint="optionnel">
-              <NumInput value={a.age} onChange={v => updAscendant(a.id, 'age', v)} placeholder="ex: 78" />
-            </Field>
-            {a.situation !== 'decede' && (
-              <Field label="Patrimoine estimé (€)">
-                <NumInput value={a.patrimoine_estime} onChange={v => updAscendant(a.id, 'patrimoine_estime', v)} />
-                <FieldNote>Estimation utile pour anticiper la succession future</FieldNote>
-              </Field>
-            )}
-            {a.situation !== 'decede' && (
-              <Field label="Dépendant (à charge) ?">
-                <Select value={a.dependant ? 'oui' : 'non'}
-                  onChange={v => updAscendant(a.id, 'dependant', v === 'oui')}
-                  options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
-              </Field>
-            )}
-            {a.situation === 'decede' && a.lien !== 'autre' && (() => {
-              const gpLabel = ({
-                pere_client:           'Grand-parent paternel (côté client)',
-                mere_client:           'Grand-parent maternel (côté client)',
-                pere_conjoint:         'Grand-parent paternel (côté conjoint)',
-                mere_conjoint:         'Grand-parent maternel (côté conjoint)',
-                pere_adoptif_client:   'Grand-parent adoptif paternel (côté client)',
-                mere_adoptif_client:   'Grand-parent adoptif maternel (côté client)',
-                pere_adoptif_conjoint: 'Grand-parent adoptif paternel (côté conjoint)',
-                mere_adoptif_conjoint: 'Grand-parent adoptif maternel (côté conjoint)',
-              } as Record<string, string>)[a.lien]
-              return (
-                <Field label={`${gpLabel} vivant ?`}>
-                  <Select
-                    value={a.grand_parent_vivant === true ? 'oui' : a.grand_parent_vivant === false ? 'non' : ''}
-                    onChange={v => updAscendant(a.id, 'grand_parent_vivant', v === 'oui')}
-                    options={[{ v: 'oui', l: 'Oui' }, { v: 'non', l: 'Non' }]}
-                  />
-                  <FieldNote>Utile pour la représentation successorale</FieldNote>
-                </Field>
-              )
-            })()}
-            {a.situation !== 'decede' && (
-              <Field label="Testament connu ?">
-                <Select
-                  value={a.testament_connu === 'inconnu' ? 'inconnu' : a.testament_connu ? 'oui' : 'non'}
-                  onChange={v => updAscendant(a.id, 'testament_connu', v === 'oui' ? true : v === 'non' ? false : 'inconnu')}
-                  options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }, { v: 'inconnu', l: 'Je ne sais pas' }]}
-                />
-              </Field>
-            )}
-            {a.situation !== 'decede' && (
-              <Field label="Donation consentie à vous ?">
-                <Select value={a.donation_consentie ? 'oui' : 'non'}
-                  onChange={v => updAscendant(a.id, 'donation_consentie', v === 'oui')}
-                  options={[{ v: 'non', l: 'Non' }, { v: 'oui', l: 'Oui' }]} />
-              </Field>
-            )}
-            {a.situation !== 'decede' && (
-              <Field label="Mandat de protection future">
-                <Select value={a.mandat_protection_future ?? ''}
-                  onChange={v => updAscendant(a.id, 'mandat_protection_future', v as Ascendant['mandat_protection_future'])}
-                  options={[
-                    { v: 'oui',      l: 'Oui — en place' },
-                    { v: 'non',      l: 'Non' },
-                    { v: 'a_faire',  l: 'À mettre en place' },
-                    { v: 'en_cours', l: 'En cours de réalisation' },
-                  ]} />
-              </Field>
-            )}
-            {a.situation !== 'decede' && a.mandat_protection_future === 'oui' && (
-              <Field label="Ce mandat est-il authentique (notarié) ?">
-                <Select value={a.mpf_authentique ?? ''}
-                  onChange={v => updAscendant(a.id, 'mpf_authentique', v as Ascendant['mpf_authentique'])}
-                  options={[
-                    { v: 'oui',     l: 'Oui (authentique — notarié)' },
-                    { v: 'non',     l: 'Non (sous seing privé)' },
-                    { v: 'inconnu', l: 'Je ne sais pas' },
-                  ]} />
-              </Field>
-            )}
-          </Grid>
-          {a.situation === 'vivant' && (a.age ?? 0) > 70 &&
-            (a.mandat_protection_future === 'non' || a.mandat_protection_future === 'a_faire') && (
-            <div style={{
-              marginTop: 8, fontSize: 11, color: '#F59E0B', lineHeight: 1.5,
-              padding: '8px 12px', background: 'rgba(245,158,11,0.08)',
-              border: '1px solid rgba(245,158,11,0.2)', borderRadius: 8
-            }}>
-              ⚠️ Recommandé : le mandat de protection future permet de désigner à l&apos;avance un mandataire en cas de perte d&apos;autonomie.
-            </div>
-          )}
-          <div style={{ marginTop: 10 }}>
-            <Field label="Notes">
-              <textarea className="glass-input" rows={2}
-                value={a.notes ?? ''}
-                onChange={ev => updAscendant(a.id, 'notes', ev.target.value)}
-                style={{ resize: 'vertical', lineHeight: 1.5, fontSize: 12 }}
-              />
-            </Field>
-          </div>
-        </div>
+      {parentAscendants.map((a, idx) => (
+        <AscendantInput
+          key={a.id}
+          idx={idx}
+          ascendant={a}
+          gpAscendants={getGpsForParent(a.lien)}
+          onChange={updated => replaceAscendant(a, updated)}
+          onGpChange={newGps => handleGpChange(a.lien, newGps)}
+          onRemove={() => delAscendant(a.id)}
+        />
       ))}
 
       <button onClick={addAscendant} style={{
@@ -2318,8 +2226,8 @@ function StepObjectifs({ d, setD }: { d: DossierPatrimonial; setD: (d: DossierPa
 // ─── COMPOSANT PRINCIPAL ─────────────────────────────────────
 function SaisieInner() {
   const router = useRouter()
-  const params = useSearchParams()
-  const { loading: authLoading } = useAuth()
+  useAuth()
+  const [isMounted, setIsMounted] = useState(false)
   const [step, setStep] = useState(1)
   const [dossier, setDossier] = useState<DossierPatrimonial>(nouveauDossier)
   const [saved, setSaved] = useState(false)
@@ -2337,14 +2245,17 @@ function SaisieInner() {
   const [identiteTelConjoint,    setIdentiteTelConjoint]    = useState('')
   const [identiteEmailConjoint,  setIdentiteEmailConjoint]  = useState('')
 
-  // Charger dossier existant si alias en param
+  useEffect(() => { setIsMounted(true) }, [])
+
+  // Charger dossier existant si alias en param — toujours client-side, pas besoin de useSearchParams
   useEffect(() => {
-    const alias = params.get('alias')
+    if (!isMounted) return
+    const alias = new URLSearchParams(window.location.search).get('alias')
     if (!alias) return
     getDossier(alias)
       .then(existing => { if (existing) setDossier(existing) })
       .catch(() => { /* session locked */ })
-  }, [params])
+  }, [isMounted])
 
   // Charger identité existante si Clé B active
   useEffect(() => {
@@ -2408,7 +2319,7 @@ function SaisieInner() {
       identiteNomConjoint, identitePrenomConjoint, identiteTelConjoint, identiteEmailConjoint,
       saveIdentite])
 
-  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
+  if (!isMounted) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
 
   const handleLaunchAudit = async () => {
     setLaunching(true)
@@ -2542,9 +2453,7 @@ function SaisieInner() {
 export default function SaisiePage() {
   return (
     <UnlockGate>
-      <Suspense>
-        <SaisieInner />
-      </Suspense>
+      <SaisieInner />
     </UnlockGate>
   )
 }

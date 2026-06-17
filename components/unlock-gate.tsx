@@ -1,8 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { deriverCle, setCleSession, getCleSession, setCleIdentiteSession } from '@/lib/crypto'
+import {
+  deriverCle, deriverCleDossier, dechiffrer,
+  setCleSession, getCleSession, setCleIdentiteSession,
+  isCleSessionUnlocked,
+} from '@/lib/crypto'
 import { migrationNecessaire, migrerVersClesDerivees } from '@/lib/migration-cles'
+import { STORAGE_KEY } from '@/lib/types'
 import { getSupabase } from '@/lib/supabase'
 
 type Step = 'init' | 'onboarding' | 'unlock'
@@ -23,42 +28,95 @@ const WRAP_STYLE: React.CSSProperties = {
 }
 
 export function UnlockGate({ children }: { children: React.ReactNode }) {
-  const [unlocked, setUnlocked] = useState(() => getCleSession() !== null)
+  // Toujours false au premier rendu (SSR + hydration) — mis à jour après mount
+  // pour éviter le mismatch serveur/client quand sessionStorage indique "déverrouillé".
+  const [unlocked, setUnlocked] = useState(false)
   const [step, setStep] = useState<Step>('init')
   const [isFirstVisit, setIsFirstVisit] = useState(false)
   const [confirmedBackup, setConfirmedBackup] = useState(false)
   const [mdpPatrimoine, setMdpPatrimoine] = useState('')
   const [mdpIdentite, setMdpIdentite] = useState('')
   const [showIdentite, setShowIdentite] = useState(false)
+  const [showMdpPatrimoine, setShowMdpPatrimoine] = useState(false)
+  const [showMdpIdentite, setShowMdpIdentite] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [slowNetwork, setSlowNetwork] = useState(false)
+  const [retryCount, setRetryCount] = useState(0)
+
+  // Après hydration : restaurer l'état déverrouillé si la clé est en mémoire,
+  // ou reverrouiller si le flag sessionStorage est là mais la clé a disparu (hard refresh).
+  useEffect(() => {
+    if (isCleSessionUnlocked() && getCleSession() !== null) {
+      setUnlocked(true)
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (unlocked) return
-    const supabase = getSupabase()
 
-    supabase.auth.getUser().then(async ({ data: { user } }) => {
-      if (!user) { setStep('unlock'); return }
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
+    let slowId:    ReturnType<typeof setTimeout> | null = null
+    let isMounted = true
+
+    const loadUser = async () => {
+      setSlowNetwork(false)
+
+      // Fallback visuel après 3 s
+      slowId = setTimeout(() => {
+        if (isMounted) setSlowNetwork(true)
+      }, 3000)
+
+      // Fallback fonctionnel après 5 s — on passe directement à 'unlock'
+      timeoutId = setTimeout(() => {
+        if (isMounted) {
+          console.warn('[UNLOCK] getUser timeout après 5s — fallback unlock')
+          setStep('unlock')
+        }
+      }, 5000)
+
       try {
+        const supabase = getSupabase()
+        const { data: { user } } = await supabase.auth.getUser()
+
+        if (!isMounted) return
+        if (slowId)    clearTimeout(slowId)
+        if (timeoutId) clearTimeout(timeoutId)
+
+        if (!user) { setStep('unlock'); return }
+
         const { count, error } = await supabase
           .from('dossiers')
           .select('*', { count: 'exact', head: true })
           .eq('user_id', user.id)
+
+        if (!isMounted) return
+
         if (error) {
           console.error('[UNLOCK] Erreur comptage dossiers:', error.message)
+          setStep('unlock')
+          return
         }
+
         const first = (count ?? 0) === 0
         setIsFirstVisit(first)
         setStep(first ? 'onboarding' : 'unlock')
       } catch (err) {
-        console.error('[UNLOCK] Erreur inattendue:', err)
-        setStep('unlock')
+        if (isMounted) {
+          console.error('[UNLOCK] Erreur:', err)
+          setStep('unlock')
+        }
       }
-    }).catch((err) => {
-      console.error('[UNLOCK] Erreur getUser:', err)
-      setStep('unlock')
-    })
-  }, [unlocked])
+    }
+
+    void loadUser()
+
+    return () => {
+      isMounted = false
+      if (slowId)    clearTimeout(slowId)
+      if (timeoutId) clearTimeout(timeoutId)
+    }
+  }, [unlocked, retryCount])
 
   const handleUnlock = async () => {
     if (!mdpPatrimoine.trim()) return
@@ -67,6 +125,23 @@ export function UnlockGate({ children }: { children: React.ReactNode }) {
     setError('')
     try {
       const clePatrimoine = await deriverCle(mdpPatrimoine)
+
+      // Vérifier la clé contre un dossier existant avant de l'accepter
+      const rawEntries = localStorage.getItem(STORAGE_KEY)
+      if (rawEntries) {
+        const entries = JSON.parse(rawEntries) as { alias: string; chiffre: string; iv: string }[]
+        if (entries.length > 0) {
+          const { alias, chiffre, iv } = entries[0]
+          try {
+            const cleDossier = await deriverCleDossier(clePatrimoine, alias)
+            await dechiffrer(chiffre, iv, cleDossier)
+          } catch {
+            setError('Clé A incorrecte ou dossiers corrompus. Réessayez.')
+            return
+          }
+        }
+      }
+
       setCleSession(clePatrimoine)
       if (mdpIdentite.trim()) {
         const cleIdentite = await deriverCle(mdpIdentite + '_identite')
@@ -95,7 +170,29 @@ export function UnlockGate({ children }: { children: React.ReactNode }) {
   if (step === 'init') {
     return (
       <div style={WRAP_STYLE}>
-        <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>Chargement...</div>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: slowNetwork ? 12 : 0 }}>
+            Chargement...
+          </div>
+          {slowNetwork && (
+            <>
+              <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 12, lineHeight: 1.6 }}>
+                ⏳ Cela prend plus longtemps que prévu.<br />
+                Vérifiez votre connexion internet.
+              </div>
+              <button
+                onClick={() => { setStep('init'); setRetryCount(c => c + 1) }}
+                style={{
+                  padding: '6px 16px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.15)',
+                  background: 'rgba(255,255,255,0.06)', color: 'var(--text-secondary)',
+                  cursor: 'pointer', fontSize: 13,
+                }}
+              >
+                🔄 Réessayer
+              </button>
+            </>
+          )}
+        </div>
       </div>
     )
   }
@@ -197,16 +294,33 @@ export function UnlockGate({ children }: { children: React.ReactNode }) {
             : 'Saisissez votre mot de passe pour déverrouiller et déchiffrer vos dossiers.\nLa clé ne quitte jamais votre navigateur.'}
         </p>
 
-        <input
-          className="glass-input"
-          type="password"
-          value={mdpPatrimoine}
-          onChange={e => setMdpPatrimoine(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') void handleUnlock() }}
-          placeholder={isFirstVisit ? 'Nouveau mot de passe de chiffrement' : 'Clé patrimoine'}
-          style={{ marginBottom: '0.75rem', textAlign: 'center', letterSpacing: '0.05em' }}
-          autoFocus
-        />
+        <div style={{ position: 'relative', marginBottom: '0.75rem' }}>
+          <input
+            className="glass-input"
+            type={showMdpPatrimoine ? 'text' : 'password'}
+            value={mdpPatrimoine}
+            onChange={e => setMdpPatrimoine(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') void handleUnlock() }}
+            placeholder={isFirstVisit ? 'Nouveau mot de passe de chiffrement' : 'Clé patrimoine'}
+            style={{ textAlign: 'center', letterSpacing: '0.05em', paddingRight: '2.5rem', width: '100%' }}
+            autoFocus
+          />
+          <button
+            type="button"
+            onClick={() => setShowMdpPatrimoine(v => !v)}
+            aria-label={showMdpPatrimoine ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+            title="Cliquer pour afficher/masquer"
+            style={{
+              position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)',
+              background: 'none', border: 'none', cursor: 'pointer', padding: '2px 4px',
+              color: showMdpPatrimoine ? 'var(--text-primary)' : 'var(--text-secondary)',
+              fontSize: '1rem', lineHeight: 1, userSelect: 'none',
+              transition: 'color 0.15s',
+            }}
+          >
+            {showMdpPatrimoine ? '👁' : '👁‍🗨'}
+          </button>
+        </div>
 
         <button
           type="button"
@@ -221,15 +335,32 @@ export function UnlockGate({ children }: { children: React.ReactNode }) {
         </button>
 
         {showIdentite && (
-          <input
-            className="glass-input"
-            type="password"
-            value={mdpIdentite}
-            onChange={e => setMdpIdentite(e.target.value)}
-            onKeyDown={e => { if (e.key === 'Enter') void handleUnlock() }}
-            placeholder="Clé identité"
-            style={{ marginBottom: '0.75rem', textAlign: 'center', letterSpacing: '0.05em' }}
-          />
+          <div style={{ position: 'relative', marginBottom: '0.75rem' }}>
+            <input
+              className="glass-input"
+              type={showMdpIdentite ? 'text' : 'password'}
+              value={mdpIdentite}
+              onChange={e => setMdpIdentite(e.target.value)}
+              onKeyDown={e => { if (e.key === 'Enter') void handleUnlock() }}
+              placeholder="Clé identité"
+              style={{ textAlign: 'center', letterSpacing: '0.05em', paddingRight: '2.5rem', width: '100%' }}
+            />
+            <button
+              type="button"
+              onClick={() => setShowMdpIdentite(v => !v)}
+              aria-label={showMdpIdentite ? 'Masquer la clé identité' : 'Afficher la clé identité'}
+              title="Cliquer pour afficher/masquer"
+              style={{
+                position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)',
+                background: 'none', border: 'none', cursor: 'pointer', padding: '2px 4px',
+                color: showMdpIdentite ? 'var(--text-primary)' : 'var(--text-secondary)',
+                fontSize: '1rem', lineHeight: 1, userSelect: 'none',
+                transition: 'color 0.15s',
+              }}
+            >
+              {showMdpIdentite ? '👁' : '👁‍🗨'}
+            </button>
+          </div>
         )}
 
         {/* Checkbox première visite uniquement */}

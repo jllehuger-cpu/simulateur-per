@@ -34,6 +34,10 @@ export interface Ascendant {
   lien: 'pere_client' | 'mere_client' | 'pere_conjoint' | 'mere_conjoint'
       | 'pere_adoptif_client' | 'mere_adoptif_client'
       | 'pere_adoptif_conjoint' | 'mere_adoptif_conjoint'
+      | 'gp_paternel_client'   | 'gm_paternelle_client'
+      | 'gp_maternel_client'   | 'gm_maternelle_client'
+      | 'gp_paternel_conjoint' | 'gm_paternelle_conjoint'
+      | 'gp_maternel_conjoint' | 'gm_maternelle_conjoint'
       | 'autre'
   type_adoption?: 'pleniere' | 'simple'
   age?: number
@@ -246,6 +250,8 @@ export interface Prevoyance {
 // ── Dossier complet ───────────────────────────────────────
 export interface DossierPatrimonial {
   alias: string          // Ex: "Dossier_2024_047" — JAMAIS le vrai nom
+  label?: string         // Nom libre CGP ex: "Succession mère", "Retraite 2030"
+  resume_auto?: string   // Généré automatiquement à chaque sauvegarde
   created_at: string
   updated_at: string
   identite: Partial<Identite>
@@ -269,8 +275,11 @@ export interface Partage {
   cgp_user_id: string
   client_user_id: string | null
   client_email: string | null
-  cle_partage_chiffree: string | null  // clé dossier chiffrée avec la phrase de partage
+  cle_partage_chiffree: string | null  // clé dossier re-chiffrée avec phraseVersCleDossier
   iv_partage: string | null
+  snapshot_chiffre: string | null      // JSON dossier chiffré avec la phrase (snapshot au moment du partage)
+  snapshot_iv: string | null
+  token_invite: string | null          // UUID dans l'URL d'invitation
   permissions: PartagePermission
   champs_editables: string[]
   status: PartageStatus

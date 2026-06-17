@@ -7,6 +7,7 @@ import { DossierPatrimonial, STORAGE_KEY } from './types'
 import { getCleSession, chiffrer, dechiffrer, deriverCleDossier } from './crypto'
 import { sauvegarderDossierDB, supprimerDossierDB, listerDossiersDB, getDossierDB } from './db-dossiers'
 import { sauvegarderMeta } from './db-identite'
+import { genererResumeAuto } from './generer-resume'
 
 interface StoredEntry {
   alias: string
@@ -117,6 +118,10 @@ export async function getDossier(alias: string): Promise<DossierPatrimonial | nu
 export async function sauvegarderDossier(dossier: DossierPatrimonial): Promise<void> {
   const cleMaitre = getCleSession()
   if (!cleMaitre) throw new Error('Session verrouillée')
+
+  // Régénérer le résumé à chaque sauvegarde
+  dossier.resume_auto = genererResumeAuto(dossier) || undefined
+
   const cleDossier = await deriverCleDossier(cleMaitre, dossier.alias)
   const json = JSON.stringify(dossier)
   const { chiffre, iv } = await chiffrer(json, cleDossier)
@@ -129,7 +134,7 @@ export async function sauvegarderDossier(dossier: DossierPatrimonial): Promise<v
   entries.push({ alias: dossier.alias, chiffre, iv })
   localStorage.setItem(STORAGE_KEY, JSON.stringify(entries))
   try {
-    await sauvegarderDossierDB(dossier.alias, chiffre, iv, dossier.audit_result)
+    await sauvegarderDossierDB(dossier.alias, chiffre, iv, dossier.audit_result, dossier.label, dossier.resume_auto)
     console.log('[Supabase] ✅ sync OK:', dossier.alias)
   } catch (err) {
     console.error('[Supabase] ❌ sync failed:', JSON.stringify(err))

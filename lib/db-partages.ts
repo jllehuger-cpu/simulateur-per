@@ -105,3 +105,22 @@ export async function listerModificationsClient(partage_id: string): Promise<Mod
   if (error) throw error
   return (data ?? []) as ModificationClient[]
 }
+
+export async function obtenirPartageParToken(token: string): Promise<Partage | null> {
+  const { data, error } = await supabase
+    .from('partages')
+    .select('*')
+    .eq('token_invite', token)
+    .neq('status', 'revoked')
+    .maybeSingle()
+  if (error || !data) return null
+  return data as Partage
+}
+
+export async function activerPartage(id: string): Promise<void> {
+  const { error } = await supabase
+    .from('partages')
+    .update({ status: 'active', updated_at: new Date().toISOString() })
+    .eq('id', id)
+  if (error) throw error
+}

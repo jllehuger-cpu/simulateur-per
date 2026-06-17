@@ -19,7 +19,9 @@ export async function sauvegarderDossierDB(
   alias: string,
   dataChiffre: string,
   iv: string,
-  auditResult?: string
+  auditResult?: string,
+  label?: string,
+  resumeAuto?: string,
 ): Promise<void> {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) throw new Error('Non authentifié')
@@ -30,6 +32,8 @@ export async function sauvegarderDossierDB(
     iv,
     audit_result: auditResult ?? null,
     has_audit: !!auditResult,
+    label: label ?? null,
+    resume_auto: resumeAuto ?? null,
     updated_at: new Date().toISOString(),
     user_id: user.id,
   })

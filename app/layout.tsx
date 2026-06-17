@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { Navbar } from "@/components/navbar";
+import { DiagnosticUnlock } from "@/components/diagnostic-unlock";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,6 +37,7 @@ export default function RootLayout({
         <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
           {children}
         </div>
+        <DiagnosticUnlock />
         <footer
           style={{
             borderTop: '1px solid rgba(255,255,255,0.06)',

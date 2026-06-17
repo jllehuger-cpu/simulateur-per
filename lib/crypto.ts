@@ -90,10 +90,36 @@ export async function dechiffrer(chiffre: string, iv: string, cle: CryptoKey): P
 }
 
 // Clé de session en mémoire (jamais en localStorage)
+// Le FLAG en sessionStorage ne contient aucune donnée sensible — seul le statut
+// "déverrouillé dans cet onglet" est mémorisé. Il disparaît à la fermeture du tab.
+const SESSION_FLAG = '_cleSession_flag'
+
 let _cleSession: CryptoKey | null = null
-export function setCleSession(cle: CryptoKey) { _cleSession = cle }
+
+export function setCleSession(cle: CryptoKey): void {
+  _cleSession = cle
+  if (typeof window !== 'undefined') {
+    sessionStorage.setItem(SESSION_FLAG, 'unlocked')
+  }
+}
+
 export function getCleSession(): CryptoKey | null { return _cleSession }
-export function clearCleSession() { _cleSession = null }
+
+export function clearCleSession(): void {
+  _cleSession = null
+  if (typeof window !== 'undefined') {
+    sessionStorage.removeItem(SESSION_FLAG)
+  }
+}
+
+/** Retourne true si la clé est en mémoire OU si l'onglet était déjà déverrouillé
+ *  (flag sessionStorage). Après un hard refresh, key=null mais flag peut être présent :
+ *  UnlockGate détectera ce cas via useEffect et re-demandera la clé. */
+export function isCleSessionUnlocked(): boolean {
+  if (_cleSession !== null) return true
+  if (typeof window === 'undefined') return false
+  return sessionStorage.getItem(SESSION_FLAG) === 'unlocked'
+}
 
 // Clé identité — séparée de la clé patrimoine
 let _cleIdentiteSession: CryptoKey | null = null

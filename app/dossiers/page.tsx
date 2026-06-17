@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { DossierPatrimonial } from '@/lib/types'
+import { DossierPatrimonial, STORAGE_KEY } from '@/lib/types'
 import {
-  listerDossiers, supprimerDossier, nouveauDossier,
+  listerDossiers, nouveauDossier,
   sauvegarderDossier, importerDossierJSON, exporterDossierExcel,
 } from '@/lib/dossiers'
 import { identiteDisponible } from '@/lib/crypto'
@@ -12,6 +12,7 @@ import { lireToutes, sauvegarderIdentite, IdentiteProspect } from '@/lib/db-iden
 import { UnlockGate } from '@/components/unlock-gate'
 import { useAuth } from '@/lib/use-auth'
 import { useIdentiteVisible, masquerTexte } from '@/lib/use-identite-visible'
+import { genererResumeAuto, emojiSituation } from '@/lib/generer-resume'
 
 function ModalIdentite({
   alias,
@@ -92,15 +93,22 @@ function ModalIdentite({
 
 function DossiersContent() {
   const router = useRouter()
-  const { loading: authLoading } = useAuth()
+  useAuth()
   const { visible: identiteVisible } = useIdentiteVisible()
+  const [isMounted,     setIsMounted]     = useState(false)
   const [dossiers,   setDossiers]   = useState<DossierPatrimonial[]>([])
   const [search,     setSearch]     = useState('')
   const [confirmDel,    setConfirmDel]    = useState<string | null>(null)
+  const [deleting,      setDeleting]      = useState(false)
+  const [deleteError,   setDeleteError]   = useState('')
   const [identites,     setIdentites]     = useState<Map<string, IdentiteProspect>>(new Map())
   const [modalId,       setModalId]       = useState<string | null>(null)
   const [showNewDialog, setShowNewDialog] = useState(false)
   const [newInitiale,   setNewInitiale]   = useState('')
+  const [editingLabelAlias, setEditingLabelAlias] = useState<string | null>(null)
+  const [tempLabel,         setTempLabel]          = useState('')
+  const [newCreating,       setNewCreating]         = useState(false)
+  const [newDialogError,    setNewDialogError]       = useState('')
 
   const reloadIdentites = useCallback(async () => {
     if (identiteDisponible()) {
@@ -116,26 +124,80 @@ function DossiersContent() {
     } catch { /* session locked */ }
   }, [])
 
+  useEffect(() => { setIsMounted(true) }, [])
+
   useEffect(() => {
     void reload()
     void reloadIdentites()
   }, [reload, reloadIdentites])
 
-  if (authLoading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
+  if (!isMounted) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>Chargement...</div>
 
   const handleNew = async () => {
-    const lettre = newInitiale.trim().charAt(0).toUpperCase()
-    const d = nouveauDossier(lettre || undefined)
-    await sauvegarderDossier(d)
-    setShowNewDialog(false)
-    setNewInitiale('')
-    router.push(`/saisie?alias=${d.alias}`)
+    setNewCreating(true)
+    setNewDialogError('')
+    try {
+      const lettre = newInitiale.trim().charAt(0).toUpperCase()
+      const d = nouveauDossier(lettre || undefined)
+      await sauvegarderDossier(d)
+      setShowNewDialog(false)
+      setNewInitiale('')
+      setNewCreating(false)
+      router.push(`/saisie?alias=${d.alias}`)
+    } catch (err) {
+      console.error('[NEW DOSSIER]', err)
+      setNewDialogError(err instanceof Error ? err.message : String(err))
+      setNewCreating(false)
+    }
   }
 
   const handleDelete = async (alias: string) => {
-    await supprimerDossier(alias)
-    setConfirmDel(null)
-    void reload()
+    setDeleting(true)
+    setDeleteError('')
+    try {
+      // Suppression Supabase via API route (createServerClient côté serveur)
+      const res = await fetch('/api/dossiers/delete', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ alias }),
+      })
+      const json = await res.json() as { success?: boolean; error?: string }
+      if (!res.ok || !json.success) {
+        throw new Error(json.error ?? `Erreur HTTP ${res.status}`)
+      }
+
+      // Nettoyage localStorage côté client (les données chiffrées ne sont qu'un cache)
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY)
+        if (raw) {
+          const entries = JSON.parse(raw) as { alias: string }[]
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(entries.filter(e => e.alias !== alias)))
+        }
+      } catch { /* localStorage non critique */ }
+
+      setConfirmDel(null)
+      void reload()
+    } catch (err) {
+      console.error('[DELETE]', err)
+      setDeleteError(err instanceof Error ? err.message : String(err))
+    } finally {
+      setDeleting(false)
+    }
+  }
+
+  const handleSaveLabel = async (alias: string) => {
+    const dossier = dossiers.find(d => d.alias === alias)
+    if (!dossier) { setEditingLabelAlias(null); return }
+    const newLabel = tempLabel.trim() || undefined
+    if (newLabel === dossier.label) { setEditingLabelAlias(null); return }
+    const updated = { ...dossier, label: newLabel }
+    setDossiers(prev => prev.map(d => d.alias === alias ? updated : d))
+    setEditingLabelAlias(null)
+    try {
+      await sauvegarderDossier(updated)
+    } catch (err) {
+      console.error('[LABEL]', err)
+    }
   }
 
   const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -258,134 +320,187 @@ function DossiersContent() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {filtered.map(d => {
-            const pat      = patrimoine(d)
-            const hasAudit = !!d.audit_result
-            const identite = identites.get(d.alias)
-            const nomAffiche = identite
-              ? `${identite.prenom} ${identite.nom}`
-              : null
+            const pat        = patrimoine(d)
+            const hasAudit   = !!d.audit_result
+            const identite   = identites.get(d.alias)
+            const nomAffiche = identite ? `${identite.prenom} ${identite.nom}` : null
+            const resume     = d.resume_auto || genererResumeAuto(d)
+            const isEditing  = editingLabelAlias === d.alias
+
             return (
               <div key={d.alias} className="glass-card" style={{
-                padding: '16px 20px',
-                display: 'flex', alignItems: 'center', gap: 16,
+                padding: '14px 20px',
                 cursor: 'pointer', transition: 'all 0.2s'
               }}
                 onClick={() => router.push(`/saisie?alias=${d.alias}`)}
               >
-                {/* Icône statut */}
-                <div style={{
-                  width: 40, height: 40, borderRadius: 10, flexShrink: 0,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18,
-                  background: hasAudit ? 'rgba(16,185,129,0.1)' : 'rgba(255,255,255,0.04)',
-                  border: `1px solid ${hasAudit ? 'rgba(16,185,129,0.25)' : 'var(--border-glass)'}`,
-                }}>
-                  {hasAudit ? '✅' : '📝'}
-                </div>
+                {/* Ligne 1 : icône + identité/alias + badge audité + patrimoine + actions */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
 
-                {/* Infos */}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    {nomAffiche ? (
-                      <>
+                  {/* Icône statut */}
+                  <div style={{
+                    width: 38, height: 38, borderRadius: 10, flexShrink: 0,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17,
+                    background: hasAudit ? 'rgba(16,185,129,0.1)' : 'rgba(255,255,255,0.04)',
+                    border: `1px solid ${hasAudit ? 'rgba(16,185,129,0.25)' : 'var(--border-glass)'}`,
+                  }}>
+                    {hasAudit ? '✅' : emojiSituation(d)}
+                  </div>
+
+                  {/* Noms / alias */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                      {nomAffiche ? (
+                        <>
+                          <span style={{
+                            fontWeight: 600, color: 'var(--text-primary)',
+                            fontFamily: identiteVisible ? 'inherit' : 'var(--font-mono, monospace)',
+                            letterSpacing: identiteVisible ? 'normal' : '0.05em',
+                          }}>
+                            {masquerTexte(identite!.prenom, identiteVisible)}{' '}
+                            {masquerTexte(identite!.nom.toUpperCase(), identiteVisible)}
+                            {identite?.prenom_conjoint && identite?.nom_conjoint && (
+                              <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>
+                                {' '}&amp;{' '}
+                                {masquerTexte(identite.prenom_conjoint, identiteVisible)}{' '}
+                                {masquerTexte(identite.nom_conjoint.toUpperCase(), identiteVisible)}
+                              </span>
+                            )}
+                          </span>
+                          <span style={{ fontSize: 11, color: 'var(--accent-gold)', letterSpacing: '0.03em' }}>
+                            {d.alias}
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <span style={{ fontWeight: 600, color: 'var(--accent-gold)', letterSpacing: '0.03em' }}>
+                            {d.alias}
+                          </span>
+                          <span style={{ fontSize: 11, color: 'var(--text-muted)', opacity: 0.5 }}>🔒</span>
+                        </>
+                      )}
+                      {hasAudit && (
                         <span style={{
-                          fontWeight: 600, color: 'var(--text-primary)',
-                          fontFamily: identiteVisible ? 'inherit' : 'var(--font-mono, monospace)',
-                          letterSpacing: identiteVisible ? 'normal' : '0.05em',
-                        }}>
-                          {masquerTexte(identite!.prenom, identiteVisible)}{' '}
-                          {masquerTexte(identite!.nom.toUpperCase(), identiteVisible)}
-                          {identites.get(d.alias)?.prenom_conjoint && identites.get(d.alias)?.nom_conjoint && (
-                            <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>
-                              {' '}&amp;{' '}
-                              {masquerTexte(identites.get(d.alias)!.prenom_conjoint!, identiteVisible)}{' '}
-                              {masquerTexte(identites.get(d.alias)!.nom_conjoint!.toUpperCase(), identiteVisible)}
-                            </span>
-                          )}
-                        </span>
-                        <span style={{ fontSize: 11, color: 'var(--accent-gold)', letterSpacing: '0.03em' }}>
-                          {d.alias}
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        <span style={{ fontWeight: 600, color: 'var(--accent-gold)', letterSpacing: '0.03em' }}>
-                          {d.alias}
-                        </span>
-                        <span style={{ fontSize: 11, color: 'var(--text-muted)', opacity: 0.5 }}>🔒</span>
-                      </>
-                    )}
-                    {hasAudit && (
-                      <span style={{
-                        fontSize: 10, padding: '1px 7px', borderRadius: 10,
-                        background: 'rgba(16,185,129,0.12)', color: 'var(--accent-emerald)',
-                        border: '1px solid rgba(16,185,129,0.2)', fontWeight: 600
-                      }}>Audité</span>
-                    )}
+                          fontSize: 10, padding: '1px 7px', borderRadius: 10,
+                          background: 'rgba(16,185,129,0.12)', color: 'var(--accent-emerald)',
+                          border: '1px solid rgba(16,185,129,0.2)', fontWeight: 600
+                        }}>Audité</span>
+                      )}
+                    </div>
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 1 }}>
+                      Modifié le {fmtDate(d.updated_at)}
+                    </div>
                   </div>
-                  <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2, display: 'flex', gap: 12 }}>
-                    <span>Modifié le {fmtDate(d.updated_at)}</span>
-                    {d.biens_immo.length > 0 && <span>🏢 {d.biens_immo.length} bien{d.biens_immo.length > 1 ? 's' : ''}</span>}
-                    {d.produits_financiers.length > 0 && <span>📈 {d.produits_financiers.length} produit{d.produits_financiers.length > 1 ? 's' : ''}</span>}
-                  </div>
-                </div>
 
-                {/* Patrimoine net */}
-                {pat > 0 && (
-                  <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                    <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--accent-emerald)' }}>{fmt(pat)}</div>
-                    <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>patrimoine net</div>
-                  </div>
-                )}
+                  {/* Patrimoine net */}
+                  {pat > 0 && (
+                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--accent-emerald)' }}>{fmt(pat)}</div>
+                      <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>patrimoine net</div>
+                    </div>
+                  )}
 
-                {/* Actions */}
-                <div style={{ display: 'flex', gap: 6, flexShrink: 0 }} onClick={e => e.stopPropagation()}>
-                  <button
-                    onClick={() => identiteDisponible() && setModalId(d.alias)}
-                    disabled={!identiteDisponible()}
-                    title={!identiteDisponible()
-                      ? 'Déverrouillez avec la clé identité pour saisir les noms'
-                      : identite ? 'Modifier l\'identité' : 'Saisir l\'identité prospect'
-                    }
-                    style={{
-                      padding: '5px 10px', borderRadius: 7, fontSize: 13, cursor: identiteDisponible() ? 'pointer' : 'not-allowed',
-                      border: '1px solid rgba(99,102,241,0.25)', background: 'rgba(99,102,241,0.08)',
-                      color: 'var(--accent-indigo)', opacity: identiteDisponible() ? 1 : 0.35,
-                    }}>
-                    👤
-                  </button>
-                  {hasAudit && (
+                  {/* Actions */}
+                  <div style={{ display: 'flex', gap: 6, flexShrink: 0 }} onClick={e => e.stopPropagation()}>
                     <button
-                      onClick={() => {
-                        sessionStorage.setItem('audit_payload', d.audit_result!)
-                        sessionStorage.setItem('audit_alias', d.alias)
-                        router.push('/audit?view=1')
-                      }}
+                      onClick={() => identiteDisponible() && setModalId(d.alias)}
+                      disabled={!identiteDisponible()}
+                      title={!identiteDisponible()
+                        ? 'Déverrouillez avec la clé identité pour saisir les noms'
+                        : identite ? 'Modifier l\'identité' : 'Saisir l\'identité prospect'
+                      }
+                      style={{
+                        padding: '5px 10px', borderRadius: 7, fontSize: 13, cursor: identiteDisponible() ? 'pointer' : 'not-allowed',
+                        border: '1px solid rgba(99,102,241,0.25)', background: 'rgba(99,102,241,0.08)',
+                        color: 'var(--accent-indigo)', opacity: identiteDisponible() ? 1 : 0.35,
+                      }}>
+                      👤
+                    </button>
+                    {hasAudit && (
+                      <button
+                        onClick={() => {
+                          sessionStorage.setItem('audit_payload', d.audit_result!)
+                          sessionStorage.setItem('audit_alias', d.alias)
+                          router.push('/audit?view=1')
+                        }}
+                        style={{
+                          padding: '5px 10px', borderRadius: 7, fontSize: 11, cursor: 'pointer',
+                          border: '1px solid rgba(16,185,129,0.25)', background: 'rgba(16,185,129,0.08)',
+                          color: 'var(--accent-emerald)',
+                        }}>
+                        Voir audit
+                      </button>
+                    )}
+                    <button
+                      onClick={() => exporterDossierExcel(d)}
                       style={{
                         padding: '5px 10px', borderRadius: 7, fontSize: 11, cursor: 'pointer',
-                        border: '1px solid rgba(16,185,129,0.25)', background: 'rgba(16,185,129,0.08)',
-                        color: 'var(--accent-emerald)',
+                        border: '1px solid rgba(99,102,241,0.25)', background: 'rgba(99,102,241,0.08)',
+                        color: 'var(--accent-indigo)',
                       }}>
-                      Voir audit
+                      ↓ Excel
                     </button>
+                    <button
+                      onClick={() => setConfirmDel(d.alias)}
+                      style={{
+                        padding: '5px 10px', borderRadius: 7, fontSize: 11, cursor: 'pointer',
+                        border: '1px solid rgba(239,68,68,0.2)', background: 'rgba(239,68,68,0.06)',
+                        color: '#EF4444',
+                      }}>
+                      ✕
+                    </button>
+                  </div>
+                </div>
+
+                {/* Ligne 2 : label éditable + résumé auto */}
+                <div style={{ marginTop: 10, marginLeft: 52, display: 'flex', flexDirection: 'column', gap: 4 }}
+                  onClick={e => e.stopPropagation()}>
+
+                  {/* Label inline */}
+                  {isEditing ? (
+                    <input
+                      autoFocus
+                      value={tempLabel}
+                      maxLength={100}
+                      onChange={e => setTempLabel(e.target.value)}
+                      onBlur={() => void handleSaveLabel(d.alias)}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter')  { e.preventDefault(); void handleSaveLabel(d.alias) }
+                        if (e.key === 'Escape') { setTempLabel(d.label ?? ''); setEditingLabelAlias(null) }
+                      }}
+                      placeholder="Ex : Succession mère, Retraite 2030..."
+                      style={{
+                        width: '100%', maxWidth: 340,
+                        padding: '4px 10px', borderRadius: 7, fontSize: 12,
+                        border: '1px solid rgba(99,102,241,0.5)',
+                        background: 'rgba(99,102,241,0.1)', color: 'var(--text-primary)',
+                        outline: 'none',
+                      }}
+                    />
+                  ) : (
+                    <div
+                      onClick={() => { setEditingLabelAlias(d.alias); setTempLabel(d.label ?? '') }}
+                      title="Cliquer pour nommer ce dossier"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 6,
+                        padding: '3px 10px', borderRadius: 7, fontSize: 12,
+                        border: `1px solid ${d.label ? 'rgba(99,102,241,0.25)' : 'rgba(255,255,255,0.07)'}`,
+                        background: d.label ? 'rgba(99,102,241,0.08)' : 'rgba(255,255,255,0.03)',
+                        color: d.label ? 'var(--text-primary)' : 'var(--text-muted)',
+                        cursor: 'pointer', alignSelf: 'flex-start',
+                        fontStyle: d.label ? 'normal' : 'italic',
+                      }}>
+                      <span style={{ opacity: 0.6, fontSize: 10 }}>✏️</span>
+                      {d.label ?? 'Nommer ce dossier...'}
+                    </div>
                   )}
-                  <button
-                    onClick={() => exporterDossierExcel(d)}
-                    style={{
-                      padding: '5px 10px', borderRadius: 7, fontSize: 11, cursor: 'pointer',
-                      border: '1px solid rgba(99,102,241,0.25)', background: 'rgba(99,102,241,0.08)',
-                      color: 'var(--accent-indigo)',
-                    }}>
-                    ↓ Excel
-                  </button>
-                  <button
-                    onClick={() => setConfirmDel(d.alias)}
-                    style={{
-                      padding: '5px 10px', borderRadius: 7, fontSize: 11, cursor: 'pointer',
-                      border: '1px solid rgba(239,68,68,0.2)', background: 'rgba(239,68,68,0.06)',
-                      color: '#EF4444',
-                    }}>
-                    ✕
-                  </button>
+
+                  {/* Résumé auto */}
+                  {resume && (
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)', paddingLeft: 2 }}>
+                      {resume}
+                    </div>
+                  )}
                 </div>
               </div>
             )
@@ -409,7 +524,7 @@ function DossiersContent() {
           position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
           display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60,
           backdropFilter: 'blur(4px)',
-        }} onClick={() => { setShowNewDialog(false); setNewInitiale('') }}>
+        }} onClick={() => { setShowNewDialog(false); setNewInitiale(''); setNewDialogError('') }}>
           <div className="glass-card" style={{
             padding: '32px 28px', maxWidth: 400, width: '92%',
             border: '1px solid rgba(255,255,255,0.12)',
@@ -483,25 +598,40 @@ function DossiersContent() {
               </div>
             </div>
 
+            {/* Erreur */}
+            {newDialogError && (
+              <div style={{
+                marginBottom: 14, padding: '8px 12px', borderRadius: 8, fontSize: 12,
+                background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)',
+                color: '#FCA5A5',
+              }}>
+                ⚠️ {newDialogError}
+              </div>
+            )}
+
             {/* Boutons */}
             <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
-              <button onClick={() => { setShowNewDialog(false); setNewInitiale('') }}
+              <button
+                onClick={() => { setShowNewDialog(false); setNewInitiale(''); setNewDialogError('') }}
+                disabled={newCreating}
                 className="btn-ghost" style={{ fontSize: 13, padding: '8px 16px' }}>
                 Annuler
               </button>
-              <button onClick={() => void handleNew()}
-                disabled={!newInitiale.trim()}
+              <button
+                onClick={() => void handleNew()}
+                disabled={!newInitiale.trim() || newCreating}
                 style={{
                   padding: '8px 22px', borderRadius: 8, border: 'none',
-                  cursor: newInitiale.trim() ? 'pointer' : 'not-allowed',
-                  background: newInitiale.trim()
+                  cursor: (newInitiale.trim() && !newCreating) ? 'pointer' : 'not-allowed',
+                  background: (newInitiale.trim() && !newCreating)
                     ? 'linear-gradient(135deg, var(--accent-blue), var(--accent-indigo))'
                     : 'rgba(255,255,255,0.05)',
-                  color: newInitiale.trim() ? '#fff' : 'var(--text-muted)',
+                  color: (newInitiale.trim() && !newCreating) ? '#fff' : 'var(--text-muted)',
                   fontWeight: 600, fontSize: 13,
                   transition: 'all 0.2s',
+                  opacity: newCreating ? 0.7 : 1,
                 }}>
-                Créer le dossier →
+                {newCreating ? '⏳ Création...' : 'Créer le dossier →'}
               </button>
             </div>
           </div>
@@ -522,12 +652,27 @@ function DossiersContent() {
             <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 20 }}>
               Cette action est irréversible. Exportez le dossier en JSON avant de le supprimer si vous souhaitez le conserver.
             </div>
+            {deleteError && (
+              <div style={{ fontSize: 12, color: '#F87171', marginBottom: 12,
+                padding: '8px 12px', borderRadius: 8,
+                background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)' }}>
+                Erreur : {deleteError}
+              </div>
+            )}
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
-              <button onClick={() => setConfirmDel(null)} className="btn-ghost">Annuler</button>
-              <button onClick={() => void handleDelete(confirmDel!)} style={{
-                padding: '8px 20px', borderRadius: 10, border: 'none', cursor: 'pointer',
-                background: '#EF4444', color: '#fff', fontWeight: 600, fontSize: 13
-              }}>Supprimer</button>
+              <button onClick={() => { setConfirmDel(null); setDeleteError('') }}
+                disabled={deleting} className="btn-ghost">Annuler</button>
+              <button
+                onClick={() => void handleDelete(confirmDel!)}
+                disabled={deleting}
+                style={{
+                  padding: '8px 20px', borderRadius: 10, border: 'none',
+                  cursor: deleting ? 'not-allowed' : 'pointer',
+                  background: '#EF4444', color: '#fff', fontWeight: 600, fontSize: 13,
+                  opacity: deleting ? 0.6 : 1,
+                }}>
+                {deleting ? 'Suppression...' : 'Supprimer'}
+              </button>
             </div>
           </div>
         </div>
