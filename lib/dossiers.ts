@@ -240,6 +240,18 @@ export function exporterDossierJSON(dossier: DossierPatrimonial): void {
   URL.revokeObjectURL(url)
 }
 
+// ── Export global — tous les dossiers déchiffrés en un seul JSON ──
+export async function exporterTousLesDossiersJSON(): Promise<void> {
+  const dossiers = await listerDossiers()
+  const blob = new Blob([JSON.stringify(dossiers, null, 2)], { type: 'application/json' })
+  const url  = URL.createObjectURL(blob)
+  const a    = document.createElement('a')
+  a.href     = url
+  a.download = `dossiers_export_${new Date().toISOString().slice(0, 10)}.json`
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
 // ── Import JSON ───────────────────────────────────────────
 export function importerDossierJSON(file: File): Promise<DossierPatrimonial> {
   return new Promise((resolve, reject) => {

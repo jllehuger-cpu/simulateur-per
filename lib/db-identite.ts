@@ -126,6 +126,51 @@ export async function lireToutes(): Promise<Map<string, IdentiteProspect>> {
   return map
 }
 
+/** Lit toutes les identités avec TOUS les champs déchiffrés (pour re-chiffrement/migration de clé). */
+export async function lireToutesCompletes(): Promise<IdentiteProspect[]> {
+  const cle = getCleIdentiteSession()
+  if (!cle) return []
+
+  const { data, error } = await supabase.from('dossiers_identite').select('*')
+  if (error || !data) return []
+
+  const results: IdentiteProspect[] = []
+  for (const row of data) {
+    try {
+      const nom    = await dechiffrer(row.nom_chiffre,    row.iv_identite, cle)
+      const prenom = await dechiffrer(row.prenom_chiffre, row.iv_identite, cle)
+      const tel    = row.tel_chiffre    ? await dechiffrer(row.tel_chiffre,    row.iv_identite, cle) : undefined
+      const email  = row.email_chiffre  ? await dechiffrer(row.email_chiffre, row.iv_identite, cle) : undefined
+      const nom_conjoint    = row.nom_conjoint_chiffre    ? await dechiffrer(row.nom_conjoint_chiffre,    row.iv_identite, cle) : undefined
+      const prenom_conjoint = row.prenom_conjoint_chiffre ? await dechiffrer(row.prenom_conjoint_chiffre, row.iv_identite, cle) : undefined
+      const tel_conjoint    = row.tel_conjoint_chiffre    ? await dechiffrer(row.tel_conjoint_chiffre,    row.iv_identite, cle) : undefined
+      const email_conjoint  = row.email_conjoint_chiffre  ? await dechiffrer(row.email_conjoint_chiffre,  row.iv_identite, cle) : undefined
+      results.push({
+        alias: row.alias, nom, prenom, tel, email,
+        nom_conjoint, prenom_conjoint, tel_conjoint, email_conjoint,
+        notes_cgp: row.notes_cgp,
+      })
+    } catch {
+      // Clé incorrecte pour cette ligne — on l'ignore (signalé par l'appelant via le compte de retour)
+    }
+  }
+  return results
+}
+
+/** Compte les lignes d'identité existantes (sans déchiffrement) — utile pour valider une clé avant migration. */
+export async function compterIdentites(): Promise<number> {
+  const { count } = await supabase.from('dossiers_identite').select('*', { count: 'exact', head: true })
+  return count ?? 0
+}
+
+/** Supprime définitivement toutes les identités chiffrées de l'utilisateur courant (désactivation Clé B). */
+export async function supprimerToutesIdentites(): Promise<void> {
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) throw new Error('Non authentifié')
+  const { error } = await supabase.from('dossiers_identite').delete().eq('user_id', user.id)
+  if (error) throw new Error(`supprimerToutesIdentites: ${error.message}`)
+}
+
 export async function sauvegarderMeta(alias: string, dossier: Record<string, unknown>): Promise<void> {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) throw new Error('Non authentifié')

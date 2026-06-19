@@ -9,6 +9,8 @@ import {
 } from '@/lib/dossiers'
 import { identiteDisponible } from '@/lib/crypto'
 import { lireToutes, sauvegarderIdentite, IdentiteProspect } from '@/lib/db-identite'
+import { listerPartagesCGP } from '@/lib/db-partages'
+import { ShareModal } from '@/components/share-modal'
 import { UnlockGate } from '@/components/unlock-gate'
 import { useAuth } from '@/lib/use-auth'
 import { useIdentiteVisible, masquerTexte } from '@/lib/use-identite-visible'
@@ -103,6 +105,9 @@ function DossiersContent() {
   const [deleteError,   setDeleteError]   = useState('')
   const [identites,     setIdentites]     = useState<Map<string, IdentiteProspect>>(new Map())
   const [modalId,       setModalId]       = useState<string | null>(null)
+  const [shareAlias,        setShareAlias]        = useState<string | null>(null)
+  const [sharePrefillEmail, setSharePrefillEmail] = useState('')
+  const [shareLoading,      setShareLoading]      = useState<string | null>(null)
   const [showNewDialog, setShowNewDialog] = useState(false)
   const [newInitiale,   setNewInitiale]   = useState('')
   const [editingLabelAlias, setEditingLabelAlias] = useState<string | null>(null)
@@ -198,6 +203,29 @@ function DossiersContent() {
     } catch (err) {
       console.error('[LABEL]', err)
     }
+  }
+
+  const handleOpenShare = async (alias: string, dossierClientEmail?: string) => {
+    console.log('[SHARE] openShare appelé', alias)
+    setShareLoading(alias)
+    try {
+      console.log('[SHARE] Récupération partages existants...')
+      const timeout = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('Timeout')), 10_000)
+      )
+      const partages = await Promise.race([listerPartagesCGP(alias), timeout])
+      setSharePrefillEmail(dossierClientEmail || partages[0]?.client_email || '')
+      console.log('[SHARE] ✅ Partages récupérés')
+    } catch (err) {
+      console.warn('[SHARE] Erreur récup partages (ok, on continue):', err)
+      // Pas grave si on ne récupère pas les anciens partages — on ouvre le modal quand même
+      setSharePrefillEmail(dossierClientEmail ?? '')
+    } finally {
+      setShareLoading(null)
+    }
+    // IMPORTANT : afficher le modal même si la récupération a échoué/timeout
+    console.log('[SHARE] setShareAlias à', alias)
+    setShareAlias(alias)
   }
 
   const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -401,7 +429,7 @@ function DossiersContent() {
                   )}
 
                   {/* Actions */}
-                  <div style={{ display: 'flex', gap: 6, flexShrink: 0 }} onClick={e => e.stopPropagation()}>
+                  <div style={{ display: 'flex', gap: 6, flexShrink: 0, flexWrap: 'wrap', justifyContent: 'flex-end' }} onClick={e => e.stopPropagation()}>
                     <button
                       onClick={() => identiteDisponible() && setModalId(d.alias)}
                       disabled={!identiteDisponible()}
@@ -439,6 +467,38 @@ function DossiersContent() {
                         color: 'var(--accent-indigo)',
                       }}>
                       ↓ Excel
+                    </button>
+                    <button
+                      onClick={() => router.push(`/dossiers/${d.alias}`)}
+                      title="Détails du dossier"
+                      style={{
+                        padding: '5px 10px', borderRadius: 7, fontSize: 11, cursor: 'pointer',
+                        border: '1px solid rgba(59,130,246,0.25)', background: 'rgba(59,130,246,0.08)',
+                        color: 'var(--accent-blue)',
+                      }}>
+                      👁️ Détails
+                    </button>
+                    <button
+                      onClick={() => router.push(`/saisie?alias=${d.alias}`)}
+                      title="Modifier le dossier"
+                      style={{
+                        padding: '5px 10px', borderRadius: 7, fontSize: 11, cursor: 'pointer',
+                        border: '1px solid rgba(245,158,11,0.25)', background: 'rgba(245,158,11,0.08)',
+                        color: 'var(--accent-amber)',
+                      }}>
+                      ✏️ Modifier
+                    </button>
+                    <button
+                      onClick={() => void handleOpenShare(d.alias, d.client_email)}
+                      disabled={shareLoading === d.alias}
+                      title="Partager avec le client"
+                      style={{
+                        padding: '5px 10px', borderRadius: 7, fontSize: 11,
+                        cursor: shareLoading === d.alias ? 'not-allowed' : 'pointer',
+                        border: '1px solid rgba(59,130,246,0.25)', background: 'rgba(59,130,246,0.08)',
+                        color: 'var(--accent-blue)', opacity: shareLoading === d.alias ? 0.5 : 1,
+                      }}>
+                      {shareLoading === d.alias ? '⏳' : '🤝'} Partager
                     </button>
                     <button
                       onClick={() => setConfirmDel(d.alias)}
@@ -515,6 +575,15 @@ function DossiersContent() {
           existante={identites.get(modalId)}
           onClose={() => setModalId(null)}
           onSaved={() => void reloadIdentites()}
+        />
+      )}
+
+      {/* Modal partage */}
+      {shareAlias && (
+        <ShareModal
+          alias={shareAlias}
+          initialEmail={sharePrefillEmail}
+          onClose={() => setShareAlias(null)}
         />
       )}
 

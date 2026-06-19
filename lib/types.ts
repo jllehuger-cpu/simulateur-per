@@ -250,6 +250,7 @@ export interface Prevoyance {
 // ── Dossier complet ───────────────────────────────────────
 export interface DossierPatrimonial {
   alias: string          // Ex: "Dossier_2024_047" — JAMAIS le vrai nom
+  client_email?: string  // Email de contact du client (pré-remplissage du partage)
   label?: string         // Nom libre CGP ex: "Succession mère", "Retraite 2030"
   resume_auto?: string   // Généré automatiquement à chaque sauvegarde
   created_at: string

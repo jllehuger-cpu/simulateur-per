@@ -18,7 +18,10 @@ const HOME_BY_ROLE: Record<string, string> = {
 export async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname
 
-  const isProtected = PROTECTED_PREFIXES.some(p => path.startsWith(p))
+  // /client/[alias] est le lien d'invitation public (token + phrase hors-bande,
+  // sans compte Supabase) — seul /client (le dashboard du compte client) reste protégé.
+  const isClientDossierPublic = path.startsWith('/client/') && path !== '/client'
+  const isProtected = !isClientDossierPublic && PROTECTED_PREFIXES.some(p => path.startsWith(p))
   if (!isProtected) return NextResponse.next()
 
   const response = NextResponse.next()

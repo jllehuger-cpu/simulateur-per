@@ -1,9 +1,11 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 import type { DossierPatrimonial, Partage } from '@/lib/types'
-import { dechiffrerSnapshotClient, verifierPermissionEdition, CHAMPS_EDITABLES_OPTIONS } from '@/lib/partage-cle'
+import { dechiffrerSnapshotClient, verifierPermissionEdition } from '@/lib/partage-cle'
+import { analyserSuccession, REGIME_LABELS } from '@/lib/calcul-succession'
 
 // ── Types internes ────────────────────────────────────────────────────────────
 
@@ -17,6 +19,15 @@ interface PartagePublic {
   status: string
   client_email: string | null
 }
+
+type TabId = 'identite' | 'famille' | 'patrimoine' | 'succession'
+
+const TABS: { id: TabId; label: string; icon: string }[] = [
+  { id: 'identite',    label: 'Identité',   icon: '👤' },
+  { id: 'famille',     label: 'Famille',    icon: '👨‍👩‍👧' },
+  { id: 'patrimoine',  label: 'Patrimoine', icon: '💰' },
+  { id: 'succession',  label: 'Succession', icon: '⚖️' },
+]
 
 // ── Helpers UI ────────────────────────────────────────────────────────────────
 
@@ -75,6 +86,151 @@ function FieldRow({ label, value, editable, onChange }: {
   )
 }
 
+function ListRow({ title, subtitle, right, rightSub }: {
+  title: string; subtitle?: string; right?: string; rightSub?: string
+}) {
+  return (
+    <div style={{
+      display: 'flex', justifyContent: 'space-between',
+      padding: '8px 12px', marginBottom: 6,
+      background: 'rgba(255,255,255,0.03)', borderRadius: 8,
+      border: '1px solid rgba(255,255,255,0.05)',
+    }}>
+      <div>
+        <div style={{ fontSize: 13, fontWeight: 500 }}>{title}</div>
+        {subtitle && <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{subtitle}</div>}
+      </div>
+      {right && (
+        <div style={{ textAlign: 'right' }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent-gold)' }}>{right}</div>
+          {rightSub && <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{rightSub}</div>}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── Onglet Famille ────────────────────────────────────────────────────────────
+
+const LIEN_ENFANT_LABELS: Record<string, string> = {
+  commun: 'Enfant commun', client_seul: 'Enfant du client', conjoint_seul: 'Enfant du conjoint',
+}
+const SITUATION_ENFANT_LABELS: Record<string, string> = {
+  mineur: 'Mineur', etudiant: 'Étudiant', actif: 'Actif', marie: 'Marié(e)',
+}
+
+function FamilleTab({ dossier }: { dossier: DossierPatrimonial }) {
+  const id = dossier.identite
+  const sf = id.situation_familiale ?? 'celibataire'
+  const aConjoint = ['marie', 'pacse', 'concubin'].includes(sf)
+  const enfants = id.enfants ?? []
+  const ascendantsVivants = (id.ascendants ?? []).filter(a => a.situation === 'vivant')
+  const freresSoeurs = id.freres_soeurs ?? []
+
+  return (
+    <>
+      {aConjoint && (
+        <Card style={{ marginBottom: 16 }}>
+          <SectionTitle>Conjoint</SectionTitle>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <FieldRow label="Âge du conjoint" value={id.age_conjoint ? `${id.age_conjoint} ans` : undefined} editable={false} />
+            {id.statut_pro_conjoint && (
+              <FieldRow label="Situation professionnelle" value={id.statut_pro_conjoint.replace(/_/g, ' ')} editable={false} />
+            )}
+          </div>
+        </Card>
+      )}
+
+      <Card style={{ marginBottom: 16 }}>
+        <SectionTitle>Enfants ({enfants.length})</SectionTitle>
+        {enfants.length === 0 ? (
+          <div style={{ fontSize: 13, color: 'var(--text-muted)' }}>Aucun enfant renseigné</div>
+        ) : (
+          enfants.map(e => (
+            <ListRow
+              key={e.id}
+              title={`${LIEN_ENFANT_LABELS[e.lien] ?? e.lien} · ${e.age} ans`}
+              subtitle={SITUATION_ENFANT_LABELS[e.situation] ?? e.situation}
+            />
+          ))
+        )}
+      </Card>
+
+      {ascendantsVivants.length > 0 && (
+        <Card style={{ marginBottom: 16 }}>
+          <SectionTitle>Ascendants vivants ({ascendantsVivants.length})</SectionTitle>
+          {ascendantsVivants.map(a => (
+            <ListRow key={a.id} title={a.lien.replace(/_/g, ' ')} subtitle={a.age ? `${a.age} ans` : undefined} />
+          ))}
+        </Card>
+      )}
+
+      {freresSoeurs.length > 0 && (
+        <Card>
+          <SectionTitle>Frères &amp; sœurs ({freresSoeurs.length})</SectionTitle>
+          {freresSoeurs.map(fs => (
+            <ListRow key={fs.id} title={fs.alias || 'Frère / Sœur'} subtitle={`${fs.age} ans`} />
+          ))}
+        </Card>
+      )}
+    </>
+  )
+}
+
+// ── Onglet Succession ─────────────────────────────────────────────────────────
+
+function SuccessionTab({ dossier }: { dossier: DossierPatrimonial }) {
+  const analyse = useMemo(() => analyserSuccession(dossier, 'client'), [dossier])
+  const regime = dossier.identite.regime_matrimonial
+
+  return (
+    <>
+      <Card style={{ marginBottom: 16 }}>
+        <SectionTitle>Synthèse succession (simulation)</SectionTitle>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 12 }}>
+          <FieldRow label="Masse successorale estimée" value={`${Math.round(analyse.masseSuccessorale).toLocaleString('fr-FR')} €`} editable={false} />
+          <FieldRow label="Réserve héréditaire" value={`${analyse.reserve}%`} editable={false} />
+        </div>
+        {regime && (
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+            Régime matrimonial : {REGIME_LABELS[regime]}
+          </div>
+        )}
+      </Card>
+
+      <Card style={{ marginBottom: 16 }}>
+        <SectionTitle>Héritiers</SectionTitle>
+        {analyse.heritiers.length === 0 ? (
+          <div style={{ fontSize: 13, color: 'var(--text-muted)' }}>Aucun héritier identifié</div>
+        ) : (
+          analyse.heritiers.map(h => (
+            <ListRow
+              key={h.id}
+              title={h.label}
+              subtitle={h.notes.join(' · ')}
+              right={`${(analyse.montantsEuros[h.id] ?? 0).toLocaleString('fr-FR')} €`}
+              rightSub={`${h.partPP}% PP`}
+            />
+          ))
+        )}
+      </Card>
+
+      {analyse.alertes.length > 0 && (
+        <Card style={{ marginBottom: 16 }}>
+          <SectionTitle>Points d&apos;attention</SectionTitle>
+          {analyse.alertes.map((a, i) => (
+            <div key={i} style={{ fontSize: 12, color: '#FCD34D', marginBottom: 6, lineHeight: 1.5 }}>⚠️ {a}</div>
+          ))}
+        </Card>
+      )}
+
+      <div style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
+        ℹ️ Simulation indicative basée sur le droit commun français — ne remplace pas une consultation notariale.
+      </div>
+    </>
+  )
+}
+
 // ── Page principale ───────────────────────────────────────────────────────────
 
 export default function PageClientDossier() {
@@ -89,6 +245,7 @@ export default function PageClientDossier() {
   const [error,    setError]    = useState('')
   const [loading,  setLoading]  = useState(false)
   const [fetching, setFetching] = useState(true)
+  const [tab,      setTab]      = useState<TabId>('identite')
 
   // Modifications locales non encore soumises
   const [edits, setEdits] = useState<Record<string, { ancien: string; nouveau: string }>>({})
@@ -167,6 +324,15 @@ export default function PageClientDossier() {
     } finally {
       setSaving(false)
     }
+  }
+
+  // 5. Déconnexion — efface les données chargées en mémoire (pas de stockage serveur/local)
+  const handleDeconnexion = () => {
+    setDossier(null)
+    setPhrase('')
+    setEdits({})
+    setError('')
+    setTab('identite')
   }
 
   // ── Rendu : loading ──
@@ -261,13 +427,6 @@ export default function PageClientDossier() {
   }
 
   // ── Rendu : dossier déverrouillé ──
-  const id   = dossier.identite
-  const sf   = id.situation_familiale ?? 'celibataire'
-  const SF_LABELS: Record<string, string> = {
-    celibataire: 'Célibataire', marie: 'Marié(e)', pacse: 'Pacsé(e)',
-    concubin: 'Concubin(e)', divorce: 'Divorcé(e)', veuf: 'Veuf / Veuve',
-  }
-
   const partageX = partage!
   const canEdit  = (champ: string) => verifierPermissionEdition(partageX as unknown as import('@/lib/types').Partage, champ)
   const hasEdits = Object.keys(edits).length > 0
@@ -275,9 +434,12 @@ export default function PageClientDossier() {
   return (
     <div style={{ maxWidth: 780, margin: '0 auto', padding: '32px 20px' }}>
       {/* En-tête */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 28 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20, gap: 12, flexWrap: 'wrap' }}>
         <div>
-          <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>
+          <Link href="/" style={{ fontSize: 12, color: 'var(--text-muted)', textDecoration: 'none' }}>
+            ← Retour
+          </Link>
+          <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--text-primary)', marginTop: 6 }}>
             Mon dossier patrimonial
           </div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
@@ -288,26 +450,49 @@ export default function PageClientDossier() {
             }
           </div>
         </div>
-        {hasEdits && (
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          {hasEdits && (
+            <button
+              onClick={() => void handleSauvegarder()}
+              disabled={saving}
+              style={{
+                padding: '8px 18px', borderRadius: 10,
+                background: 'linear-gradient(135deg, rgba(16,185,129,0.3), rgba(16,185,129,0.15))',
+                border: '1px solid rgba(16,185,129,0.4)',
+                color: '#34D399', fontWeight: 600, fontSize: 13, cursor: 'pointer',
+              }}
+            >
+              {saving ? '⏳ Envoi…' : `💾 Envoyer (${Object.keys(edits).length})`}
+            </button>
+          )}
           <button
-            onClick={() => void handleSauvegarder()}
-            disabled={saving}
+            onClick={() => window.print()}
             style={{
-              padding: '8px 18px', borderRadius: 10,
-              background: 'linear-gradient(135deg, rgba(16,185,129,0.3), rgba(16,185,129,0.15))',
-              border: '1px solid rgba(16,185,129,0.4)',
-              color: '#34D399', fontWeight: 600, fontSize: 13, cursor: 'pointer',
+              padding: '8px 14px', borderRadius: 10,
+              background: 'transparent', border: '1px solid rgba(255,255,255,0.12)',
+              color: 'var(--text-secondary)', fontWeight: 500, fontSize: 13, cursor: 'pointer',
             }}
           >
-            {saving ? '⏳ Envoi…' : `💾 Envoyer les modifications (${Object.keys(edits).length})`}
+            🖨️ PDF
           </button>
-        )}
-        {saveOk && (
-          <div style={{ fontSize: 13, color: 'var(--accent-emerald)', alignSelf: 'center' }}>
-            ✅ Modifications transmises au conseiller
-          </div>
-        )}
+          <button
+            onClick={handleDeconnexion}
+            style={{
+              padding: '8px 14px', borderRadius: 10,
+              background: 'transparent', border: '1px solid rgba(239,68,68,0.2)',
+              color: '#FCA5A5', fontWeight: 500, fontSize: 13, cursor: 'pointer',
+            }}
+          >
+            🚪 Déconnexion
+          </button>
+        </div>
       </div>
+
+      {saveOk && (
+        <div style={{ fontSize: 13, color: 'var(--accent-emerald)', marginBottom: 16 }}>
+          ✅ Modifications transmises au conseiller
+        </div>
+      )}
 
       {error && (
         <div style={{
@@ -319,132 +504,150 @@ export default function PageClientDossier() {
         </div>
       )}
 
-      {/* Situation personnelle */}
-      <Card style={{ marginBottom: 16 }}>
-        <SectionTitle>Situation personnelle</SectionTitle>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-          <FieldRow label="Situation familiale" value={SF_LABELS[sf] ?? sf} editable={false} />
-          <FieldRow label="Âge" value={id.age_client ? `${id.age_client} ans` : undefined} editable={false} />
-          {id.regime_matrimonial && (
-            <FieldRow label="Régime matrimonial" value={id.regime_matrimonial.replace(/_/g, ' ')} editable={false} />
-          )}
-          {id.statut_pro_client && (
-            <FieldRow label="Situation professionnelle" value={id.statut_pro_client.replace(/_/g, ' ')} editable={false} />
-          )}
-        </div>
-      </Card>
+      {/* Onglets */}
+      <div style={{ display: 'flex', gap: 2, marginBottom: 20, borderBottom: '1px solid rgba(255,255,255,0.08)', overflowX: 'auto' }}>
+        {TABS.map(t => (
+          <button key={t.id} onClick={() => setTab(t.id)} style={{
+            padding: '0.625rem 1.125rem', background: 'transparent', border: 'none', cursor: 'pointer',
+            fontSize: '0.875rem', fontWeight: tab === t.id ? 700 : 400, whiteSpace: 'nowrap',
+            color: tab === t.id ? 'var(--accent-blue)' : 'var(--text-secondary)',
+            borderBottom: `2px solid ${tab === t.id ? 'var(--accent-blue)' : 'transparent'}`,
+            marginBottom: -1, transition: 'color 0.15s',
+          }}>
+            {t.icon} {t.label}
+          </button>
+        ))}
+      </div>
 
-      {/* Objectifs */}
-      <Card style={{ marginBottom: 16 }}>
-        <SectionTitle>Objectifs patrimoniaux</SectionTitle>
-        <FieldRow
-          label="Projet imminent"
-          value={id.projet_imminent}
-          editable={canEdit('identite.projet_imminent')}
-          onChange={canEdit('identite.projet_imminent') ? v => handleEdit('identite.projet_imminent', v) : undefined}
-        />
-        {(id.objectifs ?? []).length > 0 && (
-          <div style={{ marginBottom: 12 }}>
-            <div style={{ fontSize: 11, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 6 }}>
-              Objectifs
-              {canEdit('identite.objectifs') && <span style={{ marginLeft: 6, fontSize: 10, color: 'var(--accent-emerald)' }}>✏️ modifiable</span>}
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-              {(id.objectifs ?? []).map(obj => (
-                <span key={obj} style={{
-                  fontSize: 12, padding: '4px 10px', borderRadius: 20,
-                  background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)',
-                  color: 'var(--accent-blue)',
-                }}>{obj}</span>
+      {/* Onglet Identité */}
+      {tab === 'identite' && (() => {
+        const id = dossier.identite
+        const sf = id.situation_familiale ?? 'celibataire'
+        const SF_LABELS: Record<string, string> = {
+          celibataire: 'Célibataire', marie: 'Marié(e)', pacse: 'Pacsé(e)',
+          concubin: 'Concubin(e)', divorce: 'Divorcé(e)', veuf: 'Veuf / Veuve',
+        }
+        return (
+          <>
+            <Card style={{ marginBottom: 16 }}>
+              <SectionTitle>Situation personnelle</SectionTitle>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                <FieldRow label="Situation familiale" value={SF_LABELS[sf] ?? sf} editable={false} />
+                <FieldRow label="Âge" value={id.age_client ? `${id.age_client} ans` : undefined} editable={false} />
+                {id.regime_matrimonial && (
+                  <FieldRow label="Régime matrimonial" value={id.regime_matrimonial.replace(/_/g, ' ')} editable={false} />
+                )}
+                {id.statut_pro_client && (
+                  <FieldRow label="Situation professionnelle" value={id.statut_pro_client.replace(/_/g, ' ')} editable={false} />
+                )}
+              </div>
+            </Card>
+
+            <Card style={{ marginBottom: 16 }}>
+              <SectionTitle>Objectifs patrimoniaux</SectionTitle>
+              <FieldRow
+                label="Projet imminent"
+                value={id.projet_imminent}
+                editable={canEdit('identite.projet_imminent')}
+                onChange={canEdit('identite.projet_imminent') ? v => handleEdit('identite.projet_imminent', v) : undefined}
+              />
+              {(id.objectifs ?? []).length > 0 && (
+                <div style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 11, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 6 }}>
+                    Objectifs
+                    {canEdit('identite.objectifs') && <span style={{ marginLeft: 6, fontSize: 10, color: 'var(--accent-emerald)' }}>✏️ modifiable</span>}
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {(id.objectifs ?? []).map(obj => (
+                      <span key={obj} style={{
+                        fontSize: 12, padding: '4px 10px', borderRadius: 20,
+                        background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)',
+                        color: 'var(--accent-blue)',
+                      }}>{obj}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <FieldRow
+                label="Commentaire"
+                value={id.objectifs_commentaire}
+                editable={canEdit('identite.objectifs_commentaire')}
+                onChange={canEdit('identite.objectifs_commentaire') ? v => handleEdit('identite.objectifs_commentaire', v) : undefined}
+              />
+            </Card>
+
+            <Card>
+              <SectionTitle>Notes &amp; informations complémentaires</SectionTitle>
+              {canEdit('identite.notes_famille') ? (
+                <div>
+                  <div style={{ fontSize: 11, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 4 }}>
+                    Notes famille <span style={{ fontSize: 10, color: 'var(--accent-emerald)' }}>✏️ modifiable</span>
+                  </div>
+                  <textarea
+                    className="glass-input"
+                    rows={4}
+                    value={id.notes_famille ?? ''}
+                    onChange={e => handleEdit('identite.notes_famille', e.target.value)}
+                    style={{ resize: 'vertical', lineHeight: 1.5, fontSize: 13 }}
+                    placeholder="Informations complémentaires pour votre conseiller…"
+                  />
+                </div>
+              ) : (
+                <FieldRow label="Notes" value={id.notes_famille} editable={false} />
+              )}
+            </Card>
+          </>
+        )
+      })()}
+
+      {/* Onglet Famille */}
+      {tab === 'famille' && <FamilleTab dossier={dossier} />}
+
+      {/* Onglet Patrimoine — lecture seule */}
+      {tab === 'patrimoine' && (
+        <>
+          {dossier.biens_immo.length === 0 && dossier.produits_financiers.length === 0 && (
+            <div style={{ fontSize: 13, color: 'var(--text-muted)', padding: '12px 0' }}>Aucun patrimoine renseigné</div>
+          )}
+          {dossier.biens_immo.length > 0 && (
+            <Card style={{ marginBottom: 16 }}>
+              <SectionTitle>Patrimoine immobilier (lecture seule)</SectionTitle>
+              {dossier.biens_immo.map(b => (
+                <ListRow
+                  key={b.id}
+                  title={b.type}
+                  subtitle={b.localisation || '—'}
+                  right={b.valeur_venale > 0 ? b.valeur_venale.toLocaleString('fr-FR') + ' €' : '—'}
+                  rightSub="valeur vénale"
+                />
               ))}
-            </div>
-          </div>
-        )}
-        <FieldRow
-          label="Commentaire"
-          value={id.objectifs_commentaire}
-          editable={canEdit('identite.objectifs_commentaire')}
-          onChange={canEdit('identite.objectifs_commentaire') ? v => handleEdit('identite.objectifs_commentaire', v) : undefined}
-        />
-      </Card>
+            </Card>
+          )}
 
-      {/* Notes famille */}
-      <Card style={{ marginBottom: 16 }}>
-        <SectionTitle>Notes &amp; informations complémentaires</SectionTitle>
-        {canEdit('identite.notes_famille') ? (
-          <div>
-            <div style={{ fontSize: 11, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 4 }}>
-              Notes famille <span style={{ fontSize: 10, color: 'var(--accent-emerald)' }}>✏️ modifiable</span>
-            </div>
-            <textarea
-              className="glass-input"
-              rows={4}
-              value={id.notes_famille ?? ''}
-              onChange={e => handleEdit('identite.notes_famille', e.target.value)}
-              style={{ resize: 'vertical', lineHeight: 1.5, fontSize: 13 }}
-              placeholder="Informations complémentaires pour votre conseiller…"
-            />
-          </div>
-        ) : (
-          <FieldRow label="Notes" value={id.notes_famille} editable={false} />
-        )}
-      </Card>
-
-      {/* Patrimoine — lecture seule */}
-      {dossier.biens_immo.length > 0 && (
-        <Card style={{ marginBottom: 16 }}>
-          <SectionTitle>Patrimoine immobilier (lecture seule)</SectionTitle>
-          {dossier.biens_immo.map(b => (
-            <div key={b.id} style={{
-              display: 'flex', justifyContent: 'space-between',
-              padding: '8px 12px', marginBottom: 6,
-              background: 'rgba(255,255,255,0.03)', borderRadius: 8,
-              border: '1px solid rgba(255,255,255,0.05)',
-            }}>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 500 }}>{b.type}</div>
-                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{b.localisation || '—'}</div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent-gold)' }}>
-                  {b.valeur_venale > 0 ? b.valeur_venale.toLocaleString('fr-FR') + ' €' : '—'}
-                </div>
-                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>valeur vénale</div>
-              </div>
-            </div>
-          ))}
-        </Card>
+          {dossier.produits_financiers.length > 0 && (
+            <Card>
+              <SectionTitle>Épargne &amp; placements (lecture seule)</SectionTitle>
+              {dossier.produits_financiers.map(p => (
+                <ListRow
+                  key={p.id}
+                  title={p.type}
+                  subtitle={p.etablissement || '—'}
+                  right={p.valeur_actuelle > 0 ? p.valeur_actuelle.toLocaleString('fr-FR') + ' €' : '—'}
+                  rightSub="encours"
+                />
+              ))}
+            </Card>
+          )}
+        </>
       )}
 
-      {dossier.produits_financiers.length > 0 && (
-        <Card style={{ marginBottom: 16 }}>
-          <SectionTitle>Épargne &amp; placements (lecture seule)</SectionTitle>
-          {dossier.produits_financiers.map(p => (
-            <div key={p.id} style={{
-              display: 'flex', justifyContent: 'space-between',
-              padding: '8px 12px', marginBottom: 6,
-              background: 'rgba(255,255,255,0.03)', borderRadius: 8,
-              border: '1px solid rgba(255,255,255,0.05)',
-            }}>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 500 }}>{p.type}</div>
-                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{p.etablissement || '—'}</div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent-emerald)' }}>
-                  {p.valeur_actuelle > 0 ? p.valeur_actuelle.toLocaleString('fr-FR') + ' €' : '—'}
-                </div>
-                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>encours</div>
-              </div>
-            </div>
-          ))}
-        </Card>
-      )}
+      {/* Onglet Succession */}
+      {tab === 'succession' && <SuccessionTab dossier={dossier} />}
 
       {/* Disclaimer */}
       <div style={{
         fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6,
-        padding: '12px 16px',
+        padding: '12px 16px', marginTop: 16,
         background: 'rgba(255,255,255,0.02)',
         border: '1px solid rgba(255,255,255,0.06)',
         borderRadius: 10,

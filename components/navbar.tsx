@@ -9,7 +9,8 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@/lib/use-auth'
 import { useIdentiteVisible } from '@/lib/use-identite-visible'
-import { identiteDisponible } from '@/lib/crypto'
+import { identiteDisponible, isCleSessionUnlocked } from '@/lib/crypto'
+import { CleBModal } from '@/components/cle-b-modal'
 
 // ─── Types ───────────────────────────────────────────────────
 interface NavLink {
@@ -67,6 +68,7 @@ const ACCENT_COLORS = {
 export function Navbar() {
   const pathname               = usePathname()
   const [open, setOpen]        = useState(false)
+  const [showCleB, setShowCleB] = useState(false)
   const { user, profil }       = useAuth(false)
   const { visible: idVis, toggle: toggleId } = useIdentiteVisible()
   const role                   = profil?.role ?? 'cgp'
@@ -77,6 +79,11 @@ export function Navbar() {
 
   const quota = profil?.api_quota ?? 0
   const used  = profil?.api_used  ?? 0
+
+  const displayName = profil?.nom || user?.email || ''
+  const initials = displayName
+    ? displayName.trim().split(/\s+/).slice(0, 2).map(s => s[0]).join('').toUpperCase()
+    : ''
 
   function isActive(href: string) {
     if (href === '/') return pathname === '/'
@@ -208,6 +215,52 @@ export function Navbar() {
                 </button>
               )}
 
+              {/* Badge utilisateur connecté */}
+              <div title={`${displayName} · Connecté`} className="nav-user-badge" style={{
+                display: 'flex', alignItems: 'center', gap: 7,
+                padding: '3px 10px 3px 3px', borderRadius: 20,
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.1)',
+              }}>
+                <span style={{
+                  width: 24, height: 24, borderRadius: '50%', flexShrink: 0,
+                  background: 'linear-gradient(135deg, #3B82F6, #6366F1)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 10, fontWeight: 700, color: '#fff',
+                }}>
+                  {initials}
+                </span>
+                <span style={{
+                  fontSize: 12, fontWeight: 600, color: 'var(--text-secondary)',
+                  maxWidth: 130, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                }}>
+                  {displayName}
+                </span>
+                <span style={{
+                  width: 6, height: 6, borderRadius: '50%', flexShrink: 0,
+                  background: '#34D399', boxShadow: '0 0 6px rgba(52,211,153,0.7)',
+                }} />
+              </div>
+
+              {/* Clé B (identité) */}
+              {role !== 'client' && isCleSessionUnlocked() && (
+                <button
+                  onClick={() => setShowCleB(true)}
+                  title="Gérer la Clé B (identité)"
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    width: 32, height: 32, borderRadius: 7,
+                    background: 'transparent', border: '1px solid rgba(255,255,255,0.1)',
+                    color: 'var(--text-muted)', cursor: 'pointer',
+                    transition: 'all 0.18s', fontSize: 14,
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.07)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-secondary)' }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-muted)' }}
+                >
+                  🔑
+                </button>
+              )}
+
               {/* Settings */}
               <Link href="/settings" title="Paramètres" style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -305,15 +358,37 @@ export function Navbar() {
             )
           })}
 
-          {/* Divider + actions mobile */}
+          {/* Divider + profil + actions mobile */}
           {user && (
-            <div style={{ marginTop: 8, paddingTop: 10, borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: 8 }}>
-              <Link href="/settings" onClick={() => setOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', borderRadius: 8, fontSize: 13, color: 'var(--text-muted)', textDecoration: 'none', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <Settings size={13} /> Paramètres
-              </Link>
-              <a href="/api/auth/logout" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', borderRadius: 8, fontSize: 13, color: '#F87171', textDecoration: 'none', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
-                <LogOut size={13} /> Déconnexion
-              </a>
+            <div style={{ marginTop: 8, paddingTop: 10, borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '4px 12px' }}>
+                <span style={{
+                  width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
+                  background: 'linear-gradient(135deg, #3B82F6, #6366F1)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 11, fontWeight: 700, color: '#fff',
+                }}>
+                  {initials}
+                </span>
+                <span style={{
+                  flex: 1, fontSize: 13, fontWeight: 600, color: 'var(--text-secondary)',
+                  overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                }}>
+                  {displayName}
+                </span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 600, color: '#34D399' }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#34D399', boxShadow: '0 0 6px rgba(52,211,153,0.7)' }} />
+                  Connecté
+                </span>
+              </div>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <Link href="/settings" onClick={() => setOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', borderRadius: 8, fontSize: 13, color: 'var(--text-muted)', textDecoration: 'none', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <Settings size={13} /> Paramètres
+                </Link>
+                <a href="/api/auth/logout" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', borderRadius: 8, fontSize: 13, color: '#F87171', textDecoration: 'none', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
+                  <LogOut size={13} /> Déconnexion
+                </a>
+              </div>
             </div>
           )}
         </div>
@@ -321,10 +396,13 @@ export function Navbar() {
 
       <style>{`
         @media (max-width: 768px) {
-          .nav-desktop { display: none !important; }
-          .nav-burger  { display: flex !important; }
+          .nav-desktop    { display: none !important; }
+          .nav-burger     { display: flex !important; }
+          .nav-user-badge { display: none !important; }
         }
       `}</style>
+
+      {showCleB && <CleBModal onClose={() => setShowCleB(false)} />}
     </header>
   )
 }
