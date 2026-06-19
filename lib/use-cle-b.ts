@@ -2,13 +2,13 @@
 
 import { useState, useCallback } from 'react'
 import { deriverCle, setCleIdentiteSession, clearCleIdentiteSession, identiteDisponible } from './crypto'
-import { lireToutesCompletes, compterIdentites, supprimerToutesIdentites, sauvegarderIdentite } from './db-identite'
+import { lireToutesCompletesAvecTotal, supprimerToutesIdentites, sauvegarderIdentite } from './db-identite'
 
 // La Clé B (identité) n'est jamais stockée — comme la Clé A, elle n'existe qu'en
 // mémoire navigateur pour la session en cours. "Active" signifie donc "dérivée et
 // chargée dans cet onglet", pas un état persistant côté serveur.
 
-const TIMEOUT_MS = 15_000
+const TIMEOUT_MS = 30_000
 
 function avecTimeout<T>(promise: Promise<T>, label: string): Promise<T> {
   return Promise.race([
@@ -33,18 +33,13 @@ export function useCleB() {
       console.log('[CLÉ B] ✅ Clé dérivée')
       setCleIdentiteSession(cle)
 
-      console.log('[CLÉ B] Comptage des identités existantes (Supabase)...')
-      const total = await avecTimeout(compterIdentites(), 'compterIdentites')
-      console.log('[CLÉ B] Total identités existantes:', total)
+      console.log('[CLÉ B] Lecture + vérification des identités existantes (Supabase)...')
+      const { total, identites: dechiffrees } = await avecTimeout(lireToutesCompletesAvecTotal(), 'lireToutesCompletesAvecTotal')
+      console.log('[CLÉ B] Total identités:', total, '· déchiffrées avec succès:', dechiffrees.length)
 
-      if (total > 0) {
-        console.log('[CLÉ B] Vérification de la clé par déchiffrement...')
-        const dechiffrees = await avecTimeout(lireToutesCompletes(), 'lireToutesCompletes')
-        console.log('[CLÉ B] Identités déchiffrées avec succès:', dechiffrees.length)
-        if (dechiffrees.length === 0) {
-          clearCleIdentiteSession()
-          throw new Error('Clé incorrecte')
-        }
+      if (total > 0 && dechiffrees.length === 0) {
+        clearCleIdentiteSession()
+        throw new Error('Clé incorrecte')
       }
 
       setActive(true)
@@ -67,8 +62,7 @@ export function useCleB() {
       setCleIdentiteSession(ancienneCle)
 
       console.log('[CLÉ B] Lecture des identités avec l\'ancienne clé...')
-      const total = await avecTimeout(compterIdentites(), 'compterIdentites')
-      const identites = await avecTimeout(lireToutesCompletes(), 'lireToutesCompletes')
+      const { total, identites } = await avecTimeout(lireToutesCompletesAvecTotal(), 'lireToutesCompletesAvecTotal')
       console.log('[CLÉ B] Identités lisibles:', identites.length, '/ total:', total)
       if (total > 0 && identites.length === 0) {
         throw new Error('Clé incorrecte')

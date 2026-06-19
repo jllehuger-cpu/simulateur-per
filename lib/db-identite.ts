@@ -126,13 +126,18 @@ export async function lireToutes(): Promise<Map<string, IdentiteProspect>> {
   return map
 }
 
-/** Lit toutes les identités avec TOUS les champs déchiffrés (pour re-chiffrement/migration de clé). */
-export async function lireToutesCompletes(): Promise<IdentiteProspect[]> {
+/**
+ * Lit toutes les identités avec TOUS les champs déchiffrés, en une seule requête
+ * Supabase (le nombre total de lignes ET les identités déchiffrées). Évite un
+ * aller-retour réseau séparé pour le comptage (voir compterIdentites, conservé
+ * pour compatibilité mais plus utilisé sur le chemin critique d'activation/Clé B).
+ */
+export async function lireToutesCompletesAvecTotal(): Promise<{ total: number; identites: IdentiteProspect[] }> {
   const cle = getCleIdentiteSession()
-  if (!cle) return []
+  if (!cle) return { total: 0, identites: [] }
 
   const { data, error } = await supabase.from('dossiers_identite').select('*')
-  if (error || !data) return []
+  if (error || !data) return { total: 0, identites: [] }
 
   const results: IdentiteProspect[] = []
   for (const row of data) {
@@ -154,7 +159,12 @@ export async function lireToutesCompletes(): Promise<IdentiteProspect[]> {
       // Clé incorrecte pour cette ligne — on l'ignore (signalé par l'appelant via le compte de retour)
     }
   }
-  return results
+  return { total: data.length, identites: results }
+}
+
+/** Lit toutes les identités avec TOUS les champs déchiffrés (pour re-chiffrement/migration de clé). */
+export async function lireToutesCompletes(): Promise<IdentiteProspect[]> {
+  return (await lireToutesCompletesAvecTotal()).identites
 }
 
 /** Compte les lignes d'identité existantes (sans déchiffrement) — utile pour valider une clé avant migration. */
