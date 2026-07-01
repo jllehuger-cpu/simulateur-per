@@ -140,7 +140,7 @@ export async function lireToutesCompletesAvecTotal(): Promise<{ total: number; i
   if (error || !data) return { total: 0, identites: [] }
 
   const results: IdentiteProspect[] = []
-  for (const row of data) {
+  await Promise.all(data.map(async row => {
     try {
       const nom    = await dechiffrer(row.nom_chiffre,    row.iv_identite, cle)
       const prenom = await dechiffrer(row.prenom_chiffre, row.iv_identite, cle)
@@ -158,7 +158,7 @@ export async function lireToutesCompletesAvecTotal(): Promise<{ total: number; i
     } catch {
       // Clé incorrecte pour cette ligne — on l'ignore (signalé par l'appelant via le compte de retour)
     }
-  }
+  }))
   return { total: data.length, identites: results }
 }
 
