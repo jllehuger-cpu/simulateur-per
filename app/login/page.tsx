@@ -133,7 +133,6 @@ function MagicLinkTab({ infoMessage }: { infoMessage: string | null }) {
 }
 
 function PasswordTab() {
-  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -144,21 +143,22 @@ function PasswordTab() {
   const handleLogin = async () => {
     if (!email.trim() || !password) return
     setLoading(true); setError('')
+
+    // Filet de sécurité : la redirection est normalement déclenchée par l'événement
+    // SIGNED_IN (géré au niveau de LoginForm). Si rien ne se passe après 15s
+    // (session non établie, requête réseau perdue, etc.), on débloque le bouton.
+    const timeout = setTimeout(() => {
+      setLoading(false)
+      setError('La connexion prend plus de temps que prévu. Réessayez.')
+    }, 15000)
+
     try {
       await signInWithPassword(email.trim(), password)
-      const supabase = getSupabase()
-      const { data: { user } } = await supabase.auth.getUser()
-      if (user) {
-        const { data: profile } = await supabase
-          .from('user_profiles')
-          .select('role')
-          .eq('id', user.id)
-          .single()
-        window.location.href = profile?.role === 'client' ? '/client' : '/dossiers'
-      } else {
-        window.location.href = '/dossiers'
-      }
+      clearTimeout(timeout)
+      // Pas de redirection ici : elle est gérée par onAuthStateChange (SIGNED_IN)
+      // dans LoginForm, une fois la session réellement établie côté client.
     } catch (err: unknown) {
+      clearTimeout(timeout)
       setError(translateError(err instanceof Error ? err.message : String(err)))
       setLoading(false)
     }
@@ -348,20 +348,31 @@ function LoginForm() {
 
   useEffect(() => {
     const supabase = getSupabase()
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      if (!session) return
-      const { data: profile } = await supabase
-        .from('user_profiles').select('role').eq('id', session.user.id).single()
-      router.push(profile?.role === 'client' ? '/client' : '/dossiers')
+    let cancelled = false
+
+    const redirectForUser = (userId: string) => {
+      supabase
+        .from('user_profiles').select('role').eq('id', userId).single()
+        .then(({ data: profile }) => {
+          if (!cancelled) router.push(profile?.role === 'client' ? '/client' : '/dossiers')
+        })
+    }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) redirectForUser(session.user.id)
     })
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+
+    // Le callback onAuthStateChange doit rester SYNCHRONE : GoTrueClient attend sa
+    // résolution (verrou interne) avant de résoudre signInWithPassword() lui-même.
+    // Un callback async ici bloquait indéfiniment le flow "mot de passe" (le fetch
+    // /token renvoyait bien 200, mais la Promise ne se résolvait jamais côté client) —
+    // même famille de bug que celui déjà rencontré sur reset-password.
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session) {
-        const { data: profile } = await supabase
-          .from('user_profiles').select('role').eq('id', session.user.id).single()
-        router.push(profile?.role === 'client' ? '/client' : '/dossiers')
+        setTimeout(() => redirectForUser(session.user.id), 0)
       }
     })
-    return () => subscription.unsubscribe()
+    return () => { cancelled = true; subscription.unsubscribe() }
   }, [router])
 
   return (

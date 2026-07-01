@@ -110,6 +110,7 @@ function DossiersContent() {
   const [shareLoading,      setShareLoading]      = useState<string | null>(null)
   const [showNewDialog, setShowNewDialog] = useState(false)
   const [newInitiale,   setNewInitiale]   = useState('')
+  const [newLabel,      setNewLabel]      = useState('')
   const [editingLabelAlias, setEditingLabelAlias] = useState<string | null>(null)
   const [tempLabel,         setTempLabel]          = useState('')
   const [newCreating,       setNewCreating]         = useState(false)
@@ -144,9 +145,11 @@ function DossiersContent() {
     try {
       const lettre = newInitiale.trim().charAt(0).toUpperCase()
       const d = nouveauDossier(lettre || undefined)
+      if (newLabel.trim()) d.label = newLabel.trim()
       await sauvegarderDossier(d)
       setShowNewDialog(false)
       setNewInitiale('')
+      setNewLabel('')
       setNewCreating(false)
       router.push(`/saisie?alias=${d.alias}`)
     } catch (err) {
@@ -593,7 +596,7 @@ function DossiersContent() {
           position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)',
           display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60,
           backdropFilter: 'blur(4px)',
-        }} onClick={() => { setShowNewDialog(false); setNewInitiale(''); setNewDialogError('') }}>
+        }} onClick={() => { setShowNewDialog(false); setNewInitiale(''); setNewLabel(''); setNewDialogError('') }}>
           <div className="glass-card" style={{
             padding: '32px 28px', maxWidth: 400, width: '92%',
             border: '1px solid rgba(255,255,255,0.12)',
@@ -667,6 +670,25 @@ function DossiersContent() {
               </div>
             </div>
 
+            {/* Libellé optionnel */}
+            <div style={{ marginBottom: 16 }}>
+              <label style={{ fontSize: 13, color: 'var(--text-secondary)', fontWeight: 500, marginBottom: 6, display: 'block' }}>
+                Libellé du dossier (optionnel)
+              </label>
+              <input
+                value={newLabel}
+                maxLength={100}
+                onChange={e => setNewLabel(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && newInitiale.trim() && void handleNew()}
+                placeholder="Ex : Audit Dupont — juin 2026"
+                className="glass-input"
+              />
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, lineHeight: 1.5 }}>
+                Texte libre pour vous repérer — pas de donnée confidentielle, le nom du client reste chiffré (Clé B).
+                Modifiable plus tard depuis la liste.
+              </div>
+            </div>
+
             {/* Erreur */}
             {newDialogError && (
               <div style={{
@@ -681,7 +703,7 @@ function DossiersContent() {
             {/* Boutons */}
             <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
               <button
-                onClick={() => { setShowNewDialog(false); setNewInitiale(''); setNewDialogError('') }}
+                onClick={() => { setShowNewDialog(false); setNewInitiale(''); setNewLabel(''); setNewDialogError('') }}
                 disabled={newCreating}
                 className="btn-ghost" style={{ fontSize: 13, padding: '8px 16px' }}>
                 Annuler
