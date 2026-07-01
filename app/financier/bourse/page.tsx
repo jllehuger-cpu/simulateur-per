@@ -1,7 +1,8 @@
 'use client';
 import { AuthGate } from '@/components/auth-gate';
+import { getSupabase } from '@/lib/supabase';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -48,6 +49,82 @@ const PERIODS = ['1A', '3A', '5A', '10A', '20A', 'MAX'] as const;
 type Period = (typeof PERIODS)[number];
 
 const MAX_SELECTION = 6;
+
+// ─── Chargement des données (Supabase) ───────────────────────────────────────
+
+// classe_actif (base) -> categorie affichée (page)
+const CLASSE_TO_CATEGORIE: Record<string, string> = {
+  actions: 'actions',
+  obligataire: 'obligations',
+  matieres_premieres: 'matieres_premieres',
+  monetaire: 'monetaire',
+  immobilier: 'immobilier',
+};
+
+// ^TNX est un taux (rendement en %), pas un indice de prix : CAGR/volatilité n'auraient pas de sens dessus
+const EXCLUDED_SYMBOLS = new Set(['^TNX']);
+
+async function fetchIndicesFromSupabase(): Promise<IndexEntry[]> {
+  const supabase = getSupabase();
+
+  const { data: refs, error: refError } = await supabase
+    .from('referentiel_indices')
+    .select('symbol, nom, classe_actif, devise')
+    .eq('actif', true)
+    .in('classe_actif', Object.keys(CLASSE_TO_CATEGORIE));
+  if (refError) throw refError;
+
+  const symbols = (refs ?? []).map(r => r.symbol).filter(s => !EXCLUDED_SYMBOLS.has(s));
+  if (symbols.length === 0) return [];
+
+  // La période "MAX" du graphe démarre de toute façon en 1990 : inutile de charger plus ancien.
+  // PostgREST plafonne les résultats (défaut 1000 lignes) : on pagine avec range().
+  const rows: { symbol: string; date: string; close: number }[] = [];
+  const PAGE_SIZE = 1000;
+  for (let from = 0; ; from += PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from('cours_historiques')
+      .select('symbol, date, close')
+      .in('symbol', symbols)
+      .eq('frequence', 'weekly')
+      .gte('date', '1990-01-01')
+      .order('date', { ascending: true })
+      .range(from, from + PAGE_SIZE - 1);
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    rows.push(...data);
+    if (data.length < PAGE_SIZE) break;
+  }
+
+  const bySymbol = new Map<string, { date: string; close: number }[]>();
+  for (const row of rows) {
+    if (!bySymbol.has(row.symbol)) bySymbol.set(row.symbol, []);
+    bySymbol.get(row.symbol)!.push(row);
+  }
+
+  const entries: IndexEntry[] = [];
+  for (const ref of refs ?? []) {
+    if (EXCLUDED_SYMBOLS.has(ref.symbol)) continue;
+    const points = bySymbol.get(ref.symbol);
+    if (!points || points.length === 0) continue;
+
+    const historique: Record<string, number> = {};
+    for (const p of points) historique[p.date] = p.close;
+
+    const categorie = CLASSE_TO_CATEGORIE[ref.classe_actif] ?? ref.classe_actif;
+    entries.push({
+      key: `${categorie}::${ref.symbol}`,
+      categorie,
+      nom: ref.nom,
+      ticker: ref.symbol,
+      devise: ref.devise,
+      historique,
+      premier: points[0].date,
+      dernier: points[points.length - 1].date,
+    });
+  }
+  return entries;
+}
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -204,29 +281,28 @@ function BourseChart({ series, months }: { series: ChartSeries[]; months: string
 
 export default function BoursePage() {
   const [indices, setIndices] = useState<IndexEntry[]>([]);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>(['actions__SP500', 'actions__MSCI_WORLD']);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(['actions::^GSPC', 'actions::URTH']);
   const [period, setPeriod] = useState<Period>('10A');
 
-  useEffect(() => {
-    fetch('/market_data.json')
-      .then(r => r.json())
-      .then((json: { indices: Record<string, Record<string, Omit<IndexEntry, 'key' | 'categorie'> & { erreur?: string }>> }) => {
-        const flat: IndexEntry[] = [];
-        for (const [cat, entries] of Object.entries(json.indices)) {
-          for (const [key, info] of Object.entries(entries)) {
-            if (info.historique) {
-              flat.push({
-                key: `${cat}__${key}`, categorie: cat,
-                nom: info.nom, ticker: info.ticker, devise: info.devise,
-                historique: info.historique, premier: info.premier, dernier: info.dernier,
-              });
-            }
-          }
-        }
-        setIndices(flat);
-      })
-      .catch(() => {});
+  const loadIndices = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
+    try {
+      const entries = await fetchIndicesFromSupabase();
+      setIndices(entries);
+    } catch (err) {
+      console.error('[Bourse] Erreur de chargement des indices depuis Supabase:', err);
+      setLoadError('Impossible de charger les données de marché. Réessayez plus tard.');
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    void loadIndices();
+  }, [loadIndices]);
 
   const colorMap = useMemo(() => {
     const map: Record<string, string> = {};
@@ -313,9 +389,13 @@ export default function BoursePage() {
             </span>
           </div>
 
-          {indices.length === 0 ? (
+          {loading ? (
             <div style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', padding: '2rem 0' }}>
               Chargement…
+            </div>
+          ) : loadError ? (
+            <div style={{ fontSize: 12, color: '#F87171', textAlign: 'center', padding: '2rem 0' }}>
+              {loadError}
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
